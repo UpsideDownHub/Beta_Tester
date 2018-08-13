@@ -40,5 +40,10 @@ public class PlayerScript : MonoBehaviour
             agent.CanMove = false;
 
         wasTouchingGround = collider.IsTouchingLayers(ground);
+
+        if (transform.position.y <= -3.56)
+        {
+            print("morreu");
+        }
     }
 }

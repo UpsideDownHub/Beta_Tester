@@ -44,7 +44,7 @@ namespace SAP2D{
 			manager = SAP2DManager.singleton;
 		}
 		
-		void Update(){
+		void FixedUpdate(){
 			if (Target != null) {
 				
 				posInGrid = manager.grid.GetTileFromWorldPosition(transform.position).WorldPosition;
