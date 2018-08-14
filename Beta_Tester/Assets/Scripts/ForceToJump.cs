@@ -16,17 +16,14 @@ public class ForceToJump : MonoBehaviour
     {
         if (collision.GetComponent<Rigidbody2D>().IsTouchingLayers(groundMask) && !alreadyIn)
         {
-            print("Colidiu");
             var f = Random.Range(impulseRange.x, impulseRange.y);
             collision.GetComponent<Rigidbody2D>().AddForce(Vector2.up * f, ForceMode2D.Impulse);
             collision.GetComponent<Rigidbody2D>().AddForce(Vector2.right * impulseHorizontal);
-            print(f);
             alreadyIn = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        print("Saiu");
         alreadyIn = false;
     }
 }
