@@ -18,7 +18,9 @@ public class Selectable : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
-                print(hit.transform.GetComponent<Rigidbody>().useGravity = true);
+                var rigidbody = hit.transform.GetComponent<Rigidbody>();
+                if (rigidbody == null) return;
+                rigidbody.useGravity = true;
             }
         }
 	}
