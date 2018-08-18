@@ -1,0 +1,7085 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 0
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_TemporalCoherenceThreshold: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 1
+  m_LightmapEditorSettings:
+    serializedVersion: 10
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVRFilteringMode: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 1
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &436793846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436793848}
+  - component: {fileID: 436793847}
+  m_Layer: 0
+  m_Name: CM vcam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &436793847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436793846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 10
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 1085350801}
+  m_Lens:
+    FieldOfView: 40
+    OrthographicSize: 7
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+  m_ComponentOwner: {fileID: 1474527794}
+--- !u!4 &436793848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436793846}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.439622, y: 10.522001, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1474527794}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &562411790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 562411791}
+  - component: {fileID: 562411794}
+  - component: {fileID: 562411793}
+  - component: {fileID: 562411792}
+  m_Layer: 9
+  m_Name: Tilemap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &562411791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562411790}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1144283646}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!19719996 &562411792
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562411790}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+--- !u!483693784 &562411793
+TilemapRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562411790}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_ChunkSize: {x: 32, y: 32, z: 32}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_MaxChunkCount: 16
+  m_MaxFrameAge: 16
+  m_SortOrder: 0
+  m_DetectChunkCullingBounds: 0
+  m_MaskInteraction: 0
+--- !u!1839735485 &562411794
+Tilemap:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562411790}
+  m_Enabled: 1
+  m_Tiles:
+  - first: {x: -6, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -5, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -4, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -3, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -2, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -1, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 0, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 1, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 2, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 3, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 4, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 5, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 6, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 7, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 8, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 9, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 10, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 11, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 12, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 13, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 14, y: 2, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  m_AnimatedTiles: {}
+  m_TileAssetArray:
+  - m_RefCount: 21
+    m_Data: {fileID: 11400000, guid: 8ea1f4ecda39bbf4589c64c871fc8568, type: 2}
+  m_TileSpriteArray:
+  - m_RefCount: 21
+    m_Data: {fileID: 21300000, guid: 528d493ff5c9fda4bb14ab3ae7365965, type: 3}
+  m_TileMatrixArray:
+  - m_RefCount: 21
+    m_Data:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  m_TileColorArray:
+  - m_RefCount: 21
+    m_Data: {r: 1, g: 1, b: 1, a: 1}
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: -6, y: -1, z: 0}
+  m_Size: {x: 27, y: 4, z: 1}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+--- !u!1 &587109785
+GameObject:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 587109786}
+  - component: {fileID: 587109789}
+  - component: {fileID: 587109788}
+  - component: {fileID: 587109787}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &587109786
+Transform:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587109785}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1992979516}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &587109787
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587109785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BindingMode: 1
+  m_FollowOffset: {x: 0, y: 0, z: -10}
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_PitchDamping: 0
+  m_YawDamping: 0
+  m_RollDamping: 0
+--- !u!114 &587109788
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587109785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 10
+  m_HorizontalDamping: 0.5
+  m_VerticalDamping: 0.5
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_DeadZoneWidth: 0.1
+  m_DeadZoneHeight: 0.1
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+--- !u!114 &587109789
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587109785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &615073474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 615073476}
+  - component: {fileID: 615073475}
+  m_Layer: 0
+  m_Name: SAP2DManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &615073475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615073474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be980bb046d256348b81e008a34ba1da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid:
+    showGraph: 1
+    TileDiameter: 1
+    GridWidth: 60
+    GridHeight: 10
+    GridPosition: {x: -6, y: -1, z: 0}
+    GridSize: {x: 60, y: 10}
+    Center: {x: 24, y: 4, z: 0}
+    LeftUpPoint: {x: -6, y: 9, z: 0}
+    RightUpPoint: {x: 54, y: 9, z: 0}
+    LeftButtomPoint: {x: -6, y: -1, z: 0}
+    RightButtomPoint: {x: 54, y: -1, z: 0}
+    gridColor:
+      serializedVersion: 2
+      rgba: 2533359615
+    obstacleColor:
+      serializedVersion: 2
+      rgba: 2667577599
+    selectingColor:
+      serializedVersion: 2
+      rgba: 1677787135
+    gridPivot: 0
+    pivotWasChanged: 0
+    isObsEditingEnable: 0
+    toolIndex: 0
+    brushSize: 1
+  UsePhysics2D: 1
+  IgnoreCollisionTags:
+  - Character
+  ObsUserData:
+    t:
+    - x: 0
+      y: 8
+      WorldPosition: {x: -5.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 1
+      y: 8
+      WorldPosition: {x: -4.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 1
+      y: 9
+      WorldPosition: {x: -4.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 2
+      y: 8
+      WorldPosition: {x: -3.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 2
+      y: 7
+      WorldPosition: {x: -3.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 1
+      y: 7
+      WorldPosition: {x: -4.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 0
+      y: 9
+      WorldPosition: {x: -5.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 2
+      y: 9
+      WorldPosition: {x: -3.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 3
+      y: 9
+      WorldPosition: {x: -2.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 4
+      y: 9
+      WorldPosition: {x: -1.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 5
+      y: 9
+      WorldPosition: {x: -0.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 5
+      y: 8
+      WorldPosition: {x: -0.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 6
+      y: 8
+      WorldPosition: {x: 0.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 6
+      y: 7
+      WorldPosition: {x: 0.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 6
+      y: 6
+      WorldPosition: {x: 0.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 5
+      y: 6
+      WorldPosition: {x: -0.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 4
+      y: 6
+      WorldPosition: {x: -1.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 3
+      y: 6
+      WorldPosition: {x: -2.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 2
+      y: 6
+      WorldPosition: {x: -3.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 1
+      y: 6
+      WorldPosition: {x: -4.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 3
+      y: 8
+      WorldPosition: {x: -2.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 4
+      y: 8
+      WorldPosition: {x: -1.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 7
+      y: 7
+      WorldPosition: {x: 1.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 8
+      y: 7
+      WorldPosition: {x: 2.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 9
+      y: 7
+      WorldPosition: {x: 3.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 9
+      y: 6
+      WorldPosition: {x: 3.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 10
+      y: 6
+      WorldPosition: {x: 4.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 8
+      y: 6
+      WorldPosition: {x: 2.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 7
+      y: 6
+      WorldPosition: {x: 1.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 4
+      y: 7
+      WorldPosition: {x: -1.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 3
+      y: 7
+      WorldPosition: {x: -2.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 5
+      y: 7
+      WorldPosition: {x: -0.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 11
+      y: 6
+      WorldPosition: {x: 5.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 11
+      y: 7
+      WorldPosition: {x: 5.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 10
+      y: 7
+      WorldPosition: {x: 4.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 9
+      y: 8
+      WorldPosition: {x: 3.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 10
+      y: 8
+      WorldPosition: {x: 4.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 11
+      y: 8
+      WorldPosition: {x: 5.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 12
+      y: 8
+      WorldPosition: {x: 6.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 13
+      y: 8
+      WorldPosition: {x: 7.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 14
+      y: 8
+      WorldPosition: {x: 8.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 15
+      y: 8
+      WorldPosition: {x: 9.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 16
+      y: 8
+      WorldPosition: {x: 10.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 17
+      y: 8
+      WorldPosition: {x: 11.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 18
+      y: 7
+      WorldPosition: {x: 12.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 17
+      y: 7
+      WorldPosition: {x: 11.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 16
+      y: 7
+      WorldPosition: {x: 10.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 15
+      y: 7
+      WorldPosition: {x: 9.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 14
+      y: 7
+      WorldPosition: {x: 8.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 13
+      y: 7
+      WorldPosition: {x: 7.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 12
+      y: 7
+      WorldPosition: {x: 6.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 15
+      y: 6
+      WorldPosition: {x: 9.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 16
+      y: 6
+      WorldPosition: {x: 10.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 17
+      y: 6
+      WorldPosition: {x: 11.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 18
+      y: 6
+      WorldPosition: {x: 12.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 19
+      y: 6
+      WorldPosition: {x: 13.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 20
+      y: 6
+      WorldPosition: {x: 14.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 21
+      y: 6
+      WorldPosition: {x: 15.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 22
+      y: 7
+      WorldPosition: {x: 16.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 23
+      y: 7
+      WorldPosition: {x: 17.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 21
+      y: 7
+      WorldPosition: {x: 15.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 20
+      y: 7
+      WorldPosition: {x: 14.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 19
+      y: 7
+      WorldPosition: {x: 13.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 14
+      y: 6
+      WorldPosition: {x: 8.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 22
+      y: 6
+      WorldPosition: {x: 16.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 23
+      y: 6
+      WorldPosition: {x: 17.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 24
+      y: 6
+      WorldPosition: {x: 18.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 25
+      y: 5
+      WorldPosition: {x: 19.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 25
+      y: 6
+      WorldPosition: {x: 19.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 19
+      y: 5
+      WorldPosition: {x: 13.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 18
+      y: 5
+      WorldPosition: {x: 12.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 17
+      y: 5
+      WorldPosition: {x: 11.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 16
+      y: 5
+      WorldPosition: {x: 10.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 15
+      y: 5
+      WorldPosition: {x: 9.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 14
+      y: 5
+      WorldPosition: {x: 8.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 13
+      y: 6
+      WorldPosition: {x: 7.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 12
+      y: 6
+      WorldPosition: {x: 6.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 7
+      y: 8
+      WorldPosition: {x: 1.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 8
+      y: 8
+      WorldPosition: {x: 2.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 11
+      y: 9
+      WorldPosition: {x: 5.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 10
+      y: 9
+      WorldPosition: {x: 4.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 9
+      y: 9
+      WorldPosition: {x: 3.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 8
+      y: 9
+      WorldPosition: {x: 2.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 7
+      y: 9
+      WorldPosition: {x: 1.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 6
+      y: 9
+      WorldPosition: {x: 0.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 16
+      y: 9
+      WorldPosition: {x: 10.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 17
+      y: 9
+      WorldPosition: {x: 11.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 18
+      y: 9
+      WorldPosition: {x: 12.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 19
+      y: 9
+      WorldPosition: {x: 13.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 20
+      y: 9
+      WorldPosition: {x: 14.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 21
+      y: 9
+      WorldPosition: {x: 15.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 22
+      y: 9
+      WorldPosition: {x: 16.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 15
+      y: 9
+      WorldPosition: {x: 9.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 14
+      y: 9
+      WorldPosition: {x: 8.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 13
+      y: 9
+      WorldPosition: {x: 7.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 12
+      y: 9
+      WorldPosition: {x: 6.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 18
+      y: 8
+      WorldPosition: {x: 12.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 19
+      y: 8
+      WorldPosition: {x: 13.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 20
+      y: 8
+      WorldPosition: {x: 14.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 23
+      y: 9
+      WorldPosition: {x: 17.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 24
+      y: 9
+      WorldPosition: {x: 18.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 25
+      y: 9
+      WorldPosition: {x: 19.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 26
+      y: 9
+      WorldPosition: {x: 20.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 27
+      y: 9
+      WorldPosition: {x: 21.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 28
+      y: 9
+      WorldPosition: {x: 22.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 29
+      y: 9
+      WorldPosition: {x: 23.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 30
+      y: 9
+      WorldPosition: {x: 24.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 30
+      y: 8
+      WorldPosition: {x: 24.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 31
+      y: 9
+      WorldPosition: {x: 25.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 32
+      y: 9
+      WorldPosition: {x: 26.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 9
+      WorldPosition: {x: 27.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 9
+      WorldPosition: {x: 28.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 9
+      WorldPosition: {x: 29.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 9
+      WorldPosition: {x: 30.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 9
+      WorldPosition: {x: 31.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 9
+      WorldPosition: {x: 32.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 9
+      WorldPosition: {x: 33.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 9
+      WorldPosition: {x: 34.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 8
+      WorldPosition: {x: 34.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 8
+      WorldPosition: {x: 35.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 7
+      WorldPosition: {x: 35.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 6
+      WorldPosition: {x: 35.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 5
+      WorldPosition: {x: 35.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 4
+      WorldPosition: {x: 35.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 4
+      WorldPosition: {x: 34.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 3
+      WorldPosition: {x: 34.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 2
+      WorldPosition: {x: 33.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 1
+      WorldPosition: {x: 32.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 1
+      WorldPosition: {x: 31.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 1
+      WorldPosition: {x: 30.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 0
+      WorldPosition: {x: 30.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 0
+      WorldPosition: {x: 28.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 0
+      WorldPosition: {x: 27.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 1
+      WorldPosition: {x: 27.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 2
+      WorldPosition: {x: 27.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 3
+      WorldPosition: {x: 27.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 3
+      WorldPosition: {x: 28.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 4
+      WorldPosition: {x: 28.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 4
+      WorldPosition: {x: 29.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 4
+      WorldPosition: {x: 30.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 4
+      WorldPosition: {x: 31.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 4
+      WorldPosition: {x: 32.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 5
+      WorldPosition: {x: 32.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 5
+      WorldPosition: {x: 33.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 5
+      WorldPosition: {x: 34.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 5
+      WorldPosition: {x: 36.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 5
+      WorldPosition: {x: 37.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 4
+      WorldPosition: {x: 37.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 4
+      WorldPosition: {x: 38.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 4
+      WorldPosition: {x: 39.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 4
+      WorldPosition: {x: 40.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 5
+      WorldPosition: {x: 40.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 5
+      WorldPosition: {x: 41.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 6
+      WorldPosition: {x: 41.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 6
+      WorldPosition: {x: 40.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 7
+      WorldPosition: {x: 39.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 7
+      WorldPosition: {x: 38.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 7
+      WorldPosition: {x: 37.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 8
+      WorldPosition: {x: 37.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 8
+      WorldPosition: {x: 36.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 7
+      WorldPosition: {x: 34.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 7
+      WorldPosition: {x: 33.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 7
+      WorldPosition: {x: 32.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 6
+      WorldPosition: {x: 32.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 6
+      WorldPosition: {x: 31.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 5
+      WorldPosition: {x: 31.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 3
+      WorldPosition: {x: 33.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 3
+      WorldPosition: {x: 35.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 3
+      WorldPosition: {x: 36.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 5
+      WorldPosition: {x: 38.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 5
+      WorldPosition: {x: 39.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 6
+      WorldPosition: {x: 39.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 5
+      WorldPosition: {x: 30.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 3
+      WorldPosition: {x: 31.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 3
+      WorldPosition: {x: 32.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 6
+      WorldPosition: {x: 34.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 6
+      WorldPosition: {x: 33.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 7
+      WorldPosition: {x: 31.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 7
+      WorldPosition: {x: 30.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 6
+      WorldPosition: {x: 30.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 5
+      WorldPosition: {x: 29.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 3
+      WorldPosition: {x: 29.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 2
+      WorldPosition: {x: 29.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 2
+      WorldPosition: {x: 30.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 2
+      WorldPosition: {x: 32.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 2
+      WorldPosition: {x: 31.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 3
+      WorldPosition: {x: 30.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 2
+      WorldPosition: {x: 28.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 1
+      WorldPosition: {x: 28.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 1
+      WorldPosition: {x: 29.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 0
+      WorldPosition: {x: 29.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 0
+      WorldPosition: {x: 31.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 0
+      WorldPosition: {x: 32.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 1
+      WorldPosition: {x: 33.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 1
+      WorldPosition: {x: 34.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 1
+      WorldPosition: {x: 35.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 0
+      WorldPosition: {x: 33.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 0
+      WorldPosition: {x: 34.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 0
+      WorldPosition: {x: 35.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 1
+      WorldPosition: {x: 36.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 1
+      WorldPosition: {x: 37.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 1
+      WorldPosition: {x: 38.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 1
+      WorldPosition: {x: 39.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 1
+      WorldPosition: {x: 40.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 1
+      WorldPosition: {x: 41.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 1
+      WorldPosition: {x: 42.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 1
+      WorldPosition: {x: 43.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 1
+      WorldPosition: {x: 44.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 1
+      WorldPosition: {x: 45.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 0
+      WorldPosition: {x: 45.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 0
+      WorldPosition: {x: 46.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 1
+      WorldPosition: {x: 46.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 1
+      WorldPosition: {x: 47.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 1
+      WorldPosition: {x: 48.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 0
+      WorldPosition: {x: 41.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 0
+      WorldPosition: {x: 42.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 0
+      WorldPosition: {x: 47.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 0
+      WorldPosition: {x: 48.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 0
+      WorldPosition: {x: 49.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 0
+      WorldPosition: {x: 39.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 0
+      WorldPosition: {x: 38.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 0
+      WorldPosition: {x: 37.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 0
+      WorldPosition: {x: 43.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 0
+      WorldPosition: {x: 40.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 0
+      WorldPosition: {x: 36.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 0
+      WorldPosition: {x: 44.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 1
+      WorldPosition: {x: 50.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 1
+      WorldPosition: {x: 51.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 1
+      WorldPosition: {x: 52.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 1
+      WorldPosition: {x: 49.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 1
+      WorldPosition: {x: 53.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 0
+      WorldPosition: {x: 52.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 0
+      WorldPosition: {x: 51.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 0
+      WorldPosition: {x: 50.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 0
+      WorldPosition: {x: 53.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 2
+      WorldPosition: {x: 53.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 2
+      WorldPosition: {x: 52.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 3
+      WorldPosition: {x: 52.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 4
+      WorldPosition: {x: 52.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 5
+      WorldPosition: {x: 52.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 6
+      WorldPosition: {x: 52.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 7
+      WorldPosition: {x: 52.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 8
+      WorldPosition: {x: 52.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 58
+      y: 9
+      WorldPosition: {x: 52.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 9
+      WorldPosition: {x: 53.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 8
+      WorldPosition: {x: 53.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 6
+      WorldPosition: {x: 53.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 5
+      WorldPosition: {x: 53.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 4
+      WorldPosition: {x: 53.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 3
+      WorldPosition: {x: 53.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 59
+      y: 7
+      WorldPosition: {x: 53.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 6
+      WorldPosition: {x: 51.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 7
+      WorldPosition: {x: 51.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 7
+      WorldPosition: {x: 50.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 8
+      WorldPosition: {x: 50.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 8
+      WorldPosition: {x: 49.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 9
+      WorldPosition: {x: 49.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 7
+      WorldPosition: {x: 49.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 6
+      WorldPosition: {x: 50.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 5
+      WorldPosition: {x: 50.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 4
+      WorldPosition: {x: 50.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 9
+      WorldPosition: {x: 50.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 5
+      WorldPosition: {x: 51.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 4
+      WorldPosition: {x: 51.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 3
+      WorldPosition: {x: 51.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 2
+      WorldPosition: {x: 51.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 9
+      WorldPosition: {x: 51.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 57
+      y: 8
+      WorldPosition: {x: 51.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 2
+      WorldPosition: {x: 50.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 56
+      y: 3
+      WorldPosition: {x: 50.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 4
+      WorldPosition: {x: 49.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 5
+      WorldPosition: {x: 49.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 5
+      WorldPosition: {x: 48.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 4
+      WorldPosition: {x: 48.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 2
+      WorldPosition: {x: 48.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 3
+      WorldPosition: {x: 48.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 6
+      WorldPosition: {x: 48.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 7
+      WorldPosition: {x: 48.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 6
+      WorldPosition: {x: 49.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 3
+      WorldPosition: {x: 49.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 55
+      y: 2
+      WorldPosition: {x: 49.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 7
+      WorldPosition: {x: 47.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 8
+      WorldPosition: {x: 47.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 9
+      WorldPosition: {x: 47.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 9
+      WorldPosition: {x: 48.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 54
+      y: 8
+      WorldPosition: {x: 48.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 6
+      WorldPosition: {x: 47.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 5
+      WorldPosition: {x: 47.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 4
+      WorldPosition: {x: 47.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 4
+      WorldPosition: {x: 46.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 3
+      WorldPosition: {x: 46.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 2
+      WorldPosition: {x: 46.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 2
+      WorldPosition: {x: 47.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 53
+      y: 3
+      WorldPosition: {x: 47.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 8
+      WorldPosition: {x: 46.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 9
+      WorldPosition: {x: 46.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 9
+      WorldPosition: {x: 45.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 8
+      WorldPosition: {x: 45.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 7
+      WorldPosition: {x: 45.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 6
+      WorldPosition: {x: 45.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 6
+      WorldPosition: {x: 46.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 5
+      WorldPosition: {x: 46.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 4
+      WorldPosition: {x: 45.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 3
+      WorldPosition: {x: 45.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 2
+      WorldPosition: {x: 45.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 51
+      y: 5
+      WorldPosition: {x: 45.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 52
+      y: 7
+      WorldPosition: {x: 46.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 5
+      WorldPosition: {x: 44.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 4
+      WorldPosition: {x: 44.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 3
+      WorldPosition: {x: 44.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 2
+      WorldPosition: {x: 44.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 4
+      WorldPosition: {x: 43.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 5
+      WorldPosition: {x: 43.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 6
+      WorldPosition: {x: 43.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 7
+      WorldPosition: {x: 43.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 7
+      WorldPosition: {x: 44.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 8
+      WorldPosition: {x: 44.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 9
+      WorldPosition: {x: 44.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 9
+      WorldPosition: {x: 43.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 8
+      WorldPosition: {x: 43.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 50
+      y: 6
+      WorldPosition: {x: 44.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 3
+      WorldPosition: {x: 43.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 49
+      y: 2
+      WorldPosition: {x: 43.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 2
+      WorldPosition: {x: 41.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 3
+      WorldPosition: {x: 41.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 4
+      WorldPosition: {x: 41.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 4
+      WorldPosition: {x: 42.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 5
+      WorldPosition: {x: 42.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 9
+      WorldPosition: {x: 42.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 8
+      WorldPosition: {x: 42.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 8
+      WorldPosition: {x: 41.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 7
+      WorldPosition: {x: 41.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 7
+      WorldPosition: {x: 42.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 6
+      WorldPosition: {x: 42.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 3
+      WorldPosition: {x: 42.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 48
+      y: 2
+      WorldPosition: {x: 42.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 47
+      y: 9
+      WorldPosition: {x: 41.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 9
+      WorldPosition: {x: 40.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 8
+      WorldPosition: {x: 40.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 7
+      WorldPosition: {x: 40.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 3
+      WorldPosition: {x: 40.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 46
+      y: 2
+      WorldPosition: {x: 40.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 2
+      WorldPosition: {x: 39.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 3
+      WorldPosition: {x: 39.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 8
+      WorldPosition: {x: 39.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 45
+      y: 9
+      WorldPosition: {x: 39.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 9
+      WorldPosition: {x: 38.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 8
+      WorldPosition: {x: 38.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 6
+      WorldPosition: {x: 38.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 3
+      WorldPosition: {x: 38.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 44
+      y: 2
+      WorldPosition: {x: 38.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 3
+      WorldPosition: {x: 37.5, y: 2.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 6
+      WorldPosition: {x: 36.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 7
+      WorldPosition: {x: 36.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 9
+      WorldPosition: {x: 36.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 4
+      WorldPosition: {x: 36.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 42
+      y: 2
+      WorldPosition: {x: 36.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 2
+      WorldPosition: {x: 37.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 6
+      WorldPosition: {x: 37.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 9
+      WorldPosition: {x: 35.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 41
+      y: 2
+      WorldPosition: {x: 35.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 43
+      y: 9
+      WorldPosition: {x: 37.5, y: 8.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 4
+      WorldPosition: {x: 33.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 40
+      y: 2
+      WorldPosition: {x: 34.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 39
+      y: 8
+      WorldPosition: {x: 33.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 38
+      y: 8
+      WorldPosition: {x: 32.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 36
+      y: 8
+      WorldPosition: {x: 30.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 37
+      y: 8
+      WorldPosition: {x: 31.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 8
+      WorldPosition: {x: 29.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 8
+      WorldPosition: {x: 27.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 32
+      y: 8
+      WorldPosition: {x: 26.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 32
+      y: 7
+      WorldPosition: {x: 26.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 31
+      y: 7
+      WorldPosition: {x: 25.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 7
+      WorldPosition: {x: 27.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 7
+      WorldPosition: {x: 28.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 7
+      WorldPosition: {x: 29.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 35
+      y: 6
+      WorldPosition: {x: 29.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 8
+      WorldPosition: {x: 28.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 6
+      WorldPosition: {x: 28.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 34
+      y: 5
+      WorldPosition: {x: 28.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 5
+      WorldPosition: {x: 27.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 4
+      WorldPosition: {x: 27.5, y: 3.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 33
+      y: 6
+      WorldPosition: {x: 27.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 32
+      y: 6
+      WorldPosition: {x: 26.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 31
+      y: 6
+      WorldPosition: {x: 25.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 30
+      y: 6
+      WorldPosition: {x: 24.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 29
+      y: 6
+      WorldPosition: {x: 23.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 28
+      y: 7
+      WorldPosition: {x: 22.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 27
+      y: 7
+      WorldPosition: {x: 21.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 26
+      y: 7
+      WorldPosition: {x: 20.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 26
+      y: 8
+      WorldPosition: {x: 20.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 25
+      y: 8
+      WorldPosition: {x: 19.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 24
+      y: 8
+      WorldPosition: {x: 18.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 23
+      y: 8
+      WorldPosition: {x: 17.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 22
+      y: 8
+      WorldPosition: {x: 16.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 21
+      y: 8
+      WorldPosition: {x: 15.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 27
+      y: 8
+      WorldPosition: {x: 21.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 28
+      y: 8
+      WorldPosition: {x: 22.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 29
+      y: 8
+      WorldPosition: {x: 23.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 31
+      y: 8
+      WorldPosition: {x: 25.5, y: 7.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 30
+      y: 7
+      WorldPosition: {x: 24.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 29
+      y: 7
+      WorldPosition: {x: 23.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 25
+      y: 7
+      WorldPosition: {x: 19.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 24
+      y: 7
+      WorldPosition: {x: 18.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 27
+      y: 6
+      WorldPosition: {x: 21.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 28
+      y: 6
+      WorldPosition: {x: 22.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 26
+      y: 6
+      WorldPosition: {x: 20.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 0
+      y: 7
+      WorldPosition: {x: -5.5, y: 6.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 0
+      y: 6
+      WorldPosition: {x: -5.5, y: 5.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 1
+      y: 5
+      WorldPosition: {x: -4.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 1
+      y: 0
+      WorldPosition: {x: -4.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 1
+      y: 1
+      WorldPosition: {x: -4.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 1
+      y: 2
+      WorldPosition: {x: -4.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 2
+      y: 2
+      WorldPosition: {x: -3.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 2
+      y: 1
+      WorldPosition: {x: -3.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 3
+      y: 1
+      WorldPosition: {x: -2.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 0
+      y: 0
+      WorldPosition: {x: -5.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 0
+      y: 1
+      WorldPosition: {x: -5.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 3
+      y: 0
+      WorldPosition: {x: -2.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 2
+      y: 0
+      WorldPosition: {x: -3.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 0
+      y: 2
+      WorldPosition: {x: -5.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 3
+      y: 2
+      WorldPosition: {x: -2.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 4
+      y: 2
+      WorldPosition: {x: -1.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 5
+      y: 2
+      WorldPosition: {x: -0.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 5
+      y: 1
+      WorldPosition: {x: -0.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 5
+      y: 0
+      WorldPosition: {x: -0.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 6
+      y: 0
+      WorldPosition: {x: 0.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 6
+      y: 1
+      WorldPosition: {x: 0.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 4
+      y: 1
+      WorldPosition: {x: -1.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 4
+      y: 0
+      WorldPosition: {x: -1.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 7
+      y: 1
+      WorldPosition: {x: 1.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 7
+      y: 2
+      WorldPosition: {x: 1.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 6
+      y: 2
+      WorldPosition: {x: 0.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 8
+      y: 1
+      WorldPosition: {x: 2.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 9
+      y: 1
+      WorldPosition: {x: 3.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 8
+      y: 2
+      WorldPosition: {x: 2.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 7
+      y: 0
+      WorldPosition: {x: 1.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 8
+      y: 0
+      WorldPosition: {x: 2.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 9
+      y: 0
+      WorldPosition: {x: 3.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 10
+      y: 0
+      WorldPosition: {x: 4.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 10
+      y: 1
+      WorldPosition: {x: 4.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 11
+      y: 1
+      WorldPosition: {x: 5.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 12
+      y: 1
+      WorldPosition: {x: 6.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 13
+      y: 0
+      WorldPosition: {x: 7.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 14
+      y: 0
+      WorldPosition: {x: 8.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 13
+      y: 1
+      WorldPosition: {x: 7.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 9
+      y: 2
+      WorldPosition: {x: 3.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 10
+      y: 2
+      WorldPosition: {x: 4.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 11
+      y: 2
+      WorldPosition: {x: 5.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 12
+      y: 2
+      WorldPosition: {x: 6.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 13
+      y: 2
+      WorldPosition: {x: 7.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 14
+      y: 2
+      WorldPosition: {x: 8.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 15
+      y: 2
+      WorldPosition: {x: 9.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 14
+      y: 1
+      WorldPosition: {x: 8.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 12
+      y: 0
+      WorldPosition: {x: 6.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 11
+      y: 0
+      WorldPosition: {x: 5.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 15
+      y: 1
+      WorldPosition: {x: 9.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 16
+      y: 1
+      WorldPosition: {x: 10.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 17
+      y: 1
+      WorldPosition: {x: 11.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 18
+      y: 1
+      WorldPosition: {x: 12.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 15
+      y: 0
+      WorldPosition: {x: 9.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 18
+      y: 0
+      WorldPosition: {x: 12.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 16
+      y: 0
+      WorldPosition: {x: 10.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 17
+      y: 0
+      WorldPosition: {x: 11.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 20
+      y: 0
+      WorldPosition: {x: 14.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 21
+      y: 0
+      WorldPosition: {x: 15.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 22
+      y: 0
+      WorldPosition: {x: 16.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 23
+      y: 0
+      WorldPosition: {x: 17.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 24
+      y: 0
+      WorldPosition: {x: 18.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 24
+      y: 1
+      WorldPosition: {x: 18.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 25
+      y: 1
+      WorldPosition: {x: 19.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 27
+      y: 1
+      WorldPosition: {x: 21.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 28
+      y: 1
+      WorldPosition: {x: 22.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 29
+      y: 1
+      WorldPosition: {x: 23.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 29
+      y: 0
+      WorldPosition: {x: 23.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 30
+      y: 0
+      WorldPosition: {x: 24.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 31
+      y: 0
+      WorldPosition: {x: 25.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 32
+      y: 0
+      WorldPosition: {x: 26.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 32
+      y: 1
+      WorldPosition: {x: 26.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 32
+      y: 2
+      WorldPosition: {x: 26.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 31
+      y: 2
+      WorldPosition: {x: 25.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 30
+      y: 2
+      WorldPosition: {x: 24.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 29
+      y: 2
+      WorldPosition: {x: 23.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 28
+      y: 2
+      WorldPosition: {x: 22.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 27
+      y: 2
+      WorldPosition: {x: 21.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 26
+      y: 2
+      WorldPosition: {x: 20.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 25
+      y: 2
+      WorldPosition: {x: 19.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 24
+      y: 2
+      WorldPosition: {x: 18.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 23
+      y: 2
+      WorldPosition: {x: 17.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 22
+      y: 2
+      WorldPosition: {x: 16.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 21
+      y: 2
+      WorldPosition: {x: 15.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 20
+      y: 2
+      WorldPosition: {x: 14.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 19
+      y: 2
+      WorldPosition: {x: 13.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 18
+      y: 2
+      WorldPosition: {x: 12.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 17
+      y: 2
+      WorldPosition: {x: 11.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 16
+      y: 2
+      WorldPosition: {x: 10.5, y: 1.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 19
+      y: 1
+      WorldPosition: {x: 13.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 20
+      y: 1
+      WorldPosition: {x: 14.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 21
+      y: 1
+      WorldPosition: {x: 15.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 22
+      y: 1
+      WorldPosition: {x: 16.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 23
+      y: 1
+      WorldPosition: {x: 17.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 25
+      y: 0
+      WorldPosition: {x: 19.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 26
+      y: 0
+      WorldPosition: {x: 20.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 19
+      y: 0
+      WorldPosition: {x: 13.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 26
+      y: 1
+      WorldPosition: {x: 20.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 27
+      y: 0
+      WorldPosition: {x: 21.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 28
+      y: 0
+      WorldPosition: {x: 22.5, y: -0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 30
+      y: 1
+      WorldPosition: {x: 24.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 31
+      y: 1
+      WorldPosition: {x: 25.5, y: 0.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 0
+      y: 5
+      WorldPosition: {x: -5.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 1
+      y: 5
+      WorldPosition: {x: -4.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 2
+      y: 5
+      WorldPosition: {x: -3.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 3
+      y: 5
+      WorldPosition: {x: -2.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 4
+      y: 5
+      WorldPosition: {x: -1.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 5
+      y: 5
+      WorldPosition: {x: -0.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 6
+      y: 5
+      WorldPosition: {x: 0.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 7
+      y: 5
+      WorldPosition: {x: 1.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 8
+      y: 5
+      WorldPosition: {x: 2.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 9
+      y: 5
+      WorldPosition: {x: 3.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 10
+      y: 5
+      WorldPosition: {x: 4.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 11
+      y: 5
+      WorldPosition: {x: 5.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 12
+      y: 5
+      WorldPosition: {x: 6.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 13
+      y: 5
+      WorldPosition: {x: 7.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 14
+      y: 5
+      WorldPosition: {x: 8.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 15
+      y: 5
+      WorldPosition: {x: 9.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 16
+      y: 5
+      WorldPosition: {x: 10.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 17
+      y: 5
+      WorldPosition: {x: 11.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 18
+      y: 5
+      WorldPosition: {x: 12.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 19
+      y: 5
+      WorldPosition: {x: 13.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 20
+      y: 5
+      WorldPosition: {x: 14.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 21
+      y: 5
+      WorldPosition: {x: 15.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 22
+      y: 5
+      WorldPosition: {x: 16.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 23
+      y: 5
+      WorldPosition: {x: 17.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 24
+      y: 5
+      WorldPosition: {x: 18.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 25
+      y: 5
+      WorldPosition: {x: 19.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 26
+      y: 5
+      WorldPosition: {x: 20.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 27
+      y: 5
+      WorldPosition: {x: 21.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 28
+      y: 5
+      WorldPosition: {x: 22.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 29
+      y: 5
+      WorldPosition: {x: 23.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 30
+      y: 5
+      WorldPosition: {x: 24.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 31
+      y: 5
+      WorldPosition: {x: 25.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+    - x: 32
+      y: 5
+      WorldPosition: {x: 26.5, y: 4.5, z: 0}
+      isWalkable: 0
+      Lock: 1
+      F: 0
+      G: 0
+      H: 0
+      State: 0
+--- !u!4 &615073476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615073474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.7278147, y: -2.6, z: 1.2304688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &709209376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 709209377}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &709209377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709209376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.56, y: 3.18, z: 1.43952}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &788832153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788832159}
+  - component: {fileID: 788832158}
+  - component: {fileID: 788832157}
+  - component: {fileID: 788832156}
+  - component: {fileID: 788832155}
+  - component: {fileID: 788832154}
+  m_Layer: 9
+  m_Name: Cube (2)
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!138 &788832154
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788832153}
+  m_ConnectedBody: {fileID: 1446648849}
+  m_BreakForce: 1
+  m_BreakTorque: 1
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!54 &788832155
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788832153}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 54
+  m_CollisionDetection: 0
+--- !u!65 &788832156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788832153}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &788832157
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788832153}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &788832158
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788832153}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &788832159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788832153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.009, y: 2.5, z: -0.013}
+  m_LocalScale: {x: 4, y: 1, z: 4}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &852124645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 852124649}
+  - component: {fileID: 852124648}
+  - component: {fileID: 852124647}
+  - component: {fileID: 852124646}
+  m_Layer: 0
+  m_Name: ForceToJump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &852124646
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 852124645}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 7.4862814, y: 0.5477767}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9478073, y: 1.0521688}
+  m_EdgeRadius: 0
+--- !u!114 &852124647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 852124645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6a2e9b581d5bb40ba15d2019ca2bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impulseRange: {x: 8, y: 10}
+  impulseHorizontal: 100
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!61 &852124648
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 852124645}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.43838477, y: 0.23316169}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5846877, y: 0.67926073}
+  m_EdgeRadius: 0
+--- !u!4 &852124649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 852124645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.183673, y: 1.0796223, z: 1.375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &987694097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 146010, guid: 013079affae5ba24bad744f569696fab,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136775140}
+--- !u!54 &987694098
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987694097}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 72
+  m_CollisionDetection: 0
+--- !u!135 &987694099
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987694097}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.503943
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &987694100
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987694097}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.46
+  m_Height: 0.97
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &987694101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987694097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3e0be871b96014b973923ca1e6974f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!33 &987694103
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987694097}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &987694104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136775140}
+--- !u!23 &987694105
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987694097}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: c438e5c679f1be040a135443008e2fce, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &1085350800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 146010, guid: 013079affae5ba24bad744f569696fab,
+    type: 2}
+  m_PrefabInternal: {fileID: 1857736334}
+--- !u!4 &1085350801 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab,
+    type: 2}
+  m_PrefabInternal: {fileID: 1857736334}
+--- !u!114 &1085350802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1085350800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e69f64305232e84bb6465c472c206b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ground:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!70 &1085350803
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1085350800}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0044117467, y: 0.0024041294}
+  m_Size: {x: 0.11265544, y: 0.15672457}
+  m_Direction: 0
+--- !u!58 &1085350804
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1085350800}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.001768584, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.08408314
+--- !u!50 &1085350805
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1085350800}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!1 &1144283644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144283646}
+  - component: {fileID: 1144283645}
+  m_Layer: 9
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!156049354 &1144283645
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1144283644}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
+--- !u!4 &1144283646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1144283644}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 562411791}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1201322507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1201322513}
+  - component: {fileID: 1201322512}
+  - component: {fileID: 1201322511}
+  - component: {fileID: 1201322510}
+  - component: {fileID: 1201322509}
+  - component: {fileID: 1201322508}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1201322508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201322507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1201322509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201322507}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be76e5f14cfee674cb30b491fb72b09b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boost: 3.5
+  positionLerpTime: 0.2
+  mouseSensitivityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 5
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 2.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rotationLerpTime: 0.01
+  invertY: 0
+--- !u!114 &1201322510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201322507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1201322513}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  stopNaNPropagation: 1
+  antialiasingMode: 1
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 1
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!81 &1201322511
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201322507}
+  m_Enabled: 1
+--- !u!20 &1201322512
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201322507}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.4745098, g: 0.19215688, b: 0.20062417, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
+  orthographic: 0
+  orthographic size: 10
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 1
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1201322513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201322507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1219614211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219614216}
+  - component: {fileID: 1219614215}
+  - component: {fileID: 1219614214}
+  - component: {fileID: 1219614213}
+  m_Layer: 9
+  m_Name: Cube
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1219614213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219614211}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1219614214
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219614211}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1219614215
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219614211}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1219614216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219614211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.009, y: 2.5, z: -0.013}
+  m_LocalScale: {x: 4, y: 1, z: 4}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1446648847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1446648853}
+  - component: {fileID: 1446648852}
+  - component: {fileID: 1446648851}
+  - component: {fileID: 1446648850}
+  - component: {fileID: 1446648849}
+  - component: {fileID: 1446648848}
+  m_Layer: 9
+  m_Name: Cube (1)
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!138 &1446648848
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446648847}
+  m_ConnectedBody: {fileID: 788832155}
+  m_BreakForce: 1
+  m_BreakTorque: 1
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!54 &1446648849
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446648847}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 54
+  m_CollisionDetection: 0
+--- !u!65 &1446648850
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446648847}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1446648851
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446648847}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1446648852
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446648847}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1446648853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446648847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.009, y: 2.5, z: -0.013}
+  m_LocalScale: {x: 4, y: 1, z: 4}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1474527793
+GameObject:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1474527794}
+  - component: {fileID: 1474527796}
+  - component: {fileID: 1474527795}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1474527794
+Transform:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1474527793}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436793848}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1474527795
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1474527793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 10
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_ScreenX: 0.186
+  m_ScreenY: 0.6930001
+  m_CameraDistance: 10
+  m_DeadZoneWidth: 0.135
+  m_DeadZoneHeight: 0.205
+  m_DeadZoneDepth: 0
+  m_UnlimitedSoftZone: 0
+  m_SoftZoneWidth: 1.01
+  m_SoftZoneHeight: 1.04
+  m_BiasX: 0.3509991
+  m_BiasY: -0.23799999
+  m_GroupFramingMode: 2
+  m_AdjustmentMode: 2
+  m_GroupFramingSize: 0.8
+  m_MaxDollyIn: 5000
+  m_MaxDollyOut: 5000
+  m_MinimumDistance: 1
+  m_MaximumDistance: 5000
+  m_MinimumFOV: 3
+  m_MaximumFOV: 60
+  m_MinimumOrthoSize: 1
+  m_MaximumOrthoSize: 100
+--- !u!114 &1474527796
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1474527793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1804912192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804912194}
+  - component: {fileID: 1804912193}
+  m_Layer: 0
+  m_Name: Directional Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1804912193
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804912192}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 1
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 0.5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.02
+    m_NormalBias: 0.1
+    m_NearPlane: 0.1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1804912194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804912192}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: -3.2433064, y: 7.5, z: 0.41829482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1811028865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1811028867}
+  - component: {fileID: 1811028866}
+  m_Layer: 9
+  m_Name: GameObject
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1811028866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811028865}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 21.004705, y: 1, z: 1}
+  m_Center: {x: 10.002355, y: 0, z: 0}
+--- !u!4 &1811028867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811028865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.509, y: 2.511, z: -0.008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1857736334
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 7.3242407
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 7.465452
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.597
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: MouseControl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 709209377}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: CanMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: MovementSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: RotationSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: ShowGraphic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: CanSearch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 146010, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 013079affae5ba24bad744f569696fab, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &1923962707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1923962709}
+  - component: {fileID: 1923962708}
+  m_Layer: 0
+  m_Name: Confiner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!60 &1923962708
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923962707}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.690897, y: 10.764375}
+      - {x: -8.085004, y: 10.581318}
+      - {x: -8.350907, y: -3.0193458}
+      - {x: 23.863672, y: -3.05014}
+      - {x: 23.877754, y: 10.798944}
+--- !u!4 &1923962709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923962707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1992979514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1992979516}
+  - component: {fileID: 1992979515}
+  m_Layer: 0
+  m_Name: CM vcam1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1992979515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992979514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 10
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 987694104}
+  m_Lens:
+    FieldOfView: 59.7
+    OrthographicSize: 6.23
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+  m_ComponentOwner: {fileID: 587109786}
+--- !u!4 &1992979516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992979514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.36, y: 6.926, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 587109786}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2008540651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008540656}
+  - component: {fileID: 2008540655}
+  - component: {fileID: 2008540654}
+  - component: {fileID: 2008540653}
+  - component: {fileID: 2008540652}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!54 &2008540652
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008540651}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &2008540653
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008540651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2008540654
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008540651}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &2008540655
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008540651}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2008540656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008540651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.97, y: 6.01, z: 0.26}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2046006496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2046006500}
+  - component: {fileID: 2046006499}
+  - component: {fileID: 2046006498}
+  - component: {fileID: 2046006497}
+  m_Layer: 0
+  m_Name: ForceToJump_Small
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &2046006497
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046006496}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 9.296267, y: 1.4299264}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0107803, y: 0.971509}
+  m_EdgeRadius: 0
+--- !u!114 &2046006498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046006496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6a2e9b581d5bb40ba15d2019ca2bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impulseRange: {x: 4, y: 5}
+  impulseHorizontal: 150
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!61 &2046006499
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046006496}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.114499, y: -0.5904238}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.79953766, y: 0.79282904}
+  m_EdgeRadius: 0
+--- !u!4 &2046006500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046006496}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.183673, y: 1.0796223, z: 1.375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2136775140
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.926
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453410, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: MouseControl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 709209377}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: CanMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: MovementSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: RotationSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: ShowGraphic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435402, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: CanSearch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 146010, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_Name
+      value: Agent (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 146010, guid: 013079affae5ba24bad744f569696fab, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 21219210, guid: 013079affae5ba24bad744f569696fab, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 013079affae5ba24bad744f569696fab, type: 2}
+  m_IsPrefabAsset: 0
