@@ -7,7 +7,6 @@ public class PlayerScript3D : MonoBehaviour {
     SAP2D.SAP2DAgent agent;
     Rigidbody _Rigidbody;
     Rigidbody Rigidbody { get { return _Rigidbody ?? GetComponent<Rigidbody>(); } }
-    bool wasTouchingGround = true;
     bool collided = false;
 
     void Start()
@@ -31,11 +30,9 @@ public class PlayerScript3D : MonoBehaviour {
         else
             agent.CanMove = false;
 
-        //wasTouchingGround = collider.IsTouchingLayers(ground);
-
         if (transform.position.y <= -3.56)
         {
-            print("morreu");
+            print("morreu pela queda");
         }
     }
 

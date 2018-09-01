@@ -8,6 +8,9 @@ TagManager:
   - Zombie
   - Character
   - Ground
+  - Poison
+  - Spikes
+  - Particle
   layers:
   - Default
   - TransparentFX
