@@ -21,14 +21,15 @@ public class Selectable : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
-                var boxcollider = hit.transform.GetComponent<BoxCollider>();
-                if (boxcollider == null) return;
-                if (boxcollider.name == "spike")
+                if (gameObject.name == "spike")
                 {
+                    var boxcollider = hit.transform.GetComponent<BoxCollider>();
+                    if (boxcollider == null) return;
                     spike1.SetActive(true);
                     spike2.SetActive(true);
                     boxcollider.transform.position = new Vector3(boxcollider.transform.position.x, 5.174f, 0);
                 }
+                
                 var rigidbody = hit.transform.GetComponent<Rigidbody>();
                 if (rigidbody == null) return;
                 rigidbody.useGravity = true;

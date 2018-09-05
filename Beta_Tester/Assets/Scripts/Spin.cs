@@ -12,7 +12,7 @@ public class Spin : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if (rb.tag == "Poison")
+        if (rb.tag == "Poison" && gameObject.name != "PoisonE")
         {
             rb.AddForce(new Vector3(-300, 400, 0));
         }

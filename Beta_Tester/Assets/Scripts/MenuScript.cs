@@ -13,9 +13,11 @@ public class MenuScript : MonoBehaviour {
     public Button continueButton;
     public Button optionsButton;
     public Button creditsButton;
+    public Button quitButton;
     public Slider volumeSlider;
     public Toggle fullscreenToggle;
     public GameObject optionsPanel;
+    public GameObject loadingText;
 
     public AudioMixer audioMixer;
 
@@ -74,17 +76,14 @@ public class MenuScript : MonoBehaviour {
     }
 
     #region Interação com Buttons
-    public void NewGameInteraction ()
+    public void NewGameInteraction (int sceneIndex)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
-    public void ContinueInteraction () //Implementar banco de dados
+    public void ContinueInteraction (int sceneIndex) //Implementar banco de dados
     {
-        if (continueButton.enabled == true)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
     public void OptionsInteraction ()
@@ -95,6 +94,11 @@ public class MenuScript : MonoBehaviour {
     public void CreditsInteraction ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void QuitInteraction()
+    {
+        Application.Quit();
     }
     #endregion
 
@@ -124,4 +128,22 @@ public class MenuScript : MonoBehaviour {
         Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen"));
     }
     #endregion
+
+    IEnumerator LoadAsynchronously(int sceneIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        newGameButton.gameObject.SetActive(false);
+        continueButton.gameObject.SetActive(false);
+        optionsButton.gameObject.SetActive(false);
+        creditsButton.gameObject.SetActive(false);
+        quitButton.gameObject.SetActive(false);
+        optionsPanel.SetActive(false);
+        loadingText.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+    }
 }

@@ -30,7 +30,7 @@ public class PlayerScript3D : MonoBehaviour {
         else
             agent.CanMove = false;
 
-        if (transform.position.y <= -3.56)
+        if (transform.position.y <= -30)
         {
             print("morreu pela queda");
         }
