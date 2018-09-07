@@ -7,8 +7,18 @@ using UnityEngine.Audio;
 using System;
 
 public class MenuScript : MonoBehaviour {
-    
+
     #region Components
+    public Text newGameText;
+    public Text continueText;
+    public Text optionsText;
+    public Text creditsText;
+    public Text quitText;
+    public Text resolutionText;
+    public Text musicText;
+    public Text graphicsText;
+    public Text languageText;
+    public Text fullscreenText;
     public Button newGameButton;
     public Button continueButton;
     public Button optionsButton;
@@ -23,10 +33,17 @@ public class MenuScript : MonoBehaviour {
 
     public Dropdown resolutionDropDown;
     public Dropdown graphicsDropDown;
+    public Dropdown languageDropDown;
 
     Resolution[] resolutions;
     Resolution resolution;
     #endregion
+    List<string> englishOptions;
+    List<string> portugueseOptions;
+    string englishOption1 = "English";
+    string englishOption2 = "Portuguese";
+    string portugueseOption1 = "Inglês";
+    string portugueseOption2 = "Português";
 
     private void Start()
     {
@@ -38,6 +55,8 @@ public class MenuScript : MonoBehaviour {
 
         List<string> resolutionOptions = new List<string>();
         List<string> qualityOptions = new List<string>();
+        englishOptions = new List<string>();
+        portugueseOptions = new List<string>();
 
         int currentResolutionIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
@@ -57,6 +76,11 @@ public class MenuScript : MonoBehaviour {
             qualityOptions.Add(option);
         }
 
+        englishOptions.Add(englishOption1);
+        englishOptions.Add(englishOption2);
+        portugueseOptions.Add(portugueseOption1);
+        portugueseOptions.Add(portugueseOption2);
+
         fullscreenToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen"));
         Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen"));
         resolutionDropDown.AddOptions(resolutionOptions);
@@ -72,6 +96,43 @@ public class MenuScript : MonoBehaviour {
 
         volumeSlider.value = PlayerPrefs.GetFloat("MVolume");
         audioMixer.SetFloat("volume", PlayerPrefs.GetFloat("MVolume"));
+
+        if (PlayerPrefs.GetInt("Language") == 0)
+        {
+            newGameText.text = "New Game";
+            continueText.text = "Continue";
+            optionsText.text = "Options";
+            creditsText.text = "Credits";
+            quitText.text = "Quit";
+            resolutionText.text = "Resolution";
+            fullscreenText.text = "Fullscreen";
+            musicText.text = "Music";
+            graphicsText.text = "Graphics";
+            languageText.text = "Language";
+
+            languageDropDown.ClearOptions();
+            languageDropDown.AddOptions(englishOptions);
+            languageDropDown.value = 0;
+            languageDropDown.RefreshShownValue();
+        }
+        else
+        {
+            newGameText.text = "Novo Jogo";
+            continueText.text = "Continuar";
+            optionsText.text = "Opções";
+            creditsText.text = "Créditos";
+            quitText.text = "Sair do Jogo";
+            resolutionText.text = "Resolução";
+            fullscreenText.text = "Tela Cheia";
+            musicText.text = "Música";
+            graphicsText.text = "Gráficos";
+            languageText.text = "Idioma";
+
+            languageDropDown.ClearOptions();
+            languageDropDown.AddOptions(portugueseOptions);
+            languageDropDown.value = 1;
+            languageDropDown.RefreshShownValue();
+        }
         #endregion
     }
 
@@ -127,9 +188,51 @@ public class MenuScript : MonoBehaviour {
         PlayerPrefs.SetInt("FullScreen", Convert.ToInt32(isFullscreen));
         Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen"));
     }
+
+    public void SetLanguage (int languageIndex)
+    {
+        if (languageIndex == 0) //Inglês
+        {
+            newGameText.text = "New Game";
+            continueText.text = "Continue";
+            optionsText.text = "Options";
+            creditsText.text = "Credits";
+            quitText.text = "Quit";
+            resolutionText.text = "Resolution";
+            fullscreenText.text = "Fullscreen";
+            musicText.text = "Music";
+            graphicsText.text = "Graphics";
+            languageText.text = "Language";
+
+            languageDropDown.ClearOptions();
+            languageDropDown.AddOptions(englishOptions);
+            languageDropDown.RefreshShownValue();
+
+            PlayerPrefs.SetInt("Language", 0);
+        }
+        else                    //Português
+        {
+            newGameText.text = "Novo Jogo";
+            continueText.text = "Continuar";
+            optionsText.text = "Opções";
+            creditsText.text = "Créditos";
+            quitText.text = "Sair do Jogo";
+            resolutionText.text = "Resolução";
+            fullscreenText.text = "Tela Cheia";
+            musicText.text = "Música";
+            graphicsText.text = "Gráficos";
+            languageText.text = "Idioma";
+
+            languageDropDown.ClearOptions();
+            languageDropDown.AddOptions(portugueseOptions);
+            languageDropDown.RefreshShownValue();
+
+            PlayerPrefs.SetInt("Language", 1);
+        }
+    }
     #endregion
 
-    IEnumerator LoadAsynchronously(int sceneIndex)
+    IEnumerator LoadAsynchronously(int sceneIndex) //Tela de loading
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
