@@ -6,10 +6,11 @@ public class Selectable : MonoBehaviour {
 
     public GameObject spike1;
     public GameObject spike2;
+    public MoveSpikes script;
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -21,21 +22,27 @@ public class Selectable : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (gameObject.name == "spike")
+                if (hit.collider.name == "spike")
                 {
-                    var boxcollider = hit.transform.GetComponent<BoxCollider>();
-                    if (boxcollider == null) return;
                     spike1.SetActive(true);
                     spike2.SetActive(true);
-                    boxcollider.transform.position = new Vector3(boxcollider.transform.position.x, 5.174f, 0);
                 }
-                
-                var rigidbody = hit.transform.GetComponent<Rigidbody>();
-                if (rigidbody == null) return;
-                rigidbody.useGravity = true;
-                if (rigidbody.name == "Trap")
+
+                if (hit.collider.gameObject.name == "gelo (2)")
                 {
-                    Destroy(rigidbody.gameObject);
+                    script.speed = 3;
+                }
+
+                if (hit.collider.name == "Trap")
+                {
+                    Destroy(hit.collider.gameObject);
+                }
+
+                if (hit.collider.gameObject.layer == 12)
+                {
+                    var rigidbody = hit.transform.GetComponent<Rigidbody>();
+                    if (rigidbody == null) return;
+                    rigidbody.useGravity = true;
                 }
             }
         }

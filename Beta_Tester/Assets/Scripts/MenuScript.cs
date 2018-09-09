@@ -47,7 +47,7 @@ public class MenuScript : MonoBehaviour {
 
     private void Start()
     {
-        #region Configuração de Resoluções/Qualidades/Tela Cheia/Áudios ao iniciar o jogo
+        #region Configuração de Resoluções/Qualidades/Tela Cheia/Áudios/Linguagens ao iniciar o jogo
         resolutions = Screen.resolutions;
 
         resolutionDropDown.ClearOptions();
@@ -58,16 +58,10 @@ public class MenuScript : MonoBehaviour {
         englishOptions = new List<string>();
         portugueseOptions = new List<string>();
 
-        int currentResolutionIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             resolutionOptions.Add(option);
-
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
-            }
         }
 
         for (int j = 0; j < QualitySettings.names.Length; j++)
@@ -103,7 +97,7 @@ public class MenuScript : MonoBehaviour {
             continueText.text = "Continue";
             optionsText.text = "Options";
             creditsText.text = "Credits";
-            quitText.text = "Quit";
+            quitText.text = "Quit Game";
             resolutionText.text = "Resolution";
             fullscreenText.text = "Fullscreen";
             musicText.text = "Music";
@@ -197,7 +191,7 @@ public class MenuScript : MonoBehaviour {
             continueText.text = "Continue";
             optionsText.text = "Options";
             creditsText.text = "Credits";
-            quitText.text = "Quit";
+            quitText.text = "Quit Game";
             resolutionText.text = "Resolution";
             fullscreenText.text = "Fullscreen";
             musicText.text = "Music";

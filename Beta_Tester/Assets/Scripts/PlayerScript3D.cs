@@ -4,43 +4,22 @@ using UnityEngine;
 
 public class PlayerScript3D : MonoBehaviour {
 
-    SAP2D.SAP2DAgent agent;
-    Rigidbody _Rigidbody;
-    Rigidbody Rigidbody { get { return _Rigidbody ?? GetComponent<Rigidbody>(); } }
-    bool collided = false;
+    public float speed;
+    private float x;
 
     void Start()
     {
-        agent = GetComponent<SAP2D.SAP2DAgent>();
+        x = transform.position.x;
     }
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            Rigidbody.velocity = Vector2.zero;
-            //Rigidbody.angularVelocity = 0;
-            Rigidbody.Sleep();
-        }
-
-        if (collided)
-        {
-            agent.CanMove = true;
-        }
-        else
-            agent.CanMove = false;
+        x += speed * Time.deltaTime;
+        transform.position = new Vector3(x, transform.position.y, transform.position.z);
 
         if (transform.position.y <= -30)
         {
             print("morreu pela queda");
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.tag == "Ground")
-        {
-            collided = true;
         }
     }
 }
