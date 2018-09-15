@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour {
 
     private void Start()
     {
-        if (gameObject.name == "Enemy1")
+        if (gameObject.name == "Enemy1" || gameObject.name == "Enemy4")
             InvokeRepeating("SpawnBottle", 2, 6);
         else if (gameObject.name == "Enemy3")
             speed = transform.position.x;

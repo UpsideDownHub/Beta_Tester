@@ -779,7 +779,7 @@ GameObject:
   - component: {fileID: 417573687}
   - component: {fileID: 417573686}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: Enemy4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557bc4fb4e998444daaf8ce16656f546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1274794322634432, guid: 9bae890522612ba4ba20c16ce0a333bb, type: 2}
+  prefab: {fileID: 1274794322634432, guid: 3bc1d0a00112578478e59d0f6aca14fc, type: 2}
 --- !u!65 &417573687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1906,7 +1906,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spike1: {fileID: 0}
   spike2: {fileID: 0}
+  prefab: {fileID: 1274794322634432, guid: 9bae890522612ba4ba20c16ce0a333bb, type: 2}
   script: {fileID: 229834384}
+  script2: {fileID: 1108573587}
+  script3: {fileID: 417573686}
 --- !u!1 &943056511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,7 +2314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557bc4fb4e998444daaf8ce16656f546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1274794322634432, guid: 9bae890522612ba4ba20c16ce0a333bb, type: 2}
+  prefab: {fileID: 1274794322634432, guid: 3bc1d0a00112578478e59d0f6aca14fc, type: 2}
 --- !u!65 &1108573588
 BoxCollider:
   m_ObjectHideFlags: 0

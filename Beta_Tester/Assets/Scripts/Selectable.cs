@@ -6,10 +6,13 @@ public class Selectable : MonoBehaviour {
 
     public GameObject spike1;
     public GameObject spike2;
+    public GameObject prefab;
     public MoveSpikes script;
+    public EnemyScript script2;
+    public EnemyScript script3;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
 	}
 	
@@ -28,7 +31,7 @@ public class Selectable : MonoBehaviour {
                     spike2.SetActive(true);
                 }
 
-                if (hit.collider.gameObject.name == "gelo (2)")
+                if (hit.collider.name == "gelo (2)")
                 {
                     script.speed = 3;
                 }
@@ -36,6 +39,16 @@ public class Selectable : MonoBehaviour {
                 if (hit.collider.name == "Trap")
                 {
                     Destroy(hit.collider.gameObject);
+                }
+
+                if (hit.collider.name == "Enemy1")
+                {
+                    script2.prefab = prefab;
+                }
+
+                if (hit.collider.name == "Enemy4")
+                {
+                    script3.prefab = prefab;
                 }
 
                 if (hit.collider.gameObject.layer == 12)
