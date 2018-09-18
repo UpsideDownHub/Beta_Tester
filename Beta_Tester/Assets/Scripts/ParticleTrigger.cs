@@ -20,9 +20,16 @@ public class ParticleTrigger : MonoBehaviour {
         for (int i = 0; i < numEnter; i++)
         {
             ParticleSystem.Particle p = enter[i];
-            p.startColor = new Color32(255, 0, 0, 255);
+            //p.startColor = new Color32(255, 0, 0, 255);
             enter[i] = p;
-            print("morreu pelo raio");
+            if (gameObject.name == "RaioFogoEffect")
+            {
+                print("morreu pelo raio");
+            }
+            if (gameObject.name == "Flames")
+            {
+                print("morreu pelo bafo do dragao");
+            }
         }
         for (int i = 0; i < numExit; i++)
         {

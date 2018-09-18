@@ -12,11 +12,9 @@ public class Spin : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if (rb.tag == "Poison" && gameObject.name != "Poison2(Clone)")
+        if (rb.tag == "Poison" && gameObject.name == "Poison(Clone)")
         {
             rb.AddForce(new Vector3(-300, 400, 0));
-            if (gameObject.name == "PoisonE")
-                rb.velocity = new Vector3(0, 0, 0);
         }
         if (rb.tag == "Poison" && gameObject.name == "Poison2(Clone)")
         {
@@ -24,7 +22,15 @@ public class Spin : MonoBehaviour
         }
         if (rb.tag == "Poison" && gameObject.name == "Poison3(Clone)")
         {
-
+            rb.AddForce(new Vector3(0, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
+        }
+        if (rb.tag == "Poison" && gameObject.name == "Poison4(Clone)")
+        {
+            rb.AddForce(new Vector3(-20000 * Time.deltaTime, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
+        }
+        if (rb.tag == "Poison" && gameObject.name == "Poison5(Clone)")
+        {
+            rb.AddForce(new Vector3(20000 * Time.deltaTime, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
         }
     }
 

@@ -10,6 +10,9 @@ public class Selectable : MonoBehaviour {
     public MoveSpikes script;
     public EnemyScript script2;
     public EnemyScript script3;
+    public Transform playerT;
+    public PlayerScript3D playerScript;
+    public BoxCollider boxC;
 
     // Use this for initialization
     void Start () {
@@ -51,13 +54,30 @@ public class Selectable : MonoBehaviour {
                     script3.prefab = prefab;
                 }
 
+                if (hit.collider.name == "Enemy5")
+                {
+                    EnemyScript.isClicked = true;
+                }
+
                 if (hit.collider.gameObject.layer == 12)
                 {
                     var rigidbody = hit.transform.GetComponent<Rigidbody>();
                     if (rigidbody == null) return;
                     rigidbody.useGravity = true;
+
+                    if (hit.collider.name == "estalactite (1)" && playerT.position.x >= 22 && playerT.position.x <= 26 )
+                    {
+                        playerScript.speed = 0;
+                        Invoke("Walk", 2);
+                        boxC.enabled = true;
+                    }
                 }
             }
         }
 	}
+
+    void Walk()
+    {
+        playerScript.speed = 3;
+    }
 }
