@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using System;
 
-public class MenuScript : MonoBehaviour {
+public class MenuJimmyInTheHell : MonoBehaviour {
 
     #region Components
     public Text newGameText;

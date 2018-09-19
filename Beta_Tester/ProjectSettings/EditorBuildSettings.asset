@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/MenuBetaTester.unity
+    guid: f91a40e87f0c54c4f90a64a858dde2ff
+  - enabled: 1
+    path: Assets/Scenes/MenuJimmyInTheHell.unity
     guid: 73840ab96797d20458fd6aff3c579fff
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 11ec9074e7d2c8940b772cfe5c1ed41c
+  - enabled: 1
+    path: Assets/Scenes/levelCleber.unity
+    guid: 2a3949cf19152f54f86e82592436d728
   - enabled: 1
     path: Assets/Scenes/levelMax.unity
     guid: d1a5bca3512ac084bb10a3ec6075a04a
