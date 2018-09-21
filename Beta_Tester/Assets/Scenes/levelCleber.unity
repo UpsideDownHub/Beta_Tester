@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -964,7 +964,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 328596891}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.61, y: -2.06, z: 0}
+  m_LocalPosition: {x: -12.61, y: -2.06, z: -1}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 889944195}
@@ -2032,8 +2032,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 38.664238, y: 0.81186295, z: 1}
-  m_Center: {x: -7.5437202, y: 4.4592323, z: 0}
+  m_Size: {x: 36.927185, y: 0.81186295, z: 1}
+  m_Center: {x: -8.412247, y: 4.4592323, z: 0}
 --- !u!4 &693866695
 Transform:
   m_ObjectHideFlags: 0
@@ -2119,7 +2119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3e0be871b96014b973923ca1e6974f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   vida1: {fileID: 1132831276}
   vida2: {fileID: 1110029983}
   vida3: {fileID: 502348564}
@@ -2512,8 +2512,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.34332275, y: 0.29759026, z: 1}
-  m_Center: {x: 11.799219, y: 4.8952656, z: 0}
+  m_Size: {x: 0.13917065, y: 0.29759026, z: 1}
+  m_Center: {x: 10.032106, y: 4.8952656, z: 0}
 --- !u!114 &892600594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43dfc74bc6381c042bdde50d1c07fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impulseRange: {x: 6, y: 8}
+  impulseRange: {x: 7, y: 7}
   impulseHorizontal: 100
 --- !u!1 &939405025
 GameObject:
@@ -3370,15 +3370,6 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: 11, y: 4, z: 0}
-    second:
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
   - first: {x: 17, y: 4, z: 0}
     second:
       m_TileIndex: 2
@@ -3437,7 +3428,7 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: 9ffca3e21dfac6848a392d5ea9eb697f, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 54bfb66e6c4e1b94995ab2cbaa99f42e, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 7768090e736f6be42a379caa25390b0b, type: 2}
@@ -3452,7 +3443,7 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 9
     m_Data: {fileID: 21300000, guid: 84a3b1e07a2dd4340b630bd28de7ea40, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 79696539f13b94d448559bab243e8cbd, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 21300000, guid: 69d4d0bda94a7484da321dfbe2cf356b, type: 3}
@@ -3465,7 +3456,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: f44a0be289a0b324a8dbb8585068e0fe, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 19
+  - m_RefCount: 18
     m_Data:
       e00: 1
       e01: 0
@@ -3484,12 +3475,12 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 19
+  - m_RefCount: 18
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -27, y: 0, z: 0}
-  m_Size: {x: 67, y: 6, z: 1}
+  m_Size: {x: 67, y: 7, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -4008,7 +3999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3e0be871b96014b973923ca1e6974f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   vida1: {fileID: 1132831276}
   vida2: {fileID: 1110029983}
   vida3: {fileID: 502348564}

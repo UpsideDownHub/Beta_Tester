@@ -13,12 +13,12 @@ public class LanguageScript : MonoBehaviour {
     {
         if (PlayerPrefs.GetInt("Language") == 0)
         {
-            pressAnyKey.text = "PRESS ANY KEY TO START";
+            pressAnyKey.text = "PRESS ANY KEY";
             chooseCharacter.text = "CHOOSE YOUR CHARACTER";
         }
         else
         {
-            pressAnyKey.text = "APERTE QUALQUER TECLA PARA COMEÇAR";
+            pressAnyKey.text = "APERTE QUALQUER TECLA";
             chooseCharacter.text = "ESCOLHA SEU PERSONAGEM";
         }
     }
