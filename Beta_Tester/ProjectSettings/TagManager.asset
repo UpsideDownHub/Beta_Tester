@@ -11,6 +11,7 @@ TagManager:
   - Poison
   - Spikes
   - Particle
+  - Portal
   layers:
   - Default
   - TransparentFX

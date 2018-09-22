@@ -93,6 +93,6 @@ public class Selectable : MonoBehaviour {
 
     void Walk()
     {
-        playerScript.speed = 3;
+        playerScript.speed = 4;
     }
 }

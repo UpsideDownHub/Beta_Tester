@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Triggers : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class Triggers : MonoBehaviour {
             this.GetComponent<Triggers>().enabled = false;
         }
 
-        if (other.tag == "Player" && gameObject.name == "BigBall(Clone)")
+        else if (other.tag == "Player" && gameObject.name == "BigBall(Clone)")
         {
             print("morreu esmagado");
             Destroy(this.gameObject);
@@ -31,11 +32,16 @@ public class Triggers : MonoBehaviour {
             this.GetComponent<Triggers>().enabled = false;
         }
 
-        if (other.tag == "Player" && gameObject.tag == "Poison")
+        else if (other.tag == "Player" && gameObject.tag == "Poison")
         {
             print("morreu pelo veneno");
             PlayerScript3D.life--;
             this.GetComponent<Triggers>().enabled = false;
+        }
+
+        else if (other.tag == "Player" && gameObject.tag == "Portal")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

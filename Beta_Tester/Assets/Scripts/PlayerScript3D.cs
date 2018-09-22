@@ -15,6 +15,8 @@ public class PlayerScript3D : MonoBehaviour {
     public Image vida4;
     public Image vida5;
     public Rigidbody rb;
+    public GameObject gameOverPanel;
+    public Button button;
 
     void Start()
     {
@@ -70,6 +72,9 @@ public class PlayerScript3D : MonoBehaviour {
             vida3.enabled = false;
             vida4.enabled = false;
             vida5.enabled = false;
+            gameOverPanel.SetActive(true);
+            button.Select();
+            gameObject.SetActive(false);
         }
     }
 
