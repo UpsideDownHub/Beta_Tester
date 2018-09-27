@@ -50,11 +50,11 @@ public class EnemyScript : MonoBehaviour {
 
     void SpawnBottle3()
     {
-        Instantiate(prefab2, transform.position, Quaternion.identity);
+        Instantiate(prefab2, transform.position, prefab2.transform.rotation);
     }
 
     void SpawnBottle4()
     {
-        Instantiate(prefab3, transform.position, Quaternion.identity);
+        Instantiate(prefab3, transform.position, prefab3.transform.rotation);
     }
 }
