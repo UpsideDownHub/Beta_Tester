@@ -12,6 +12,7 @@ TagManager:
   - Spikes
   - Particle
   - Portal
+  - Enemy
   layers:
   - Default
   - TransparentFX
