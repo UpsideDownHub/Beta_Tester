@@ -2,74 +2,156 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityGoogleDrive;
 
 public class PhaseCreationManager : MonoBehaviour
 {
-
+    [SerializeField] GameObject panelContent;
+    [SerializeField] GameObject panelItem;
     [SerializeField] GameObject floor;
     [SerializeField] GameObject LeftStair;
     [SerializeField] GameObject RightStair;
     [SerializeField] GameObject Character;
-    [SerializeField] GameObject TextError;
     [SerializeField] GameObject Canvas;
-    [SerializeField] Text Text;
+    [SerializeField] GameObject Camera;
 
+    UnityAction ua;
     List<List<int>> data = new List<List<int>>();
+    private Dictionary<GameObject, string> Fileids = new Dictionary<GameObject, string>();
+
+    private string result = string.Empty;
 
     void Start()
     {
-        //MountPhase();
-
+        GoogleDriveFiles.List().Send().OnDone += BuildResults;
     }
 
 
     void Update()
     {
-
     }
 
-    public void MountPhase()
+
+    private void BuildResults(UnityGoogleDrive.Data.FileList fileList)
     {
-
-        if (string.IsNullOrEmpty(Text.text) || !System.IO.File.Exists("C:\\Desenvolvimento\\Projeto\\PhaseCreation\\PhaseCreation\\Assets\\Phases\\" + Text.text))
+        for (var i = 0; i < fileList.Files.Count; i++)
         {
-            TextError.SetActive(true);
-            return;
-        }
-        else
-            TextError.SetActive(false);
+            if (fileList.Files[i].MimeType == "application/vnd.google-apps.folder") continue;
 
-        using (StreamReader sr = File.OpenText("C:\\Desenvolvimento\\Projeto\\PhaseCreation\\PhaseCreation\\Assets\\Phases\\" + Text.text))
-        {
-            string s = "";
-            List<int> line;
-            while ((s = sr.ReadLine()) != null)
-            {
-                line = new List<int>();
-                var val = s.Split(',');
-                line.AddRange(val.Select(x => int.Parse(x)));
-                data.Add(line);
-            }
-        }
-        if (data.Count == 0)
-        {
-            print("Erro ao pegar os dados");
-            return;
-        }
+            var obj = GameObject.Instantiate(panelItem, panelContent.transform);
+            var rect = obj.GetComponent<RectTransform>();
+            var contentRect = panelContent.GetComponent<RectTransform>();
+            var width = contentRect.rect.width / 1;
+            var ratio = width / rect.rect.width;
+            var height = rect.rect.height * ratio;
 
+            var x = -contentRect.rect.width / 2 + width * (i % 1);
+            var y = contentRect.rect.height / 2 - height * (1 + i);
+            rect.offsetMin = new Vector2(x, y);
+
+            x = rect.offsetMin.x + width;
+            y = rect.offsetMin.y + height;
+
+            rect.offsetMax = new Vector2(x, y);
+
+            obj.GetComponentInChildren<Text>().text = fileList.Files[i].Name;
+
+            Fileids.Add(obj, fileList.Files[i].Id);
+
+            //ua += MountPhase;
+
+            obj.GetComponentInChildren<Button>().onClick.AddListener(delegate { MountPhase(obj); });
+
+        }
+    }
+
+    private void SetResult(UnityGoogleDrive.Data.File file)
+    {
+        result = Encoding.UTF8.GetString(file.Content);
+
+        var lines = result.Split('\n');
+
+        List<int> line;
+        foreach (var _line in lines)
+        {
+            var __line = _line.Replace("\r", string.Empty);
+            line = new List<int>();
+            var val = __line.Split(',');
+            if (val.Count() < 10) continue;
+            line.AddRange(val.Select(x => int.Parse(x)));
+            data.Add(line);
+        }
+        GameObject character = null;
         for (int i = 0; i < data.Count; i++)
         {
             for (int j = data[i].Count - 1; j > 0; j--)
             {
                 if (data[i][j] == 0) continue;
                 float _v = data[i][j] == 3 || data[i][j] == 4 ? -0.5f : 0;
-                Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
+                if (data[i][j] == 2)
+                    character = Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
+                else
+                    Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
             }
         }
-
+        var vitrualCamera = Camera.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
+        vitrualCamera.m_Follow = character.transform;
         Canvas.SetActive(false);
+    }
+
+    void MountPhase(GameObject go)
+    {
+        string id = "";
+        Fileids.TryGetValue(go, out id);
+        if (string.IsNullOrEmpty(id))
+        {
+            Debug.LogError("Houve um erro ao carregar o arquivo!");
+            return;
+        }
+
+        GoogleDriveFiles.Download(id).Send().OnDone += SetResult;
+
+        //if (string.IsNullOrEmpty(Text.text) || !System.IO.File.Exists("C:\\Desenvolvimento\\Projeto\\PhaseCreation\\PhaseCreation\\Assets\\Phases\\" + Text.text))
+        //{
+        //    TextError.SetActive(true);
+        //    return;
+        //}
+        //else
+        //    TextError.SetActive(false);
+
+        //using (StreamReader sr = File.OpenText("C:\\Desenvolvimento\\Projeto\\PhaseCreation\\PhaseCreation\\Assets\\Phases\\" + Text.text))
+        //{
+        //    string s = "";
+        //    List<int> line;
+        //    while ((s = sr.ReadLine()) != null)
+        //    {
+        //        line = new List<int>();
+        //        var val = s.Split(',');
+        //        line.AddRange(val.Select(x => int.Parse(x)));
+        //        data.Add(line);
+        //    }
+        //}
+        //if (data.Count == 0)
+        //{
+        //    print("Erro ao pegar os dados");
+        //    return;
+        //}
+
+        //for (int i = 0; i < data.Count; i++)
+        //{
+        //    for (int j = data[i].Count - 1; j > 0; j--)
+        //    {
+        //        if (data[i][j] == 0) continue;
+        //        float _v = data[i][j] == 3 || data[i][j] == 4 ? -0.5f : 0;
+        //        Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
+        //    }
+        //}
+
+        //Canvas.SetActive(false);
     }
 
     GameObject GetObject(int value)
@@ -88,5 +170,4 @@ public class PhaseCreationManager : MonoBehaviour
                 return floor;
         }
     }
-
 }
