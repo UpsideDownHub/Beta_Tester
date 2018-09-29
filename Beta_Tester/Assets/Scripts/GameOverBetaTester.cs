@@ -10,5 +10,10 @@ public class GameOverBetaTester : MonoBehaviour {
     private void Update()
     {
         slider.value -= 0.001f;
+        
+        if (slider.value == 0 || slider.value == 1)
+        {
+            print("Game Over Beta Tester");
+        }
     }
 }

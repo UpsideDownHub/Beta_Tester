@@ -41,14 +41,18 @@ public class Spin : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if ((collision.collider.tag == "Ground" || collision.collider.tag == "Player") && gameObject.tag == "Poison")
-        {
-            Instantiate(prefab, transform.position + new Vector3(-2,0,0), Quaternion.identity);
-            Destroy(this.gameObject);
-        }
         if (gameObject.name == "BigBall(Clone)" && collision.collider.tag == "Ground")
         {
             spinz = 3;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.tag == "Ground" || other.tag == "Player") && gameObject.tag == "Poison")
+        {
+            Instantiate(prefab, transform.position + new Vector3(-2, 0, 0), Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 }

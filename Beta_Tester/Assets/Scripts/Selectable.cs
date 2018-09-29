@@ -38,32 +38,32 @@ public class Selectable : MonoBehaviour {
                         spike2.SetActive(true);
                     }
 
-                    if (hit.collider.name == "gelo (2)")
+                    else if (hit.collider.name == "gelo (2)")
                     {
                         script.speed = 3;
                     }
 
-                    if (hit.collider.name == "Trap")
+                    else if (hit.collider.name == "Trap")
                     {
                         Destroy(hit.collider.gameObject);
                     }
 
-                    if (hit.collider.name == "Enemy1")
+                    else if (hit.collider.name == "Enemy1")
                     {
                         script2.prefab = prefab;
                     }
 
-                    if (hit.collider.name == "Enemy4")
+                    else if (hit.collider.name == "Enemy4")
                     {
                         script3.prefab = prefab;
                     }
 
-                    if (hit.collider.name == "Enemy5")
+                    else if (hit.collider.name == "Enemy5")
                     {
                         EnemyScript.isClicked = true;
                     }
 
-                    if (hit.collider.gameObject.layer == 12)
+                    else if (hit.collider.gameObject.layer == 12)
                     {
                         var rigidbody = hit.transform.GetComponent<Rigidbody>();
                         if (rigidbody == null) return;
