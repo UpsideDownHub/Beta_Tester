@@ -14,7 +14,6 @@ public class MenuJimmyInTheHell : MonoBehaviour {
     public Text optionsText;
     public Text creditsText;
     public Text quitText;
-    public Text levelEditor;
     public Text resolutionText;
     public Text musicText;
     public Text graphicsText;
@@ -99,7 +98,6 @@ public class MenuJimmyInTheHell : MonoBehaviour {
             optionsText.text = "Options";
             creditsText.text = "Credits";
             quitText.text = "Quit Game";
-            levelEditor.text = "Level Editor";
             resolutionText.text = "Resolution";
             fullscreenText.text = "Fullscreen";
             musicText.text = "Music";
@@ -118,7 +116,6 @@ public class MenuJimmyInTheHell : MonoBehaviour {
             optionsText.text = "Opções";
             creditsText.text = "Créditos";
             quitText.text = "Sair do Jogo";
-            levelEditor.text = "Editor de Nível";
             resolutionText.text = "Resolução";
             fullscreenText.text = "Tela Cheia";
             musicText.text = "Música";
@@ -151,17 +148,12 @@ public class MenuJimmyInTheHell : MonoBehaviour {
 
     public void CreditsInteraction ()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitInteraction()
     {
         Application.Quit();
-    }
-
-    public void LevelEditorInteraction()
-    {
-        SceneManager.LoadScene(7);
     }
     #endregion
 
@@ -200,7 +192,6 @@ public class MenuJimmyInTheHell : MonoBehaviour {
             optionsText.text = "Options";
             creditsText.text = "Credits";
             quitText.text = "Quit Game";
-            levelEditor.text = "Level Editor";
             resolutionText.text = "Resolution";
             fullscreenText.text = "Fullscreen";
             musicText.text = "Music";
@@ -220,7 +211,6 @@ public class MenuJimmyInTheHell : MonoBehaviour {
             optionsText.text = "Opções";
             creditsText.text = "Créditos";
             quitText.text = "Sair do Jogo";
-            levelEditor.text = "Editor de Nível";
             resolutionText.text = "Resolução";
             fullscreenText.text = "Tela Cheia";
             musicText.text = "Música";

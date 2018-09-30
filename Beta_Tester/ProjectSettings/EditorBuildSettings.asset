@@ -26,7 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/levelFinal.unity
     guid: 56e1bda8b1b86784d942886a937f7bcf
-  - enabled: 1
-    path: Assets/Scenes/PhaseCreation.unity
-    guid: f67e7a8fa6d2711488ea4694ddeb1e1a
   m_configObjects: {}

@@ -10,9 +10,6 @@ public class LanguageScript : MonoBehaviour {
     public Text chooseCharacter;
     public Text gameOver;
     public Text retry;
-    public Text loadLevel;
-    public Text backToMenu;
-    public Text load;
     //public Text menu;
 
     private void Start()
@@ -39,18 +36,12 @@ public class LanguageScript : MonoBehaviour {
                 gameOver.text = "GAME OVER";
                 retry.text = "RETRY";
             }
-            else if (SceneManager.GetActiveScene().buildIndex == 7)
-            {
-                loadLevel.text = "LOAD LEVEL";
-                backToMenu.text = "BACK TO MENU";
-                load.text = "LOAD";
-            }
         }
         else
         {
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
-                pressAnyKey.text = "PRESSIONE QUALQUER TECLA";
+                pressAnyKey.text = "APERTE QUALQUER TECLA";
                 chooseCharacter.text = "ESCOLHA SEU PERSONAGEM";
             }
             else if (SceneManager.GetActiveScene().buildIndex == 3)
@@ -68,16 +59,6 @@ public class LanguageScript : MonoBehaviour {
                 gameOver.text = "FIM DE JOGO";
                 retry.text = "TENTAR NOVAMENTE";
             }
-            else if (SceneManager.GetActiveScene().buildIndex == 7)
-            {
-                loadLevel.text = "CARREGAR NÍVEL";
-                backToMenu.text = "VOLTAR AO MENU";
-                load.text = "CARREGAR";
-            }
         }
-    }
-    public void LoadMenu()
-    {
-        SceneManager.LoadScene(0);
     }
 }
