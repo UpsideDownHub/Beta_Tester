@@ -52,7 +52,7 @@ public class PlayerScript3D : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y == 0)
         {
-            rb.AddForce(new Vector3(0, 200, 0));
+            rb.AddForce(new Vector3(0, 21000 * Time.deltaTime, 0));
         }
 
         transform.position = new Vector3(x, transform.position.y, transform.position.z);
