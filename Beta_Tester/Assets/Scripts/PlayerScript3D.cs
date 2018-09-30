@@ -5,18 +5,17 @@ using UnityEngine.UI;
 
 public class PlayerScript3D : MonoBehaviour {
 
+    public Rigidbody rb;
+    public Animator animator;
+    public SpriteRenderer sr;
     public float speed;
     private float x;
+    bool moving;
     public static int life = 5;
     public static bool speedDirection = true;
-    public Image vida1;
-    public Image vida2;
-    public Image vida3;
-    public Image vida4;
-    public Image vida5;
-    public Rigidbody rb;
-    public GameObject gameOverPanel;
-    public Button button;
+    public Transform groundCheck;
+    public bool grounded;
+    public LayerMask whatIsGround;
 
     void Start()
     {
@@ -25,70 +24,48 @@ public class PlayerScript3D : MonoBehaviour {
 
     private void Update()
     {
-        if (life == 5)
-        {
-            vida1.enabled = true;
-            vida2.enabled = true;
-            vida3.enabled = true;
-            vida4.enabled = true;
-            vida5.enabled = true;
-        }
-        else if (life == 4)
-        {
-            vida1.enabled = true;
-            vida2.enabled = true;
-            vida3.enabled = true;
-            vida4.enabled = true;
-            vida5.enabled = false;
-        }
-        else if (life == 3)
-        {
-            vida1.enabled = true;
-            vida2.enabled = true;
-            vida3.enabled = true;
-            vida4.enabled = false;
-            vida5.enabled = false;
-        }
-        else if (life == 2)
-        {
-            vida1.enabled = true;
-            vida2.enabled = true;
-            vida3.enabled = false;
-            vida4.enabled = false;
-            vida5.enabled = false;
-        }
-        else if (life == 1)
-        {
-            vida1.enabled = true;
-            vida2.enabled = false;
-            vida3.enabled = false;
-            vida4.enabled = false;
-            vida5.enabled = false;
-        }
-        else if (life <= 0)
-        {
-            vida1.enabled = false;
-            vida2.enabled = false;
-            vida3.enabled = false;
-            vida4.enabled = false;
-            vida5.enabled = false;
-            gameOverPanel.SetActive(true);
-            button.Select();
+        if (life <= 0)
             gameObject.SetActive(false);
-        }
-    }
 
-    void FixedUpdate()
-    {
-        if (speedDirection)
-            x += speed * Time.deltaTime;
-        else
+        //if (speedDirection)
+        //    x += speed * Time.deltaTime;
+        //else
+        //    x -= speed * Time.deltaTime;
+        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        {
+            moving = false;
+        }
+
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
             x -= speed * Time.deltaTime;
+            moving = true;
+            sr.flipX = true;
+        }
+
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            x += speed * Time.deltaTime;
+            moving = true;
+            sr.flipX = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y == 0)
+        {
+            rb.AddForce(new Vector3(0, 200, 0));
+        }
+
         transform.position = new Vector3(x, transform.position.y, transform.position.z);
 
         if (transform.position.y <= -30)
         {
             print("morreu pela queda");
         }
+
+        grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
+
+        //print((int)rb.velocity.x + "/" + (int)rb.velocity.y);
+        animator.SetBool("jump", !grounded);
+        animator.SetBool("moving", moving);
     }
 }

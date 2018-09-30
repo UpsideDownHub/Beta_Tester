@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -606,6 +606,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 48538728}
+  vida1: {fileID: 223688527}
+  vida2: {fileID: 160364762}
+  vida3: {fileID: 803735507}
+  vida4: {fileID: 143140174}
+  vida5: {fileID: 361900455}
+  button: {fileID: 541076526}
 --- !u!114 &127799255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,6 +627,9 @@ MonoBehaviour:
   chooseCharacter: {fileID: 0}
   gameOver: {fileID: 1372162500}
   retry: {fileID: 37129925}
+  loadLevel: {fileID: 0}
+  backToMenu: {fileID: 0}
+  load: {fileID: 0}
 --- !u!1 &143140172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4929,14 +4938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  vida1: {fileID: 223688527}
-  vida2: {fileID: 160364762}
-  vida3: {fileID: 803735507}
-  vida4: {fileID: 143140174}
-  vida5: {fileID: 361900455}
   rb: {fileID: 1929608470}
-  gameOverPanel: {fileID: 48538728}
-  button: {fileID: 541076526}
 --- !u!54 &1929608470
 Rigidbody:
   m_ObjectHideFlags: 0
