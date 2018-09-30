@@ -16,21 +16,25 @@ public class Spin : MonoBehaviour
         {
             rb.AddForce(new Vector3(-300, 400, 0));
         }
-        if (rb.tag == "Poison" && gameObject.name == "Poison2(Clone)")
+        else if (rb.tag == "Poison" && gameObject.name == "Poison2(Clone)")
         {
             rb.AddForce(new Vector3(-300, 0, 0));
         }
-        if (rb.tag == "Poison" && gameObject.name == "Poison3(Clone)")
+        else if (rb.tag == "Poison" && gameObject.name == "Poison3(Clone)")
         {
             rb.AddForce(new Vector3(0, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
         }
-        if (rb.tag == "Poison" && gameObject.name == "Poison4(Clone)")
+        else if (rb.tag == "Poison" && gameObject.name == "Poison4(Clone)")
         {
             rb.AddForce(new Vector3(-20000 * Time.deltaTime, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
         }
-        if (rb.tag == "Poison" && gameObject.name == "Poison5(Clone)")
+        else if (rb.tag == "Poison" && gameObject.name == "Poison5(Clone)")
         {
             rb.AddForce(new Vector3(20000 * Time.deltaTime, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
+        }
+        else if (rb.tag == "Poison" && gameObject.name == "Poison6(Clone)")
+        {
+            rb.AddForce(new Vector3(0, 400, 0));
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Triggers : MonoBehaviour {
 
+    //public GameOverBetaTester gameOverBT;
     bool isColliding;
 
     private void FixedUpdate()
@@ -21,6 +22,7 @@ public class Triggers : MonoBehaviour {
         {
             print("morreu nos espinhos");
             PlayerScript3D.life--;
+            //gameOverBT.slider.value += 0.05f;
             this.GetComponent<Triggers>().enabled = false;
         }
 
@@ -29,6 +31,7 @@ public class Triggers : MonoBehaviour {
             print("morreu esmagado");
             Destroy(this.gameObject);
             PlayerScript3D.life--;
+            //gameOverBT.slider.value += 0.05f;
             this.GetComponent<Triggers>().enabled = false;
         }
 
@@ -36,6 +39,7 @@ public class Triggers : MonoBehaviour {
         {
             print("morreu pelo veneno");
             PlayerScript3D.life--;
+            //gameOverBT.slider.value += 0.05f;
             this.GetComponent<Triggers>().enabled = false;
         }
 

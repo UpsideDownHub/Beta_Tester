@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Selectable : MonoBehaviour {
 
+    public GameOverBetaTester gameOverBT;
     public GameObject spike1;
     public GameObject spike2;
     public GameObject prefab;
+    public GameObject prefabPlanta;
     public MoveSpikes script;
     public EnemyScript script2;
     public EnemyScript script3;
@@ -38,24 +40,33 @@ public class Selectable : MonoBehaviour {
                         spike2.SetActive(true);
                     }
 
+                    else if (hit.collider.name == "Planta")
+                    {
+                        Instantiate(prefabPlanta, hit.transform.position, Quaternion.identity);
+                    }
+
                     else if (hit.collider.name == "gelo (2)")
                     {
                         script.speed = 3;
+                        gameOverBT.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Trap")
                     {
                         Destroy(hit.collider.gameObject);
+                        gameOverBT.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Enemy1")
                     {
                         script2.prefab = prefab;
+                        gameOverBT.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Enemy4")
                     {
                         script3.prefab = prefab;
+                        gameOverBT.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Enemy5")
