@@ -14,27 +14,38 @@ public class Spin : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb.tag == "Poison" && gameObject.name == "Poison(Clone)")
         {
+            rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(new Vector3(-300, 400, 0));
         }
         else if (rb.tag == "Poison" && gameObject.name == "Poison2(Clone)")
         {
+            rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(new Vector3(-300, 0, 0));
         }
         else if (rb.tag == "Poison" && gameObject.name == "Poison3(Clone)")
         {
+            rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(new Vector3(0, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
         }
         else if (rb.tag == "Poison" && gameObject.name == "Poison4(Clone)")
         {
+            rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(new Vector3(-20000 * Time.deltaTime, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
         }
         else if (rb.tag == "Poison" && gameObject.name == "Poison5(Clone)")
         {
+            rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(new Vector3(20000 * Time.deltaTime, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
         }
         else if (rb.tag == "Poison" && gameObject.name == "Poison6(Clone)")
         {
+            rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(new Vector3(0, 400, 0));
+        }
+        else if (rb.tag == "Poison" && gameObject.name == "Poison7(Clone)")
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            rb.AddForce(new Vector3(10000 * Time.deltaTime, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
         }
     }
 

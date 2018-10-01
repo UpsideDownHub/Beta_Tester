@@ -74,6 +74,11 @@ public class Selectable : MonoBehaviour {
                         EnemyScript.isClicked = true;
                     }
 
+                    else if (hit.collider.name == "Enemy6")
+                    {
+                        EnemyScript.isClicked2 = true;
+                    }
+
                     else if (hit.collider.tag == "Fall" || hit.collider.name == "PoisonE")
                     {
                         var rigidbody = hit.transform.GetComponent<Rigidbody>();
