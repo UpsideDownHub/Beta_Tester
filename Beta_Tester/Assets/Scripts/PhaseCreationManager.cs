@@ -88,7 +88,7 @@ public class PhaseCreationManager : MonoBehaviour
         GameObject character = null;
         for (int i = 0; i < data.Count; i++)
         {
-            for (int j = data[i].Count - 1; j > 0; j--)
+            for (int j = data[i].Count - 1; j >= 0; j--)
             {
                 if (data[i][j] == 0) continue;
                 float _v = data[i][j] == 3 || data[i][j] == 4 ? -0.5f : 0;
