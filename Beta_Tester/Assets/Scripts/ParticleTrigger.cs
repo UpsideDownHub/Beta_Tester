@@ -26,10 +26,6 @@ public class ParticleTrigger : MonoBehaviour {
             {
                 print("morreu pelo raio");
             }
-            if (gameObject.name == "Flames")
-            {
-                print("morreu pelo bafo do dragao");
-            }
         }
         for (int i = 0; i < numExit; i++)
         {

@@ -71,7 +71,6 @@ GameObject:
   - component: {fileID: 4319062979585292}
   - component: {fileID: 33176824227691860}
   - component: {fileID: 23995846435891530}
-  - component: {fileID: 114161191890788288}
   - component: {fileID: 54546224328230602}
   - component: {fileID: 65494705669837122}
   m_Layer: 12
@@ -200,7 +199,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699530373169092}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.0826643, y: 1.9944043, z: 3.992685}
@@ -242,17 +241,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114161191890788288
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1699530373169092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7738b1c4fa58054ea09ddbacc16f7c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &198750779019637042
 ParticleSystem:
   m_ObjectHideFlags: 1

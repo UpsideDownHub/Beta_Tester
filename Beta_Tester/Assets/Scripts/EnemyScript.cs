@@ -28,7 +28,7 @@ public class EnemyScript : MonoBehaviour {
             transform.position = new Vector3(speed, transform.position.y, transform.position.z);
         }
 
-        if (isClicked)
+        if (isClicked && gameObject.name == "Enemy5")
         {
             CancelInvoke();
             InvokeRepeating("SpawnBottle2", 0, 6);

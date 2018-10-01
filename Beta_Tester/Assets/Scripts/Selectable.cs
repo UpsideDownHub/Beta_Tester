@@ -74,7 +74,7 @@ public class Selectable : MonoBehaviour {
                         EnemyScript.isClicked = true;
                     }
 
-                    else if (hit.collider.gameObject.layer == 12)
+                    else if (hit.collider.tag == "Fall" || hit.collider.name == "PoisonE")
                     {
                         var rigidbody = hit.transform.GetComponent<Rigidbody>();
                         if (rigidbody == null) return;

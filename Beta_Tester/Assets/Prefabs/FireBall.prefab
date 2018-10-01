@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 23167640185163664}
   - component: {fileID: 135908159366730304}
   - component: {fileID: 114448367695980588}
-  m_Layer: 0
-  m_Name: Sphere
+  m_Layer: 12
+  m_Name: FireBall
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18243a6782910c54793d098512d2ceef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!135 &135908159366730304
 SphereCollider:
   m_ObjectHideFlags: 1
