@@ -58,6 +58,9 @@ public class EnemyScript : MonoBehaviour {
         }
 
         if (playerT == null) return;
+
+        if ((gameObject.name == "Enemy3" || gameObject.name == "Enemy3 (1)" || gameObject.name == "Enemy3 (2)" || gameObject.name == "Enemy3 (3)" || gameObject.name == "Enemy3 (4)" || gameObject.name == "Enemy3 (5)" || gameObject.name == "Enemy3 (6)") && transform.position.x <= -100)
+            Destroy(gameObject);
     }
 
     void SpawnBottle()

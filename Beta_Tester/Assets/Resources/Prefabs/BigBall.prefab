@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 135215941699879436}
   - component: {fileID: 54104807132451710}
   - component: {fileID: 114616971981056720}
-  - component: {fileID: 114793736145912762}
   m_Layer: 0
   m_Name: BigBall
   m_TagString: Untagged
@@ -117,17 +116,6 @@ MonoBehaviour:
   spinx: 0
   spiny: 0
   spinz: 0
---- !u!114 &114793736145912762
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1147724578190284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7738b1c4fa58054ea09ddbacc16f7c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &135215941699879436
 SphereCollider:
   m_ObjectHideFlags: 1

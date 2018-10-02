@@ -13,6 +13,7 @@ TagManager:
   - Portal
   - Enemy
   - Fall
+  - Spikes
   layers:
   - Default
   - TransparentFX
@@ -49,4 +50,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front
+    uniqueID: 3285287549
     locked: 0

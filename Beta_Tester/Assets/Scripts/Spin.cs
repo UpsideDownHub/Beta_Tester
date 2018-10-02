@@ -47,6 +47,31 @@ public class Spin : MonoBehaviour
             rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(new Vector3(10000 * Time.deltaTime, 25000 * Time.deltaTime, -20000 * Time.deltaTime));
         }
+        else if (rb.tag == "Poison" && gameObject.name == "PoisonBoss(Clone)") //Curto alcance ambos lados
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            rb.AddForce(new Vector3(0, 25000 * Time.deltaTime, 0));
+        }
+        else if (rb.tag == "Poison" && gameObject.name == "PoisonBoss1(Clone)") //Médio alcance pra esquerda
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            rb.AddForce(new Vector3(-10000 * Time.deltaTime, 25000 * Time.deltaTime, 0));
+        }
+        else if (rb.tag == "Poison" && gameObject.name == "PoisonBoss2(Clone)") //Longo alcance pra esquerda
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            rb.AddForce(new Vector3(-17500 * Time.deltaTime, 25000 * Time.deltaTime, 0));
+        }
+        else if (rb.tag == "Poison" && gameObject.name == "PoisonBoss3(Clone)") //Médio alcance pra direita
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            rb.AddForce(new Vector3(10000 * Time.deltaTime, 28500 * Time.deltaTime, 0));
+        }
+        else if (rb.tag == "Poison" && gameObject.name == "PoisonBoss4(Clone)") //Longo alcance pra direita
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            rb.AddForce(new Vector3(18500 * Time.deltaTime, 25000 * Time.deltaTime, 0));
+        }
     }
 
     private void FixedUpdate()

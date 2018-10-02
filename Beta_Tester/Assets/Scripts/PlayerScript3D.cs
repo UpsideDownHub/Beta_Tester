@@ -32,6 +32,19 @@ public class PlayerScript3D : MonoBehaviour {
 
     private void Update()
     {
+        if (transform.position.x >= 385.5f && !BossScript.isFighting)
+        {
+            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+            animator.SetBool("moving", false);
+        }
+        else
+        {
+            animator.updateMode = AnimatorUpdateMode.Normal;
+        }
+    }
+
+    private void FixedUpdate()
+    {
         if (life <= 0)
             gameObject.SetActive(false);
 
