@@ -60,6 +60,7 @@ public class Selectable : MonoBehaviour {
                     else if (hit.collider.name == "Enemy1")
                     {
                         script2.prefab = prefab;
+                        boxC.enabled = true;
                         gameOverBT.slider.value += 0.15f;
                     }
 
@@ -89,7 +90,6 @@ public class Selectable : MonoBehaviour {
                         {
                             playerScript.speed = 0;
                             Invoke("Walk", 2);
-                            boxC.enabled = true;
                         }
                         else if (hit.collider.name == "estalactite" && playerT.position.x >= 66 && playerT.position.x <= 70.5f)
                         {
@@ -109,6 +109,6 @@ public class Selectable : MonoBehaviour {
 
     void Walk()
     {
-        playerScript.speed = 4;
+        playerScript.speed = 5;
     }
 }

@@ -14,7 +14,6 @@ public class PlayerScript3D : MonoBehaviour {
     bool isEnded;
     Color c;
     public float speed;
-    private float x;
     bool moving;
     public static int life = 5;
     public static bool speedDirection = true;
@@ -25,7 +24,6 @@ public class PlayerScript3D : MonoBehaviour {
 
     void Start()
     {
-        x = transform.position.x;
         c = sr.material.color;
         slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
     }
@@ -34,48 +32,10 @@ public class PlayerScript3D : MonoBehaviour {
     {
         if (transform.position.x >= 385.5f && !BossScript.isFighting)
         {
-            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
             animator.SetBool("moving", false);
         }
-        else
-        {
-            animator.updateMode = AnimatorUpdateMode.Normal;
-        }
-    }
 
-    private void FixedUpdate()
-    {
-        if (life <= 0)
-            gameObject.SetActive(false);
-
-        //if (speedDirection)
-        //    x += speed * Time.deltaTime;
-        //else
-        //    x -= speed * Time.deltaTime;
-        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
-        {
-            moving = false;
-        }
-
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            x -= speed * Time.deltaTime;
-            moving = true;
-            sr.flipX = true;
-        }
-
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            x += speed * Time.deltaTime;
-            moving = true;
-            sr.flipX = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1)
-        {
-            rb.AddForce(new Vector3(0, 21000 * Time.deltaTime, 0));
-        }
-
+        #region SlowMotionConfig
         if (Input.GetKey(KeyCode.Mouse1) && !isEnded)
         {
             Time.timeScale = 0.5f;
@@ -89,22 +49,76 @@ public class PlayerScript3D : MonoBehaviour {
         }
 
         if (!isPressing)
+        {
             slowMotion.value += 0.02f;
-        if (slowMotion.value == 0)
-            isEnded = true;
-        else if (slowMotion.value == 1)
-            isEnded = false;
+            if (slowMotion.value == 1)
+                isEnded = false;
+        }
+        else
+        {
+            if (slowMotion.value == 0)
+                isEnded = true;
+        }
+        #endregion
+    }
 
-        transform.position = new Vector3(x, transform.position.y, transform.position.z);
+    private void FixedUpdate()
+    {
+        if (life <= 0)
+            gameObject.SetActive(false);
 
+        #region Movement
+        if (speed == 0)
+        {
+            moving = false;
+        }
+        else
+        {
+            if (speedDirection)
+            {
+                rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+                moving = true;
+                sr.flipX = false;
+            }
+            else
+            {
+                rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+                moving = true;
+                sr.flipX = true;
+            }
+        }
+        //if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    moving = false;
+        //}
+
+        //else if (Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+        //    moving = true;
+        //    sr.flipX = true;
+        //}
+
+        //else if (Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+        //    moving = true;
+        //    sr.flipX = false;
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377) //tirar velocity
+        //{
+        //    rb.AddForce(new Vector3(0, 21000 * Time.deltaTime, 0));
+        //}
+        #endregion
+    
         if (transform.position.y <= -30)
         {
             print("morreu pela queda");
         }
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
-
-        //print((int)rb.velocity.x + "/" + (int)rb.velocity.y);
+        
         animator.SetBool("jump", !grounded);
         animator.SetBool("moving", moving);
 
