@@ -9,6 +9,7 @@ public class BossScript : MonoBehaviour {
     public Slider slider;
     public Text text;
     public GameObject walls;
+    SpriteRenderer sr;
     Transform playerT;
     GameObject obj;
     Vector3 mouseP;
@@ -22,32 +23,33 @@ public class BossScript : MonoBehaviour {
     Animator animator;
     bool exceededTimeLimit = false;
     float attackTemp;
-    bool holdingMouseButton = false;
+    bool canAttack;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
         playerT = GameObject.Find("Player").GetComponent<Transform>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
-        x = cm.transform.position.x;
         attackTemp = 0;
     }
 
     private void Update()
     {
-        if (!holdingMouseButton)
-            attackTemp += Time.deltaTime;
+        attackTemp += Time.deltaTime;
+
         if (playerT.position.x >= 385.5f && !isFighting)
         {
             text.enabled = true;
             slider.gameObject.SetActive(true);
             slider.value += loadLife;
             cm.Follow = null;
+            x = cm.transform.position.x;
             x += 0.05f;
             cm.transform.position = new Vector3(x, cm.transform.position.y, cm.transform.position.z);
             Time.timeScale = 0f;
             if (slider.value == 1)
-            {
+            {   
                 isFighting = true;
                 walls.SetActive(true);
                 animator.enabled = true;
@@ -65,6 +67,10 @@ public class BossScript : MonoBehaviour {
         if (slider.value == 0)
         {
             walls.SetActive(false);
+            CancelInvoke();
+            animator.SetBool("isDead", true);
+            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+            Time.timeScale = 0f;
         }
     }
 
@@ -79,13 +85,17 @@ public class BossScript : MonoBehaviour {
             Invoke("AttackAnimation2", 1);
             Invoke("AttackAnimation3", 2);
             Invoke("TimeLimit", 3);
+            canAttack = true;
         }
-        holdingMouseButton = true;
+        else
+        {
+            canAttack = false;
+        }
     }
 
     private void OnMouseUp()
     {
-        if (!exceededTimeLimit && attackTemp >= 3)
+        if (!exceededTimeLimit && canAttack)
         {
             mouseP = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
 
@@ -112,13 +122,16 @@ public class BossScript : MonoBehaviour {
                 Invoke("MovementAnimation", 1.5f);
                 currentLife -= 1;
                 slider.value = CalculateLife();
+                attackTemp = 0;
             }
-            holdingMouseButton = false;
-            attackTemp = 0;
+            else
+            {
+                CancelInvoke();
+                Invoke("MovementAnimation", 0);
+            }
         }
         else
         {
-            holdingMouseButton = false;
             exceededTimeLimit = false;
             return;
         }
@@ -151,11 +164,22 @@ public class BossScript : MonoBehaviour {
         animator.SetBool("two", false);
         animator.SetBool("three", false);
         animator.SetBool("four", false);
+        animator.Play(0, -1, 0);
     }
 
     void TimeLimit()
     {
         OnMouseUp();
         exceededTimeLimit = true;
+    }
+
+    void Dead()
+    {
+        slider.gameObject.SetActive(false);
+        text.enabled = false;
+        Time.timeScale = 1f;
+        cm.Follow = playerT;
+        animator.updateMode = AnimatorUpdateMode.Normal;
+        gameObject.SetActive(false);
     }
 }

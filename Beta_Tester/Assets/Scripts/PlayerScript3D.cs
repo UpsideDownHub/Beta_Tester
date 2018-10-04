@@ -30,7 +30,7 @@ public class PlayerScript3D : MonoBehaviour {
 
     private void Update()
     {
-        if (transform.position.x >= 385.5f && !BossScript.isFighting)
+        if (Time.timeScale == 0)
         {
             animator.SetBool("moving", false);
         }
