@@ -602,7 +602,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 531568433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 8.01, y: -1.91, z: -7.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -716,7 +716,7 @@ MonoBehaviour:
   floor2: {fileID: 1008104094897616, guid: 5b71f92aa4d8b2f4f8cccc4018b3bb7e, type: 2}
   LeftStair: {fileID: 1919943908803144, guid: 61ba110aff8e8b04b908fe21b1829d05, type: 2}
   RightStair: {fileID: 1269596453768092, guid: e5b4607b71a7c714a9b9624bba9f733c, type: 2}
-  Character: {fileID: 1845586519086124, guid: c62cec81ee0229944aaba8ce96d86f8f, type: 2}
+  Character: {fileID: 1553364694435660, guid: 47576786fe6eba341812d9cc5bc9f65a, type: 2}
   Canvas: {fileID: 1991637883}
   Camera: {fileID: 1593320494}
 --- !u!4 &624587182
@@ -962,7 +962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -72.50001}
+  m_AnchoredPosition: {x: 0, y: -72.50002}
   m_SizeDelta: {x: 0, y: 145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198553332

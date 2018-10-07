@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using UnityGoogleDrive;
 
@@ -21,7 +22,7 @@ public class PhaseCreationManager : MonoBehaviour
     [SerializeField] GameObject Camera;
 
     UnityAction ua;
-    List<List<int>> data = new List<List<int>>();
+    public static List<List<int>> data = new List<List<int>>();
     private Dictionary<GameObject, string> Fileids = new Dictionary<GameObject, string>();
 
     private string result = string.Empty;
@@ -31,11 +32,9 @@ public class PhaseCreationManager : MonoBehaviour
         GoogleDriveFiles.List().Send().OnDone += BuildResults;
     }
 
-
     void Update()
     {
     }
-
 
     private void BuildResults(UnityGoogleDrive.Data.FileList fileList)
     {
@@ -62,8 +61,6 @@ public class PhaseCreationManager : MonoBehaviour
             obj.GetComponentInChildren<Text>().text = fileList.Files[i].Name;
 
             Fileids.Add(obj, fileList.Files[i].Id);
-
-            //ua += MountPhase;
 
             obj.GetComponentInChildren<Button>().onClick.AddListener(delegate { MountPhase(obj); });
 

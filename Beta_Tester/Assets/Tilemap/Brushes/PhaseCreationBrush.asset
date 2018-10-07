@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5751a2c961df945a34295ccf5e576d, type: 3}
+  m_Name: PhaseCreationBrush
+  m_EditorClassIdentifier: 
+  m_Prefabs:
+  - {fileID: 1135697815509216, guid: 18d69c46cc38e49438dae34192345f6e, type: 2}
+  - {fileID: 1008104094897616, guid: 5b71f92aa4d8b2f4f8cccc4018b3bb7e, type: 2}
+  - {fileID: 1269596453768092, guid: e5b4607b71a7c714a9b9624bba9f733c, type: 2}
+  - {fileID: 1919943908803144, guid: 61ba110aff8e8b04b908fe21b1829d05, type: 2}
+  m_PerlinScale: 0.5
+  m_Z: 0
