@@ -13,6 +13,7 @@ public class PhaseCreationManager : MonoBehaviour
     [SerializeField] GameObject panelContent;
     [SerializeField] GameObject panelItem;
     [SerializeField] GameObject floor;
+    [SerializeField] GameObject floor2;
     [SerializeField] GameObject LeftStair;
     [SerializeField] GameObject RightStair;
     [SerializeField] GameObject Character;
@@ -94,6 +95,9 @@ public class PhaseCreationManager : MonoBehaviour
                 float _v = data[i][j] == 3 || data[i][j] == 4 ? -0.5f : 0;
                 if (data[i][j] == 2)
                     character = Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
+                else if (data[i][j] == 1 && data[i][j - 1] != 0) {
+                    Instantiate(floor2, new Vector3(i, Mathf.Abs(j - 10 - _v), 0), floor2.transform.rotation);
+                }
                 else
                     Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
             }
@@ -114,44 +118,6 @@ public class PhaseCreationManager : MonoBehaviour
         }
 
         GoogleDriveFiles.Download(id).Send().OnDone += SetResult;
-
-        //if (string.IsNullOrEmpty(Text.text) || !System.IO.File.Exists("C:\\Desenvolvimento\\Projeto\\PhaseCreation\\PhaseCreation\\Assets\\Phases\\" + Text.text))
-        //{
-        //    TextError.SetActive(true);
-        //    return;
-        //}
-        //else
-        //    TextError.SetActive(false);
-
-        //using (StreamReader sr = File.OpenText("C:\\Desenvolvimento\\Projeto\\PhaseCreation\\PhaseCreation\\Assets\\Phases\\" + Text.text))
-        //{
-        //    string s = "";
-        //    List<int> line;
-        //    while ((s = sr.ReadLine()) != null)
-        //    {
-        //        line = new List<int>();
-        //        var val = s.Split(',');
-        //        line.AddRange(val.Select(x => int.Parse(x)));
-        //        data.Add(line);
-        //    }
-        //}
-        //if (data.Count == 0)
-        //{
-        //    print("Erro ao pegar os dados");
-        //    return;
-        //}
-
-        //for (int i = 0; i < data.Count; i++)
-        //{
-        //    for (int j = data[i].Count - 1; j > 0; j--)
-        //    {
-        //        if (data[i][j] == 0) continue;
-        //        float _v = data[i][j] == 3 || data[i][j] == 4 ? -0.5f : 0;
-        //        Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
-        //    }
-        //}
-
-        //Canvas.SetActive(false);
     }
 
     GameObject GetObject(int value)
