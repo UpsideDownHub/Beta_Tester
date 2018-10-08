@@ -352,7 +352,6 @@ GameObject:
   - component: {fileID: 93401365}
   - component: {fileID: 93401364}
   - component: {fileID: 93401363}
-  - component: {fileID: 93401362}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -373,18 +372,6 @@ Transform:
   m_Father: {fileID: 2130361092}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &93401362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 93401360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5f5e549f4b536f4586da8d5e2b54c74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1018195246060410, guid: 356b53944f35a4a409a791b5ab5f5424, type: 2}
 --- !u!65 &93401363
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -592,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b758911bf0326748af8672e84c0179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverBT: {fileID: 0}
+  gameOver: {fileID: 0}
   spike1: {fileID: 0}
   spike2: {fileID: 0}
   prefab: {fileID: 0}
@@ -611,10 +598,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 127799250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5002ddcf85568af4db0522f32fcc297c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5059d87c74f93094f929a06877358281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 457496820}
+  spikesPrefab: {fileID: 0}
+  fireBallPrefab: {fileID: 1018195246060410, guid: 356b53944f35a4a409a791b5ab5f5424,
+    type: 2}
+  fireBallEnemy: {fileID: 93401361}
 --- !u!4 &127799253
 Transform:
   m_ObjectHideFlags: 0
@@ -640,12 +630,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 48538728}
-  vida1: {fileID: 223688527}
-  vida2: {fileID: 160364762}
-  vida3: {fileID: 803735507}
-  vida4: {fileID: 143140174}
-  vida5: {fileID: 361900455}
+  vidas:
+  - {fileID: 223688527}
+  - {fileID: 160364762}
+  - {fileID: 803735507}
+  - {fileID: 143140174}
+  - {fileID: 361900455}
   button: {fileID: 541076526}
+  slider: {fileID: 0}
 --- !u!114 &127799255
 MonoBehaviour:
   m_ObjectHideFlags: 0

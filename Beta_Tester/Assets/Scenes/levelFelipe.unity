@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 25287503}
   - component: {fileID: 25287504}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: LifeBetaTester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +680,7 @@ Transform:
   - {fileID: 532261663}
   - {fileID: 686812320}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &46943532
 GameObject:
@@ -3909,11 +3909,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 927094908}
-  - component: {fileID: 927094907}
   - component: {fileID: 927094909}
   - component: {fileID: 927094910}
   - component: {fileID: 927094911}
-  - component: {fileID: 927094912}
+  - component: {fileID: 927094907}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -3929,10 +3928,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 927094906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7157745e8c2ee9745a434a296de2aa43, type: 3}
+  m_Script: {fileID: 11500000, guid: 5059d87c74f93094f929a06877358281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1312991945696332, guid: 70c9f897b9d51914faf38ddaad8c65c1, type: 2}
+  spikesPrefab: {fileID: 1312991945696332, guid: 70c9f897b9d51914faf38ddaad8c65c1,
+    type: 2}
+  fireBallPrefab: {fileID: 0}
+  fireBallEnemy: {fileID: 0}
 --- !u!4 &927094908
 Transform:
   m_ObjectHideFlags: 0
@@ -3957,7 +3959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b758911bf0326748af8672e84c0179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverBT: {fileID: 927094912}
+  gameOver: {fileID: 0}
   spike1: {fileID: 0}
   spike2: {fileID: 0}
   prefab: {fileID: 1274794322634432, guid: 9bae890522612ba4ba20c16ce0a333bb, type: 2}
@@ -3980,12 +3982,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 410830464}
-  vida1: {fileID: 1674225091}
-  vida2: {fileID: 1852368967}
-  vida3: {fileID: 270958942}
-  vida4: {fileID: 1856816694}
-  vida5: {fileID: 216943569}
+  vidas:
+  - {fileID: 1674225091}
+  - {fileID: 1852368967}
+  - {fileID: 270958942}
+  - {fileID: 1856816694}
+  - {fileID: 216943569}
   button: {fileID: 1607207229}
+  slider: {fileID: 25287504}
 --- !u!114 &927094911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4004,18 +4008,6 @@ MonoBehaviour:
   loadLevel: {fileID: 0}
   backToMenu: {fileID: 0}
   load: {fileID: 0}
---- !u!114 &927094912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 927094906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5002ddcf85568af4db0522f32fcc297c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 25287504}
 --- !u!1 &933911854
 GameObject:
   m_ObjectHideFlags: 0
@@ -7517,59 +7509,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1893769083
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1893769084}
-  - component: {fileID: 1893769086}
-  - component: {fileID: 1893769085}
-  m_Layer: 0
-  m_Name: colisoes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1893769084
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1893769083}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1893769085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1893769083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb56ab7989785d4a975f0d35e7dec43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &1893769086
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1893769083}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0688934, y: 1.1452103, z: 1}
-  m_Center: {x: 27.978203, y: 5.657116, z: 0}
 --- !u!1 &1920210048
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class BossScript : MonoBehaviour {
     public Slider slider;
     public Text text;
     public GameObject walls;
-    SpriteRenderer sr;
     Transform playerT;
     GameObject obj;
     Vector3 mouseP;
@@ -28,7 +27,6 @@ public class BossScript : MonoBehaviour {
     private void Start()
     {
         animator = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
         playerT = GameObject.Find("Player").GetComponent<Transform>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
         attackTemp = 0;

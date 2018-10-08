@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Selectable : MonoBehaviour {
 
-    public GameOverBetaTester gameOverBT;
+    public GameOver gameOver;
     public GameObject spike1;
     public GameObject spike2;
     public GameObject prefab;
@@ -48,26 +48,26 @@ public class Selectable : MonoBehaviour {
                     else if (hit.collider.name == "gelo (2)")
                     {
                         script.speed = 3;
-                        gameOverBT.slider.value += 0.15f;
+                        gameOver.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Trap")
                     {
                         Destroy(hit.collider.gameObject);
-                        gameOverBT.slider.value += 0.15f;
+                        gameOver.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Enemy1")
                     {
                         script2.prefab = prefab;
                         boxC.enabled = true;
-                        gameOverBT.slider.value += 0.15f;
+                        gameOver.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Enemy4")
                     {
                         script3.prefab = prefab;
-                        gameOverBT.slider.value += 0.15f;
+                        gameOver.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Enemy5")
@@ -96,10 +96,6 @@ public class Selectable : MonoBehaviour {
                             playerScript.speed = 0;
                             Invoke("Walk", 2);
                         }
-                        else if (hit.collider.name == "gelo(1)" && playerT.position.x >= 2)
-                        {
-
-                        }
                     }
                     activateTrapTime = 0;
                 }
@@ -109,6 +105,6 @@ public class Selectable : MonoBehaviour {
 
     void Walk()
     {
-        playerScript.speed = 5;
+        playerScript.speed = 250;
     }
 }

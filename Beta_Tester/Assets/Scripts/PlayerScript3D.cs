@@ -36,13 +36,21 @@ public class PlayerScript3D : MonoBehaviour {
         }
 
         #region SlowMotionConfig
-        if (Input.GetKey(KeyCode.Mouse1) && !isEnded)
+        if (Input.GetKey(KeyCode.Mouse1))
         {
-            Time.timeScale = 0.5f;
-            slowMotion.value -= 0.01f;
-            isPressing = true;
+            if (!isEnded)
+            {
+                Time.timeScale = 0.5f;
+                slowMotion.value -= 0.01f;
+                isPressing = true;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                isPressing = false;
+            }
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1) || slowMotion.value == 0)
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             Time.timeScale = 1f;
             isPressing = false;
@@ -90,6 +98,7 @@ public class PlayerScript3D : MonoBehaviour {
         //if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         //{
         //    moving = false;
+        //    rb.velocity = new Vector3(0, 0, 0);
         //}
 
         //else if (Input.GetKey(KeyCode.LeftArrow))
@@ -111,7 +120,7 @@ public class PlayerScript3D : MonoBehaviour {
         //    rb.AddForce(new Vector3(0, 21000 * Time.deltaTime, 0));
         //}
         #endregion
-    
+
         if (transform.position.y <= -30)
         {
             print("morreu pela queda");
