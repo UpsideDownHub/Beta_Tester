@@ -74,6 +74,8 @@ public class PlayerScript3D : MonoBehaviour {
     {
         if (life <= 0)
             gameObject.SetActive(false);
+        else
+            gameObject.SetActive(true);
 
         #region Movement
         if (speed == 0)
