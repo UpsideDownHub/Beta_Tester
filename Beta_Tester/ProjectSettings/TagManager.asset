@@ -14,6 +14,7 @@ TagManager:
   - Enemy
   - Fall
   - Spikes
+  - Drag
   layers:
   - Default
   - TransparentFX

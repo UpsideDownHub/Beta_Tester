@@ -7,6 +7,7 @@ public class MouseDrag : MonoBehaviour
     bool Draging;
     Vector3 mouseP;
     Transform objT;
+    Rigidbody objRb;
 
     private void FixedUpdate()
     {
@@ -17,7 +18,11 @@ public class MouseDrag : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                objT = hit.collider.GetComponent<Transform>();
+                if (hit.collider.tag == "Drag")
+                {
+                    objT = hit.collider.GetComponent<Transform>();
+                    objRb = hit.collider.GetComponent<Rigidbody>();
+                }
             }
         }
         
@@ -28,6 +33,14 @@ public class MouseDrag : MonoBehaviour
         else
         {
             Draging = false;
+            objT = null;
+            if (objRb != null)
+            {
+                objRb.useGravity = true;
+            }
+            else
+                return;
+            //mexer aqui no rigidbody
         }
 
         if (Draging)
