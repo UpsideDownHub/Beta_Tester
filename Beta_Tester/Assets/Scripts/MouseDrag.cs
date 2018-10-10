@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class MouseDrag : MonoBehaviour
 {
-    bool Draging;
     Vector3 mouseP;
     Transform objT;
     Rigidbody objRb;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -25,14 +24,21 @@ public class MouseDrag : MonoBehaviour
                 }
             }
         }
-        
+    }
+
+    private void FixedUpdate()
+    {        
         if (Input.GetMouseButton(0))
         {
-            Draging = true;
+            mouseP = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+
+            if (objT == null)
+                return;
+            else
+                objT.position = mouseP;
         }
         else
         {
-            Draging = false;
             objT = null;
             if (objRb != null)
             {
@@ -41,16 +47,6 @@ public class MouseDrag : MonoBehaviour
             else
                 return;
             //mexer aqui no rigidbody
-        }
-
-        if (Draging)
-        {
-            mouseP = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
-
-            if (objT == null)
-                return;
-            else
-                objT.position = mouseP;
         }
     }
 }
