@@ -373,9 +373,9 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 110
+  field of view: 40
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -398,7 +398,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 29839509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.1099997, y: 8.27, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1321396883}
@@ -1299,8 +1299,8 @@ GameObject:
   m_Component:
   - component: {fileID: 229834383}
   - component: {fileID: 229834382}
-  - component: {fileID: 229834384}
   - component: {fileID: 229834386}
+  - component: {fileID: 229834384}
   m_Layer: 12
   m_Name: gelo (2)
   m_TagString: Untagged
@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 229834381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65553cef9d3a2264292633fff5656aa2, type: 3}
+  m_Script: {fileID: 11500000, guid: 18243a6782910c54793d098512d2ceef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
@@ -4179,7 +4179,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 943056511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.1099997, y: 8.27, z: -10}
+  m_LocalPosition: {x: 81.7, y: 11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 904352831}
@@ -7768,11 +7768,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4942735437664888, guid: c62cec81ee0229944aaba8ce96d86f8f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.89
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 4942735437664888, guid: c62cec81ee0229944aaba8ce96d86f8f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.27
+      value: 6.24
       objectReference: {fileID: 0}
     - target: {fileID: 4942735437664888, guid: c62cec81ee0229944aaba8ce96d86f8f, type: 2}
       propertyPath: m_LocalPosition.z

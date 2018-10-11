@@ -9,16 +9,25 @@ public class Instantiate : MonoBehaviour {
     public GameObject spikesPrefab;
     public GameObject fireBallPrefab;
     public Transform fireBallEnemy;
+    GameObject player;
 
     private void Start()
     {
+        player = GameObject.Find("Player");
+
         if (SceneManager.GetActiveScene().buildIndex == 4)
             InvokeRepeating("Spikes", 0, 3);
 
         if (SceneManager.GetActiveScene().buildIndex == 3)
-            InvokeRepeating("FireBall", 4, 2.5f);
+            InvokeRepeating("FireBall", 3, 3);
 
         //InvokeRepeating("Ball", 4, 6);
+    }
+
+    private void Update()
+    {
+        if (!player.activeSelf)
+            CancelInvoke();
     }
 
     void Spikes()

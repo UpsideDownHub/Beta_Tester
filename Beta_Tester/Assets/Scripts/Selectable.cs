@@ -9,7 +9,7 @@ public class Selectable : MonoBehaviour {
     public GameObject spike2;
     public GameObject prefab;
     public GameObject prefabPlanta;
-    public MoveSpikes script;
+    public MoveObjects script;
     public EnemyScript script2;
     public EnemyScript script3;
     public Transform playerT;

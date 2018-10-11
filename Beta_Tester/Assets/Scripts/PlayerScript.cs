@@ -17,7 +17,6 @@ public class PlayerScript : MonoBehaviour
     float x;
     float y;
     bool moving;
-    public static int life = 5;
     public static bool speedDirection = true;
     bool isColliding;
 
@@ -73,7 +72,7 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (life <= 0)
+        if (PlayerScript3D.life <= 0)
             gameObject.SetActive(false);
         else
             gameObject.SetActive(true);
@@ -145,7 +144,7 @@ public class PlayerScript : MonoBehaviour
 
     public IEnumerator DamageAndInvulnerable()
     {
-        life--;
+        PlayerScript3D.life--;
         Physics.IgnoreLayerCollision(0, 12, true);
         c.a = 0.5f;
         sr.material.color = c;
