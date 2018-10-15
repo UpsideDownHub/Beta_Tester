@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class MouseDrag : MonoBehaviour
 {
     Vector3 mouseP;
     Transform objT;
     Rigidbody objRb;
+    public Tilemap tileM;
 
     private void Update()
     {
+        print(tileM.HasTile(new Vector3Int(0, 1, 0)));
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerScript3D : MonoBehaviour {
@@ -21,11 +21,13 @@ public class PlayerScript3D : MonoBehaviour {
     public bool grounded;
     public LayerMask whatIsGround;
     bool isColliding;
+    CinemachineVirtualCamera cm;
 
     void Start()
     {
         c = sr.material.color;
         slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
+        cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
     }
 
     private void Update()
@@ -149,7 +151,9 @@ public class PlayerScript3D : MonoBehaviour {
 
         else if (other.tag == "Portal")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            cm.Follow = null;
+            rb.AddForce(new Vector3(0, 150, 0));
+            GameManager.isLevelCompleted = true;
         }
     }
 

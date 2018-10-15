@@ -27,7 +27,7 @@ public class MoveObjects : MonoBehaviour {
 
     private void FixedUpdate()
     {   //FireBall
-        if (gameObject.name == "FireBall(Clone)")
+        if (gameObject.name == "FireBall(Clone)" || gameObject.name == "FireBall2(Clone)")
         {
             if (!isInLastPosition)
                 transform.position = Vector3.MoveTowards(transform.position, lastPosition, 10 * Time.deltaTime);

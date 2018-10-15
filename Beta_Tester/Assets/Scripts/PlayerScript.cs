@@ -78,44 +78,56 @@ public class PlayerScript : MonoBehaviour
             gameObject.SetActive(true);
 
         #region Movement
-        if (speed == 0)
+        //if (speed == 0)
+        //{
+        //    moving = false;
+        //}
+        //else
+        //{
+        //    if (speedDirection)
+        //    {
+        //        x += speed * Time.deltaTime;
+        //        moving = true;
+        //        sr.flipX = false;
+        //    }
+        //    else
+        //    {
+        //        x -= speed * Time.deltaTime;
+        //        moving = true;
+        //        sr.flipX = true;
+        //    }
+        //}
+        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             moving = false;
         }
-        else
+
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (speedDirection)
-            {
-                x += speed * Time.deltaTime;
-                moving = true;
-                sr.flipX = false;
-            }
-            else
-            {
-                x -= speed * Time.deltaTime;
-                moving = true;
-                sr.flipX = true;
-            }
+            x -= speed * Time.deltaTime;
+            moving = true;
+            sr.flipX = true;
         }
-        //if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    moving = false;
-        //    rb.velocity = new Vector3(0, 0, 0);
-        //}
 
-        //else if (Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-        //    moving = true;
-        //    sr.flipX = true;
-        //}
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            x += speed * Time.deltaTime;
+            moving = true;
+            sr.flipX = false;
+        }
 
-        //else if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-        //    moving = true;
-        //    sr.flipX = false;
-        //}
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            y += speed * Time.deltaTime;
+            moving = true;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            y -= speed * Time.deltaTime;
+            moving = true;
+        }
+        
         transform.position = new Vector3(x, y, transform.position.z);
         #endregion
         
