@@ -14,6 +14,14 @@ public class MoveObjects : MonoBehaviour {
     //Spikes
     float y;
 
+    //GroundTrap
+    public bool isActivated;
+    bool isPreparedToLaunch;
+    bool isLaunched;
+    Vector3 mouseP;
+    float temp;
+    float temp2;
+
     private void Start()
     {   //FireBall
         target = GameObject.Find("Player").GetComponent<Transform>();
@@ -23,6 +31,10 @@ public class MoveObjects : MonoBehaviour {
 
         //Spikes
         y = transform.position.y;
+
+        //GroundTrap
+        temp = 0;
+        temp2 = 0;
     }
 
     private void FixedUpdate()
@@ -52,6 +64,46 @@ public class MoveObjects : MonoBehaviour {
             if (transform.position.y > 10)
             {
                 Destroy(gameObject);
+            }
+        }
+
+        //GroundTrap
+        else if (gameObject.tag == "Trap" && isActivated)
+        {
+            var spin = gameObject.GetComponent<Spin>();
+            if (temp == 0)
+                spin.spinz = -1;
+            else if (temp >= 2)
+                spin.spinz = 0;
+            temp += Time.deltaTime;
+
+            if (!isPreparedToLaunch)
+            {
+                y += speed * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x, y, transform.position.z);
+                if (transform.position.y >= 10)
+                    isPreparedToLaunch = true;
+            }
+            else
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    gameObject.layer = 12;
+                    mouseP = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+                    isLaunched = true;
+                }
+            }
+
+            if (isLaunched)
+                transform.position = Vector3.MoveTowards(transform.position, mouseP, 10 * Time.deltaTime);
+
+            if (mouseP == transform.position)
+            {
+                temp2 += Time.deltaTime;
+                var animator = gameObject.GetComponent<Animator>();
+                animator.SetBool("TouchGround", true);
+                if (temp2 >= 0.4f)
+                    gameObject.SetActive(false);
             }
         }
     }

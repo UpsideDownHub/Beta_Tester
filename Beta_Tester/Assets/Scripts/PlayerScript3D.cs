@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerScript3D : MonoBehaviour {
@@ -80,49 +81,68 @@ public class PlayerScript3D : MonoBehaviour {
             gameObject.SetActive(true);
 
         #region Movement
-        if (speed == 0)
-        {
-            moving = false;
-        }
-        else
-        {
-            if (speedDirection)
-            {
-                rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-                moving = true;
-                sr.flipX = false;
-            }
-            else
-            {
-                rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-                moving = true;
-                sr.flipX = true;
-            }
-        }
-        //if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        //if (speed == 0)
         //{
         //    moving = false;
-        //    rb.velocity = new Vector3(0, 0, 0);
         //}
-
-        //else if (Input.GetKey(KeyCode.LeftArrow))
+        //else
         //{
-        //    rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-        //    moving = true;
-        //    sr.flipX = true;
+        //    if (speedDirection)
+        //    {
+        //        rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+        //        moving = true;
+        //        sr.flipX = false;
+        //    }
+        //    else
+        //    {
+        //        rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+        //        moving = true;
+        //        sr.flipX = true;
+        //    }
         //}
+        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        {
+            moving = false;
+            rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+        }
 
-        //else if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-        //    moving = true;
-        //    sr.flipX = false;
-        //}
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+            moving = true;
+            sr.flipX = true;
+        }
 
-        //if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377) //tirar velocity
-        //{
-        //    rb.AddForce(new Vector3(0, 21000 * Time.deltaTime, 0));
-        //}
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+            moving = true;
+            sr.flipX = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 3) //tirar velocity
+        {
+            rb.AddForce(new Vector3(0, 21000 * Time.deltaTime, 0));
+        }
+
+        //movimentação da fase de fogo
+
+        if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow) && SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow) && SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, speed * Time.deltaTime, rb.velocity.z);
+            moving = true;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow) && SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, -speed * Time.deltaTime, rb.velocity.z);
+            moving = true;
+        }
         #endregion
 
         if (transform.position.y <= -30)
@@ -130,9 +150,12 @@ public class PlayerScript3D : MonoBehaviour {
             print("morreu pela queda");
         }
 
-        grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
-        
-        animator.SetBool("jump", !grounded);
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
+            animator.SetBool("jump", !grounded);
+        }
+
         animator.SetBool("moving", moving);
 
         isColliding = false;

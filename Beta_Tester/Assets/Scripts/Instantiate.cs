@@ -19,7 +19,7 @@ public class Instantiate : MonoBehaviour {
             InvokeRepeating("Spikes", 0, 3);
 
         if (SceneManager.GetActiveScene().buildIndex == 3)
-            InvokeRepeating("FireBall", 3, 3);
+            InvokeRepeating("FireBall", 0, 3);
 
         //InvokeRepeating("Ball", 4, 6);
     }
@@ -37,7 +37,7 @@ public class Instantiate : MonoBehaviour {
 
     void FireBall()
     {
-        Instantiate(fireBallPrefab, fireBallEnemy.position, Quaternion.identity);
+        Instantiate(fireBallPrefab, fireBallEnemy.position, fireBallPrefab.transform.rotation);
     }
 
     //void Ball()

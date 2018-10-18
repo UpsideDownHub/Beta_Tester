@@ -15,6 +15,7 @@ TagManager:
   - Fall
   - Spikes
   - Drag
+  - Trap
   layers:
   - Default
   - TransparentFX

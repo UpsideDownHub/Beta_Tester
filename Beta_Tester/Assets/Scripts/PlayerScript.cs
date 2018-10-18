@@ -104,31 +104,35 @@ public class PlayerScript : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            x -= speed * Time.deltaTime;
+            //x -= speed * Time.deltaTime;
+            rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
             moving = true;
             sr.flipX = true;
         }
 
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            x += speed * Time.deltaTime;
+            //x += speed * Time.deltaTime;
+            rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
             moving = true;
             sr.flipX = false;
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            y += speed * Time.deltaTime;
+            //y += speed * Time.deltaTime;
+            rb.velocity = new Vector3(rb.velocity.x, speed * Time.deltaTime, rb.velocity.z);
             moving = true;
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            y -= speed * Time.deltaTime;
+            //y -= speed * Time.deltaTime;
+            rb.velocity = new Vector3(rb.velocity.x, -speed * Time.deltaTime, rb.velocity.z);
             moving = true;
         }
         
-        transform.position = new Vector3(x, y, transform.position.z);
+        //transform.position = new Vector3(x, y, transform.position.z);
         #endregion
         
         animator.SetBool("jump", false);

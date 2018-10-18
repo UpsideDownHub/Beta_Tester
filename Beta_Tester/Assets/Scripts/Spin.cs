@@ -12,6 +12,9 @@ public class Spin : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        if (rb == null) return;
+
         if (rb.tag == "Poison" && gameObject.name == "Poison(Clone)")
         {
             rb.velocity = new Vector3(0, 0, 0);

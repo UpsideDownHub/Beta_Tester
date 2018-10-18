@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10373249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.849999, y: -5.5899997, z: 10}
+  m_LocalPosition: {x: -9.98, y: -2.1, z: 10}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 29839515}
@@ -1458,6 +1458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  isActivated: 0
 --- !u!65 &229834386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4243,7 +4244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ee4a6c15e00d948acadb23946b6f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  cameraFollow: {fileID: 0}
   circleT: {fileID: 10373250}
+  groundTraps: []
+  groundLavas: []
 --- !u!1 &933911854
 GameObject:
   m_ObjectHideFlags: 0

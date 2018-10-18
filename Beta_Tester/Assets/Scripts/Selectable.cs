@@ -19,7 +19,7 @@ public class Selectable : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        activateTrapTime = 0;
+        activateTrapTime = 2;
 	}
 	
 	// Update is called once per frame
@@ -78,6 +78,21 @@ public class Selectable : MonoBehaviour {
                     else if (hit.collider.name == "Enemy6")
                     {
                         EnemyScript.isClicked2 = true;
+                    }
+
+                    else if (hit.collider.tag == "Trap")
+                    {
+                        var animator = hit.collider.gameObject.GetComponent<Animator>();
+                        var boxC = hit.collider.gameObject.GetComponent<BoxCollider>();
+
+                        animator.enabled = true;
+                        boxC.enabled = true;
+
+                        if (hit.transform.position.x < playerT.position.x)
+                        {
+                            var moveObjects = hit.collider.GetComponent<MoveObjects>();
+                            moveObjects.isActivated = true;
+                        }
                     }
 
                     else if (hit.collider.tag == "Fall" || hit.collider.name == "PoisonE")

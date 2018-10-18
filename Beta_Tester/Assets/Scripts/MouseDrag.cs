@@ -8,11 +8,9 @@ public class MouseDrag : MonoBehaviour
     Vector3 mouseP;
     Transform objT;
     Rigidbody objRb;
-    public Tilemap tileM;
 
     private void Update()
     {
-        print(tileM.HasTile(new Vector3Int(0, 1, 0)));
 
         if (Input.GetMouseButtonDown(0))
         {
