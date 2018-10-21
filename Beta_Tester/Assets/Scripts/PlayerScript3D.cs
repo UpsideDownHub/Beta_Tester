@@ -16,7 +16,7 @@ public class PlayerScript3D : MonoBehaviour {
     Color c;
     public float speed;
     bool moving;
-    public static int life = 5;
+    public static int life;
     public static bool speedDirection = true;
     public Transform groundCheck;
     public bool grounded;
@@ -26,6 +26,7 @@ public class PlayerScript3D : MonoBehaviour {
 
     void Start()
     {
+        life = 5;
         c = sr.material.color;
         slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
@@ -71,6 +72,8 @@ public class PlayerScript3D : MonoBehaviour {
                 isEnded = true;
         }
         #endregion
+
+        sr.sortingOrder = Mathf.RoundToInt(transform.position.y * 10f) * -1;
     }
 
     private void FixedUpdate()

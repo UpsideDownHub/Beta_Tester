@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d5751a2c961df945a34295ccf5e576d, type: 3}
-  m_Name: Prefab brush
+  m_Name: GroundTrap Prefab Brush
   m_EditorClassIdentifier: 
   m_Prefabs:
-  - {fileID: 1135697815509216, guid: 18d69c46cc38e49438dae34192345f6e, type: 2}
+  - {fileID: 1432143182136444, guid: ebc815cb666e2964a8db78d30bc78841, type: 2}
   m_PerlinScale: 0.5
   m_Z: 0

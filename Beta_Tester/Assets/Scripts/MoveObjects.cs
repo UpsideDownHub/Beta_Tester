@@ -107,4 +107,18 @@ public class MoveObjects : MonoBehaviour {
             }
         }
     }
+
+    private void OnBecameVisible()
+    {
+        gameObject.SetActive(true);        
+    }
+
+    private void OnBecameInvisible()
+    {
+        if (gameObject.name != "GroundTrap")
+            gameObject.SetActive(false);
+
+        if (gameObject.name == "FireBall(Clone)")
+            Destroy(gameObject);
+    }
 }

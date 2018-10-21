@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
     bool isLevelInBeginning;
     public GameObject[] groundTraps;
     public GameObject[] groundLavas;
+    float minPosC;
+    float maxPosC;
 
     //public Tilemap tileM;
 
@@ -24,6 +26,9 @@ public class GameManager : MonoBehaviour {
         y = circleT.localScale.x;
 
         isLevelInBeginning = true;
+
+        minPosC = (-Camera.main.orthographicSize * Camera.main.aspect) * 2;
+        maxPosC = (Camera.main.orthographicSize * Camera.main.aspect) * 2;
     }
 
     private void Update()
@@ -47,10 +52,10 @@ public class GameManager : MonoBehaviour {
 
         if (isLevelCompleted)
         {
-            //if (SceneManager.GetActiveScene().buildIndex == 4)
-            //    circleT.position = new Vector3(12.85f, -5.59f, circleT.position.z);
-            //else if (SceneManager.GetActiveScene().buildIndex == 5)
-            //    circleT.position = new Vector3(-2.29f, -8.57f, circleT.position.z);
+            if (SceneManager.GetActiveScene().buildIndex == 4)
+                circleT.localPosition = new Vector3(-3.8f, -5.59f, circleT.localPosition.z);
+            else if (SceneManager.GetActiveScene().buildIndex == 5)
+                circleT.localPosition = new Vector3(-2.29f, -8.57f, circleT.localPosition.z);
 
             if (circleT.localScale.x > 0)
             {
@@ -89,10 +94,10 @@ public class GameManager : MonoBehaviour {
     {
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
-            if (player.transform.position.x >= -24)
-            {
+            //if (player.transform.position.x + maxPosC <= maxPosC || player.transform.position.x - minPosC >= minPosC)
+            //{
                 cameraFollow.position = new Vector3(player.transform.position.x, cameraFollow.position.y, cameraFollow.position.z);
-            }
+            //}
         }
     }
 

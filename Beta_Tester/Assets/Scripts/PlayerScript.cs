@@ -14,8 +14,6 @@ public class PlayerScript : MonoBehaviour
     bool isEnded;
     Color c;
     public float speed;
-    float x;
-    float y;
     bool moving;
     public static bool speedDirection = true;
     bool isColliding;
@@ -24,8 +22,6 @@ public class PlayerScript : MonoBehaviour
     {
         c = sr.material.color;
         slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
-        x = transform.position.x;
-        y = transform.position.y;
     }
 
     private void Update()

@@ -34,13 +34,7 @@ public class Selectable : MonoBehaviour {
             {
                 if (activateTrapTime >= 2)
                 {
-                    if (hit.collider.name == "spike")
-                    {
-                        spike1.SetActive(true);
-                        spike2.SetActive(true);
-                    }
-
-                    else if (hit.collider.name == "Planta")
+                    if (hit.collider.name == "Planta")
                     {
                         Instantiate(prefabPlanta, hit.transform.position, Quaternion.identity);
                     }
