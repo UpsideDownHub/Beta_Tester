@@ -2428,9 +2428,9 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 110
+  field of view: 40
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2453,7 +2453,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 506602781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.6899996, y: 6.27, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1873258761}
@@ -3751,7 +3751,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ee4a6c15e00d948acadb23946b6f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  cameraFollow: {fileID: 0}
   circleT: {fileID: 1711705881}
+  groundTraps: []
+  groundLavas: []
+  prefab: {fileID: 0}
 --- !u!1 &720753945
 GameObject:
   m_ObjectHideFlags: 0
@@ -19579,7 +19584,7 @@ Prefab:
     - target: {fileID: 114671843212523582, guid: c62cec81ee0229944aaba8ce96d86f8f,
         type: 2}
       propertyPath: speed
-      value: 250
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 212232173809881620, guid: c62cec81ee0229944aaba8ce96d86f8f,
         type: 2}

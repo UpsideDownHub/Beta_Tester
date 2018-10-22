@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour {
     float minPosC;
     float maxPosC;
     public GameObject prefab;
-    public BoxCollider teste;
-    public BoxCollider teste2;
 
     //public Tilemap tileM;
 
@@ -38,7 +36,6 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        Debug.DrawLine(teste.center, teste2.center, Color.white);
         //Warner Bros circle
         if (isLevelInBeginning)
         {

@@ -93,13 +93,13 @@ public class PlayerScript3D : MonoBehaviour {
         //{
         //    if (speedDirection)
         //    {
-        //        rb.velocity = new Vector3(speed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
+        //        rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
         //        moving = true;
         //        sr.flipX = false;
         //    }
         //    else
         //    {
-        //        rb.velocity = new Vector3(-speed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
+        //        rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
         //        moving = true;
         //        sr.flipX = true;
         //    }
@@ -112,21 +112,21 @@ public class PlayerScript3D : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb.velocity = new Vector3(-speed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
+            rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
             moving = true;
             sr.flipX = true;
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            rb.velocity = new Vector3(speed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
+            rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
             moving = true;
             sr.flipX = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 3) //tirar velocity
         {
-            rb.AddForce(new Vector3(0, 21000 * Time.fixedDeltaTime, 0));
+            rb.AddForce(new Vector3(0, 300, 0));
         }
 
         //movimentação da fase de fogo
@@ -140,13 +140,13 @@ public class PlayerScript3D : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                rb.velocity = new Vector3(rb.velocity.x, speed * Time.fixedDeltaTime, rb.velocity.z);
+                rb.velocity = new Vector3(rb.velocity.x, speed, rb.velocity.z);
                 moving = true;
             }
 
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                rb.velocity = new Vector3(rb.velocity.x, -speed * Time.fixedDeltaTime, rb.velocity.z);
+                rb.velocity = new Vector3(rb.velocity.x, -speed, rb.velocity.z);
                 moving = true;
             }
         }
