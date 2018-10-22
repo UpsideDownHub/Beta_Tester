@@ -681,6 +681,9 @@ MonoBehaviour:
   - {fileID: 512881134}
   - {fileID: 336893633}
   - {fileID: 289135437}
+  prefab: {fileID: 1871212547707902, guid: e733750a09c7f75489b02225e3e3d98c, type: 2}
+  teste: {fileID: 1078960515}
+  teste2: {fileID: 1876786141}
 --- !u!114 &127799252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1833,7 +1836,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 557375056}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6d5a78cf12a720946a01a851e0ecb1df, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1845,7 +1848,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 557375056}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6d5a78cf12a720946a01a851e0ecb1df, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1857,7 +1860,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 557375056}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6d5a78cf12a720946a01a851e0ecb1df, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3053,7 +3056,7 @@ SpriteRenderer:
   m_DrawMode: 2
   m_Size: {x: 357.292, y: 2.02}
   m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
+  m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
@@ -3480,7 +3483,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1078960514}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9960e2fba3887af4ebc5c1e60117090e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5665,6 +5668,11 @@ GameObject:
 --- !u!4 &1876786137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4987575794159714, guid: ebc815cb666e2964a8db78d30bc78841,
+    type: 2}
+  m_PrefabInternal: {fileID: 1620918871}
+--- !u!65 &1876786141 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 65628463668714460, guid: ebc815cb666e2964a8db78d30bc78841,
     type: 2}
   m_PrefabInternal: {fileID: 1620918871}
 --- !u!1 &1884541578 stripped

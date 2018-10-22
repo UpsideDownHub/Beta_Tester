@@ -84,6 +84,7 @@ public class Selectable : MonoBehaviour {
 
                         if (hit.transform.position.x < playerT.position.x)
                         {
+                            animator.SetBool("Flying", true);
                             var moveObjects = hit.collider.GetComponent<MoveObjects>();
                             moveObjects.isActivated = true;
                         }

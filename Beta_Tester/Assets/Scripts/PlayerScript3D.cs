@@ -73,7 +73,8 @@ public class PlayerScript3D : MonoBehaviour {
         }
         #endregion
 
-        sr.sortingOrder = Mathf.RoundToInt(transform.position.y * 10f) * -1;
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+            sr.sortingOrder = Mathf.RoundToInt(transform.position.y * 10f) * -1;
     }
 
     private void FixedUpdate()
@@ -92,13 +93,13 @@ public class PlayerScript3D : MonoBehaviour {
         //{
         //    if (speedDirection)
         //    {
-        //        rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+        //        rb.velocity = new Vector3(speed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
         //        moving = true;
         //        sr.flipX = false;
         //    }
         //    else
         //    {
-        //        rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+        //        rb.velocity = new Vector3(-speed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
         //        moving = true;
         //        sr.flipX = true;
         //    }
@@ -109,42 +110,45 @@ public class PlayerScript3D : MonoBehaviour {
             rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
         }
 
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+            rb.velocity = new Vector3(-speed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
             moving = true;
             sr.flipX = true;
         }
 
-        else if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+            rb.velocity = new Vector3(speed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
             moving = true;
             sr.flipX = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 3) //tirar velocity
         {
-            rb.AddForce(new Vector3(0, 21000 * Time.deltaTime, 0));
+            rb.AddForce(new Vector3(0, 21000 * Time.fixedDeltaTime, 0));
         }
 
         //movimentação da fase de fogo
 
-        if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow) && SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 3)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-        }
+            if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            }
 
-        if (Input.GetKey(KeyCode.UpArrow) && SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, speed * Time.deltaTime, rb.velocity.z);
-            moving = true;
-        }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, speed * Time.fixedDeltaTime, rb.velocity.z);
+                moving = true;
+            }
 
-        if (Input.GetKey(KeyCode.DownArrow) && SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, -speed * Time.deltaTime, rb.velocity.z);
-            moving = true;
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, -speed * Time.fixedDeltaTime, rb.velocity.z);
+                moving = true;
+            }
         }
         #endregion
 

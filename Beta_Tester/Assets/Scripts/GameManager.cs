@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour {
     public GameObject[] groundLavas;
     float minPosC;
     float maxPosC;
+    public GameObject prefab;
+    public BoxCollider teste;
+    public BoxCollider teste2;
 
     //public Tilemap tileM;
 
@@ -29,10 +32,14 @@ public class GameManager : MonoBehaviour {
 
         minPosC = (-Camera.main.orthographicSize * Camera.main.aspect) * 2;
         maxPosC = (Camera.main.orthographicSize * Camera.main.aspect) * 2;
+
+        //Instantiate(prefab, tileM.GetCellCenterLocal(new Vector3Int (0,-1,0)), Quaternion.identity, tileM.transform.parent);
     }
 
     private void Update()
     {
+        Debug.DrawLine(teste.center, teste2.center, Color.white);
+        //Warner Bros circle
         if (isLevelInBeginning)
         {
             if (circleT.localScale.x >= 0 && circleT.localScale.x <= 70)
@@ -74,6 +81,7 @@ public class GameManager : MonoBehaviour {
 
         //print(tileM.HasTile(new Vector3Int(0, 1, 0)));
 
+        //Ativação da lava ao subir a pedra
         if (groundTraps != null)
         {
             for (int i = 0; i < groundTraps.Length; i++)
@@ -94,9 +102,10 @@ public class GameManager : MonoBehaviour {
     {
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
+            cameraFollow.position = new Vector3(player.transform.position.x, cameraFollow.position.y, cameraFollow.position.z);
+
             //if (player.transform.position.x + maxPosC <= maxPosC || player.transform.position.x - minPosC >= minPosC)
             //{
-                cameraFollow.position = new Vector3(player.transform.position.x, cameraFollow.position.y, cameraFollow.position.z);
             //}
         }
     }
