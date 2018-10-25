@@ -9,7 +9,6 @@ public class BossScript : MonoBehaviour {
     public Slider slider;
     public Text text;
     public GameObject walls;
-    SpriteRenderer sr;
     Transform playerT;
     GameObject obj;
     Vector3 mouseP;
@@ -28,7 +27,6 @@ public class BossScript : MonoBehaviour {
     private void Start()
     {
         animator = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
         playerT = GameObject.Find("Player").GetComponent<Transform>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
         attackTemp = 0;
@@ -102,17 +100,17 @@ public class BossScript : MonoBehaviour {
             if (mouseP.y >= -48f && mouseP.y <= -38f)
             {
                 if (mouseP.x < transform.position.x && mouseP.x >= transform.position.x - 8.1f) //Esquerda
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonBoss"), transform.position, Quaternion.identity);
+                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss"), transform.position, Quaternion.identity);
                 else if (mouseP.x > transform.position.x && mouseP.x <= transform.position.x + 8.1f) //Direita
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonBoss"), transform.position, Quaternion.identity);
+                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss"), transform.position, Quaternion.identity);
                 else if (mouseP.x < transform.position.x - 8.1f && mouseP.x >= transform.position.x - 12.9f) //Esquerda
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonBoss1"), transform.position, Quaternion.identity);
+                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss1"), transform.position, Quaternion.identity);
                 else if (mouseP.x > transform.position.x + 8.1f && mouseP.x <= transform.position.x + 12.9f) //Direita
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonBoss3"), transform.position, Quaternion.identity);
+                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss3"), transform.position, Quaternion.identity);
                 else if (mouseP.x < transform.position.x - 12.9) //Esquerda
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonBoss2"), transform.position, Quaternion.identity);
+                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss2"), transform.position, Quaternion.identity);
                 else if (mouseP.x > transform.position.x + 12.9) //Direita
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonBoss4"), transform.position, Quaternion.identity);
+                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss4"), transform.position, Quaternion.identity);
 
                 CancelInvoke();
                 animator.SetBool("one", false);

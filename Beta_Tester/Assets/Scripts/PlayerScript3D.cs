@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,17 +16,20 @@ public class PlayerScript3D : MonoBehaviour {
     Color c;
     public float speed;
     bool moving;
-    public static int life = 5;
+    public static int life;
     public static bool speedDirection = true;
     public Transform groundCheck;
     public bool grounded;
     public LayerMask whatIsGround;
     bool isColliding;
+    CinemachineVirtualCamera cm;
 
     void Start()
     {
+        life = 5;
         c = sr.material.color;
         slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
+        cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
     }
 
     private void Update()
@@ -36,13 +40,21 @@ public class PlayerScript3D : MonoBehaviour {
         }
 
         #region SlowMotionConfig
-        if (Input.GetKey(KeyCode.Mouse1) && !isEnded)
+        if (Input.GetKey(KeyCode.Mouse1))
         {
-            Time.timeScale = 0.5f;
-            slowMotion.value -= 0.01f;
-            isPressing = true;
+            if (!isEnded)
+            {
+                Time.timeScale = 0.5f;
+                slowMotion.value -= 0.01f;
+                isPressing = true;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                isPressing = false;
+            }
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1) || slowMotion.value == 0)
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             Time.timeScale = 1f;
             isPressing = false;
@@ -60,66 +72,97 @@ public class PlayerScript3D : MonoBehaviour {
                 isEnded = true;
         }
         #endregion
+
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+            sr.sortingOrder = Mathf.RoundToInt(transform.position.y * 10f) * -1;
     }
 
     private void FixedUpdate()
     {
         if (life <= 0)
             gameObject.SetActive(false);
+        else
+            gameObject.SetActive(true);
 
         #region Movement
-        if (speed == 0)
-        {
-            moving = false;
-        }
-        else
-        {
-            if (speedDirection)
-            {
-                rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-                moving = true;
-                sr.flipX = false;
-            }
-            else
-            {
-                rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-                moving = true;
-                sr.flipX = true;
-            }
-        }
-        //if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        //if (speed == 0)
         //{
         //    moving = false;
         //}
-
-        //else if (Input.GetKey(KeyCode.LeftArrow))
+        //else
         //{
-        //    rb.velocity = new Vector3(-speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-        //    moving = true;
-        //    sr.flipX = true;
+        //    if (speedDirection)
+        //    {
+        //        rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+        //        moving = true;
+        //        sr.flipX = false;
+        //    }
+        //    else
+        //    {
+        //        rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+        //        moving = true;
+        //        sr.flipX = true;
+        //    }
         //}
+        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        {
+            moving = false;
+            rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+        }
 
-        //else if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    rb.velocity = new Vector3(speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-        //    moving = true;
-        //    sr.flipX = false;
-        //}
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+            moving = true;
+            sr.flipX = true;
+        }
 
-        //if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377) //tirar velocity
-        //{
-        //    rb.AddForce(new Vector3(0, 21000 * Time.deltaTime, 0));
-        //}
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+            moving = true;
+            sr.flipX = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 3) //tirar velocity
+        {
+            rb.AddForce(new Vector3(0, 300, 0));
+        }
+
+        //movimentação da fase de fogo
+
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            }
+
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, speed, rb.velocity.z);
+                moving = true;
+            }
+
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, -speed, rb.velocity.z);
+                moving = true;
+            }
+        }
         #endregion
-    
+
         if (transform.position.y <= -30)
         {
             print("morreu pela queda");
         }
 
-        grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
-        
-        animator.SetBool("jump", !grounded);
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
+            animator.SetBool("jump", !grounded);
+        }
+
         animator.SetBool("moving", moving);
 
         isColliding = false;
@@ -138,7 +181,9 @@ public class PlayerScript3D : MonoBehaviour {
 
         else if (other.tag == "Portal")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            cm.Follow = null;
+            rb.AddForce(new Vector3(0, 150, 0));
+            GameManager.isLevelCompleted = true;
         }
     }
 

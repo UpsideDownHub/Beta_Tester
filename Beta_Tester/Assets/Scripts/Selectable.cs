@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Selectable : MonoBehaviour {
 
-    public GameOverBetaTester gameOverBT;
+    public GameOver gameOver;
     public GameObject spike1;
     public GameObject spike2;
     public GameObject prefab;
     public GameObject prefabPlanta;
-    public MoveSpikes script;
+    public MoveObjects script;
     public EnemyScript script2;
     public EnemyScript script3;
     public Transform playerT;
@@ -19,7 +19,7 @@ public class Selectable : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        activateTrapTime = 0;
+        activateTrapTime = 2;
 	}
 	
 	// Update is called once per frame
@@ -34,13 +34,7 @@ public class Selectable : MonoBehaviour {
             {
                 if (activateTrapTime >= 2)
                 {
-                    if (hit.collider.name == "spike")
-                    {
-                        spike1.SetActive(true);
-                        spike2.SetActive(true);
-                    }
-
-                    else if (hit.collider.name == "Planta")
+                    if (hit.collider.name == "Planta")
                     {
                         Instantiate(prefabPlanta, hit.transform.position, Quaternion.identity);
                     }
@@ -48,26 +42,26 @@ public class Selectable : MonoBehaviour {
                     else if (hit.collider.name == "gelo (2)")
                     {
                         script.speed = 3;
-                        gameOverBT.slider.value += 0.15f;
+                        gameOver.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Trap")
                     {
                         Destroy(hit.collider.gameObject);
-                        gameOverBT.slider.value += 0.15f;
+                        gameOver.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Enemy1")
                     {
                         script2.prefab = prefab;
                         boxC.enabled = true;
-                        gameOverBT.slider.value += 0.15f;
+                        gameOver.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Enemy4")
                     {
                         script3.prefab = prefab;
-                        gameOverBT.slider.value += 0.15f;
+                        gameOver.slider.value += 0.15f;
                     }
 
                     else if (hit.collider.name == "Enemy5")
@@ -78,6 +72,22 @@ public class Selectable : MonoBehaviour {
                     else if (hit.collider.name == "Enemy6")
                     {
                         EnemyScript.isClicked2 = true;
+                    }
+
+                    else if (hit.collider.tag == "Trap")
+                    {
+                        var animator = hit.collider.gameObject.GetComponent<Animator>();
+                        var boxC = hit.collider.gameObject.GetComponent<BoxCollider>();
+
+                        animator.enabled = true;
+                        boxC.enabled = true;
+
+                        if (hit.transform.position.x < playerT.position.x)
+                        {
+                            animator.SetBool("Flying", true);
+                            var moveObjects = hit.collider.GetComponent<MoveObjects>();
+                            moveObjects.isActivated = true;
+                        }
                     }
 
                     else if (hit.collider.tag == "Fall" || hit.collider.name == "PoisonE")
@@ -96,10 +106,6 @@ public class Selectable : MonoBehaviour {
                             playerScript.speed = 0;
                             Invoke("Walk", 2);
                         }
-                        else if (hit.collider.name == "gelo(1)" && playerT.position.x >= 2)
-                        {
-
-                        }
                     }
                     activateTrapTime = 0;
                 }
@@ -109,6 +115,6 @@ public class Selectable : MonoBehaviour {
 
     void Walk()
     {
-        playerScript.speed = 5;
+        playerScript.speed = 250;
     }
 }

@@ -7,19 +7,31 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
 
+    //Jimmy in the hell
     public GameObject gameOverPanel;
+<<<<<<< HEAD
     public Image[] vidas;
     //public Image vida1;
     //public Image vida2;
     //public Image vida3;
     //public Image vida4;
     //public Image vida5;
+=======
+    public List<Image> vidas;
+>>>>>>> eafcff900a0cbd00da068146beae040420fd8b41
     public Button button;
+    //BetaTester
+    public Slider slider;
 
     private void Update()
     {
+<<<<<<< HEAD
         foreach (var vida in vidas)
             vida.enabled = false;
+=======
+        #region JimmyInTheHell
+        vidas.ForEach(x => x.enabled = false);
+>>>>>>> eafcff900a0cbd00da068146beae040420fd8b41
 
         if (PlayerScript3D.life == 0)
         {
@@ -29,6 +41,7 @@ public class GameOver : MonoBehaviour
         else
             for (int i = 0; i < PlayerScript3D.life; i++)
                 vidas[i].enabled = true;
+<<<<<<< HEAD
 
         //if (PlayerScript3D.life == 5)
         //{
@@ -80,6 +93,18 @@ public class GameOver : MonoBehaviour
         //    gameOverPanel.SetActive(true);
         //    button.Select();
         //}
+=======
+        #endregion
+
+        #region BetaTester
+        slider.value -= 0.001f;
+
+        if (slider.value == 0 || slider.value == 1)
+        {
+            print("Game Over Beta Tester");
+        }
+        #endregion
+>>>>>>> eafcff900a0cbd00da068146beae040420fd8b41
     }
 
     public void Retry()
