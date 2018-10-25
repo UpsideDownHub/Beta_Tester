@@ -92,7 +92,7 @@ public class PhaseCreationManager : MonoBehaviour
                 float _v = data[i][j] == 3 || data[i][j] == 4 ? -0.5f : 0;
                 if (data[i][j] == 2)
                     character = Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
-                else if (data[i][j] == 1 && data[i][j - 1] != 0) {
+                else if (j != 0 && data[i][j] == 1 && data[i][j - 1] != 0) {
                     Instantiate(floor2, new Vector3(i, Mathf.Abs(j - 10 - _v), 0), floor2.transform.rotation);
                 }
                 else
