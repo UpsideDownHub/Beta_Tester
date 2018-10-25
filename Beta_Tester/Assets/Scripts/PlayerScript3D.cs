@@ -161,9 +161,12 @@ public class PlayerScript3D : MonoBehaviour {
         {
             grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
             animator.SetBool("jump", !grounded);
+            animator.SetBool("moving", moving);
         }
-
-        animator.SetBool("moving", moving);
+        else
+        {
+            animator.SetBool("moving2", moving);
+        }
 
         isColliding = false;
     }

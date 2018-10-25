@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour {
     bool isLevelInBeginning;
     public GameObject[] groundTraps;
     public GameObject[] groundLavas;
+    public GameObject[] embers;
     float minPosC;
     float maxPosC;
-    public GameObject prefab;
+    //public GameObject prefab;
 
     //public Tilemap tileM;
 
@@ -91,6 +92,17 @@ public class GameManager : MonoBehaviour {
                     var boxC = groundLavas[i].GetComponent<BoxCollider>();
                     boxC.enabled = true;
                 }
+            }
+        }
+
+        if (embers != null)
+        {
+            for (int j = 0; j < embers.Length; j++)
+            {
+                if (player.transform.position.x < embers[j].transform.position.x - 31.39f || player.transform.position.x > embers[j].transform.position.x + 31.39f)
+                    embers[j].SetActive(false);
+                else if (player.transform.position.x > embers[j].transform.position.x - 31.39f)
+                    embers[j].SetActive(true);
             }
         }
     }

@@ -245,6 +245,7 @@ public class MenuJimmyInTheHell : MonoBehaviour {
         optionsButton.gameObject.SetActive(false);
         creditsButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
+        levelEditor.gameObject.SetActive(false);
         optionsPanel.SetActive(false);
         loadingText.SetActive(true);
 
