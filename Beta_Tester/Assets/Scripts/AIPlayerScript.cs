@@ -31,6 +31,7 @@ public class AIPlayerScript : MonoBehaviour
     List<Vector3> walked = new List<Vector3>();
     List<Jump> jumpPossibilities = new List<Jump>();
     Rigidbody Rigidbody;
+    Animator animator;
 
     CapsuleCollider CapsuleCollider;
     [SerializeField] int XDistanceToJump = 2;
@@ -59,11 +60,29 @@ public class AIPlayerScript : MonoBehaviour
         jumpSpeed = speed;
         this.data = PhaseCreationManager.data;
         Rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         CapsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     void Update()
     {
+        if(Rigidbody.velocity.x > 0)
+        {
+            animator.SetBool("moving", true);
+        }
+        else if(Rigidbody.velocity.x == 0) 
+        {
+            animator.SetBool("moving", false);
+        }
+        else if (Rigidbody.velocity.y > 0 || Rigidbody.velocity.y < 0)
+        {
+            animator.SetBool("jump", true);
+        }
+        else if (Rigidbody.velocity.y == 0)
+        {
+            animator.SetBool("jump", false);
+        }
+
         if (_backing && !ignore)
         {
             direction = walked.Last().x > (int)transform.position.x;
