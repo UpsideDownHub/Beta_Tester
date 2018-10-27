@@ -169,7 +169,7 @@ public class AIPlayerScript : MonoBehaviour
         {
             for (int y = data[x].Count - 1; y >= 0; y--)
             {
-                Debug.DrawLine(new Vector2(x, Mathf.Abs(y - 10)), new Vector2(x + 0.5f, Mathf.Abs(y - 10) + 0.5f), Color.red, 0.3f);
+                //Debug.DrawLine(new Vector2(x, Mathf.Abs(y - 10)), new Vector2(x + 0.5f, Mathf.Abs(y - 10) + 0.5f), Color.red, 0.3f);
                 var realY = Mathf.Abs(y - 10);
 
                 if (lastPossibility.PlayerPosition.HasValue && backing && lastPossibility.PlayerPosition.Value.x > _x)
@@ -414,7 +414,7 @@ public class AIPlayerScript : MonoBehaviour
         int? _x = null;
         while (direction ? untilX >= NextXElement(x, i) : untilX <= NextXElement(x, i))
         {
-            Debug.DrawLine(new Vector2(NextXElement(x, i), Mathf.Abs(y - 10 + 1)), new Vector2(NextXElement(x, i) + 0.5f, Mathf.Abs(y - 10 + 1) + 0.5f), Color.red, 0.3f);
+            //Debug.DrawLine(new Vector2(NextXElement(x, i), Mathf.Abs(y - 10 + 1)), new Vector2(NextXElement(x, i) + 0.5f, Mathf.Abs(y - 10 + 1) + 0.5f), Color.red, 0.3f);
             if (GetValue(NextXElement(x, i), y + 1) == 0)
             {
                 _x = NextXElement(x, i);
