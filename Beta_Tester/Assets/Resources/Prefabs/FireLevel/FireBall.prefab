@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 199630328221136296}
   - component: {fileID: 114169579324717916}
   - component: {fileID: 136112872548390496}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 1484527884835794}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 2.45, y: 0, z: -0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 4126519292153546}
   m_RootOrder: 2
@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612140693056596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -41.81, y: 6.07, z: 0}
+  m_LocalPosition: {x: -43.64, y: 5.4024215, z: 4.2660923}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4364962322047796}
@@ -131,7 +131,7 @@ Transform:
   m_GameObject: {fileID: 1651291543652278}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 4.76, y: 0, z: -0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 4126519292153546}
   m_RootOrder: 1
@@ -156,12 +156,12 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612140693056596}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.44415092
+  m_Height: 3.9754791
+  m_Direction: 0
+  m_Center: {x: 1.7109604, y: 0.019140244, z: 0}
 --- !u!198 &198102071094627916
 ParticleSystem:
   m_ObjectHideFlags: 1

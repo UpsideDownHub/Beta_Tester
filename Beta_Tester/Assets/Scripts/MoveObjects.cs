@@ -39,7 +39,7 @@ public class MoveObjects : MonoBehaviour {
 
     private void FixedUpdate()
     {   //FireBall
-        if (gameObject.name == "FireBall(Clone)" || gameObject.name == "FireBall2(Clone)")
+        if (gameObject.name == "FireBall(Clone)")
         {
             if (!isInLastPosition)
                 transform.position = Vector3.MoveTowards(transform.position, lastPosition, 10 * Time.deltaTime);
@@ -120,5 +120,14 @@ public class MoveObjects : MonoBehaviour {
 
         if (gameObject.name == "FireBall(Clone)")
             Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (gameObject.name == "FireBall(Clone)" && other.tag == "Player")
+        {
+            Instantiate(Resources.Load<GameObject>("Prefabs/FireLevel/BOOM"), transform.position + new Vector3(1,0,0), Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }

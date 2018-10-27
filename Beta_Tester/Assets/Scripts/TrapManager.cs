@@ -7,7 +7,9 @@ public class TrapManager : MonoBehaviour {
     private void Start()
     {
         if (gameObject.tag == "Poison")
-            Destroy(this.gameObject, 3);
+            Destroy(gameObject, 3);
+        else if (gameObject.name == "BOOM(Clone)")
+            Destroy(gameObject, 2f);
     }
 
     void GroundLavaAnim()
