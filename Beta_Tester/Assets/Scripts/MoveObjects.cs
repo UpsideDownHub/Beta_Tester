@@ -18,6 +18,7 @@ public class MoveObjects : MonoBehaviour {
     public bool isActivated;
     bool isPreparedToLaunch;
     bool isLaunched;
+    bool isClicked;
     Vector3 mouseP;
     float temp;
     float temp2;
@@ -86,11 +87,12 @@ public class MoveObjects : MonoBehaviour {
             }
             else
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !isClicked)
                 {
                     gameObject.layer = 12;
                     mouseP = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
                     isLaunched = true;
+                    isClicked = true;
                 }
             }
 

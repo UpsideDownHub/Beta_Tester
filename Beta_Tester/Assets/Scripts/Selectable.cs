@@ -79,14 +79,18 @@ public class Selectable : MonoBehaviour {
                         var animator = hit.collider.gameObject.GetComponent<Animator>();
                         var boxC = hit.collider.gameObject.GetComponent<BoxCollider>();
 
-                        animator.enabled = true;
-                        boxC.enabled = true;
-
-                        if (hit.transform.position.x < playerT.position.x)
+                        if (hit.transform.position.x < playerT.position.x - 2)
                         {
+                            animator.enabled = true;
+                            boxC.enabled = true;
                             animator.SetBool("Flying", true);
                             var moveObjects = hit.collider.GetComponent<MoveObjects>();
                             moveObjects.isActivated = true;
+                        }
+                        else if (hit.transform.position.x > playerT.position.x + 2)
+                        {
+                            animator.enabled = true;
+                            boxC.enabled = true;
                         }
                     }
 
