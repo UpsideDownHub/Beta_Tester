@@ -6,15 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-
     //Jimmy in the hell
     public GameObject gameOverPanel;
-    //public Image[] vidas;
-    //public Image vida1;
-    //public Image vida2;
-    //public Image vida3;
-    //public Image vida4;
-    //public Image vida5;
     public List<Image> vidas;
     public Button button;
     //BetaTester
@@ -51,8 +44,8 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        gameOverPanel.SetActive(false);
         PlayerScript3D.life = 5;
+        gameOverPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void Menu()

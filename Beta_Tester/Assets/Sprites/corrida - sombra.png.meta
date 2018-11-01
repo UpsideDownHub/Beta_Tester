@@ -128,9 +128,9 @@ TextureImporter:
       name: corrida - sombra_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 96
+        x: 89
+        y: 74
+        width: 112
         height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -139,7 +139,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff3e825c412a53b4e97ea8f69c2887a9
+      spriteID: 63436c0db89aa0b4a8435e0ff3c1d0e8
       vertices: []
       indices: 
       edges: []
@@ -148,9 +148,9 @@ TextureImporter:
       name: corrida - sombra_1
       rect:
         serializedVersion: 2
-        x: 133
-        y: 0
-        width: 104
+        x: 259
+        y: 74
+        width: 112
         height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -159,7 +159,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc74446ff4d2571498a666dd5e0cc301
+      spriteID: 5bf234beeb865f442a86a0bced021ced
       vertices: []
       indices: 
       edges: []
@@ -168,9 +168,9 @@ TextureImporter:
       name: corrida - sombra_2
       rect:
         serializedVersion: 2
-        x: 299
-        y: 0
-        width: 108
+        x: 434
+        y: 74
+        width: 112
         height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -179,7 +179,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 122f79c1272f9f04d9314c8d3cc444c3
+      spriteID: ab6739b44338b3e45afb83e3c034f9a3
       vertices: []
       indices: 
       edges: []
@@ -188,8 +188,8 @@ TextureImporter:
       name: corrida - sombra_3
       rect:
         serializedVersion: 2
-        x: 466
-        y: 0
+        x: 614
+        y: 74
         width: 112
         height: 138
       alignment: 0
@@ -199,7 +199,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f70fac73219ddb479aa862cde270c92
+      spriteID: a6fa6b1af4ea0e047aee56840aa52bff
       vertices: []
       indices: 
       edges: []
@@ -208,9 +208,9 @@ TextureImporter:
       name: corrida - sombra_4
       rect:
         serializedVersion: 2
-        x: 654
-        y: 0
-        width: 104
+        x: 810
+        y: 74
+        width: 112
         height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -219,7 +219,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04609571cdaf4724a9922759bc62a82a
+      spriteID: fd07f4715831e814e9d9aec87ca0c379
       vertices: []
       indices: 
       edges: []
@@ -228,9 +228,9 @@ TextureImporter:
       name: corrida - sombra_5
       rect:
         serializedVersion: 2
-        x: 821
-        y: 0
-        width: 104
+        x: 980
+        y: 74
+        width: 112
         height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -239,7 +239,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2b1abab8e95adb45ad64fb793119449
+      spriteID: 32110e375c73d374e98bf02b0b2d9440
       vertices: []
       indices: 
       edges: []
@@ -248,9 +248,9 @@ TextureImporter:
       name: corrida - sombra_6
       rect:
         serializedVersion: 2
-        x: 993
-        y: 0
-        width: 107
+        x: 1164
+        y: 74
+        width: 112
         height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -259,7 +259,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc5c91653e9a09a49933d6808f605585
+      spriteID: 3f5f26c5a48a15b4882e1db63918cd67
       vertices: []
       indices: 
       edges: []
@@ -268,8 +268,8 @@ TextureImporter:
       name: corrida - sombra_7
       rect:
         serializedVersion: 2
-        x: 1162
-        y: 0
+        x: 1353
+        y: 74
         width: 112
         height: 138
       alignment: 0
@@ -279,7 +279,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e2523a8e310bf48b8f09260245eb44
+      spriteID: 81831277fb24f0e40bab6a1a2c02a702
       vertices: []
       indices: 
       edges: []

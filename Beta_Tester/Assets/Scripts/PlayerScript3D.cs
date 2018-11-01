@@ -13,23 +13,29 @@ public class PlayerScript3D : MonoBehaviour {
     Slider slowMotion;
     bool isPressing;
     bool isEnded;
+    bool isFadingToNextLevel;
     Color c;
     public float speed;
     bool moving;
-    public static int life;
+    public static int life = 5;
     public static bool speedDirection = true;
     public Transform groundCheck;
     public bool grounded;
     public LayerMask whatIsGround;
     bool isColliding;
     CinemachineVirtualCamera cm;
+    float damageTemp;
+    float alphaSpriteTemp;
+    bool isDamaged;
+    bool canGetDamage;
 
     void Start()
     {
-        life = 5;
         c = sr.material.color;
         slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
+        damageTemp = 2;
+        alphaSpriteTemp = -0.1f;
     }
 
     private void Update()
@@ -75,6 +81,40 @@ public class PlayerScript3D : MonoBehaviour {
 
         if (SceneManager.GetActiveScene().buildIndex == 3)
             sr.sortingOrder = Mathf.RoundToInt(transform.position.y * 10f) * -1;
+
+        #region DamageAndInvulnerability
+        damageTemp += Time.deltaTime;
+
+        if (damageTemp >= 2)
+        {
+            canGetDamage = true;
+            Physics.IgnoreLayerCollision(0, 12, false);
+            c.a = 1;
+            sr.material.color = c;
+            isDamaged = false;
+        }
+        else
+        {
+            canGetDamage = false;
+        }
+
+        if (isDamaged)
+        {
+            alphaSpriteTemp += Time.deltaTime;
+            if (alphaSpriteTemp >= 0)
+            {
+                c.a = 1;
+                sr.material.color = c;
+                if (alphaSpriteTemp >= 0.1f)
+                    alphaSpriteTemp = -0.1f;
+            }
+            else
+            {
+                c.a = 0;
+                sr.material.color = c;
+            }
+        }
+        #endregion
     }
 
     private void FixedUpdate()
@@ -83,6 +123,8 @@ public class PlayerScript3D : MonoBehaviour {
             gameObject.SetActive(false);
         else
             gameObject.SetActive(true);
+        
+        isColliding = false;
 
         #region Movement
         //if (speed == 0)
@@ -152,11 +194,7 @@ public class PlayerScript3D : MonoBehaviour {
         }
         #endregion
 
-        if (transform.position.y <= -30)
-        {
-            print("morreu pela queda");
-        }
-
+        #region Animation
         if (SceneManager.GetActiveScene().buildIndex != 3)
         {
             grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
@@ -167,8 +205,7 @@ public class PlayerScript3D : MonoBehaviour {
         {
             animator.SetBool("moving2", moving);
         }
-
-        isColliding = false;
+        #endregion
     }
 
     private void OnTriggerEnter(Collider other)
@@ -178,27 +215,30 @@ public class PlayerScript3D : MonoBehaviour {
 
         if (other.gameObject.layer == 12)
         {
-            StartCoroutine("DamageAndInvulnerable");
+            if (canGetDamage)
+            {
+                GetDamage();
+            }
             //gameOverBT.slider.value += 0.05f;
         }
 
         else if (other.tag == "Portal")
         {
+            isFadingToNextLevel = true;
             cm.Follow = null;
             rb.AddForce(new Vector3(0, 150, 0));
             GameManager.isLevelCompleted = true;
         }
     }
 
-    public IEnumerator DamageAndInvulnerable()
+    void GetDamage()
     {
-        life--;
-        Physics.IgnoreLayerCollision(0, 12, true);
-        c.a = 0.5f;
-        sr.material.color = c;
-        yield return new WaitForSeconds(2f);
-        Physics.IgnoreLayerCollision(0, 12, false);
-        c.a = 1f;
-        sr.material.color = c;
+        if (!isFadingToNextLevel)
+        {
+            life--;
+            Physics.IgnoreLayerCollision(0, 12, true);
+            damageTemp = 0;
+            isDamaged = true;
+        }
     }
 }
