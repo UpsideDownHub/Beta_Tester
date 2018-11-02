@@ -1,15 +1,21 @@
-﻿using Cinemachine;
+﻿using System.Linq;
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Assets.Scripts.Shared;
 
 public class PlayerScript3D : MonoBehaviour {
 
     public Rigidbody rb;
     public Animator animator;
     public SpriteRenderer sr;
+    [SerializeField] bool isControllable = false;
+    private readonly float xDistance = 4;
+    List<GameObject> objectsVerified;
+
     Slider slowMotion;
     bool isPressing;
     bool isEnded;
@@ -31,6 +37,7 @@ public class PlayerScript3D : MonoBehaviour {
 
     void Start()
     {
+        objectsVerified = new List<GameObject>();
         c = sr.material.color;
         slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
@@ -127,71 +134,77 @@ public class PlayerScript3D : MonoBehaviour {
         isColliding = false;
 
         #region Movement
-        //if (speed == 0)
-        //{
-        //    moving = false;
-        //}
-        //else
-        //{
-        //    if (speedDirection)
-        //    {
-        //        rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-        //        moving = true;
-        //        sr.flipX = false;
-        //    }
-        //    else
-        //    {
-        //        rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
-        //        moving = true;
-        //        sr.flipX = true;
-        //    }
-        //}
-        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
-        {
-            moving = false;
-            rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
-        }
+        #region [Not Controllable]
+        if (isControllable) {
+            var fireBalls = GameObject.FindGameObjectsWithTag("FireBall").ToList();
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
-            moving = true;
-            sr.flipX = true;
-        }
+            fireBalls = fireBalls.Where(x => x.transform.position.x < transform.position.x &&
+            Mathf.Abs(x.transform.position.x - transform.position.x) <= xDistance &&
+            x.transform.position.CorrectPositions().y == transform.position.CorrectPositions().y && !objectsVerified.Contains(x)).ToList();
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-            moving = true;
-            sr.flipX = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 3) //tirar velocity
-        {
-            rb.AddForce(new Vector3(0, 300, 0));
-        }
-
-        //movimentação da fase de fogo
-
-        if (SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+            if(fireBalls.Count > 0)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                objectsVerified.Add(fireBalls.First());
+                var position = (Positions)transform.position.CorrectPositions().y;
+                var newPosition = position.SearchNewPath();
+                print(newPosition);
+            }
+            
+        }
+
+        #endregion
+
+        #region [Controllable]
+        else
+        {
+            if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+            {
+                moving = false;
+                rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
             }
 
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
-                rb.velocity = new Vector3(rb.velocity.x, speed, rb.velocity.z);
+                rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
                 moving = true;
+                sr.flipX = true;
             }
 
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.RightArrow))
             {
-                rb.velocity = new Vector3(rb.velocity.x, -speed, rb.velocity.z);
+                rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
                 moving = true;
+                sr.flipX = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 3) //tirar velocity
+            {
+                rb.AddForce(new Vector3(0, 300, 0));
+            }
+
+            //movimentação da fase de fogo
+
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                }
+
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, speed, rb.velocity.z);
+                    moving = true;
+                }
+
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, -speed, rb.velocity.z);
+                    moving = true;
+                }
             }
         }
+        #endregion
         #endregion
 
         #region Animation

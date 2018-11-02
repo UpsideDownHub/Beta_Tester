@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Shared;
 
 public class MoveObjects : MonoBehaviour {
 
@@ -25,11 +26,14 @@ public class MoveObjects : MonoBehaviour {
 
     private void Start()
     {   //FireBall
-        target = GameObject.Find("Player").GetComponent<Transform>();
-        if (target == null) Destroy(this.gameObject);
-        lastPosition = target.position;
-        x = lastPosition.x;
-
+        if (gameObject.tag == "FireBall") {
+            target = GameObject.Find("Player").GetComponent<Transform>();
+            if (target == null) Destroy(this.gameObject);
+            lastPosition = target.position;
+            lastPosition = lastPosition.CorrectPositions();
+            transform.position = new Vector3(transform.position.x, lastPosition.y, transform.position.z);
+            x = lastPosition.x;
+        }
         //Spikes
         y = transform.position.y;
 

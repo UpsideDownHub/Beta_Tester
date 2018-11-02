@@ -16,6 +16,7 @@ TagManager:
   - Spikes
   - Drag
   - Trap
+  - FireBall
   layers:
   - Default
   - TransparentFX
