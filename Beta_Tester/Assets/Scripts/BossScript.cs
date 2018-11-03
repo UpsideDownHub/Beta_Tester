@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class BossScript : MonoBehaviour {
 
+    public GameObject prefab1;
+    public GameObject prefab2;
+    public GameObject prefab3;
+    public GameObject prefab4;
+    public GameObject prefab5;
     public Slider slider;
     public Text text;
     public GameObject walls;
@@ -100,18 +105,18 @@ public class BossScript : MonoBehaviour {
             if (mouseP.y >= -48f && mouseP.y <= -38f)
             {
                 if (mouseP.x < transform.position.x && mouseP.x >= transform.position.x - 8.1f) //Esquerda
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss"), transform.position, Quaternion.identity);
+                    obj = Instantiate(prefab1, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
                 else if (mouseP.x > transform.position.x && mouseP.x <= transform.position.x + 8.1f) //Direita
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss"), transform.position, Quaternion.identity);
+                    obj = Instantiate(prefab1, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
                 else if (mouseP.x < transform.position.x - 8.1f && mouseP.x >= transform.position.x - 12.9f) //Esquerda
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss1"), transform.position, Quaternion.identity);
+                    obj = Instantiate(prefab2, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
                 else if (mouseP.x > transform.position.x + 8.1f && mouseP.x <= transform.position.x + 12.9f) //Direita
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss3"), transform.position, Quaternion.identity);
+                    obj = Instantiate(prefab4, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
                 else if (mouseP.x < transform.position.x - 12.9) //Esquerda
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss2"), transform.position, Quaternion.identity);
+                    obj = Instantiate(prefab3, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
                 else if (mouseP.x > transform.position.x + 12.9) //Direita
-                    obj = Instantiate(Resources.Load<GameObject>("Prefabs/PoisonLevel/PoisonBoss4"), transform.position, Quaternion.identity);
-
+                    obj = Instantiate(prefab5, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
+                //talvez mudar o spriterenderer ao invés da animação
                 CancelInvoke();
                 animator.SetBool("one", false);
                 animator.SetBool("two", false);

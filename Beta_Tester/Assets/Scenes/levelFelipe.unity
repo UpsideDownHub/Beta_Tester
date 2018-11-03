@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -137,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 10373249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -9.98, y: -2.1, z: 10}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1000, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 29839515}
   m_RootOrder: 0
@@ -1544,12 +1544,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.86830074, z: 1}
   m_Center: {x: 0.0000000021073423, y: 0.06585013, z: 0}
---- !u!114 &261365413 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114671843212523582, guid: c62cec81ee0229944aaba8ce96d86f8f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1997780985}
-  m_Script: {fileID: 11500000, guid: 7b3e0be871b96014b973923ca1e6974f, type: 3}
 --- !u!1 &270958939
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,16 +4179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 927094910}
-  spike1: {fileID: 0}
-  spike2: {fileID: 0}
   prefab: {fileID: 1274794322634432, guid: 9bae890522612ba4ba20c16ce0a333bb, type: 2}
   prefabPlanta: {fileID: 0}
-  script: {fileID: 229834384}
-  script2: {fileID: 1108573587}
-  script3: {fileID: 417573686}
   playerT: {fileID: 1780863022}
-  playerScript: {fileID: 261365413}
-  boxC: {fileID: 684197002}
 --- !u!114 &927094910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4206,7 +4193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919d3bb83d3e165428710b3202cd11b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScript: {fileID: 261365413}
   gameOverPanel: {fileID: 410830464}
   vidas:
   - {fileID: 1674225091}

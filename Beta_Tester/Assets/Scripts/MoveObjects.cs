@@ -23,6 +23,7 @@ public class MoveObjects : MonoBehaviour {
     Vector3 mouseP;
     float temp;
     float temp2;
+    SpriteRenderer sr;
 
     private void Start()
     {   //FireBall
@@ -40,6 +41,8 @@ public class MoveObjects : MonoBehaviour {
         //GroundTrap
         temp = 0;
         temp2 = 0;
+        if (gameObject.tag == "Trap")
+            sr = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -59,7 +62,7 @@ public class MoveObjects : MonoBehaviour {
                 isInLastPosition = true;
             }
         }
-        
+
         //Spikes
         else if (gameObject.name == "Spikes(Clone)" || gameObject.name == "gelo (2)")
         {
@@ -101,7 +104,10 @@ public class MoveObjects : MonoBehaviour {
             }
 
             if (isLaunched)
+            {
+                sr.sortingOrder = Mathf.RoundToInt(transform.position.y * 10f - 10) * -1;
                 transform.position = Vector3.MoveTowards(transform.position, mouseP, 10 * Time.deltaTime);
+            }
 
             if (mouseP == transform.position)
             {
