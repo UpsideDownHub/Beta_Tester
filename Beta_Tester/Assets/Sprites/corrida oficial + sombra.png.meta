@@ -130,10 +130,10 @@ TextureImporter:
       name: corrida oficial + sombra_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 96
-        height: 146
+        x: 82
+        y: 82
+        width: 118
+        height: 149
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,9 +150,9 @@ TextureImporter:
       name: corrida oficial + sombra_1
       rect:
         serializedVersion: 2
-        x: 158
-        y: 0
-        width: 104
+        x: 248
+        y: 82
+        width: 118
         height: 147
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -170,9 +170,9 @@ TextureImporter:
       name: corrida oficial + sombra_2
       rect:
         serializedVersion: 2
-        x: 314
-        y: 0
-        width: 113
+        x: 413
+        y: 82
+        width: 118
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -190,9 +190,9 @@ TextureImporter:
       name: corrida oficial + sombra_3
       rect:
         serializedVersion: 2
-        x: 514
-        y: 0
-        width: 118
+        x: 611
+        y: 82
+        width: 125
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -210,9 +210,9 @@ TextureImporter:
       name: corrida oficial + sombra_4
       rect:
         serializedVersion: 2
-        x: 719
-        y: 0
-        width: 106
+        x: 811
+        y: 82
+        width: 118
         height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -230,9 +230,9 @@ TextureImporter:
       name: corrida oficial + sombra_5
       rect:
         serializedVersion: 2
-        x: 917
-        y: 0
-        width: 104
+        x: 1007
+        y: 82
+        width: 118
         height: 146
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -250,9 +250,9 @@ TextureImporter:
       name: corrida oficial + sombra_6
       rect:
         serializedVersion: 2
-        x: 1086
-        y: 0
-        width: 113
+        x: 1185
+        y: 82
+        width: 118
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -270,9 +270,9 @@ TextureImporter:
       name: corrida oficial + sombra_7
       rect:
         serializedVersion: 2
-        x: 1289
-        y: 0
-        width: 118
+        x: 1386
+        y: 82
+        width: 125
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

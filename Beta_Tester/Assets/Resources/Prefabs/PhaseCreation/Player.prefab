@@ -133,6 +133,7 @@ MonoBehaviour:
   rb: {fileID: 54815737062695304}
   animator: {fileID: 95674576142271146}
   sr: {fileID: 212232173809881620}
+  isControllable: 0
   speed: 5
   groundCheck: {fileID: 4548493394288670}
   grounded: 0
@@ -149,8 +150,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.47919124
-  m_Center: {x: -0.04588276, y: -0.120818436, z: 0}
+  m_Radius: 0.4722111
+  m_Center: {x: -0.04503265, y: -0.19004038, z: 0}
 --- !u!212 &212232173809881620
 SpriteRenderer:
   m_ObjectHideFlags: 1

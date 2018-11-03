@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour {
     public GameObject[] groundTraps;
     public GameObject[] groundLavas;
     public GameObject[] embers;
-    float minPosC;
-    float maxPosC;
+    //float minPosC;
+    //float maxPosC;
     //public GameObject prefab;
 
     //public Tilemap tileM;
@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour {
 
         isLevelInBeginning = true;
 
-        minPosC = (-Camera.main.orthographicSize * Camera.main.aspect) * 2;
-        maxPosC = (Camera.main.orthographicSize * Camera.main.aspect) * 2;
+        //minPosC = (-Camera.main.orthographicSize * Camera.main.aspect) * 2;
+        //maxPosC = (Camera.main.orthographicSize * Camera.main.aspect) * 2;
 
         //Instantiate(prefab, tileM.GetCellCenterLocal(new Vector3Int (0,-1,0)), Quaternion.identity, tileM.transform.parent);
     }

@@ -13,7 +13,7 @@ public class PlayerScript3D : MonoBehaviour {
     public Animator animator;
     public SpriteRenderer sr;
     [SerializeField] bool isControllable = false;
-    private readonly float xDistance = 4;
+    private readonly float xDistance = 3;
     List<GameObject> objectsVerified;
 
     Slider slowMotion;
@@ -22,6 +22,8 @@ public class PlayerScript3D : MonoBehaviour {
     bool isFadingToNextLevel;
     Color c;
     public float speed;
+    float x = 5;
+    float y;
     bool moving;
     public static int life = 5;
     public static bool speedDirection = true;
@@ -34,6 +36,9 @@ public class PlayerScript3D : MonoBehaviour {
     float alphaSpriteTemp;
     bool isDamaged;
     bool canGetDamage;
+    bool isEvading;
+    bool isMovingUp;
+    Positions nextPosition;
 
     void Start()
     {
@@ -135,21 +140,53 @@ public class PlayerScript3D : MonoBehaviour {
 
         #region Movement
         #region [Not Controllable]
-        if (isControllable) {
+        if (isControllable)
+        {
+            moving = true;
+
             var fireBalls = GameObject.FindGameObjectsWithTag("FireBall").ToList();
 
             fireBalls = fireBalls.Where(x => x.transform.position.x < transform.position.x &&
             Mathf.Abs(x.transform.position.x - transform.position.x) <= xDistance &&
             x.transform.position.CorrectPositions().y == transform.position.CorrectPositions().y && !objectsVerified.Contains(x)).ToList();
 
-            if(fireBalls.Count > 0)
+            if (fireBalls.Count > 0)
             {
                 objectsVerified.Add(fireBalls.First());
                 var position = (Positions)transform.position.CorrectPositions().y;
                 var newPosition = position.SearchNewPath();
+                nextPosition = newPosition;
                 print(newPosition);
+
+                if (newPosition == Positions.Top || (newPosition == Positions.Middle && Mathf.RoundToInt(transform.position.y) < (int)Positions.Middle))
+                {
+                    y = 5;
+                    isMovingUp = true;
+                }
+                else
+                {
+                    y = -5;
+                    isMovingUp = false;
+                }
+
+                isEvading = true;
             }
-            
+
+            if (isMovingUp)
+            {
+                if (transform.position.y >= (int)nextPosition)
+                    isEvading = false;
+            }
+            else
+            {
+                if (transform.position.y <= (int)nextPosition)
+                    isEvading = false;
+            }
+
+            if (isEvading)
+                rb.velocity = new Vector3(x, y, rb.velocity.z);
+            else
+                rb.velocity = new Vector3(x, 0, rb.velocity.z);
         }
 
         #endregion

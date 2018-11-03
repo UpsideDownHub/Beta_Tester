@@ -37,7 +37,7 @@ public class GameOver : MonoBehaviour
 
         if (slider.value == 0 || slider.value == 1)
         {
-            print("Game Over Beta Tester");
+            //print("Game Over Beta Tester");
         }
         #endregion
     }
