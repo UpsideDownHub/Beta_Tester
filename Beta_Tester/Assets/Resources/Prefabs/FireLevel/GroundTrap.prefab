@@ -55,8 +55,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6189995, y: 0.7821562, z: 0.2}
-  m_Center: {x: -0.018262863, y: -0.56043684, z: 0}
+  m_Size: {x: 1.5350304, y: 0.7821562, z: 0.2}
+  m_Center: {x: -0.06024742, y: -0.56043684, z: 0}
 --- !u!65 &65628463668714460
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -67,8 +67,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.4385958, y: 0.8323574, z: 0.2}
-  m_Center: {x: -0.10262537, y: -0.4456787, z: 0}
+  m_Size: {x: 1.4385958, y: 0.7692058, z: 0.2}
+  m_Center: {x: -0.10262537, y: -0.4772545, z: 0}
 --- !u!95 &95923681515439736
 Animator:
   serializedVersion: 3
@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  prefab: {fileID: 0}
+  prefab2: {fileID: 1886613624028518, guid: aacee376b0fde6a44a9045a94d38f1c2, type: 2}
   isActivated: 0
 --- !u!212 &212906953440583946
 SpriteRenderer:

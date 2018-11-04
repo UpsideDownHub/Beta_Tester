@@ -14,7 +14,7 @@ public class PlayerScript3D : MonoBehaviour
     public Animator animator;
     public SpriteRenderer sr;
     [SerializeField] bool isControllable = false;
-    private readonly float xDistance = 3;
+    private readonly float xDistance = 4;
     List<GameObject> objectsVerified;
 
     Slider slowMotion;
@@ -40,6 +40,7 @@ public class PlayerScript3D : MonoBehaviour
     bool isEvading;
     bool isMovingUp;
     Positions nextPosition;
+    float tempEvade;
 
     void Start()
     {
@@ -48,6 +49,7 @@ public class PlayerScript3D : MonoBehaviour
         slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
         damageTemp = 2;
+        tempEvade = 0.4f;
         alphaSpriteTemp = -0.1f;
     }
 
@@ -159,32 +161,38 @@ public class PlayerScript3D : MonoBehaviour
 
             rightObjects = rightObjects.Where(x => x.transform.position.x > transform.position.x &&
             Mathf.Abs(x.transform.position.x - transform.position.x) <= xDistance + 1 &&
-            new Vector3(x.transform.position.x, x.transform.position.y - 1).CorrectPositions().y == transform.position.CorrectPositions().y && !objectsVerified.Contains(x)).ToList(); 
+            new Vector3(x.transform.position.x, x.transform.position.y - 1).CorrectPositions().y == transform.position.CorrectPositions().y && !objectsVerified.Contains(x)).ToList();
 
-            if (leftObjects.Count > 0 || rightObjects.Count > 0)
+            tempEvade += Time.deltaTime;
+
+            if (tempEvade >= 0.4f)
             {
-                if(leftObjects.Count > 0)
-                    objectsVerified.Add(leftObjects.First());
-
-                if (rightObjects.Count > 0)
-                    objectsVerified.Add(rightObjects.First());
-
-                var position = (Positions)transform.position.CorrectPositions().y;
-                var newPosition = position.SearchNewPath();
-                nextPosition = newPosition;
-
-                if (newPosition == Positions.Top || (newPosition == Positions.Middle && Mathf.RoundToInt(transform.position.y) < (int)Positions.Middle))
+                if (leftObjects.Count > 0 || rightObjects.Count > 0)
                 {
-                    y = 5;
-                    isMovingUp = true;
-                }
-                else
-                {
-                    y = -5;
-                    isMovingUp = false;
-                }
+                    if (leftObjects.Count > 0)
+                        objectsVerified.Add(leftObjects.First());
 
-                isEvading = true;
+                    if (rightObjects.Count > 0)
+                        objectsVerified.Add(rightObjects.First());
+
+                    var position = (Positions)transform.position.CorrectPositions().y;
+                    var newPosition = position.SearchNewPath();
+                    nextPosition = newPosition;
+
+                    if (newPosition == Positions.Top || (newPosition == Positions.Middle && Mathf.RoundToInt(transform.position.y) < (int)Positions.Middle))
+                    {
+                        y = 5;
+                        isMovingUp = true;
+                    }
+                    else
+                    {
+                        y = -5;
+                        isMovingUp = false;
+                    }
+
+                    isEvading = true;
+                    tempEvade = 0;
+                }
             }
 
             if (isMovingUp)

@@ -17,7 +17,9 @@ public class MoveObjects : MonoBehaviour {
     float y;
 
     //GroundTrap
+    public GameObject prefab2;
     public bool isActivated;
+    bool isDestroying = true;
     bool isPreparedToLaunch;
     bool isLaunched;
     bool isClicked;
@@ -25,10 +27,15 @@ public class MoveObjects : MonoBehaviour {
     float temp;
     float temp2;
     SpriteRenderer sr;
+    Spin spin;
+    Animator animator;
+    float cameraPosition;
+    Transform parent;
 
     private void Start()
     {   //FireBall
-        if (gameObject.tag == "FireBall") {
+        if (gameObject.tag == "FireBall")
+        {
             target = GameObject.Find("Player").GetComponent<Transform>();
             if (target == null) Destroy(this.gameObject);
             lastPosition = target.position;
@@ -37,18 +44,25 @@ public class MoveObjects : MonoBehaviour {
             x = lastPosition.x;
         }
         //Spikes
-        y = transform.position.y;
+        if (gameObject.name == "Spikes(Clone)" || gameObject.name == "gelo (2)" || gameObject.tag == "Trap")
+            y = transform.position.y;
 
         //GroundTrap
-        temp = 0;
-        temp2 = 0;
         if (gameObject.tag == "Trap")
+        {
             sr = GetComponent<SpriteRenderer>();
+            spin = GetComponent<Spin>();
+            animator = GetComponent<Animator>();
+            temp = 0;
+            temp2 = 0;
+            cameraPosition = Camera.main.orthographicSize * Camera.main.aspect;
+            parent = transform.parent;
+        }
     }
 
     private void FixedUpdate()
     {   //FireBall
-        if (gameObject.name == "FireBall(Clone)")
+        if (gameObject.tag == "FireBall")
         {
             if (!isInLastPosition)
                 transform.position = Vector3.MoveTowards(transform.position, lastPosition, 10 * Time.deltaTime);
@@ -75,16 +89,20 @@ public class MoveObjects : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-
+        
         //GroundTrap
         else if (gameObject.tag == "Trap" && isActivated)
         {
-            var spin = gameObject.GetComponent<Spin>();
             if (temp == 0)
                 spin.spinz = -1;
             else if (temp >= 2)
                 spin.spinz = 0;
             temp += Time.deltaTime;
+
+            if (transform.position.x + cameraPosition - 3 <= Camera.main.transform.position.x)
+            {
+                transform.SetParent(Camera.main.transform);
+            }
 
             if (!isPreparedToLaunch)
             {
@@ -106,14 +124,20 @@ public class MoveObjects : MonoBehaviour {
 
             if (isLaunched)
             {
+                transform.SetParent(parent);
                 sr.sortingOrder = Mathf.RoundToInt(transform.position.y * 10f - 10) * -1;
                 transform.position = Vector3.MoveTowards(transform.position, mouseP.Value, 10 * Time.deltaTime);
             }
 
             if (mouseP == transform.position)
             {
+                if (isDestroying)
+                {
+                    Instantiate(prefab2, transform.position, Quaternion.identity);
+                    isDestroying = false;
+                }
+
                 temp2 += Time.deltaTime;
-                var animator = gameObject.GetComponent<Animator>();
                 animator.SetBool("TouchGround", true);
                 if (temp2 >= 0.4f)
                     gameObject.SetActive(false);
