@@ -11,6 +11,11 @@ public class BossScript : MonoBehaviour {
     public GameObject prefab3;
     public GameObject prefab4;
     public GameObject prefab5;
+    public Sprite attackSprite1;
+    public Sprite attackSprite2;
+    public Sprite attackSprite3;
+    public Sprite attackSprite4;
+    SpriteRenderer sr;
     public Slider slider;
     public Text text;
     public GameObject walls;
@@ -32,6 +37,7 @@ public class BossScript : MonoBehaviour {
     private void Start()
     {
         animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
         playerT = GameObject.Find("Player").GetComponent<Transform>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
         attackTemp = 0;
@@ -70,6 +76,7 @@ public class BossScript : MonoBehaviour {
         if (slider.value == 0)
         {
             walls.SetActive(false);
+            animator.enabled = true;
             CancelInvoke();
             animator.SetBool("isDead", true);
             animator.updateMode = AnimatorUpdateMode.UnscaledTime;
@@ -81,10 +88,8 @@ public class BossScript : MonoBehaviour {
     {
         if (attackTemp >= 3)
         {
-            animator.SetBool("one", true);
-            animator.SetBool("two", false);
-            animator.SetBool("three", false);
-            animator.SetBool("four", false);
+            animator.enabled = false;
+            sr.sprite = attackSprite1;
             Invoke("AttackAnimation2", 1);
             Invoke("AttackAnimation3", 2);
             Invoke("TimeLimit", 3);
@@ -116,12 +121,9 @@ public class BossScript : MonoBehaviour {
                     obj = Instantiate(prefab3, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
                 else if (mouseP.x > transform.position.x + 12.9) //Direita
                     obj = Instantiate(prefab5, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
-                //talvez mudar o spriterenderer ao invés da animação
+                
+                sr.sprite = attackSprite4;
                 CancelInvoke();
-                animator.SetBool("one", false);
-                animator.SetBool("two", false);
-                animator.SetBool("three", false);
-                animator.SetBool("four", true);
                 Invoke("MovementAnimation", 1.5f);
                 currentLife -= 1;
                 slider.value = CalculateLife();
@@ -147,26 +149,17 @@ public class BossScript : MonoBehaviour {
 
     void AttackAnimation2()
     {
-        animator.SetBool("one", false);
-        animator.SetBool("two", true);
-        animator.SetBool("three", false);
-        animator.SetBool("four", false);
+        sr.sprite = attackSprite2;
     }
 
     void AttackAnimation3()
     {
-        animator.SetBool("one", false);
-        animator.SetBool("two", false);
-        animator.SetBool("three", true);
-        animator.SetBool("four", false);
+        sr.sprite = attackSprite3;
     }
 
     void MovementAnimation()
     {
-        animator.SetBool("one", false);
-        animator.SetBool("two", false);
-        animator.SetBool("three", false);
-        animator.SetBool("four", false);
+        animator.enabled = true;
         animator.Play(0, -1, 0);
     }
 

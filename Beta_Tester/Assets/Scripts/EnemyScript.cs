@@ -11,8 +11,8 @@ public class EnemyScript : MonoBehaviour {
     float speed;
     float speed2;
     float speed3;
-    public static bool isClicked = false;
-    public static bool isClicked2 = false;
+    public bool isClicked = false;
+    bool isActivated;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class EnemyScript : MonoBehaviour {
 
         if (gameObject.name == "Enemy1" || gameObject.name == "Enemy4")
             InvokeRepeating("SpawnBottle", 2, 6);
-        else if (gameObject.name == "Enemy5" || gameObject.name == "Enemy6")
+        else if (gameObject.name == "Enemy5")
             InvokeRepeating("SpawnBottle2", 2, 6);
         else if (gameObject.name == "Enemy3" || gameObject.name == "Enemy3 (1)")
             speed = transform.position.x;
@@ -50,11 +50,8 @@ public class EnemyScript : MonoBehaviour {
 
         if (isClicked && gameObject.name == "Enemy5")
         {
-            ClickInteraction();
-        }
-        else if (isClicked2 && gameObject.name == "Enemy6")
-        {
-            ClickInteraction();
+            if (!isActivated)
+                ClickInteraction();
         }
 
         if (playerT == null) return;
@@ -90,6 +87,6 @@ public class EnemyScript : MonoBehaviour {
         InvokeRepeating("SpawnBottle3", 0.5f, 6);
         InvokeRepeating("SpawnBottle4", 1, 6);
         isClicked = false;
-        isClicked2 = false;
+        isActivated = true;
     }
 }

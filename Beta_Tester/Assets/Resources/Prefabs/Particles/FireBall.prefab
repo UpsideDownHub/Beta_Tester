@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 9
+  prefab: {fileID: 1253153863058012, guid: 36b7b1a08ad3f614387d3057a651d03b, type: 2}
   isActivated: 0
 --- !u!136 &136112872548390496
 CapsuleCollider:

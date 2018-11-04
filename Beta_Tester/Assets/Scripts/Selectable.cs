@@ -7,6 +7,7 @@ public class Selectable : MonoBehaviour {
     public GameOver gameOver;
     public GameObject prefab;
     public GameObject prefabPlanta;
+    public GameObject prefabSpellBind;
     public Transform playerT;
     float activateTrapTime;
 
@@ -39,20 +40,7 @@ public class Selectable : MonoBehaviour {
                         gameOver.slider.value += 0.15f;
                     }
 
-                    else if (hit.collider.name == "Trap")
-                    {
-                        Destroy(hit.collider.gameObject);
-                        gameOver.slider.value += 0.15f;
-                    }
-
                     else if (hit.collider.name == "Enemy1")
-                    {
-                        var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
-                        enemyScript.prefab = prefab;
-                        gameOver.slider.value += 0.15f;
-                    }
-
-                    else if (hit.collider.name == "Enemy4")
                     {
                         var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
                         enemyScript.prefab = prefab;
@@ -61,12 +49,8 @@ public class Selectable : MonoBehaviour {
 
                     else if (hit.collider.name == "Enemy5")
                     {
-                        EnemyScript.isClicked = true;
-                    }
-
-                    else if (hit.collider.name == "Enemy6")
-                    {
-                        EnemyScript.isClicked2 = true;
+                        var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
+                        enemyScript.isClicked = true;
                     }
 
                     else if (hit.collider.tag == "Trap")
@@ -81,6 +65,7 @@ public class Selectable : MonoBehaviour {
                             animator.SetBool("Flying", true);
                             var moveObjects = hit.collider.GetComponent<MoveObjects>();
                             moveObjects.isActivated = true;
+                            Instantiate(prefabSpellBind, hit.collider.transform);
                         }
                         else if (hit.transform.position.x > playerT.position.x + 2)
                         {
@@ -99,5 +84,6 @@ public class Selectable : MonoBehaviour {
                 }
             }
         }
+        //print(activateTrapTime);
 	}
 }

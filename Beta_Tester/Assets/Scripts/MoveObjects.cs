@@ -7,6 +7,7 @@ public class MoveObjects : MonoBehaviour {
 
     public float speed;
     //FireBall
+    public GameObject prefab;
     Transform target;
     Vector3 lastPosition;
     float x;
@@ -138,7 +139,7 @@ public class MoveObjects : MonoBehaviour {
     {
         if (gameObject.name == "FireBall(Clone)" && other.tag == "Player")
         {
-            Instantiate(Resources.Load<GameObject>("Prefabs/FireLevel/BOOM"), transform.position + new Vector3(1,0,0), Quaternion.identity);
+            Instantiate(prefab, transform.position + new Vector3(1,0,0), Quaternion.identity);
             Destroy(gameObject);
         }
     }

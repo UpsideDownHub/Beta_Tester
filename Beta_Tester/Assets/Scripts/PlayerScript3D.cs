@@ -158,7 +158,7 @@ public class PlayerScript3D : MonoBehaviour
             rightObjects.ForEach(x => print(x.transform.position.CorrectPositions().y));
 
             rightObjects = rightObjects.Where(x => x.transform.position.x > transform.position.x &&
-            Mathf.Abs(x.transform.position.x - transform.position.x) <= xDistance && // xDistance + 1
+            Mathf.Abs(x.transform.position.x - transform.position.x) <= xDistance + 1 &&
             new Vector3(x.transform.position.x, x.transform.position.y - 1).CorrectPositions().y == transform.position.CorrectPositions().y && !objectsVerified.Contains(x)).ToList(); 
 
             if (leftObjects.Count > 0 || rightObjects.Count > 0)
@@ -169,12 +169,6 @@ public class PlayerScript3D : MonoBehaviour
                 if (rightObjects.Count > 0)
                     objectsVerified.Add(rightObjects.First());
 
-            //}
-
-
-            //if (leftObjects.Count > 0)
-            //{
-            //    objectsVerified.Add(leftObjects.First());
                 var position = (Positions)transform.position.CorrectPositions().y;
                 var newPosition = position.SearchNewPath();
                 nextPosition = newPosition;
