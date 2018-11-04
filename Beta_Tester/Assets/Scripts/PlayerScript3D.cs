@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Assets.Scripts.Shared;
 
-public class PlayerScript3D : MonoBehaviour {
+public class PlayerScript3D : MonoBehaviour
+{
 
     public Rigidbody rb;
     public Animator animator;
@@ -135,7 +136,7 @@ public class PlayerScript3D : MonoBehaviour {
             gameObject.SetActive(false);
         else
             gameObject.SetActive(true);
-        
+
         isColliding = false;
 
         #region Movement
@@ -144,19 +145,39 @@ public class PlayerScript3D : MonoBehaviour {
         {
             moving = true;
 
-            var fireBalls = GameObject.FindGameObjectsWithTag("FireBall").ToList();
+            var leftObjects = GameObject.FindGameObjectsWithTag("FireBall").ToList();
+            leftObjects.AddRange(GameObject.FindGameObjectsWithTag("Trap").Where(x => x.GetComponent<MoveObjects>() != null && x.GetComponent<MoveObjects>().mouseP.HasValue).ToList());
+            var rightObjects = GameObject.FindGameObjectsWithTag("Trap").ToList();
 
-            fireBalls = fireBalls.Where(x => x.transform.position.x < transform.position.x &&
+            rightObjects.Where(x => x.gameObject.name == "GroundTrap" && x.GetComponent<Animator>() != null && !x.GetComponent<Animator>().enabled).ToList().ForEach(y => rightObjects.Remove(y));
+
+            leftObjects = leftObjects.Where(x => x.transform.position.x < transform.position.x &&
             Mathf.Abs(x.transform.position.x - transform.position.x) <= xDistance &&
             x.transform.position.CorrectPositions().y == transform.position.CorrectPositions().y && !objectsVerified.Contains(x)).ToList();
 
-            if (fireBalls.Count > 0)
+            rightObjects.ForEach(x => print(x.transform.position.CorrectPositions().y));
+
+            rightObjects = rightObjects.Where(x => x.transform.position.x > transform.position.x &&
+            Mathf.Abs(x.transform.position.x - transform.position.x) <= xDistance && // xDistance + 1
+            new Vector3(x.transform.position.x, x.transform.position.y - 1).CorrectPositions().y == transform.position.CorrectPositions().y && !objectsVerified.Contains(x)).ToList(); 
+
+            if (leftObjects.Count > 0 || rightObjects.Count > 0)
             {
-                objectsVerified.Add(fireBalls.First());
+                if(leftObjects.Count > 0)
+                    objectsVerified.Add(leftObjects.First());
+
+                if (rightObjects.Count > 0)
+                    objectsVerified.Add(rightObjects.First());
+
+            //}
+
+
+            //if (leftObjects.Count > 0)
+            //{
+            //    objectsVerified.Add(leftObjects.First());
                 var position = (Positions)transform.position.CorrectPositions().y;
                 var newPosition = position.SearchNewPath();
                 nextPosition = newPosition;
-                print(newPosition);
 
                 if (newPosition == Positions.Top || (newPosition == Positions.Middle && Mathf.RoundToInt(transform.position.y) < (int)Positions.Middle))
                 {

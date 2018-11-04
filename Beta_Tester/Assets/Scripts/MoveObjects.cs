@@ -20,7 +20,7 @@ public class MoveObjects : MonoBehaviour {
     bool isPreparedToLaunch;
     bool isLaunched;
     bool isClicked;
-    Vector3 mouseP;
+    [HideInInspector] public Vector3? mouseP = null;
     float temp;
     float temp2;
     SpriteRenderer sr;
@@ -106,7 +106,7 @@ public class MoveObjects : MonoBehaviour {
             if (isLaunched)
             {
                 sr.sortingOrder = Mathf.RoundToInt(transform.position.y * 10f - 10) * -1;
-                transform.position = Vector3.MoveTowards(transform.position, mouseP, 10 * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, mouseP.Value, 10 * Time.deltaTime);
             }
 
             if (mouseP == transform.position)
