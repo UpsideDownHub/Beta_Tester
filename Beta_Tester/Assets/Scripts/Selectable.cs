@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,10 +23,12 @@ public class Selectable : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            List<RaycastHit> _hit = Physics.RaycastAll(ray).Where(a => a.collider.tag == "Selectable" || a.collider.tag == "Trap" || a.collider.tag == "Fall").ToList();
 
-            if (Physics.Raycast(ray, out hit))
+            if (_hit.Count > 0)
             {
+                RaycastHit hit = _hit.First();
+
                 if (activateTrapTime >= 2)
                 {
                     if (hit.collider.name == "Planta")
@@ -84,6 +87,5 @@ public class Selectable : MonoBehaviour {
                 }
             }
         }
-        //print(activateTrapTime);
 	}
 }

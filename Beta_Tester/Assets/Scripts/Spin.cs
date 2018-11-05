@@ -92,7 +92,7 @@ public class Spin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.tag == "Ground" || other.tag == "Player") && gameObject.tag == "Poison")
+        if ((other.tag == "Ground" || other.tag == "Player") && gameObject.tag == "Poison" || gameObject.tag == "Selectable")
         {
             Instantiate(prefab, transform.position + new Vector3(-2, 0, 0), Quaternion.identity);
             Destroy(this.gameObject);

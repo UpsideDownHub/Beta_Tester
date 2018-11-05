@@ -1206,7 +1206,7 @@ GameObject:
   - component: {fileID: 229834384}
   m_Layer: 12
   m_Name: gelo (2)
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1282,6 +1282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  prefab: {fileID: 0}
+  prefab2: {fileID: 0}
   isActivated: 0
 --- !u!65 &229834386
 BoxCollider:
@@ -1941,7 +1943,7 @@ GameObject:
   - component: {fileID: 417573686}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3906,6 +3908,7 @@ MonoBehaviour:
   gameOver: {fileID: 927094910}
   prefab: {fileID: 1274794322634432, guid: 9bae890522612ba4ba20c16ce0a333bb, type: 2}
   prefabPlanta: {fileID: 0}
+  prefabSpellBind: {fileID: 0}
   playerT: {fileID: 1780863022}
 --- !u!114 &927094910
 MonoBehaviour:
@@ -4758,7 +4761,7 @@ GameObject:
   - component: {fileID: 1108573587}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
