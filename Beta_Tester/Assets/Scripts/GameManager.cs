@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
-
+        //Ativação das embers
         if (embers != null)
         {
             for (int j = 0; j < embers.Length; j++)
@@ -112,10 +112,6 @@ public class GameManager : MonoBehaviour {
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             cameraFollow.position = new Vector3(player.transform.position.x, cameraFollow.position.y, cameraFollow.position.z);
-
-            //if (player.transform.position.x + maxPosC <= maxPosC || player.transform.position.x - minPosC >= minPosC)
-            //{
-            //}
         }
     }
 
