@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Jump;
 using System.Linq;
+using UnityEngine.Tilemaps;
 
 public class LastPossibility
 {
@@ -39,6 +40,7 @@ public class AIPlayerScript : MonoBehaviour
     [SerializeField] int MaxYToJump = 3;
     [SerializeField] int MaxXToJump = 3;
     [SerializeField] float speed = 1.5f;
+    [SerializeField] Tilemap tileM;
     bool direction = true;
 
     [Range(0, 100)]

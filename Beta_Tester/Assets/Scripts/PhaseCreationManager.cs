@@ -20,6 +20,7 @@ public class PhaseCreationManager : MonoBehaviour
     [SerializeField] GameObject Character;
     [SerializeField] GameObject Canvas;
     [SerializeField] GameObject Camera;
+    [SerializeField] Tilemap tileM;
 
     UnityAction ua;
     public static List<List<int>> data = new List<List<int>>();
@@ -91,12 +92,16 @@ public class PhaseCreationManager : MonoBehaviour
                 if (data[i][j] == 0) continue;
                 float _v = data[i][j] == 3 || data[i][j] == 4 ? -0.5f : 0;
                 if (data[i][j] == 2)
-                    character = Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
-                else if (j != 0 && data[i][j] == 1 && data[i][j - 1] != 0) {
-                    Instantiate(floor2, new Vector3(i, Mathf.Abs(j - 10 - _v), 0), floor2.transform.rotation);
+                    character = Instantiate(GetObject(data[i][j]), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(data[i][j]).transform.rotation, tileM.transform.parent);
+                //character = Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
+                else if (j != 0 && data[i][j] == 1 && data[i][j - 1] != 0)
+                {
+                    Instantiate(floor2, tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), floor2.transform.rotation, tileM.transform.parent);
+                    //Instantiate(floor2, new Vector3(i, Mathf.Abs(j - 10 - _v), 0), floor2.transform.rotation);
                 }
                 else
-                    Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
+                    Instantiate(GetObject(data[i][j]), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(data[i][j]).transform.rotation, tileM.transform.parent);
+                //Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
             }
         }
         var vitrualCamera = Camera.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();

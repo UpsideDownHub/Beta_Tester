@@ -163,9 +163,12 @@ public class PlayerScript3D : MonoBehaviour
             Mathf.Abs(x.transform.position.x - transform.position.x) <= xDistance + 1 &&
             new Vector3(x.transform.position.x, x.transform.position.y - 1).CorrectPositions().y == transform.position.CorrectPositions().y && !objectsVerified.Contains(x)).ToList();
 
+            leftObjects.Where(x => x.gameObject.name == "GroundTrap" && (int)x.gameObject.GetComponent<MoveObjects>().mouseP.Value.y != (int)transform.position.y).ToList().ForEach(y => leftObjects.Remove(y));
+
+
             tempEvade += Time.deltaTime;
 
-            if (tempEvade >= 0.4f)
+            if (tempEvade >= 1f)
             {
                 if (leftObjects.Count > 0 || rightObjects.Count > 0)
                 {
@@ -288,10 +291,8 @@ public class PlayerScript3D : MonoBehaviour
 
         if (other.gameObject.layer == 12)
         {
-            if (canGetDamage)
-            {
+            if (canGetDamage && (other.gameObject.name == "GroundTrap" && (int)other.gameObject.GetComponent<MoveObjects>().mouseP.Value.y == (int)transform.position.y) || other.gameObject.name != "GroundTrap")
                 GetDamage();
-            }
             //gameOverBT.slider.value += 0.05f;
         }
 

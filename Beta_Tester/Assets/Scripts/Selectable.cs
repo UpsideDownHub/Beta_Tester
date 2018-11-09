@@ -63,6 +63,8 @@ public class Selectable : MonoBehaviour {
 
                         if (hit.transform.position.x < playerT.position.x - 2)
                         {
+                            boxC.size = new Vector3(boxC.size.x, 1.962251f, boxC.size.z);
+                            boxC.center = new Vector3(boxC.center.x, 0.02961075f, boxC.center.z);
                             animator.enabled = true;
                             boxC.enabled = true;
                             animator.SetBool("Flying", true);

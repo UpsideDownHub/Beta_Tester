@@ -116,7 +116,7 @@ public class MoveObjects : MonoBehaviour {
                 if (Input.GetMouseButtonDown(0) && !isClicked)
                 {
                     gameObject.layer = 12;
-                    mouseP = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+                    mouseP = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0).CorrectPositions();
                     isLaunched = true;
                     isClicked = true;
                 }
