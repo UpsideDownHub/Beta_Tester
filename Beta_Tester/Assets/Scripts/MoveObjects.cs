@@ -7,7 +7,7 @@ public class MoveObjects : MonoBehaviour {
 
     public float speed;
     //FireBall
-    public GameObject prefab;
+    public GameObject prefabBOOM;
     Transform target;
     Vector3 lastPosition;
     float x;
@@ -17,12 +17,13 @@ public class MoveObjects : MonoBehaviour {
     float y;
 
     //GroundTrap
-    public GameObject prefab2;
+    public GameObject prefabPedraPuf;
     public bool isActivated;
     bool isDestroying = true;
     bool isPreparedToLaunch;
     bool isLaunched;
     bool isClicked;
+    public bool Activated;
     [HideInInspector] public Vector3? mouseP = null;
     float temp;
     float temp2;
@@ -133,7 +134,7 @@ public class MoveObjects : MonoBehaviour {
             {
                 if (isDestroying)
                 {
-                    Instantiate(prefab2, transform.position, Quaternion.identity);
+                    Instantiate(prefabPedraPuf, transform.position, Quaternion.identity);
                     isDestroying = false;
                 }
 
@@ -163,7 +164,7 @@ public class MoveObjects : MonoBehaviour {
     {
         if (gameObject.name == "FireBall(Clone)" && other.tag == "Player")
         {
-            Instantiate(prefab, transform.position + new Vector3(1,0,0), Quaternion.identity);
+            Instantiate(prefabBOOM, transform.position + new Vector3(1,0,0), Quaternion.identity);
             Destroy(gameObject);
         }
     }

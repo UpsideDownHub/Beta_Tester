@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Spin : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject prefabPoison;
     Rigidbody rb;
     public float spinx;
     public float spiny;
@@ -94,7 +94,7 @@ public class Spin : MonoBehaviour
     {
         if ((other.tag == "Ground" || other.tag == "Player") && gameObject.tag == "Poison" || gameObject.tag == "Selectable")
         {
-            Instantiate(prefab, transform.position + new Vector3(-2, 0, 0), Quaternion.identity);
+            Instantiate(prefabPoison, transform.position + new Vector3(-2, 0, 0), Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

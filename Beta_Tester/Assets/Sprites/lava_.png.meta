@@ -126,9 +126,9 @@ TextureImporter:
       name: lava__0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 2
         y: 0
-        width: 248
+        width: 246
         height: 202
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -146,9 +146,9 @@ TextureImporter:
       name: lava__1
       rect:
         serializedVersion: 2
-        x: 273
+        x: 274
         y: 0
-        width: 248
+        width: 246
         height: 202
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -166,9 +166,9 @@ TextureImporter:
       name: lava__2
       rect:
         serializedVersion: 2
-        x: 545
+        x: 546
         y: 0
-        width: 248
+        width: 246
         height: 202
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -186,9 +186,9 @@ TextureImporter:
       name: lava__3
       rect:
         serializedVersion: 2
-        x: 817
+        x: 818
         y: 0
-        width: 248
+        width: 246
         height: 202
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -206,9 +206,9 @@ TextureImporter:
       name: lava__4
       rect:
         serializedVersion: 2
-        x: 1088
+        x: 1089
         y: 0
-        width: 248
+        width: 246
         height: 202
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -226,9 +226,9 @@ TextureImporter:
       name: lava__5
       rect:
         serializedVersion: 2
-        x: 1352
+        x: 1353
         y: 0
-        width: 247
+        width: 245
         height: 202
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
