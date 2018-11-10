@@ -291,7 +291,7 @@ public class PlayerScript3D : MonoBehaviour
 
         if (other.gameObject.layer == 12)
         {
-            if (canGetDamage && (other.gameObject.name == "GroundTrap" && (int)other.gameObject.GetComponent<MoveObjects>().mouseP.Value.y == (int)transform.position.y) || other.gameObject.name != "GroundTrap")
+            if (canGetDamage && (other.gameObject.name == "GroundTrap" && (int)other.gameObject.GetComponent<MoveObjects>().mouseP.Value.y == Mathf.RoundToInt(transform.position.y)) || other.gameObject.name != "GroundTrap")
                 GetDamage();
             //gameOverBT.slider.value += 0.05f;
         }

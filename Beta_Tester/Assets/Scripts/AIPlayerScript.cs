@@ -4,6 +4,7 @@ using UnityEngine;
 using Assets.Scripts.Jump;
 using System.Linq;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class LastPossibility
 {
@@ -35,6 +36,7 @@ public class AIPlayerScript : MonoBehaviour
     Animator animator;
 
     CapsuleCollider CapsuleCollider;
+    Transform circleT;
     [SerializeField] int XDistanceToJump = 2;
     [SerializeField] int XValidationDistance = 4;
     [SerializeField] int MaxYToJump = 3;
@@ -54,36 +56,80 @@ public class AIPlayerScript : MonoBehaviour
     float jumpSpeed;
     bool forceToJump = false;
     bool backing = false;
-
+    bool isLevelInBeginning = true; 
+    bool isLevelCompleted = false;
     bool flip = false;
     int flipX = 0;
+    float circleTLocalScaleX;
+    float circleTLocalScaleY;
     void Start()
     {
+        circleT = GameObject.Find("Circle").transform;
         jumpSpeed = speed;
         this.data = PhaseCreationManager.data;
         Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         CapsuleCollider = GetComponent<CapsuleCollider>();
+
+        circleTLocalScaleX = circleT.localScale.x;
+        circleTLocalScaleY = circleT.localScale.x;
     }
 
     void Update()
     {
-        if(Rigidbody.velocity.x > 0)
+        if (transform.position.x >= data.Count - 8)
+            isLevelCompleted = true;
+
+        if (isLevelInBeginning)
         {
-            animator.SetBool("moving", true);
+            if (circleT.localScale.x >= 0 && circleT.localScale.x <= 70)
+            {
+                Time.timeScale = 0f;
+                circleTLocalScaleX += 0.8f;
+                circleTLocalScaleY += 0.8f;
+                circleT.localScale = new Vector3(circleTLocalScaleX, circleTLocalScaleY, circleT.localScale.z);
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                circleT.localScale = new Vector3(70, 70, circleT.localScale.z);
+                isLevelInBeginning = false;
+            }
         }
-        else if(Rigidbody.velocity.x == 0) 
+        if (isLevelCompleted)
         {
-            animator.SetBool("moving", false);
+            if (circleT.localScale.x > 0)
+            {
+                circleTLocalScaleX -= 24 * Time.deltaTime;
+                circleTLocalScaleY -= 24 * Time.deltaTime;
+                circleT.localScale = new Vector3(circleTLocalScaleX, circleTLocalScaleY, circleT.localScale.z);
+            }
+            else
+            {
+                GameObject.Find("CutSceneJump").GetComponent<cutSceneJump>().JumpCutScene = true;
+                DontDestroyOnLoad(GameObject.Find("CutSceneJump"));
+                circleT.localScale = new Vector3(0, 0, 0);
+                SceneManager.LoadScene("levelCleber");
+                isLevelCompleted = false;
+            }
         }
-        else if (Rigidbody.velocity.y > 0 || Rigidbody.velocity.y < 0)
-        {
-            animator.SetBool("jump", true);
-        }
-        else if (Rigidbody.velocity.y == 0)
-        {
-            animator.SetBool("jump", false);
-        }
+
+        //if (Rigidbody.velocity.x > 0)
+        //{
+        //    animator.SetBool("moving", true);
+        //}
+        //else if(Rigidbody.velocity.x == 0) 
+        //{
+        //    animator.SetBool("moving", false);
+        //}
+        //else if (Rigidbody.velocity.y > 0 || Rigidbody.velocity.y < 0)
+        //{
+        //    animator.SetBool("jump", true);
+        //}
+        //else if (Rigidbody.velocity.y == 0)
+        //{
+        //    animator.SetBool("jump", false);
+        //}
 
         if (_backing && !ignore)
         {
@@ -323,11 +369,12 @@ public class AIPlayerScript : MonoBehaviour
             }
             if (Random.Range(0, 100) <= JumpProblability || flip || forceToJump || canGoStraight == PossibleWaysToGoStraight.Cant)
             {
-                print("qwe");
                 lastPossibility.Jumped = true;
                 var i = Random.Range(0, jumpPossibilities.Count);
                 Rigidbody.AddForce(jumpPossibilities[i].Force);
                 jumpSpeed = jumpPossibilities[i].JumpSpeed;
+                animator.SetBool("moving", false);
+                animator.SetBool("jump", true);
             }
             else if (canGoStraight == PossibleWaysToGoStraight.StraightJump)
             {
@@ -338,6 +385,8 @@ public class AIPlayerScript : MonoBehaviour
                 {
                     Rigidbody.AddForce(jumpPossibilities[i].Force);
                     jumpSpeed = jumpPossibilities[i].JumpSpeed;
+                    animator.SetBool("moving", false);
+                    animator.SetBool("jump", true);
                 }
             }
             forceToJump = false;
@@ -557,7 +606,8 @@ public class AIPlayerScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        animator.SetBool("moving", true);
+        animator.SetBool("jump", false);
         //position = direction? new Vector3() : new Vector3(data.Count,0);
         if (_backing)
             return;

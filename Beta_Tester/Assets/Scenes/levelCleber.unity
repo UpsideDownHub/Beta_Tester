@@ -991,6 +991,7 @@ MonoBehaviour:
   prefabSpellBind: {fileID: 1328552634878958, guid: 3bf5cb2fb49e8204087180d58d0d82a3,
     type: 2}
   playerT: {fileID: 747301513}
+  textTime: {fileID: 590073084}
 --- !u!1 &135106066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1128569236487808, guid: e2aa0ed8674bf3d4bbf3bd96cb55fac5,
@@ -1013,8 +1014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  prefab: {fileID: 0}
-  prefab2: {fileID: 0}
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
   isActivated: 0
   Activated: 0
 --- !u!1001 &137192434
@@ -1212,8 +1213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  prefab: {fileID: 0}
-  prefab2: {fileID: 0}
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
   isActivated: 0
   Activated: 0
 --- !u!1001 &145831419
@@ -2220,8 +2221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  prefab: {fileID: 0}
-  prefab2: {fileID: 0}
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
   isActivated: 0
   Activated: 0
 --- !u!1 &321895772
@@ -3536,7 +3537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &590073083
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4206,8 +4207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  prefab: {fileID: 0}
-  prefab2: {fileID: 0}
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
   isActivated: 0
   Activated: 0
 --- !u!1 &792900732
@@ -5330,8 +5331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  prefab: {fileID: 0}
-  prefab2: {fileID: 0}
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
   isActivated: 0
   Activated: 0
 --- !u!4 &932114626 stripped
@@ -8423,8 +8424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  prefab: {fileID: 0}
-  prefab2: {fileID: 0}
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
   isActivated: 0
   Activated: 0
 --- !u!1 &1666383951
@@ -10187,8 +10188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  prefab: {fileID: 0}
-  prefab2: {fileID: 0}
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
   isActivated: 0
   Activated: 0
 --- !u!1 &1885049802

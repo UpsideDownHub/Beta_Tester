@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cutscenes : MonoBehaviour {
+public class Cutscenes : MonoBehaviour
+{
 
     public GameObject level;
     public GameObject canvasCutscene;
@@ -39,6 +40,11 @@ public class Cutscenes : MonoBehaviour {
             skipText.text = "PRESS SPACE TO SKIP";
         else
             skipText.text = "PRESSIONE ESPAÇO PARA PULAR";
+
+        var csj = GameObject.Find("CutSceneJump");
+        if (csj != null)
+            if (csj.GetComponent<cutSceneJump>().JumpCutScene)
+                JumpCutScene();
     }
 
     private void Update()
@@ -86,7 +92,7 @@ public class Cutscenes : MonoBehaviour {
             siteJimmy.enabled = true;
             siteJimmyA.enabled = true;
         }
-        
+
         if (isFirstSceneCompleted)
         {
             temp2 += Time.deltaTime;
@@ -334,7 +340,7 @@ public class Cutscenes : MonoBehaviour {
         }
 
         if (beginGame)
-        {            
+        {
             if (circle2T.localScale.x > 0)
             {
                 x2 -= 24 * Time.deltaTime;
@@ -376,5 +382,13 @@ public class Cutscenes : MonoBehaviour {
     void PlayerCutscene()
     {
         playerCutscene.gameObject.SetActive(true);
+    }
+
+    public void JumpCutScene()
+    {
+        circle.SetActive(true);
+        level.SetActive(true);
+        Destroy(cutScene);
+        Destroy(canvasCutscene);
     }
 }

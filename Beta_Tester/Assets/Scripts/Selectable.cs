@@ -10,7 +10,7 @@ public class Selectable : MonoBehaviour {
     public GameObject prefabPlanta;
     public GameObject prefabSpellBind;
     public Transform playerT;
-    //public UnityEngine.UI.Text textTime;
+    public UnityEngine.UI.Text textTime;
     float activateTrapTime;
 
     // Use this for initialization
@@ -20,7 +20,7 @@ public class Selectable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //textTime.text = activateTrapTime.ToString();
+        textTime.text = (activateTrapTime > 2? 0 : Mathf.Abs(activateTrapTime - 2)).ToString();
         activateTrapTime += Time.deltaTime;
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
