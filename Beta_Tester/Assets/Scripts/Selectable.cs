@@ -2,15 +2,17 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Selectable : MonoBehaviour {
 
+    public Slider timeToClickSlider;
     public GameOver gameOver;
     public GameObject prefab;
     public GameObject prefabPlanta;
     public GameObject prefabSpellBind;
     public Transform playerT;
-    public UnityEngine.UI.Text textTime;
+    //public Text textTime;
     float activateTrapTime;
 
     // Use this for initialization
@@ -20,8 +22,10 @@ public class Selectable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        textTime.text = (activateTrapTime > 2? 0 : Mathf.Abs(activateTrapTime - 2)).ToString();
+        //textTime.text = (activateTrapTime > 2? 0 : Mathf.Abs(activateTrapTime - 2)).ToString();
         activateTrapTime += Time.deltaTime;
+        timeToClickSlider.value = CalculateTimeToClick();
+
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -106,4 +110,9 @@ public class Selectable : MonoBehaviour {
             }
         }
 	}
+
+    float CalculateTimeToClick()
+    {
+        return activateTrapTime / 2;
+    }
 }
