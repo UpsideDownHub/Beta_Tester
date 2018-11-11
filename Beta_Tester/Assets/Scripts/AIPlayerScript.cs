@@ -267,7 +267,7 @@ public class AIPlayerScript : MonoBehaviour
                             //    }
                             //}
                             //else
-                            jumpPossibilities.Set(new Vector3(x, Mathf.Abs(y - 10)), new Vector3(0, 250, 0), XdistanceToJump * 1.5f);
+                            jumpPossibilities.Set(new Vector3(x, realY), new Vector3(0, 250, 0), XdistanceToJump * 1.5f);
                         }
                         //caso não consiga pular, porem é pouco espaço
                         else if (!CanGoStraightInBelow(_x, Mathf.Abs(_y - 10)) && !GroundInOrBelow(Mathf.Abs(_y - 10), x))
@@ -378,7 +378,6 @@ public class AIPlayerScript : MonoBehaviour
             }
             else if (canGoStraight == PossibleWaysToGoStraight.StraightJump)
             {
-                print("qwe");
                 jumpPossibilities = jumpPossibilities.Where(x => !x.Up).ToList();
                 var i = Random.Range(0, jumpPossibilities.Count);
                 if (jumpPossibilities.Count > 0)
@@ -465,7 +464,7 @@ public class AIPlayerScript : MonoBehaviour
         int? _x = null;
         while (direction ? untilX >= NextXElement(x, i) : untilX <= NextXElement(x, i))
         {
-            //Debug.DrawLine(new Vector2(NextXElement(x, i), Mathf.Abs(y - 10 + 1)), new Vector2(NextXElement(x, i) + 0.5f, Mathf.Abs(y - 10 + 1) + 0.5f), Color.red, 0.3f);
+            Debug.DrawLine(new Vector2(NextXElement(x, i), Mathf.Abs(y - 10 + 1)), new Vector2(NextXElement(x, i) + 0.5f, Mathf.Abs(y - 10 + 1) + 0.5f), Color.red, 0.3f);
             if (GetValue(NextXElement(x, i), y + 1) == 0)
             {
                 _x = NextXElement(x, i);

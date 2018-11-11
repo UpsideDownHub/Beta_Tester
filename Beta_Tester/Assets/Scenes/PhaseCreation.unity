@@ -1495,6 +1495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d9f2b75ca49524db44bc59b632f0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpCutScene: 0
 --- !u!4 &1682680293
 Transform:
   m_ObjectHideFlags: 0

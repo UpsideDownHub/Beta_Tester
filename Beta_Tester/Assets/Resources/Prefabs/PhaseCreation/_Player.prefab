@@ -107,7 +107,7 @@ MonoBehaviour:
   MaxXToJump: 3
   speed: 2
   tileM: {fileID: 0}
-  JumpProblability: 100
+  JumpProblability: 0
 --- !u!136 &136826057887367918
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -472,7 +472,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 29839509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.3, y: 8.24, z: -10}
+  m_LocalPosition: {x: 6.3, y: 8.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 10373250}
@@ -1282,9 +1282,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  prefab: {fileID: 0}
-  prefab2: {fileID: 0}
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
   isActivated: 0
+  Activated: 0
 --- !u!65 &229834386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3910,6 +3911,7 @@ MonoBehaviour:
   prefabPlanta: {fileID: 0}
   prefabSpellBind: {fileID: 0}
   playerT: {fileID: 1780863022}
+  textTime: {fileID: 0}
 --- !u!114 &927094910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4136,7 +4138,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 943056511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.3, y: 8.24, z: -10}
+  m_LocalPosition: {x: 6.3, y: 8.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 904352831}
@@ -7734,7 +7736,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4942735437664888, guid: c62cec81ee0229944aaba8ce96d86f8f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.24
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 4942735437664888, guid: c62cec81ee0229944aaba8ce96d86f8f, type: 2}
       propertyPath: m_LocalPosition.z
