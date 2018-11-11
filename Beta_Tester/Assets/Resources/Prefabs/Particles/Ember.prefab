@@ -116,7 +116,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
   isActivated: 0
+  Activated: 0
 --- !u!198 &198561925916138620
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -13772,7 +13775,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
 --- !u!199 &199358760521533990
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -13886,4 +13889,4 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1

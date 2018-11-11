@@ -215,6 +215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
+  isActivated: 0
+  Activated: 0
 --- !u!212 &212066413167097528
 SpriteRenderer:
   m_ObjectHideFlags: 1

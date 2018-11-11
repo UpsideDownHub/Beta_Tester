@@ -213,6 +213,11 @@ public class PlayerScript3D : MonoBehaviour
                 rb.velocity = new Vector3(x, y, rb.velocity.z);
             else
                 rb.velocity = new Vector3(x, 0, rb.velocity.z);
+
+            if (rb.velocity.x > 0)
+                sr.flipX = false;
+            else if (rb.velocity.x < 0)
+                sr.flipX = true;
         }
 
         #endregion
