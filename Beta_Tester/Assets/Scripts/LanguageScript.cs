@@ -13,7 +13,10 @@ public class LanguageScript : MonoBehaviour {
     public Text loadLevel;
     public Text backToMenu;
     public Text load;
-    //public Text menu;
+    public Text password;
+    public Text typeYourEmail;
+    public Text typeYourPassword;
+    public Text login;
 
     private void Start()
     {
@@ -44,6 +47,10 @@ public class LanguageScript : MonoBehaviour {
                 loadLevel.text = "LOAD LEVEL";
                 backToMenu.text = "BACK TO MENU";
                 load.text = "LOAD";
+                password.text = "Password:";
+                typeYourEmail.text = "Type your email";
+                typeYourPassword.text = "Type your password";
+                login.text = "Login";
             }
         }
         else
@@ -73,6 +80,10 @@ public class LanguageScript : MonoBehaviour {
                 loadLevel.text = "CARREGAR NÍVEL";
                 backToMenu.text = "VOLTAR AO MENU";
                 load.text = "CARREGAR";
+                password.text = "Senha:";
+                typeYourEmail.text = "Digite seu email";
+                typeYourPassword.text = "Digite sua senha";
+                login.text = "Entrar";
             }
         }
     }
