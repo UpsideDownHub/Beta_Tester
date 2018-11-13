@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.ComponentModel;
+using Assets.Scripts.Helpers;
 
 namespace Assets.Scripts
 {
@@ -115,7 +116,7 @@ namespace Assets.Scripts
 
         public List<TEntity> GetData()
         {
-            string conn = "URI=file:" + Application.dataPath + "/Database/SQLite.db";
+            string conn = "URI=file:C:/Desenvolvimento/github.com-UpsideDownHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
 
             using (dbconn = new SqliteConnection(conn))
             {
