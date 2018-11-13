@@ -21,6 +21,7 @@ public class PhaseCreationManager : MonoBehaviour
     [SerializeField] GameObject Canvas;
     [SerializeField] GameObject Camera;
     [SerializeField] Tilemap tileM;
+    private List<Assets.Scripts.DAL.Phase> phases = new List<Assets.Scripts.DAL.Phase>();
 
     UnityAction ua;
     public static List<List<int>> data = new List<List<int>>();
@@ -30,18 +31,26 @@ public class PhaseCreationManager : MonoBehaviour
 
     void Start()
     {
-        GoogleDriveFiles.List().Send().OnDone += BuildResults;
+        //GoogleDriveFiles.List().Send().OnDone += BuildResults;
     }
 
     void Update()
     {
     }
 
-    private void BuildResults(UnityGoogleDrive.Data.FileList fileList)
+    public void StartBuild()
     {
-        for (var i = 0; i < fileList.Files.Count; i++)
+        Assets.Scripts.DAL.BetaTesterContext.Phase.GetData();
+        phases = Assets.Scripts.DAL.BetaTesterContext.Phase.Data.Where(x => x.UserId == Assets.Scripts.DAL.BetaTesterContext.UserId).ToList();
+        BuildResults();
+        //GoogleDriveFiles.List().Send().OnDone += BuildResults;
+    }
+
+    private void BuildResults() //UnityGoogleDrive.Data.FileList fileList
+    {
+        for (var i = 0; i < phases.Count; i++)
         {
-            if (fileList.Files[i].MimeType == "application/vnd.google-apps.folder") continue;
+            //if (fileList.Files[i].MimeType == "application/vnd.google-apps.folder") continue;
 
             var obj = GameObject.Instantiate(panelItem, panelContent.transform);
             var rect = obj.GetComponent<RectTransform>();
@@ -59,9 +68,9 @@ public class PhaseCreationManager : MonoBehaviour
 
             rect.offsetMax = new Vector2(x, y);
 
-            obj.GetComponentInChildren<Text>().text = fileList.Files[i].Name;
+            obj.GetComponentInChildren<Text>().text = phases[i].Name;//fileList.Files[i].Name;
 
-            Fileids.Add(obj, fileList.Files[i].Id);
+            Fileids.Add(obj, phases[i].FileId);//fileList.Files[i].Id);
 
             obj.GetComponentInChildren<Button>().onClick.AddListener(delegate { MountPhase(obj); });
 
