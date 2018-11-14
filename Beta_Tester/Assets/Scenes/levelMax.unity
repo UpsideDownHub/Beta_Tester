@@ -2927,6 +2927,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 558898777}
   m_CullTransparentMesh: 0
+--- !u!1001 &563111757
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 48976506}
+    m_Modifications:
+    - target: {fileID: 4279479190675040, guid: 6af77ab3796d92244bd8e750134dc7c9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279479190675040, guid: 6af77ab3796d92244bd8e750134dc7c9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279479190675040, guid: 6af77ab3796d92244bd8e750134dc7c9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279479190675040, guid: 6af77ab3796d92244bd8e750134dc7c9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279479190675040, guid: 6af77ab3796d92244bd8e750134dc7c9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279479190675040, guid: 6af77ab3796d92244bd8e750134dc7c9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279479190675040, guid: 6af77ab3796d92244bd8e750134dc7c9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279479190675040, guid: 6af77ab3796d92244bd8e750134dc7c9, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6af77ab3796d92244bd8e750134dc7c9, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &570997608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,6 +3744,10 @@ MonoBehaviour:
   loadLevel: {fileID: 0}
   backToMenu: {fileID: 0}
   load: {fileID: 0}
+  password: {fileID: 0}
+  typeYourEmail: {fileID: 0}
+  typeYourPassword: {fileID: 0}
+  login: {fileID: 0}
 --- !u!114 &711635610
 MonoBehaviour:
   m_ObjectHideFlags: 0

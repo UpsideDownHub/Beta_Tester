@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1047,7 +1047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.48251852, y: 0.45600003}
   m_AnchorMax: {x: 0.622679, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 0.796875}
+  m_AnchoredPosition: {x: 9, y: 0.8125}
   m_SizeDelta: {x: 16.99, y: 1.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &471711045
@@ -1085,7 +1085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3965812, y: 0.19800001}
   m_AnchorMax: {x: 0.63900006, y: 0.6754053}
-  m_AnchoredPosition: {x: 1.1875, y: -0.625}
+  m_AnchoredPosition: {x: 1.25, y: -0.625}
   m_SizeDelta: {x: 2.130005, y: 1.2200012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471711047
@@ -1197,7 +1197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.37100002, y: 0.40612632}
   m_AnchorMax: {x: 0.48251852, y: 0.4468018}
-  m_AnchoredPosition: {x: -0.25, y: 0.09375}
+  m_AnchoredPosition: {x: -0.25, y: 0.125}
   m_SizeDelta: {x: 1.3600006, y: -1.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506648143
@@ -1401,6 +1401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 624587182}
   - component: {fileID: 624587181}
+  - component: {fileID: 624587183}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1442,6 +1443,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &624587183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624587180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1904227c8e196841b91c5e66d99e4a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelContent: {fileID: 1198553330}
+  panelItem: {fileID: 1357331050335540, guid: 5a481974a47fe1f4ba6e4279bae9e31a, type: 2}
+  floor: {fileID: 1135697815509216, guid: 18d69c46cc38e49438dae34192345f6e, type: 2}
+  floor2: {fileID: 1008104094897616, guid: 5b71f92aa4d8b2f4f8cccc4018b3bb7e, type: 2}
+  LeftStair: {fileID: 1919943908803144, guid: 61ba110aff8e8b04b908fe21b1829d05, type: 2}
+  RightStair: {fileID: 1269596453768092, guid: e5b4607b71a7c714a9b9624bba9f733c, type: 2}
+  Character: {fileID: 1553364694435660, guid: 47576786fe6eba341812d9cc5bc9f65a, type: 2}
+  Canvas: {fileID: 1991637883}
+  Camera: {fileID: 1593320494}
+  tileM: {fileID: 892864570}
 --- !u!1 &748929872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.40151852, y: 0.1578106}
   m_AnchorMax: {x: 0.5395814, y: 0.193}
-  m_AnchoredPosition: {x: 0.1875, y: 0.75}
+  m_AnchoredPosition: {x: 0.25, y: 0.75}
   m_SizeDelta: {x: 0.31000137, y: -0.01999998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &748929874
@@ -2068,7 +2090,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1510188867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.23, y: 3.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1217975866}
@@ -2230,9 +2252,9 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
-  orthographic: 0
-  orthographic size: 10
+  field of view: 27
+  orthographic: 1
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2248,6 +2270,81 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1559421563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1559421564}
+  - component: {fileID: 1559421566}
+  - component: {fileID: 1559421565}
+  m_Layer: 5
+  m_Name: ErrorText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1559421564
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1559421563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1991637887}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.416642, y: 0.35779303}
+  m_AnchorMax: {x: 0.62100005, y: 0.38945967}
+  m_AnchoredPosition: {x: -0.36999512, y: 0.5}
+  m_SizeDelta: {x: 1.3600006, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1559421565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1559421563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8773585, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Email or Password are incorrect
+--- !u!222 &1559421566
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1559421563}
+  m_CullTransparentMesh: 0
 --- !u!1 &1593320494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,7 +2395,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 27
-    OrthographicSize: 12
+    OrthographicSize: 4
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -2658,6 +2755,7 @@ RectTransform:
   - {fileID: 463836890}
   - {fileID: 421018347}
   - {fileID: 445152357}
+  - {fileID: 1559421564}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2684,6 +2782,7 @@ MonoBehaviour:
   passwordText: {fileID: 506648141}
   emailInputField: {fileID: 463836887}
   passwordInputField: {fileID: 421018348}
+  errorText: {fileID: 1559421563}
   loginButton: {fileID: 445152356}
   phaseCreationManager: {fileID: 624587181}
 --- !u!1 &2009039119

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ParticleManager : MonoBehaviour
 {   
@@ -21,10 +22,21 @@ public class ParticleManager : MonoBehaviour
     private void Update()
     {
         //WalkSmokeParticle
-        if (playerAnimator.GetBool("moving2") && !particleWalkSmoke.isPlaying)
-            particleWalkSmoke.Play();
-        else if (!playerAnimator.GetBool("moving2") && particleWalkSmoke.isPlaying)
-            particleWalkSmoke.Stop();
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            if (playerAnimator.GetBool("moving2") && !particleWalkSmoke.isPlaying)
+                particleWalkSmoke.Play();
+            else if (!playerAnimator.GetBool("moving2") && particleWalkSmoke.isPlaying)
+                particleWalkSmoke.Stop();
+        }
+            
+        else
+        {
+            if (playerAnimator.GetBool("moving") && !particleWalkSmoke.isPlaying)
+                particleWalkSmoke.Play();
+            else if (!playerAnimator.GetBool("moving") && particleWalkSmoke.isPlaying)
+                particleWalkSmoke.Stop();
+        }
 
         if (playerSpriterenderer.flipX)
         {

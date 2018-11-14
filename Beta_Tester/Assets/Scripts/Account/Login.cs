@@ -14,6 +14,7 @@ public class Login : MonoBehaviour
     public GameObject passwordText;
     public InputField emailInputField;
     public InputField passwordInputField;
+    public GameObject errorText;
     public GameObject loginButton;
     public PhaseCreationManager phaseCreationManager;
 
@@ -39,7 +40,12 @@ public class Login : MonoBehaviour
             passwordText.SetActive(false);
             emailInputField.gameObject.SetActive(false);
             passwordInputField.gameObject.SetActive(false);
+            errorText.SetActive(false);
             loginButton.SetActive(false);
+        }
+        else
+        {
+            errorText.SetActive(true);
         }
     }
 }

@@ -66,7 +66,7 @@ public class AIPlayerScript : MonoBehaviour
     {
         circleT = GameObject.Find("Circle").transform;
         jumpSpeed = speed;
-        this.data = PhaseCreationManager.data;
+        this.data = OurPhases.data; //PhaseCreationManager.data;
         Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         CapsuleCollider = GetComponent<CapsuleCollider>();
