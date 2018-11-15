@@ -17,6 +17,8 @@ public class MenuJimmyInTheHell : MonoBehaviour {
     public Text levelEditor;
     public Text resolutionText;
     public Text musicText;
+    public Text soundText;
+    public Text generalText;
     public Text graphicsText;
     public Text languageText;
     public Text fullscreenText;
@@ -25,7 +27,9 @@ public class MenuJimmyInTheHell : MonoBehaviour {
     public Button optionsButton;
     public Button creditsButton;
     public Button quitButton;
-    public Slider volumeSlider;
+    public Slider musicSlider;
+    public Slider soundSlider;
+    public Slider masterSlider;
     public Toggle fullscreenToggle;
     public GameObject optionsPanel;
     public GameObject loadingText;
@@ -89,8 +93,12 @@ public class MenuJimmyInTheHell : MonoBehaviour {
         graphicsDropDown.RefreshShownValue();
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("GraphicsQuality"));
 
-        volumeSlider.value = PlayerPrefs.GetFloat("MVolume");
-        audioMixer.SetFloat("volume", PlayerPrefs.GetFloat("MVolume"));
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        audioMixer.SetFloat("musicV", PlayerPrefs.GetFloat("musicVolume"));
+        soundSlider.value = PlayerPrefs.GetFloat("soundVolume");
+        audioMixer.SetFloat("soundV", PlayerPrefs.GetFloat("soundVolume"));
+        masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
+        audioMixer.SetFloat("masterV", PlayerPrefs.GetFloat("masterVolume"));
 
         if (PlayerPrefs.GetInt("Language") == 0)
         {
@@ -102,7 +110,9 @@ public class MenuJimmyInTheHell : MonoBehaviour {
             levelEditor.text = "Level Editor";
             resolutionText.text = "Resolution";
             fullscreenText.text = "Fullscreen";
-            musicText.text = "Music";
+            musicText.text = "Music Volume";
+            soundText.text = "Sound Volume";
+            generalText.text = "Master Volume";
             graphicsText.text = "Graphics";
             languageText.text = "Language";
 
@@ -121,7 +131,9 @@ public class MenuJimmyInTheHell : MonoBehaviour {
             levelEditor.text = "Editor de Nível";
             resolutionText.text = "Resolução";
             fullscreenText.text = "Tela Cheia";
-            musicText.text = "Música";
+            musicText.text = "Volume da música";
+            soundText.text = "Volume dos sons";
+            generalText.text = "Volume geral";
             graphicsText.text = "Gráficos";
             languageText.text = "Idioma";
 
@@ -173,10 +185,22 @@ public class MenuJimmyInTheHell : MonoBehaviour {
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void SetVolume (float volume)
+    public void SetMusicVolume (float volume)
     {
-        PlayerPrefs.SetFloat("MVolume", volume);
-        audioMixer.SetFloat("volume", PlayerPrefs.GetFloat("MVolume"));
+        PlayerPrefs.SetFloat("musicVolume", volume);
+        audioMixer.SetFloat("musicV", PlayerPrefs.GetFloat("musicVolume"));
+    }
+
+    public void SetMasterVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("masterVolume", volume);
+        audioMixer.SetFloat("masterV", PlayerPrefs.GetFloat("masterVolume"));
+    }
+
+    public void SetSoundVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("soundVolume", volume);
+        audioMixer.SetFloat("soundV", PlayerPrefs.GetFloat("soundVolume"));
     }
 
     public void SetQuality (int qualityIndex)
@@ -203,7 +227,9 @@ public class MenuJimmyInTheHell : MonoBehaviour {
             levelEditor.text = "Level Editor";
             resolutionText.text = "Resolution";
             fullscreenText.text = "Fullscreen";
-            musicText.text = "Music";
+            musicText.text = "Music Volume";
+            soundText.text = "Sound Volume";
+            generalText.text = "Master Volume";
             graphicsText.text = "Graphics";
             languageText.text = "Language";
 
@@ -223,7 +249,9 @@ public class MenuJimmyInTheHell : MonoBehaviour {
             levelEditor.text = "Editor de Nível";
             resolutionText.text = "Resolução";
             fullscreenText.text = "Tela Cheia";
-            musicText.text = "Música";
+            musicText.text = "Volume da música";
+            soundText.text = "Volume dos sons";
+            generalText.text = "Volume geral";
             graphicsText.text = "Gráficos";
             languageText.text = "Idioma";
 

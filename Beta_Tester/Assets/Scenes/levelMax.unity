@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86def95f5fdc6f844a2ea8d4097316a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPoison: {fileID: 1491572733784052, guid: a7cf300e9e81f3a4faa26da797fb0a59,
+  prefabPoison: {fileID: 1491572733784052, guid: fa7e5e3261ae7d14cbfc7dce1f56e5cd,
     type: 2}
   spinx: 0
   spiny: 0
@@ -2467,7 +2467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86def95f5fdc6f844a2ea8d4097316a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPoison: {fileID: 1491572733784052, guid: a7cf300e9e81f3a4faa26da797fb0a59,
+  prefabPoison: {fileID: 1491572733784052, guid: fa7e5e3261ae7d14cbfc7dce1f56e5cd,
     type: 2}
   spinx: 0
   spiny: 0
@@ -3391,7 +3391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86def95f5fdc6f844a2ea8d4097316a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPoison: {fileID: 1491572733784052, guid: a7cf300e9e81f3a4faa26da797fb0a59,
+  prefabPoison: {fileID: 1491572733784052, guid: fa7e5e3261ae7d14cbfc7dce1f56e5cd,
     type: 2}
   spinx: 0
   spiny: 0
@@ -3748,6 +3748,7 @@ MonoBehaviour:
   typeYourEmail: {fileID: 0}
   typeYourPassword: {fileID: 0}
   login: {fileID: 0}
+  errorText: {fileID: 0}
 --- !u!114 &711635610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4897,7 +4898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86def95f5fdc6f844a2ea8d4097316a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPoison: {fileID: 1491572733784052, guid: a7cf300e9e81f3a4faa26da797fb0a59,
+  prefabPoison: {fileID: 1491572733784052, guid: fa7e5e3261ae7d14cbfc7dce1f56e5cd,
     type: 2}
   spinx: 0
   spiny: 0
@@ -7283,7 +7284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86def95f5fdc6f844a2ea8d4097316a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPoison: {fileID: 1491572733784052, guid: a7cf300e9e81f3a4faa26da797fb0a59,
+  prefabPoison: {fileID: 1491572733784052, guid: fa7e5e3261ae7d14cbfc7dce1f56e5cd,
     type: 2}
   spinx: 0
   spiny: 0
@@ -13140,7 +13141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86def95f5fdc6f844a2ea8d4097316a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPoison: {fileID: 1491572733784052, guid: a7cf300e9e81f3a4faa26da797fb0a59,
+  prefabPoison: {fileID: 1491572733784052, guid: fa7e5e3261ae7d14cbfc7dce1f56e5cd,
     type: 2}
   spinx: 0
   spiny: 0
@@ -14616,7 +14617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86def95f5fdc6f844a2ea8d4097316a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPoison: {fileID: 1491572733784052, guid: a7cf300e9e81f3a4faa26da797fb0a59,
+  prefabPoison: {fileID: 1491572733784052, guid: fa7e5e3261ae7d14cbfc7dce1f56e5cd,
     type: 2}
   spinx: 0
   spiny: 0

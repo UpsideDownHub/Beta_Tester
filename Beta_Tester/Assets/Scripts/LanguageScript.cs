@@ -17,6 +17,7 @@ public class LanguageScript : MonoBehaviour {
     public Text typeYourEmail;
     public Text typeYourPassword;
     public Text login;
+    public Text errorText;
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class LanguageScript : MonoBehaviour {
                 typeYourEmail.text = "Type your email";
                 typeYourPassword.text = "Type your password";
                 login.text = "Login";
+                errorText.text = "Email or Password are incorrect";
             }
         }
         else
@@ -84,6 +86,7 @@ public class LanguageScript : MonoBehaviour {
                 typeYourEmail.text = "Digite seu email";
                 typeYourPassword.text = "Digite sua senha";
                 login.text = "Entrar";
+                errorText.text = "Email ou senha estão incorretos";
             }
         }
     }
