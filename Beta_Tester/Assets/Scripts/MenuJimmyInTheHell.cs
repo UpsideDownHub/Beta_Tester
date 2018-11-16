@@ -18,10 +18,19 @@ public class MenuJimmyInTheHell : MonoBehaviour {
     public Text resolutionText;
     public Text musicText;
     public Text soundText;
-    public Text generalText;
+    public Text masterText;
     public Text graphicsText;
     public Text languageText;
     public Text fullscreenText;
+    public Text optionsOnlyText;
+    public Text gameOptionsText;
+    public Text gameOptionsOnlyText;
+    public Text audioText;
+    public Text audioOnlyText;
+    public Text videoText;
+    public Text videoOnlyText;
+    public Text backText;
+    public Text jimmyinthehell;
     public Button newGameButton;
     public Button continueButton;
     public Button optionsButton;
@@ -31,8 +40,15 @@ public class MenuJimmyInTheHell : MonoBehaviour {
     public Slider soundSlider;
     public Slider masterSlider;
     public Toggle fullscreenToggle;
+    public GameObject menuPanel;
     public GameObject optionsPanel;
+    public GameObject gameOptionsPanel;
+    public GameObject audioPanel;
+    public GameObject videoPanel;
     public GameObject loadingText;
+    public GameObject backButton;
+    public GameObject FogoMenu;
+    public GameObject fundo;
 
     public AudioMixer audioMixer;
 
@@ -102,19 +118,27 @@ public class MenuJimmyInTheHell : MonoBehaviour {
 
         if (PlayerPrefs.GetInt("Language") == 0)
         {
-            newGameText.text = "New Game";
-            continueText.text = "Continue";
-            optionsText.text = "Options";
-            creditsText.text = "Credits";
-            quitText.text = "Quit Game";
-            levelEditor.text = "Level Editor";
-            resolutionText.text = "Resolution";
-            fullscreenText.text = "Fullscreen";
-            musicText.text = "Music Volume";
-            soundText.text = "Sound Volume";
-            generalText.text = "Master Volume";
-            graphicsText.text = "Graphics";
-            languageText.text = "Language";
+            newGameText.text = "NEW GAME";
+            continueText.text = "CONTINUE";
+            optionsText.text = "OPTIONS";
+            creditsText.text = "CREDITS";
+            quitText.text = "QUIT GAME";
+            levelEditor.text = "LEVEL EDITOR";
+            resolutionText.text = "RESOLUTION:";
+            fullscreenText.text = "FULL SCREEN:";
+            musicText.text = "MUSIC VOLUME:";
+            soundText.text = "SOUND VOLUME:";
+            masterText.text = "MASTER VOLUME:";
+            graphicsText.text = "GRAPHICS:";
+            languageText.text = "LANGUAGE:";
+            optionsOnlyText.text = "OPTIONS";
+            gameOptionsText.text = "GAME OPTIONS";
+            gameOptionsOnlyText.text = "GAME OPTIONS";
+            audioText.text = "AUDIO";
+            audioOnlyText.text = "AUDIO";
+            videoText.text = "VIDEO";
+            videoOnlyText.text = "VIDEO";
+            backText.text = "BACK";
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(englishOptions);
@@ -123,19 +147,27 @@ public class MenuJimmyInTheHell : MonoBehaviour {
         }
         else
         {
-            newGameText.text = "Novo Jogo";
-            continueText.text = "Continuar";
-            optionsText.text = "Opções";
-            creditsText.text = "Créditos";
-            quitText.text = "Sair do Jogo";
-            levelEditor.text = "Editor de Nível";
-            resolutionText.text = "Resolução";
-            fullscreenText.text = "Tela Cheia";
-            musicText.text = "Volume da música";
-            soundText.text = "Volume dos sons";
-            generalText.text = "Volume geral";
-            graphicsText.text = "Gráficos";
-            languageText.text = "Idioma";
+            newGameText.text = "NOVO JOGO";
+            continueText.text = "CONTINUAR";
+            optionsText.text = "OPÇÕES";
+            creditsText.text = "CRÉDITOS";
+            quitText.text = "SAIR DO JOGO";
+            levelEditor.text = "EDITOR DE NÍVEL";
+            resolutionText.text = "RESOLUÇÃO:";
+            fullscreenText.text = "TELA CHEIA:";
+            musicText.text = "VOLUME DA MÚSICA:";
+            soundText.text = "VOLUME DOS SONS:";
+            masterText.text = "VOLUME GERAL:";
+            graphicsText.text = "GRÁFICOS:";
+            languageText.text = "IDIOMA:";
+            optionsOnlyText.text = "OPÇÕES";
+            gameOptionsText.text = "OPÇÕES DE JOGO";
+            gameOptionsOnlyText.text = "OPÇÕES DE JOGO";
+            audioText.text = "ÁUDIO";
+            audioOnlyText.text = "ÁUDIO";
+            videoText.text = "VÍDEO";
+            videoOnlyText.text = "VÍDEO";
+            backText.text = "VOLTAR";
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(portugueseOptions);
@@ -158,7 +190,11 @@ public class MenuJimmyInTheHell : MonoBehaviour {
 
     public void OptionsInteraction ()
     {
-        optionsPanel.SetActive(!optionsPanel.activeSelf);
+        jimmyinthehell.gameObject.SetActive(false);
+        menuPanel.SetActive(false);
+        FogoMenu.SetActive(false);
+        optionsPanel.SetActive(true);
+        backButton.SetActive(true);
     }
 
     public void CreditsInteraction ()
@@ -174,6 +210,51 @@ public class MenuJimmyInTheHell : MonoBehaviour {
     public void LevelEditorInteraction()
     {
         SceneManager.LoadScene(7);
+    }
+
+    public void GameOptionsButton()
+    {
+        optionsPanel.SetActive(false);
+        gameOptionsPanel.SetActive(true);
+    }
+
+    public void AudioButton()
+    {
+        optionsPanel.SetActive(false);
+        audioPanel.SetActive(true);
+    }
+
+    public void VideoButton()
+    {
+        optionsPanel.SetActive(false);
+        videoPanel.SetActive(true);
+    }
+
+    public void BackButton()
+    {
+        if (optionsPanel.activeSelf)
+        {
+            jimmyinthehell.gameObject.SetActive(true);
+            menuPanel.SetActive(true);
+            FogoMenu.SetActive(true);
+            optionsPanel.SetActive(false);
+            backButton.SetActive(false);
+        }
+        else if (gameOptionsPanel.activeSelf)
+        {
+            optionsPanel.SetActive(true);
+            gameOptionsPanel.SetActive(false);
+        }
+        else if (audioPanel.activeSelf)
+        {
+            optionsPanel.SetActive(true);
+            audioPanel.SetActive(false);
+        }
+        else if (videoPanel.activeSelf)
+        {
+            optionsPanel.SetActive(true);
+            videoPanel.SetActive(false);
+        }
     }
     #endregion
 
@@ -219,19 +300,27 @@ public class MenuJimmyInTheHell : MonoBehaviour {
     {
         if (languageIndex == 0) //Inglês
         {
-            newGameText.text = "New Game";
-            continueText.text = "Continue";
-            optionsText.text = "Options";
-            creditsText.text = "Credits";
-            quitText.text = "Quit Game";
-            levelEditor.text = "Level Editor";
-            resolutionText.text = "Resolution";
-            fullscreenText.text = "Fullscreen";
-            musicText.text = "Music Volume";
-            soundText.text = "Sound Volume";
-            generalText.text = "Master Volume";
-            graphicsText.text = "Graphics";
-            languageText.text = "Language";
+            newGameText.text = "NEW GAME";
+            continueText.text = "CONTINUE";
+            optionsText.text = "OPTIONS";
+            creditsText.text = "CREDITS";
+            quitText.text = "QUIT GAME";
+            levelEditor.text = "LEVEL EDITOR";
+            resolutionText.text = "RESOLUTION:";
+            fullscreenText.text = "FULL SCREEN:";
+            musicText.text = "MUSIC VOLUME:";
+            soundText.text = "SOUND VOLUME:";
+            masterText.text = "MASTER VOLUME:";
+            graphicsText.text = "GRAPHICS:";
+            languageText.text = "LANGUAGE:";
+            optionsOnlyText.text = "OPTIONS";
+            gameOptionsText.text = "GAME OPTIONS";
+            gameOptionsOnlyText.text = "GAME OPTIONS";
+            audioText.text = "AUDIO";
+            audioOnlyText.text = "AUDIO";
+            videoText.text = "VIDEO";
+            videoOnlyText.text = "VIDEO";
+            backText.text = "BACK";
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(englishOptions);
@@ -241,19 +330,27 @@ public class MenuJimmyInTheHell : MonoBehaviour {
         }
         else                    //Português
         {
-            newGameText.text = "Novo Jogo";
-            continueText.text = "Continuar";
-            optionsText.text = "Opções";
-            creditsText.text = "Créditos";
-            quitText.text = "Sair do Jogo";
-            levelEditor.text = "Editor de Nível";
-            resolutionText.text = "Resolução";
-            fullscreenText.text = "Tela Cheia";
-            musicText.text = "Volume da música";
-            soundText.text = "Volume dos sons";
-            generalText.text = "Volume geral";
-            graphicsText.text = "Gráficos";
-            languageText.text = "Idioma";
+            newGameText.text = "NOVO JOGO";
+            continueText.text = "CONTINUAR";
+            optionsText.text = "OPÇÕES";
+            creditsText.text = "CRÉDITOS";
+            quitText.text = "SAIR DO JOGO";
+            levelEditor.text = "EDITOR DE NÍVEL";
+            resolutionText.text = "RESOLUÇÃO:";
+            fullscreenText.text = "TELA CHEIA:";
+            musicText.text = "VOLUME DA MÚSICA:";
+            soundText.text = "VOLUME DOS SONS:";
+            masterText.text = "VOLUME GERAL:";
+            graphicsText.text = "GRÁFICOS:";
+            languageText.text = "IDIOMA:";
+            optionsOnlyText.text = "OPÇÕES";
+            gameOptionsText.text = "OPÇÕES DE JOGO";
+            gameOptionsOnlyText.text = "OPÇÕES DE JOGO";
+            audioText.text = "ÁUDIO";
+            audioOnlyText.text = "ÁUDIO";
+            videoText.text = "VÍDEO";
+            videoOnlyText.text = "VÍDEO";
+            backText.text = "VOLTAR";
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(portugueseOptions);
@@ -268,14 +365,12 @@ public class MenuJimmyInTheHell : MonoBehaviour {
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
-        newGameButton.gameObject.SetActive(false);
-        continueButton.gameObject.SetActive(false);
-        optionsButton.gameObject.SetActive(false);
-        creditsButton.gameObject.SetActive(false);
-        quitButton.gameObject.SetActive(false);
-        levelEditor.gameObject.SetActive(false);
-        optionsPanel.SetActive(false);
+        jimmyinthehell.gameObject.SetActive(false);
+        FogoMenu.SetActive(false);
+        menuPanel.SetActive(false);
+        fundo.SetActive(false);
         loadingText.SetActive(true);
+        loadingText.transform.position = new Vector3(-Camera.main.orthographicSize * Camera.main.aspect + 3.5f, loadingText.transform.position.y);
 
         while (!operation.isDone)
         {

@@ -36,10 +36,7 @@ public class MenuBetaTester : MonoBehaviour {
         {
             //configurações do personagem 3
         }
-        else if (characterIndex == 4)
-        {
-            //configurações do personagem 4
-        }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        SceneManager.LoadScene(1);
     }
 }
