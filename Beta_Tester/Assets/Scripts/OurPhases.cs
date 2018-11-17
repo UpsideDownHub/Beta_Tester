@@ -26,7 +26,7 @@ public class OurPhases : MonoBehaviour
 
     private void Start()
     {
-        SetResult();
+        //SetResult();
     }
 
     private void SetResult()

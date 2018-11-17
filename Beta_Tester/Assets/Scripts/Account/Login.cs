@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Linq;
 
@@ -17,6 +18,14 @@ public class Login : MonoBehaviour
     public GameObject errorText;
     public GameObject loginButton;
     public PhaseCreationManager phaseCreationManager;
+
+    private void Update()
+    {
+        if (EventSystem.current.currentSelectedGameObject != null)
+            if (EventSystem.current.currentSelectedGameObject.name == "EmailInputField")
+                if (Input.GetKey(KeyCode.Tab))
+                    passwordInputField.Select();
+    }
 
     //método chamado depois de clicar para fora do campo ou dar enter (event: On End Edit)/e no event: On Value Changed, o método é chamado sempre que digitar alguma coisa
     public void GetInput() //Se utilizar GetInput(string typed) o parametro typed vai ser igual ao texto que você digitar no inputfield

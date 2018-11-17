@@ -11,6 +11,10 @@ using UnityGoogleDrive;
 
 public class PhaseCreationManager : MonoBehaviour
 {
+    [SerializeField] GameObject lava;
+    [SerializeField] GameObject montanha1;
+    [SerializeField] GameObject montanha2;
+    [SerializeField] GameObject flag;
     [SerializeField] GameObject panelContent;
     [SerializeField] GameObject panelItem;
     [SerializeField] GameObject floor;
@@ -19,6 +23,7 @@ public class PhaseCreationManager : MonoBehaviour
     [SerializeField] GameObject RightStair;
     [SerializeField] GameObject Character;
     [SerializeField] GameObject Canvas;
+    [SerializeField] GameObject Canvas2;
     [SerializeField] GameObject Camera;
     [SerializeField] Tilemap tileM;
     private List<Assets.Scripts.DAL.Phase> phases = new List<Assets.Scripts.DAL.Phase>();
@@ -113,9 +118,15 @@ public class PhaseCreationManager : MonoBehaviour
                 //Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
             }
         }
+        Instantiate(lava, lava.transform.position, Quaternion.identity);
+        Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+        Instantiate(montanha1, montanha1.transform.position, Quaternion.identity);
+        Instantiate(montanha2, montanha2.transform.position, Quaternion.identity);
+
         var vitrualCamera = Camera.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
         vitrualCamera.m_Follow = character.transform;
         Canvas.SetActive(false);
+        Canvas2.SetActive(true);
     }
 
     void MountPhase(GameObject go)

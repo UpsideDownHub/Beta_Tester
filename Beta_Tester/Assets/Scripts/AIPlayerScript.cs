@@ -41,7 +41,7 @@ public class AIPlayerScript : MonoBehaviour
     [SerializeField] int XValidationDistance = 4;
     [SerializeField] int MaxYToJump = 3;
     [SerializeField] int MaxXToJump = 3;
-    [SerializeField] float speed = 1.5f;
+    public float speed = 1.5f;
     [SerializeField] Tilemap tileM;
     bool direction = true;
 
@@ -77,8 +77,8 @@ public class AIPlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.x >= data.Count - 8)
-            isLevelCompleted = true;
+        //if (transform.position.x >= data.Count - 8)
+        //    isLevelCompleted = true;
 
         if (isLevelInBeginning)
         {
