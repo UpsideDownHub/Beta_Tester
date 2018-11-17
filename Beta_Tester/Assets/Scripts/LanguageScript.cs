@@ -8,6 +8,8 @@ public class LanguageScript : MonoBehaviour {
 
     public Text pressAnyKey;
     public Text chooseCharacter;
+    public Text resume;
+    public Text quit;
     public Text gameOver;
     public Text retry;
     public Text loadLevel;
@@ -30,16 +32,22 @@ public class LanguageScript : MonoBehaviour {
             }
             else if (SceneManager.GetActiveScene().buildIndex == 3)
             {
+                resume.text = "RESUME";
+                quit.text = "QUIT";
                 gameOver.text = "GAME OVER";
                 retry.text = "RETRY";
             }
             else if (SceneManager.GetActiveScene().buildIndex == 4)
             {
+                resume.text = "RESUME";
+                quit.text = "QUIT";
                 gameOver.text = "GAME OVER";
                 retry.text = "RETRY";
             }
             else if (SceneManager.GetActiveScene().buildIndex == 5)
             {
+                resume.text = "RESUME";
+                quit.text = "QUIT";
                 gameOver.text = "GAME OVER";
                 retry.text = "RETRY";
             }
@@ -64,16 +72,22 @@ public class LanguageScript : MonoBehaviour {
             }
             else if (SceneManager.GetActiveScene().buildIndex == 3)
             {
+                resume.text = "RESUMIR";
+                quit.text = "SAIR";
                 gameOver.text = "FIM DE JOGO";
                 retry.text = "TENTAR NOVAMENTE";
             }
             else if (SceneManager.GetActiveScene().buildIndex == 4)
             {
+                resume.text = "RESUMIR";
+                quit.text = "SAIR";
                 gameOver.text = "FIM DE JOGO";
                 retry.text = "TENTAR NOVAMENTE";
             }
             else if (SceneManager.GetActiveScene().buildIndex == 5)
             {
+                resume.text = "RESUMIR";
+                quit.text = "SAIR";
                 gameOver.text = "FIM DE JOGO";
                 retry.text = "TENTAR NOVAMENTE";
             }

@@ -18,6 +18,8 @@ public class MoveObjects : MonoBehaviour {
 
     //GroundTrap
     public GameObject prefabPedraPuf;
+    public GameObject prefabMira;
+    GameObject miraObj;
     public bool isActivated;
     bool isDestroying = true;
     bool isPreparedToLaunch;
@@ -58,6 +60,7 @@ public class MoveObjects : MonoBehaviour {
             temp2 = 0;
             cameraPosition = Camera.main.orthographicSize * Camera.main.aspect;
             parent = transform.parent;
+            miraObj = null;
         }
     }
 
@@ -118,6 +121,7 @@ public class MoveObjects : MonoBehaviour {
                 {
                     gameObject.layer = 12;
                     mouseP = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0).CorrectPositions();
+                    miraObj = Instantiate(prefabMira, mouseP.Value, Quaternion.identity);
                     isLaunched = true;
                     isClicked = true;
                 }
@@ -141,7 +145,10 @@ public class MoveObjects : MonoBehaviour {
                 temp2 += Time.deltaTime;
                 animator.SetBool("TouchGround", true);
                 if (temp2 >= 0.4f)
+                {
+                    Destroy(miraObj);
                     gameObject.SetActive(false);
+                }
             }
         }
     }

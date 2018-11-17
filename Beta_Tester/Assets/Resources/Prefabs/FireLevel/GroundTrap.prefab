@@ -104,6 +104,7 @@ MonoBehaviour:
   prefabBOOM: {fileID: 0}
   prefabPedraPuf: {fileID: 1886613624028518, guid: aacee376b0fde6a44a9045a94d38f1c2,
     type: 2}
+  prefabMira: {fileID: 1217460454092846, guid: edc8b7edcfeba7244a80c69b9ef5ae28, type: 2}
   isActivated: 0
   Activated: 0
 --- !u!212 &212906953440583946

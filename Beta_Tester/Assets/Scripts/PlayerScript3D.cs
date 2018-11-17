@@ -13,6 +13,7 @@ public class PlayerScript3D : MonoBehaviour
     public Rigidbody rb;
     public Animator animator;
     public SpriteRenderer sr;
+    Transform colliderT;
     [SerializeField] bool isControllable = false;
     private readonly float xDistance = 4;
     List<GameObject> objectsVerified;
@@ -51,6 +52,7 @@ public class PlayerScript3D : MonoBehaviour
         damageTemp = 2;
         tempEvade = 0.4f;
         alphaSpriteTemp = -0.1f;
+        colliderT = GameObject.Find("collider").GetComponent<Transform>();
     }
 
     private void Update()
@@ -213,11 +215,6 @@ public class PlayerScript3D : MonoBehaviour
                 rb.velocity = new Vector3(x, y, rb.velocity.z);
             else
                 rb.velocity = new Vector3(x, 0, rb.velocity.z);
-
-            if (rb.velocity.x > 0)
-                sr.flipX = false;
-            else if (rb.velocity.x < 0)
-                sr.flipX = true;
         }
 
         #endregion
@@ -235,17 +232,15 @@ public class PlayerScript3D : MonoBehaviour
             {
                 rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
                 moving = true;
-                sr.flipX = true;
             }
 
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
                 moving = true;
-                sr.flipX = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 3) //tirar velocity
+            if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 3)
             {
                 rb.AddForce(new Vector3(0, 300, 0));
             }
@@ -285,6 +280,38 @@ public class PlayerScript3D : MonoBehaviour
         else
         {
             animator.SetBool("moving2", moving);
+        }
+        #endregion
+
+        #region FlipAndColliders
+        if (rb.velocity.x > 0)
+        {
+            sr.flipX = false;
+            colliderT.localRotation = Quaternion.Euler(0, 0, -26.46f);
+        }
+        else if (rb.velocity.x < 0)
+        {
+            sr.flipX = true;
+            colliderT.localRotation = Quaternion.Euler(0, 0, 26.46f);
+        }
+        
+        if (rb.velocity.y > 0 || rb.velocity.y < 0)
+        {
+            if (sr.flipX)
+                colliderT.localRotation = Quaternion.Euler(0, 0, 26.46f);
+            else
+                colliderT.localRotation = Quaternion.Euler(0, 0, -26.46f);
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            if (rb.velocity.x == 0 && rb.velocity.y == 0)
+                colliderT.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            if (rb.velocity.x == 0)
+                colliderT.localRotation = Quaternion.Euler(0, 0, 0);
         }
         #endregion
     }

@@ -12,7 +12,7 @@ public class GameOver : MonoBehaviour
     public Text vidasText;
     public Button button;
     //BetaTester
-    public Slider slider;
+    public Slider lifeBetaTester;
 
     private void Update()
     {
@@ -36,9 +36,9 @@ public class GameOver : MonoBehaviour
         #endregion
 
         #region BetaTester
-        slider.value -= 0.001f;
+        lifeBetaTester.value -= 0.001f;
 
-        if (slider.value == 0)
+        if (lifeBetaTester.value == 0)
         {
             //print("Game Over Beta Tester");
         }

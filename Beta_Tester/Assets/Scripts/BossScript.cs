@@ -11,14 +11,10 @@ public class BossScript : MonoBehaviour {
     public GameObject prefab3;
     public GameObject prefab4;
     public GameObject prefab5;
-    public Sprite attackSprite1;
-    public Sprite attackSprite2;
-    public Sprite attackSprite3;
-    public Sprite attackSprite4;
-    SpriteRenderer sr;
     public Slider slider;
     public Text text;
-    public GameObject walls;
+    public GameObject wall1;
+    public GameObject wall2;
     Transform playerT;
     GameObject obj;
     Vector3 mouseP;
@@ -28,7 +24,6 @@ public class BossScript : MonoBehaviour {
     float maxLife = 15;
     public static bool isFighting;
     CinemachineVirtualCamera cm;
-    float x;
     Animator animator;
     bool exceededTimeLimit = false;
     float attackTemp;
@@ -37,30 +32,30 @@ public class BossScript : MonoBehaviour {
     private void Start()
     {
         animator = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
         playerT = GameObject.Find("Player").GetComponent<Transform>();
         cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
         attackTemp = 0;
+        wall1.transform.position = new Vector3(wall1.transform.position.x - Camera.main.orthographicSize * Camera.main.aspect, wall1.transform.position.y);
+        wall2.transform.position = new Vector3(wall2.transform.position.x + Camera.main.orthographicSize * Camera.main.aspect, wall2.transform.position.y);
     }
 
     private void Update()
     {
         attackTemp += Time.deltaTime;
 
-        if (playerT.position.x >= 385.5f && !isFighting)
+        if (playerT.position.x >= 385.5f && playerT.position.x <= 386)
+            cm.Follow = null;
+
+        if (playerT.position.x >= transform.position.x && !isFighting)
         {
             text.enabled = true;
             slider.gameObject.SetActive(true);
             slider.value += loadLife;
-            cm.Follow = null;
-            x = cm.transform.position.x;
-            x += 0.05f;
-            cm.transform.position = new Vector3(x, cm.transform.position.y, cm.transform.position.z);
+            cm.transform.position = new Vector3(cm.transform.position.x + 0.05f, cm.transform.position.y, cm.transform.position.z);
             Time.timeScale = 0f;
             if (slider.value == 1)
             {   
                 isFighting = true;
-                walls.SetActive(true);
                 animator.enabled = true;
                 Time.timeScale = 1f;
             }
@@ -75,9 +70,8 @@ public class BossScript : MonoBehaviour {
         }
         if (slider.value == 0)
         {
-            walls.SetActive(false);
-            animator.enabled = true;
-            CancelInvoke();
+            wall1.SetActive(false);
+            wall2.SetActive(false);
             animator.SetBool("isDead", true);
             animator.updateMode = AnimatorUpdateMode.UnscaledTime;
             Time.timeScale = 0f;
@@ -88,10 +82,7 @@ public class BossScript : MonoBehaviour {
     {
         if (attackTemp >= 3)
         {
-            animator.enabled = false;
-            sr.sprite = attackSprite1;
-            Invoke("AttackAnimation2", 1);
-            Invoke("AttackAnimation3", 2);
+            animator.SetBool("isPreparingAttack", true);
             Invoke("TimeLimit", 3);
             canAttack = true;
         }
@@ -122,7 +113,7 @@ public class BossScript : MonoBehaviour {
                 else if (mouseP.x > transform.position.x + 12.9) //Direita
                     obj = Instantiate(prefab5, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
                 
-                sr.sprite = attackSprite4;
+                animator.Play("SlimeBossAttack", 0, 1);
                 CancelInvoke();
                 Invoke("MovementAnimation", 1.5f);
                 currentLife -= 1;
@@ -147,20 +138,10 @@ public class BossScript : MonoBehaviour {
         return currentLife / maxLife;
     }
 
-    void AttackAnimation2()
-    {
-        sr.sprite = attackSprite2;
-    }
-
-    void AttackAnimation3()
-    {
-        sr.sprite = attackSprite3;
-    }
-
     void MovementAnimation()
     {
-        animator.enabled = true;
-        animator.Play(0, -1, 0);
+        animator.SetBool("isPreparingAttack", false);
+        animator.Play("SlimeBossMovement", 0, 0);
     }
 
     void TimeLimit()

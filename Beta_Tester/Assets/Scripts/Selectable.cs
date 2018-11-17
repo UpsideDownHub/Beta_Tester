@@ -47,7 +47,7 @@ public class Selectable : MonoBehaviour {
                     {
                         var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();
                         moveObjects.speed = 3;
-                        gameOver.slider.value += 0.15f;
+                        gameOver.lifeBetaTester.value += 0.15f;
                         activateTrapTime = 0;
                     }
 
@@ -55,7 +55,7 @@ public class Selectable : MonoBehaviour {
                     {
                         var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
                         enemyScript.prefab = prefab;
-                        gameOver.slider.value += 0.15f;
+                        gameOver.lifeBetaTester.value += 0.15f;
                         activateTrapTime = 0;
                     }
 
