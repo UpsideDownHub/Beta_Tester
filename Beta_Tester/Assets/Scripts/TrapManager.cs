@@ -4,12 +4,42 @@ using UnityEngine;
 
 public class TrapManager : MonoBehaviour {
 
+    float speed;
+    float temp;
+
     private void Start()
     {
         if (gameObject.tag == "Poison")
             Destroy(gameObject, 3);
         else if (gameObject.name == "BOOM(Clone)" || gameObject.name == "pedra puf(Clone)")
             Destroy(gameObject, 2f);
+
+        if (gameObject.name == "serra" || gameObject.name == "serra(Clone)")
+        {
+            speed = 0;
+            temp = 1;
+        }
+    }
+
+    private void Update()
+    {
+        if (gameObject.name == "serra" || gameObject.name == "serra(Clone)")
+        {
+            temp += Time.deltaTime;
+
+            if (temp >= 1)
+            {
+                speed = -1;
+                if (temp >= 2)
+                    temp = 0;
+            }
+            else if(temp < 1)
+            {
+                speed = 1;
+            }
+
+            transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
+        }
     }
 
     void GroundLavaAnim()
