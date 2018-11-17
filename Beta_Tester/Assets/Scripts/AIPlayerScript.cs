@@ -47,7 +47,7 @@ public class AIPlayerScript : MonoBehaviour
 
     [Range(0, 100)]
     [SerializeField] int JumpProblability = 50;
-    List<List<int>> data;
+    List<List<string>> data;
 
     Vector3 position = new Vector3(0, 0, 0);
     LastPossibility lastPossibility = new LastPossibility();
@@ -56,7 +56,7 @@ public class AIPlayerScript : MonoBehaviour
     float jumpSpeed;
     bool forceToJump = false;
     bool backing = false;
-    bool isLevelInBeginning = true; 
+    bool isLevelInBeginning = true;
     bool isLevelCompleted = false;
     bool flip = false;
     int flipX = 0;
@@ -66,7 +66,7 @@ public class AIPlayerScript : MonoBehaviour
     {
         circleT = GameObject.Find("Circle").transform;
         jumpSpeed = speed;
-        this.data = OurPhases.data; //PhaseCreationManager.data;
+        this.data = PhaseCreationManager.data; // OurPhases.data;
         Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         CapsuleCollider = GetComponent<CapsuleCollider>();
@@ -195,15 +195,15 @@ public class AIPlayerScript : MonoBehaviour
                 //    jumpSpeed = 0;
             }
         }
-        if (position.y > (int)transform.position.y)
-        {
-            //Debug.DrawLine(new Vector2(NextXElement((int)position.x, 1), (int)position.y), new Vector2(NextXElement((int)position.x, 1) + 0.5f, (int)position.y + 0.5f), Color.red, 0.3f);
-            if (data[NextXElement((int)position.x, 1)][Mathf.Abs((int)position.y - 10)] != 0)
-            {
-                //jumpSpeed = 0;
-                //Rigidbody.velocity = new Vector3(0, Rigidbody.velocity.y, Rigidbody.velocity.z);
-            }
-        }
+        //if (position.y > (int)transform.position.y)
+        //{
+        //    //Debug.DrawLine(new Vector2(NextXElement((int)position.x, 1), (int)position.y), new Vector2(NextXElement((int)position.x, 1) + 0.5f, (int)position.y + 0.5f), Color.red, 0.3f);
+        //    if (data[NextXElement((int)position.x, 1)][Mathf.Abs((int)position.y - 10)] != 0)
+        //    {
+        //        //jumpSpeed = 0;
+        //        //Rigidbody.velocity = new Vector3(0, Rigidbody.velocity.y, Rigidbody.velocity.z);
+        //    }
+        //}
     }
 
     void VerifyNearPositions()
@@ -489,7 +489,12 @@ public class AIPlayerScript : MonoBehaviour
 
     int GetValue(int x, int y)
     {
-        return y > 9 || y < 0 ? 0 : data[x][y];
+        if (y > 9 || y < 0) return 0;
+
+        if (data[x][y].IndexOf("-") != -1)
+            return int.Parse(data[x][y].Split('-')[0]);
+        
+        return int.Parse(data[x][y]);
     }
 
     void Flip()

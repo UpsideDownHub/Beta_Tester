@@ -11,6 +11,8 @@ using UnityGoogleDrive;
 
 public class OurPhases : MonoBehaviour
 {
+    [SerializeField] GameObject serra;
+    [SerializeField] GameObject flag;
     [SerializeField] GameObject panelContent;
     [SerializeField] GameObject panelItem;
     [SerializeField] GameObject floor;
@@ -21,7 +23,7 @@ public class OurPhases : MonoBehaviour
     [SerializeField] GameObject Canvas;
     [SerializeField] GameObject Camera;
     [SerializeField] Tilemap tileM;
-    public static List<List<int>> data = new List<List<int>>();
+    public static List<List<string>> data = new List<List<string>>();
     private string result = string.Empty;
 
     private void Start()
@@ -35,34 +37,54 @@ public class OurPhases : MonoBehaviour
 
         var lines = result.Split('\n');
 
-        List<int> line;
+        List<string> line;
         foreach (var _line in lines)
         {
             var __line = _line.Replace("\r", string.Empty);
-            line = new List<int>();
+            line = new List<string>();
             var val = __line.Split(',');
             if (val.Count() < 10) continue;
-            line.AddRange(val.Select(x => int.Parse(x)));
+            line.AddRange(val);
             data.Add(line);
         }
+
         GameObject character = null;
         for (int i = 0; i < data.Count; i++)
         {
             for (int j = data[i].Count - 1; j >= 0; j--)
             {
-                if (data[i][j] == 0) continue;
-                float _v = data[i][j] == 3 || data[i][j] == 4 ? -0.5f : 0;
-                if (data[i][j] == 2)
-                    character = Instantiate(GetObject(data[i][j]), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(data[i][j]).transform.rotation, tileM.transform.parent);
-                //character = Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
-                else if (j != 0 && data[i][j] == 1 && data[i][j - 1] != 0)
+                var prevData = data[i][j - 1].IndexOf("-") != -1 ? int.Parse(data[i][j - 1].Split('-')[0]) : int.Parse(data[i][j - 1]);
+                int _data;
+                int? trap = null;
+                if (data[i][j].IndexOf("-") != -1)
+                {
+                    _data = int.Parse(data[i][j].Split('-')[0]);
+                    trap = int.Parse(data[i][j].Split('-')[1]);
+                }
+                else
+                {
+                    _data = int.Parse(data[i][j]);
+                }
+
+                if (_data == 0 && !trap.HasValue) continue;
+                float _v = _data == 3 || _data == 4 ? -0.5f : 0;
+                //var _data = _data.
+                if (_data == 2)
+                    character = Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
+                //character = Instantiate(GetObject(_data), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(_data).transform.rotation);
+                else if (j != 0 && _data == 1 && prevData != 0)
                 {
                     Instantiate(floor2, tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), floor2.transform.rotation, tileM.transform.parent);
                     //Instantiate(floor2, new Vector3(i, Mathf.Abs(j - 10 - _v), 0), floor2.transform.rotation);
                 }
                 else
-                    Instantiate(GetObject(data[i][j]), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(data[i][j]).transform.rotation, tileM.transform.parent);
-                //Instantiate(GetObject(data[i][j]), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(data[i][j]).transform.rotation);
+                    Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
+                //Instantiate(GetObject(_data), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(_data).transform.rotation);
+
+                if (trap.HasValue)
+                {
+                    Instantiate(GetObject(trap.Value), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(trap.Value).transform.rotation, tileM.transform.parent);
+                }
             }
         }
         var vitrualCamera = Camera.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
@@ -82,6 +104,10 @@ public class OurPhases : MonoBehaviour
                 return LeftStair;
             case 4:
                 return RightStair;
+            case 5:
+                return flag;
+            case 6:
+                return serra;
             default:
                 return floor;
         }
