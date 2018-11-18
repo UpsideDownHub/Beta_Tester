@@ -116,8 +116,8 @@ namespace Assets.Scripts
 
         public List<TEntity> GetData()
         {
-            string conn = //"URI=file:C:/Desenvolvimento/github.com-UpsideDownHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
-            "URI=file:C:/Users/Max/Documents/UnityProjects/GitHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
+            string conn = "URI=file:C:/Desenvolvimento/github.com-UpsideDownHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
+            //"URI=file:C:/Users/Max/Documents/UnityProjects/GitHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
 
             using (dbconn = new SqliteConnection(conn))
             {

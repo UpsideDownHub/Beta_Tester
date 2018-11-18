@@ -252,7 +252,17 @@ public class AIPlayerScript : MonoBehaviour
             {
                 //Debug.DrawLine(new Vector2(x, Mathf.Abs(y - 10)), new Vector2(x + 0.5f, Mathf.Abs(y - 10) + 0.5f), Color.red, 0.3f);
                 var realY = Mathf.Abs(y - 10);
+                bool haveTrap = data[x][y].IndexOf('-') != -1;
 
+                if (haveTrap)
+                {
+                    if (y == Mathf.Abs(_y - 10) && x == _x + 1) // _x + 1 - O 1 representa quanto blocos antes o player pulará o osbtaculo (Obs.: pode ser de 1 ~ 3)
+                    {
+                        jumpPossibilities.Set(new Vector3(x, realY), new Vector3(0, 200, 0), 2.5f, false);
+                        forceToJump = true;
+                    }
+                }
+                
                 if (lastPossibility.PlayerPosition.HasValue && backing && lastPossibility.PlayerPosition.Value.x > _x)
                 {
                     flip = true;
