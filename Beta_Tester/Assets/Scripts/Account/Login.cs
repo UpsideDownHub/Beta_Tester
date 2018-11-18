@@ -22,9 +22,21 @@ public class Login : MonoBehaviour
     private void Update()
     {
         if (EventSystem.current.currentSelectedGameObject != null)
+        {
             if (EventSystem.current.currentSelectedGameObject.name == "EmailInputField")
-                if (Input.GetKey(KeyCode.Tab))
+            {
+                if (Input.GetKeyDown(KeyCode.Tab))
                     passwordInputField.Select();
+            }
+            else if (EventSystem.current.currentSelectedGameObject.name == "PasswordInputField")
+            {
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    LoginInteraction();
+                }
+            }
+        }
+            
     }
 
     //método chamado depois de clicar para fora do campo ou dar enter (event: On End Edit)/e no event: On Value Changed, o método é chamado sempre que digitar alguma coisa

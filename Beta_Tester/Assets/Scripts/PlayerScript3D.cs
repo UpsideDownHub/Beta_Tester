@@ -28,7 +28,6 @@ public class PlayerScript3D : MonoBehaviour
     float y;
     bool moving;
     public static int life = 5;
-    public static bool speedDirection = true;
     public Transform groundCheck;
     public bool grounded;
     public LayerMask whatIsGround;

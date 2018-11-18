@@ -5,6 +5,7 @@ using Assets.Scripts.Jump;
 using System.Linq;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LastPossibility
 {
@@ -36,7 +37,6 @@ public class AIPlayerScript : MonoBehaviour
     Animator animator;
 
     CapsuleCollider CapsuleCollider;
-    Transform circleT;
     [SerializeField] int XDistanceToJump = 2;
     [SerializeField] int XValidationDistance = 4;
     [SerializeField] int MaxYToJump = 3;
@@ -44,6 +44,7 @@ public class AIPlayerScript : MonoBehaviour
     public float speed = 1.5f;
     [SerializeField] Tilemap tileM;
     bool direction = true;
+    public static int life = 5;
 
     [Range(0, 100)]
     [SerializeField] int JumpProblability = 50;
@@ -60,76 +61,108 @@ public class AIPlayerScript : MonoBehaviour
     bool isLevelCompleted = false;
     bool flip = false;
     int flipX = 0;
-    float circleTLocalScaleX;
-    float circleTLocalScaleY;
+
+    Slider slowMotion;
+    bool isPressing;
+    bool isEnded;
+    bool isFadingToNextLevel;
+    SpriteRenderer sr;
+    Color c;
+    float damageTemp;
+    float alphaSpriteTemp;
+    bool isDamaged;
+    bool canGetDamage;
+    bool isColliding;
+
     void Start()
     {
-        circleT = GameObject.Find("Circle").transform;
         jumpSpeed = speed;
         this.data = PhaseCreationManager.data; // OurPhases.data;
         Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         CapsuleCollider = GetComponent<CapsuleCollider>();
 
-        circleTLocalScaleX = circleT.localScale.x;
-        circleTLocalScaleY = circleT.localScale.x;
+        sr = GetComponent<SpriteRenderer>();
+        c = sr.material.color;
+        slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
+        damageTemp = 2;
+        alphaSpriteTemp = -0.1f;
     }
 
     void Update()
     {
-        //if (transform.position.x >= data.Count - 8)
-        //    isLevelCompleted = true;
-
-        if (isLevelInBeginning)
+        #region SlowMotionConfig
+        if (Input.GetKey(KeyCode.Mouse1))
         {
-            if (circleT.localScale.x >= 0 && circleT.localScale.x <= 70)
+            if (!isEnded)
             {
-                Time.timeScale = 0f;
-                circleTLocalScaleX += 0.8f;
-                circleTLocalScaleY += 0.8f;
-                circleT.localScale = new Vector3(circleTLocalScaleX, circleTLocalScaleY, circleT.localScale.z);
+                Time.timeScale = 0.5f;
+                slowMotion.value -= 0.01f;
+                isPressing = true;
             }
             else
             {
                 Time.timeScale = 1f;
-                circleT.localScale = new Vector3(70, 70, circleT.localScale.z);
-                isLevelInBeginning = false;
+                isPressing = false;
             }
         }
-        if (isLevelCompleted)
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            if (circleT.localScale.x > 0)
+            Time.timeScale = 1f;
+            isPressing = false;
+        }
+
+        if (!isPressing)
+        {
+            slowMotion.value += 0.02f;
+            if (slowMotion.value == 1)
+                isEnded = false;
+        }
+        else
+        {
+            if (slowMotion.value == 0)
+                isEnded = true;
+        }
+        #endregion
+
+        #region DamageAndInvulnerability
+        damageTemp += Time.deltaTime;
+
+        if (damageTemp >= 2)
+        {
+            canGetDamage = true;
+            Physics.IgnoreLayerCollision(0, 12, false);
+            c.a = 1;
+            sr.material.color = c;
+            isDamaged = false;
+        }
+        else
+        {
+            canGetDamage = false;
+        }
+
+        if (isDamaged)
+        {
+            alphaSpriteTemp += Time.deltaTime;
+            if (alphaSpriteTemp >= 0)
             {
-                circleTLocalScaleX -= 24 * Time.deltaTime;
-                circleTLocalScaleY -= 24 * Time.deltaTime;
-                circleT.localScale = new Vector3(circleTLocalScaleX, circleTLocalScaleY, circleT.localScale.z);
+                c.a = 1;
+                sr.material.color = c;
+                if (alphaSpriteTemp >= 0.1f)
+                    alphaSpriteTemp = -0.1f;
             }
             else
             {
-                GameObject.Find("CutSceneJump").GetComponent<cutSceneJump>().JumpCutScene = true;
-                DontDestroyOnLoad(GameObject.Find("CutSceneJump"));
-                circleT.localScale = new Vector3(0, 0, 0);
-                SceneManager.LoadScene("levelCleber");
-                isLevelCompleted = false;
+                c.a = 0;
+                sr.material.color = c;
             }
         }
+        #endregion
 
-        //if (Rigidbody.velocity.x > 0)
-        //{
-        //    animator.SetBool("moving", true);
-        //}
-        //else if(Rigidbody.velocity.x == 0) 
-        //{
-        //    animator.SetBool("moving", false);
-        //}
-        //else if (Rigidbody.velocity.y > 0 || Rigidbody.velocity.y < 0)
-        //{
-        //    animator.SetBool("jump", true);
-        //}
-        //else if (Rigidbody.velocity.y == 0)
-        //{
-        //    animator.SetBool("jump", false);
-        //}
+        if (life <= 0)
+            gameObject.SetActive(false);
+        else
+            gameObject.SetActive(true);
 
         if (_backing && !ignore)
         {
@@ -626,6 +659,34 @@ public class AIPlayerScript : MonoBehaviour
     {
         Rigidbody.velocity = new Vector3(Mathf.Abs(jumpSpeed) * (direction ? 1 : -1), Rigidbody.velocity.y, Rigidbody.velocity.z);
         ignore = true;
+    }
+
+    private void FixedUpdate()
+    {
+        isColliding = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isColliding) return;
+        isColliding = true;
+
+        if (other.gameObject.layer == 12)
+        {
+            if (canGetDamage && (other.gameObject.name == "GroundTrap" && (int)other.gameObject.GetComponent<MoveObjects>().mouseP.Value.y == Mathf.RoundToInt(transform.position.y)) || other.gameObject.name != "GroundTrap")
+                GetDamage();
+        }
+    }
+
+    void GetDamage()
+    {
+        if (!isFadingToNextLevel)
+        {
+            life--;
+            Physics.IgnoreLayerCollision(0, 12, true);
+            damageTemp = 0;
+            isDamaged = true;
+        }
     }
 }
 
