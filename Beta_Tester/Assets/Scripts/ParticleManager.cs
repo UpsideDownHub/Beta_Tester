@@ -10,45 +10,72 @@ public class ParticleManager : MonoBehaviour
     Animator playerAnimator;
     SpriteRenderer playerSpriterenderer;
     public Material material;
+    //Particle
+    ParticleSystem particle;
 
     private void Start()
-    {   
+    {
         //WalkSmokeParticle
-        particleWalkSmoke = GetComponent<ParticleSystem>();
-        playerAnimator = transform.parent.GetComponent<Animator>();
-        playerSpriterenderer = transform.parent.GetComponent<SpriteRenderer>();
+        if (gameObject.name == "walksmoke" || gameObject.name == "walksmoke(Clone)")
+        {
+            particleWalkSmoke = GetComponent<ParticleSystem>();
+            playerAnimator = transform.parent.GetComponent<Animator>();
+            playerSpriterenderer = transform.parent.GetComponent<SpriteRenderer>();
+        }
+
+        //Particle
+        if (gameObject.name == "pedra puf")
+            particle = GetComponent<ParticleSystem>();
     }
 
     private void Update()
     {
         //WalkSmokeParticle
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (gameObject.name == "walksmoke" || gameObject.name == "walksmoke(Clone)")
         {
-            if (playerAnimator.GetBool("moving2") && !particleWalkSmoke.isPlaying)
-                particleWalkSmoke.Play();
-            else if (!playerAnimator.GetBool("moving2") && particleWalkSmoke.isPlaying)
-                particleWalkSmoke.Stop();
-        }
-            
-        else
-        {
-            if (playerAnimator.GetBool("moving") && !particleWalkSmoke.isPlaying)
-                particleWalkSmoke.Play();
-            else if (!playerAnimator.GetBool("moving") && particleWalkSmoke.isPlaying)
-                particleWalkSmoke.Stop();
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                if (playerAnimator.GetBool("moving2") && !particleWalkSmoke.isPlaying)
+                    particleWalkSmoke.Play();
+                else if (!playerAnimator.GetBool("moving2") && particleWalkSmoke.isPlaying)
+                    particleWalkSmoke.Stop();
+            }
+
+            else
+            {
+                if (playerAnimator.GetBool("moving") && !particleWalkSmoke.isPlaying)
+                    particleWalkSmoke.Play();
+                else if (!playerAnimator.GetBool("moving") && particleWalkSmoke.isPlaying)
+                    particleWalkSmoke.Stop();
+            }
+
+            if (playerSpriterenderer.flipX)
+            {
+                material.mainTextureScale = new Vector2(-1, 1);
+                particleWalkSmoke.transform.localPosition = new Vector2(0.55f, particleWalkSmoke.transform.localPosition.y);
+                particleWalkSmoke.transform.localRotation = new Quaternion(particleWalkSmoke.transform.localRotation.x, 180, particleWalkSmoke.transform.localRotation.z, particleWalkSmoke.transform.localRotation.w);
+            }
+            else
+            {
+                material.mainTextureScale = new Vector2(1, 1);
+                particleWalkSmoke.transform.localPosition = new Vector2(-0.55f, particleWalkSmoke.transform.localPosition.y);
+                particleWalkSmoke.transform.localRotation = new Quaternion(particleWalkSmoke.transform.localRotation.x, 0, particleWalkSmoke.transform.localRotation.z, particleWalkSmoke.transform.localRotation.w);
+            }
         }
 
-        if (playerSpriterenderer.flipX)
+        //Particle
+        if (gameObject.name == "pedra puf")
         {
-            material.mainTextureScale = new Vector2(-1, 1);
-            particleWalkSmoke.transform.localPosition = new Vector2(0.55f, particleWalkSmoke.transform.localPosition.y);
-            particleWalkSmoke.transform.localRotation = new Quaternion(particleWalkSmoke.transform.localRotation.x, 180, particleWalkSmoke.transform.localRotation.z, particleWalkSmoke.transform.localRotation.w);
-        }
-        else
-        {
-            material.mainTextureScale = new Vector2(1, 1);
-            particleWalkSmoke.transform.localPosition = new Vector2(-0.55f, particleWalkSmoke.transform.localPosition.y);
-            particleWalkSmoke.transform.localRotation = new Quaternion(particleWalkSmoke.transform.localRotation.x, 0, particleWalkSmoke.transform.localRotation.z, particleWalkSmoke.transform.localRotation.w);
+            transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+
+            if (SelectableEffects.isCursorInsideObject)
+            {
+                particle.Play();
+            }
+            else
+            {
+                particle.Stop();
+            }
         }
     }
 }

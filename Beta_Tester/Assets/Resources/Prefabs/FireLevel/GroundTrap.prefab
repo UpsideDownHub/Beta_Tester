@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65347643666135990}
   - component: {fileID: 114231823247707346}
   - component: {fileID: 114589523554504222}
+  - component: {fileID: 114959970613055288}
   m_Layer: 0
   m_Name: GroundTrap
   m_TagString: Trap
@@ -107,6 +108,17 @@ MonoBehaviour:
   prefabMira: {fileID: 1217460454092846, guid: edc8b7edcfeba7244a80c69b9ef5ae28, type: 2}
   isActivated: 0
   Activated: 0
+--- !u!114 &114959970613055288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432143182136444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212906953440583946
 SpriteRenderer:
   m_ObjectHideFlags: 1

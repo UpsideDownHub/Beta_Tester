@@ -29,13 +29,13 @@ public class TrapManager : MonoBehaviour {
 
             if (temp >= 1)
             {
-                speed = -1;
+                speed = -0.5f;
                 if (temp >= 2)
                     temp = 0;
             }
             else if(temp < 1)
             {
-                speed = 1;
+                speed = 0.5f;
             }
 
             transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);

@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 20319822}
   - component: {fileID: 20319824}
   - component: {fileID: 20319823}
+  - component: {fileID: 20319825}
   m_Layer: 0
   m_Name: Planta
   m_TagString: Selectable
@@ -356,6 +357,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &20319825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20319821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &47135397 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1274794322634432, guid: 3bc1d0a00112578478e59d0f6aca14fc,
@@ -407,6 +419,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &47135399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 47135397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &47135402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,6 +720,7 @@ GameObject:
   - component: {fileID: 169225579}
   - component: {fileID: 169225581}
   - component: {fileID: 169225580}
+  - component: {fileID: 169225582}
   m_Layer: 0
   m_Name: Planta
   m_TagString: Selectable
@@ -775,6 +799,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &169225582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 169225578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &170455257
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +896,7 @@ GameObject:
   - component: {fileID: 172662891}
   - component: {fileID: 172662890}
   - component: {fileID: 172662889}
+  - component: {fileID: 172662892}
   m_Layer: 0
   m_Name: Enemy5
   m_TagString: Selectable
@@ -954,6 +990,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &172662892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 172662887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &206466331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1313,7 @@ GameObject:
   - component: {fileID: 253394899}
   - component: {fileID: 253394900}
   - component: {fileID: 253394902}
+  - component: {fileID: 253394903}
   m_Layer: 0
   m_Name: SlimeBoss
   m_TagString: Untagged
@@ -1383,6 +1431,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &253394903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253394897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &269728492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,6 +2618,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &514199170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 514199166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &515292097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,6 +2639,7 @@ GameObject:
   - component: {fileID: 515292098}
   - component: {fileID: 515292100}
   - component: {fileID: 515292099}
+  - component: {fileID: 515292101}
   m_Layer: 0
   m_Name: Planta
   m_TagString: Selectable
@@ -2647,6 +2718,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &515292101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 515292097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &517391977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,6 +3565,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &653082144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653082140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &679018754 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1014669164992812, guid: a9d1f67b11afeb74a9db018d6282bb7e,
@@ -3729,6 +3822,7 @@ GameObject:
   - component: {fileID: 711635609}
   - component: {fileID: 711635610}
   - component: {fileID: 711635611}
+  - component: {fileID: 711635612}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -3824,6 +3918,19 @@ MonoBehaviour:
   groundTraps: []
   groundLavas: []
   embers: []
+--- !u!114 &711635612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 711635606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e17d521b2d28af4396d386978143de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 2800000, guid: 9839766c5c78730418b31b96eb68c75f, type: 3}
+  click: {fileID: 2800000, guid: 7e470b92f525e9e49b1c3b1352515708, type: 3}
 --- !u!1 &720753945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,6 +3941,7 @@ GameObject:
   - component: {fileID: 720753946}
   - component: {fileID: 720753948}
   - component: {fileID: 720753947}
+  - component: {fileID: 720753949}
   m_Layer: 0
   m_Name: Planta
   m_TagString: Selectable
@@ -3912,6 +4020,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &720753949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720753945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &743026230
 GameObject:
   m_ObjectHideFlags: 0
@@ -4787,6 +4906,7 @@ GameObject:
   - component: {fileID: 835260824}
   - component: {fileID: 835260823}
   - component: {fileID: 835260827}
+  - component: {fileID: 835260825}
   m_Layer: 0
   m_Name: Enemy5
   m_TagString: Selectable
@@ -4852,6 +4972,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &835260825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 835260822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &835260826
 Transform:
   m_ObjectHideFlags: 0
@@ -5033,6 +5164,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &878278015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878278011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &886006163
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,6 +5518,7 @@ GameObject:
   - component: {fileID: 980420885}
   - component: {fileID: 980420887}
   - component: {fileID: 980420886}
+  - component: {fileID: 980420888}
   m_Layer: 0
   m_Name: Planta
   m_TagString: Selectable
@@ -5454,6 +5597,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &980420888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 980420884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1000744256
 GameObject:
   m_ObjectHideFlags: 0
@@ -7406,6 +7560,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1369901772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1369901768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1371980993
 GameObject:
   m_ObjectHideFlags: 0
@@ -13263,6 +13428,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1714389374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714389370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1714831414
 GameObject:
   m_ObjectHideFlags: 0
@@ -13879,6 +14055,7 @@ GameObject:
   - component: {fileID: 1758266093}
   - component: {fileID: 1758266095}
   - component: {fileID: 1758266094}
+  - component: {fileID: 1758266096}
   m_Layer: 0
   m_Name: Planta
   m_TagString: Selectable
@@ -13957,6 +14134,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1758266096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1758266092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1774027791
 GameObject:
   m_ObjectHideFlags: 0
@@ -14739,6 +14927,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1886020074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886020070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1891585508
 GameObject:
   m_ObjectHideFlags: 0

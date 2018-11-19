@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4243551489044332}
   - component: {fileID: 212332525244513332}
   - component: {fileID: 65669704816060026}
+  - component: {fileID: 114338614090327400}
   m_Layer: 0
   m_Name: Planta
   m_TagString: Selectable
@@ -53,6 +54,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6656893, y: 0.8582855, z: 0.2}
   m_Center: {x: -0.0019760132, y: 0.013843536, z: 0}
+--- !u!114 &114338614090327400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919245700656366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212332525244513332
 SpriteRenderer:
   m_ObjectHideFlags: 1

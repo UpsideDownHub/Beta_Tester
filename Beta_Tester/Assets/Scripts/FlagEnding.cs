@@ -13,7 +13,6 @@ public class FlagEnding : MonoBehaviour
     public Sprite victorySprite;
     Button backToLevelEditor;
     Text congratulations;
-    bool isInTheEnd;
 
     private void Start()
     {
@@ -26,9 +25,14 @@ public class FlagEnding : MonoBehaviour
         congratulations = GameObject.Find("CongratulationsText").GetComponent<Text>();
     }
 
-    private void Update()
+    public void BackToLevelEditor()
     {
-        if (player.transform.position.x >= transform.position.x && !isInTheEnd)
+        SceneManager.LoadScene(7);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
         {
             playerScript.speed = 0;
             playerAnimator.enabled = false;
@@ -36,12 +40,6 @@ public class FlagEnding : MonoBehaviour
             playerSpriteRenderer.sprite = victorySprite;
             backToLevelEditor.interactable = true;
             congratulations.enabled = true;
-            isInTheEnd = true;
         }
-    }
-
-    public void BackToLevelEditor()
-    {
-        SceneManager.LoadScene(7);
     }
 }

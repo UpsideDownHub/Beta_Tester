@@ -12,7 +12,6 @@ using UnityGoogleDrive;
 public class PhaseCreationManager : MonoBehaviour
 {
     [SerializeField] GameObject serra;
-    [SerializeField] GameObject serraMask;
     [SerializeField] GameObject lava;
     [SerializeField] GameObject montanha1;
     [SerializeField] GameObject montanha2;
@@ -145,7 +144,6 @@ public class PhaseCreationManager : MonoBehaviour
         Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
         Instantiate(montanha1, montanha1.transform.position, Quaternion.identity);
         Instantiate(montanha2, montanha2.transform.position, Quaternion.identity);
-        //Instantiate(serraMask, serra.transform.position + new Vector3(0, -1.36f, 0), Quaternion.identity);
 
         var vitrualCamera = Camera.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
         vitrualCamera.m_Follow = character.transform;

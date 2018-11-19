@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 23995846435891530}
   - component: {fileID: 54546224328230602}
   - component: {fileID: 65494705669837122}
+  - component: {fileID: 114745959569186048}
   m_Layer: 12
   m_Name: estalactite
   m_TagString: Spikes
@@ -241,6 +242,17 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114745959569186048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699530373169092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9102d8af08f10b349ba10ca28ef414b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198750779019637042
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -464,6 +464,7 @@ GameObject:
   - component: {fileID: 853413142}
   - component: {fileID: 853413145}
   - component: {fileID: 853413146}
+  - component: {fileID: 853413147}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -558,6 +559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressAnyKey: {fileID: 1296459936}
   chooseCharacter: {fileID: 1627009665}
+  resume: {fileID: 0}
+  quit: {fileID: 0}
   gameOver: {fileID: 0}
   retry: {fileID: 0}
   loadLevel: {fileID: 0}
@@ -568,6 +571,19 @@ MonoBehaviour:
   typeYourPassword: {fileID: 0}
   login: {fileID: 0}
   errorText: {fileID: 0}
+--- !u!114 &853413147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853413141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e17d521b2d28af4396d386978143de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 2800000, guid: 9839766c5c78730418b31b96eb68c75f, type: 3}
+  click: {fileID: 2800000, guid: 7e470b92f525e9e49b1c3b1352515708, type: 3}
 --- !u!1 &864747223
 GameObject:
   m_ObjectHideFlags: 0
