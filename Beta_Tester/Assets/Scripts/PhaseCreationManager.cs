@@ -184,4 +184,19 @@ public class PhaseCreationManager : MonoBehaviour
                 return floor;
         }
     }
+
+    public void Button1()
+    {
+        print("botao1");
+    }
+
+    public void Button2()
+    {
+        print("botao2");
+    }
+
+    public void Button3()
+    {
+        print("botao3");
+    }
 }

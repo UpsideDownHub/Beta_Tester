@@ -2402,6 +2402,10 @@ Prefab:
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1552954941242782, guid: c1955f5abfde7f24b8ffd9d066723c30, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1955f5abfde7f24b8ffd9d066723c30, type: 2}
   m_IsPrefabAsset: 0

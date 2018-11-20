@@ -7,7 +7,7 @@ using System.Linq;
 
 public class Login : MonoBehaviour
 {
-
+    public GameObject topPanel;
     public GameObject loadLevelText;
     public GameObject loadButton;
     public GameObject principalPanel;
@@ -54,6 +54,7 @@ public class Login : MonoBehaviour
             Assets.Scripts.DAL.BetaTesterContext.UserId = Assets.Scripts.DAL.BetaTesterContext.User.Data.Single(x => x.Email == emailInputField.text && x.Password == passwordInputField.text).UserId;
             phaseCreationManager.StartBuild();
 
+            topPanel.SetActive(true);
             loadLevelText.SetActive(true);
             loadButton.SetActive(true);
             principalPanel.SetActive(true);
