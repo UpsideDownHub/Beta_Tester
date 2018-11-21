@@ -14,6 +14,7 @@ public class MenuBetaTester : MonoBehaviour {
     public GameObject canvas2;
     public Button firstCharacterButton;
     public GameObject betaTester;
+    public GameObject betaTesterEngr;
 
     public Text newGameText;
     public Text continueText;
@@ -192,6 +193,7 @@ public class MenuBetaTester : MonoBehaviour {
     public void OptionsInteraction ()
     {
         betaTester.SetActive(false);
+        betaTesterEngr.SetActive(false);
         menuPanel.SetActive(false);
         optionsPanel.SetActive(true);
         backButton.SetActive(true);
@@ -235,6 +237,7 @@ public class MenuBetaTester : MonoBehaviour {
         if (optionsPanel.activeSelf)
         {
             betaTester.SetActive(true);
+            betaTesterEngr.SetActive(true);
             menuPanel.SetActive(true);
             optionsPanel.SetActive(false);
             backButton.SetActive(false);
