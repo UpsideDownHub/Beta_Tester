@@ -53,7 +53,7 @@ public class LanguageScript : MonoBehaviour {
             }
             else if (SceneManager.GetActiveScene().buildIndex == 7)
             {
-                loadLevel.text = "LOAD LEVEL";
+                //loadLevel.text = "LOAD LEVEL";
                 backToMenu.text = "BACK TO MENU";
                 load.text = "LOAD";
                 password.text = "Password:";
@@ -93,7 +93,7 @@ public class LanguageScript : MonoBehaviour {
             }
             else if (SceneManager.GetActiveScene().buildIndex == 7)
             {
-                loadLevel.text = "CARREGAR NÍVEL";
+                //loadLevel.text = "CARREGAR NÍVEL";
                 backToMenu.text = "VOLTAR AO MENU";
                 load.text = "CARREGAR";
                 password.text = "Senha:";

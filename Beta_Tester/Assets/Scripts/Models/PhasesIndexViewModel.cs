@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
+using System.Text;
 
-namespace Assets.Scripts.DAL
+namespace Assets.Scripts.Models
 {
-    public class Phase
+    public class PhasesIndexViewModel
     {
-        [DisplayName("Key")]
         public int PhaseId { get; set; }
         public string FileId { get; set; }
         public string Name { get; set; }
@@ -16,5 +15,8 @@ namespace Assets.Scripts.DAL
         public int Dies { get; set; }
         public int Completed { get; set; }
         public bool Tested { get; set; }
+        public double Rating { get; set; }
+        public double UserRate { get; set; }
+        public bool Fav { get; set; }
     }
 }

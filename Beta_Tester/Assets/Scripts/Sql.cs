@@ -116,8 +116,8 @@ namespace Assets.Scripts
 
         public List<TEntity> GetData()
         {
-            string conn = //"URI=file:C:/Desenvolvimento/github.com-UpsideDownHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
-            "URI=file:C:/Users/Max/Documents/UnityProjects/GitHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
+            string conn = "URI=file:C:/Desenvolvimento/github.com-UpsideDownHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
+            //"URI=file:C:/Users/Max/Documents/UnityProjects/GitHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
 
             using (dbconn = new SqliteConnection(conn))
             {
@@ -139,30 +139,35 @@ namespace Assets.Scripts
                             for (int i = 0; i < reader.FieldCount; i++)
                             {
                                 var prop = data.GetType().GetProperty(reader.GetName(i));
+
                                 if (prop.PropertyType == typeof(bool))
                                     prop.SetValue(data, reader.GetBoolean(i), null);
                                 else
                                     prop.SetValue(data, reader[i], null);
 
                             }
-                            var keyValue = data.GetType().GetProperty(keyProperty.Name).GetValue(data, null);
-                            var keys = _Data.Select(y => y.GetType().GetProperties().SingleOrDefault(x => x.GetDisplayName() == "Key").GetValue(y, null));
-                            if (keys.Contains(keyValue))
-                            {
-                                data = Activator.CreateInstance(typeof(TEntity));
-                                continue;
-                            }
+                            //var keyValue = data.GetType().GetProperty(keyProperty.Name).GetValue(data, null);
+                            //var keys = _Data.Select(y => y.GetType().GetProperties().SingleOrDefault(x => x.GetDisplayName() == "Key").GetValue(y, null));
+                            //if (keys.Contains(keyValue))
+                            //{
+                            //    data = Activator.CreateInstance(typeof(TEntity));
+                            //    continue;
+                            //}
 
                             T.Add((TEntity)data);
                             data = Activator.CreateInstance(typeof(TEntity));
                         }
                     } while (reader.NextResult());
+                    reader.Close();
+                    reader.Dispose();
                 }
                 dbcmd.Dispose();
                 dbcmd = null;
                 dbconn.Close();
                 dbconn = null;
+                _Data = new List<TEntity>();
                 _Data.AddRange(T);
+                //_Data.AddRange(T);
                 return T;
             }
         }

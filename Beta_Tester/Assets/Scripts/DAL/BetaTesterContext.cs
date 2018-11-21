@@ -10,5 +10,8 @@ namespace Assets.Scripts.DAL
         public static int UserId = 0;
         public static Sql<User> User = new Sql<User>();
         public static Sql<Phase> Phase = new Sql<Phase>();
+        public static Sql<PhaseRate> PhaseRate = new Sql<PhaseRate>();
+        public static Sql<UserPhaseFav> UserPhaseFav = new Sql<UserPhaseFav>();
+        public static Sql<PhasesIndexView> PhasesIndexView = new Sql<PhasesIndexView>();
     }
 }

@@ -27,7 +27,7 @@ public class PhaseCreationManager : MonoBehaviour
     [SerializeField] GameObject Canvas2;
     [SerializeField] GameObject Camera;
     [SerializeField] Tilemap tileM;
-    private List<Assets.Scripts.DAL.Phase> phases = new List<Assets.Scripts.DAL.Phase>();
+    private List<Assets.Scripts.Models.PhasesIndexViewModel> phases = new List<Assets.Scripts.Models.PhasesIndexViewModel>();
 
     UnityAction ua;
     public static List<List<string>> data = new List<List<string>>();
@@ -46,14 +46,17 @@ public class PhaseCreationManager : MonoBehaviour
 
     public void StartBuild()
     {
-        Assets.Scripts.DAL.BetaTesterContext.Phase.GetData();
-        phases = Assets.Scripts.DAL.BetaTesterContext.Phase.Data.Where(x => x.UserId == Assets.Scripts.DAL.BetaTesterContext.UserId).ToList();
-        BuildResults();
+        GetRecentPhases();
         //GoogleDriveFiles.List().Send().OnDone += BuildResults;
     }
 
     private void BuildResults() //UnityGoogleDrive.Data.FileList fileList
     {
+        foreach (Transform child in panelContent.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
         for (var i = 0; i < phases.Count; i++)
         {
             //if (fileList.Files[i].MimeType == "application/vnd.google-apps.folder") continue;
@@ -105,7 +108,7 @@ public class PhaseCreationManager : MonoBehaviour
             for (int j = data[i].Count - 1; j >= 0; j--)
             {
                 int prevData = 0;
-                if (j != 0) 
+                if (j != 0)
                     prevData = data[i][j - 1].IndexOf("-") != -1 ? int.Parse(data[i][j - 1].Split('-')[0]) : int.Parse(data[i][j - 1]);
                 int _data;
                 int? trap = null;
@@ -185,18 +188,81 @@ public class PhaseCreationManager : MonoBehaviour
         }
     }
 
-    public void Button1()
+    public void GetRecentPhases()
     {
-        print("botao1");
+        var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
+        //var a = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.Data;
+        //var b = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData();
+        phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
+                  join upf in Assets.Scripts.DAL.BetaTesterContext.UserPhaseFav.GetData() on new { y.PhaseId, UserId } equals new { upf.PhaseId, upf.UserId } into up
+                  join pr in Assets.Scripts.DAL.BetaTesterContext.PhaseRate.GetData() on new { y.PhaseId, UserId } equals new { pr.PhaseId, pr.UserId } into _pr
+                  from upf in up.DefaultIfEmpty()
+                  from pr in _pr.DefaultIfEmpty()
+                  orderby y.PhaseId descending
+                  select new Assets.Scripts.Models.PhasesIndexViewModel
+                  {
+                      Completed = y.Completed,
+                      UserId = y.UserId,
+                      Dies = y.Dies,
+                      FileId = y.FileId,
+                      Name = y.Name,
+                      PhaseId = y.PhaseId,
+                      Played = y.Played,
+                      Rating = y.Rating,
+                      UserRate = pr != null ? pr.Rate : 0,
+                      Tested = y.Tested,
+                      Fav = upf == null ? false : true
+                  }).Take(10).ToList();
+
+        BuildResults();
     }
 
-    public void Button2()
+    public void GetFavPhases()
     {
-        print("botao2");
+        var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
+        var a = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.Data;
+        var b = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData();
+        phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
+                  join upf in Assets.Scripts.DAL.BetaTesterContext.UserPhaseFav.GetData() on y.PhaseId equals upf.PhaseId
+                  where y.UserId == UserId
+                  orderby y.PhaseId descending
+                  select new Assets.Scripts.Models.PhasesIndexViewModel
+                  {
+                      Completed = y.Completed,
+                      UserId = y.UserId,
+                      Dies = y.Dies,
+                      FileId = y.FileId,
+                      Name = y.Name,
+                      PhaseId = y.PhaseId,
+                      Played = y.Played,
+                      Rating = y.Rating,
+                      Tested = y.Tested
+                  }).ToList();
+
+        BuildResults();
     }
 
-    public void Button3()
+    public void GetMyPhases()
     {
-        print("botao3");
+        var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
+        var a = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.Data;
+        var b = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData();
+        phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
+                  where y.UserId == UserId
+                  orderby y.PhaseId descending
+                  select new Assets.Scripts.Models.PhasesIndexViewModel
+                  {
+                      Completed = y.Completed,
+                      UserId = y.UserId,
+                      Dies = y.Dies,
+                      FileId = y.FileId,
+                      Name = y.Name,
+                      PhaseId = y.PhaseId,
+                      Played = y.Played,
+                      Rating = y.Rating,
+                      Tested = y.Tested
+                  }).ToList();
+
+        BuildResults();
     }
 }
