@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4623900530049742}
   - component: {fileID: 198127135295968872}
   - component: {fileID: 199931841799210618}
+  - component: {fileID: 114895001736313968}
   m_Layer: 0
   m_Name: "fuma\xE7a"
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   - component: {fileID: 4105098329628416}
   - component: {fileID: 198389582259136064}
   - component: {fileID: 199705598023914452}
+  - component: {fileID: 114444981136540878}
   m_Layer: 0
   m_Name: "fuma\xE7a (1)"
   m_TagString: Untagged
@@ -103,6 +105,28 @@ Transform:
   m_Father: {fileID: 4535237037630666}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114444981136540878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775933529330610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2323ee6a9f70b40b4112819c48932c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114895001736313968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1724431825991126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2323ee6a9f70b40b4112819c48932c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198051763262864522
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -8459,16 +8483,16 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     collisionShape0: {fileID: 0}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}
     collisionShape3: {fileID: 0}
     collisionShape4: {fileID: 0}
     collisionShape5: {fileID: 0}
-    inside: 1
+    inside: 0
     outside: 0
-    enter: 0
+    enter: 2
     exit: 0
     radiusScale: 1
   SubModule:
@@ -13229,16 +13253,16 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     collisionShape0: {fileID: 0}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}
     collisionShape3: {fileID: 0}
     collisionShape4: {fileID: 0}
     collisionShape5: {fileID: 0}
-    inside: 1
+    inside: 0
     outside: 0
-    enter: 0
+    enter: 2
     exit: 0
     radiusScale: 1
   SubModule:

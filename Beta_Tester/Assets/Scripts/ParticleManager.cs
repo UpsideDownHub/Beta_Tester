@@ -10,8 +10,12 @@ public class ParticleManager : MonoBehaviour
     Animator playerAnimator;
     SpriteRenderer playerSpriterenderer;
     public Material material;
-    //Particle
-    ParticleSystem particle;
+    
+    //MouseParticle
+    ParticleSystem mouseParticle;
+
+    //PoisonParticle
+    public ParticleSystem poisonParticle;
 
     private void Start()
     {
@@ -23,9 +27,16 @@ public class ParticleManager : MonoBehaviour
             playerSpriterenderer = transform.parent.GetComponent<SpriteRenderer>();
         }
 
-        //Particle
+        //MouseParticle
         if (gameObject.name == "pedra puf")
-            particle = GetComponent<ParticleSystem>();
+            mouseParticle = GetComponent<ParticleSystem>();
+
+        //PoisonParticle
+        if (gameObject.name == "poison")
+        {
+            poisonParticle = GetComponent<ParticleSystem>();
+            poisonParticle.Stop();
+        }
     }
 
     private void Update()
@@ -63,19 +74,36 @@ public class ParticleManager : MonoBehaviour
             }
         }
 
-        //Particle
+        //MouseParticle
         if (gameObject.name == "pedra puf")
         {
             transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
 
             if (SelectableEffects.isCursorInsideObject)
             {
-                particle.Play();
+                mouseParticle.Play();
             }
             else
             {
-                particle.Stop();
+                mouseParticle.Stop();
             }
+        }
+
+        //PoisonParticle
+        if (gameObject.name == "poison")
+        {
+            if (poisonParticle.isPlaying)
+            {
+                Invoke("StopParticle", 2f);
+            }
+        }
+    }
+
+    void StopParticle()
+    {
+        if (gameObject.name == "poison")
+        {
+            poisonParticle.Stop();
         }
     }
 }

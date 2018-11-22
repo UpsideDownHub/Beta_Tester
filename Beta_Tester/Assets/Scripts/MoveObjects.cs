@@ -19,6 +19,7 @@ public class MoveObjects : MonoBehaviour {
     //GroundTrap
     public GameObject prefabPedraPuf;
     public GameObject prefabMira;
+    public GameObject prefabDust;
     GameObject miraObj;
     public bool isActivated;
     bool isDestroying = true;
@@ -97,6 +98,12 @@ public class MoveObjects : MonoBehaviour {
         //GroundTrap
         else if (gameObject.tag == "Trap" && isActivated)
         {
+            if (Activated)
+            {
+                Instantiate(prefabDust, transform.position, Quaternion.identity);
+                Activated = false;
+            }
+
             if (temp == 0)
                 spin.spinz = -1;
             else if (temp >= 2)

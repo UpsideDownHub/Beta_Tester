@@ -36,7 +36,7 @@ public class PlayerScript3D : MonoBehaviour
     float damageTemp;
     float alphaSpriteTemp;
     bool isDamaged;
-    bool canGetDamage;
+    public bool canGetDamage;
     bool isEvading;
     bool isMovingUp;
     Positions nextPosition;
@@ -336,7 +336,7 @@ public class PlayerScript3D : MonoBehaviour
         }
     }
 
-    void GetDamage()
+    public void GetDamage()
     {
         if (!isFadingToNextLevel)
         {

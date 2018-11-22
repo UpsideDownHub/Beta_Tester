@@ -14,6 +14,9 @@ public class TrapManager : MonoBehaviour {
             Destroy(gameObject, 3);
         else if (gameObject.name == "BOOM(Clone)" || gameObject.name == "pedra puf(Clone)")
             Destroy(gameObject, 2f);
+        if (gameObject.name == "Dust(Clone)")
+            Destroy(gameObject, 4);
+
 
         if (gameObject.name == "serra" || gameObject.name == "serra(Clone)")
         {

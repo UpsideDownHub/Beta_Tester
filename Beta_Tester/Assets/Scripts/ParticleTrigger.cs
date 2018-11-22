@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ParticleTrigger : MonoBehaviour {
 
+    PlayerScript3D playerScript;
+
+    private void Start()
+    {
+        playerScript = GameObject.Find("Player").GetComponent<PlayerScript3D>();
+    }
+
     void OnParticleTrigger()
     {
         ParticleSystem ps = GetComponent<ParticleSystem>();
@@ -25,6 +32,14 @@ public class ParticleTrigger : MonoBehaviour {
             if (gameObject.name == "RaioFogoEffect")
             {
                 print("morreu pelo raio");
+            }
+            if (gameObject.name == "fumaça" || gameObject.name == "fumaça (1)")
+            {
+                if (playerScript.canGetDamage)
+                {
+                    playerScript.GetDamage();
+                    playerScript.canGetDamage = false;
+                }
             }
         }
         for (int i = 0; i < numExit; i++)

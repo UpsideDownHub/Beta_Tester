@@ -39,7 +39,8 @@ public class Selectable : MonoBehaviour {
                 {
                     if (hit.collider.name == "Planta")
                     {
-                        Instantiate(prefabPlanta, hit.transform.position, Quaternion.identity);
+                        var particleManager = hit.collider.transform.Find("poison").GetComponent<ParticleManager>();
+                        particleManager.poisonParticle.Play();
                         activateTrapTime = 0;
                     }
 
