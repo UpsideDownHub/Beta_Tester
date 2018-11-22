@@ -77,7 +77,7 @@ public class PhaseCreationManager : MonoBehaviour
 
             rect.offsetMax = new Vector2(x, y);
 
-            obj.GetComponentInChildren<Text>().text = phases[i].Name;//fileList.Files[i].Name;
+            obj.GetComponentInChildren<Text>().text = phases[i].Name + (phases[i].Tested? "" : " (Não testado)");//fileList.Files[i].Name;
 
             Fileids.Add(obj, phases[i].FileId);//fileList.Files[i].Id);
 
@@ -164,6 +164,13 @@ public class PhaseCreationManager : MonoBehaviour
             return;
         }
 
+        Assets.Scripts.DAL.BetaTesterContext.FileId = id;
+
+        var phase = Assets.Scripts.DAL.BetaTesterContext.Phase.GetData().Single(x => x.FileId == Assets.Scripts.DAL.BetaTesterContext.FileId);
+        phase.Played++;
+
+        Assets.Scripts.DAL.BetaTesterContext.Phase.Update(phase);
+
         GoogleDriveFiles.Download(id).Send().OnDone += SetResult;
     }
 
@@ -191,13 +198,12 @@ public class PhaseCreationManager : MonoBehaviour
     public void GetRecentPhases()
     {
         var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
-        //var a = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.Data;
-        //var b = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData();
         phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
                   join upf in Assets.Scripts.DAL.BetaTesterContext.UserPhaseFav.GetData() on new { y.PhaseId, UserId } equals new { upf.PhaseId, upf.UserId } into up
                   join pr in Assets.Scripts.DAL.BetaTesterContext.PhaseRate.GetData() on new { y.PhaseId, UserId } equals new { pr.PhaseId, pr.UserId } into _pr
                   from upf in up.DefaultIfEmpty()
                   from pr in _pr.DefaultIfEmpty()
+                  where y.Tested
                   orderby y.PhaseId descending
                   select new Assets.Scripts.Models.PhasesIndexViewModel
                   {
@@ -220,11 +226,9 @@ public class PhaseCreationManager : MonoBehaviour
     public void GetFavPhases()
     {
         var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
-        var a = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.Data;
-        var b = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData();
         phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
                   join upf in Assets.Scripts.DAL.BetaTesterContext.UserPhaseFav.GetData() on y.PhaseId equals upf.PhaseId
-                  where y.UserId == UserId
+                  where y.UserId == UserId && y.Tested
                   orderby y.PhaseId descending
                   select new Assets.Scripts.Models.PhasesIndexViewModel
                   {
@@ -245,8 +249,6 @@ public class PhaseCreationManager : MonoBehaviour
     public void GetMyPhases()
     {
         var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
-        var a = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.Data;
-        var b = Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData();
         phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
                   where y.UserId == UserId
                   orderby y.PhaseId descending

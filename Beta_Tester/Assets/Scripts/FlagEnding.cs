@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class FlagEnding : MonoBehaviour
 {
@@ -40,6 +41,13 @@ public class FlagEnding : MonoBehaviour
             playerSpriteRenderer.sprite = victorySprite;
             backToLevelEditor.interactable = true;
             congratulations.enabled = true;
+
+            var phase = Assets.Scripts.DAL.BetaTesterContext.Phase.GetData().Single(x => x.FileId == Assets.Scripts.DAL.BetaTesterContext.FileId);
+            if (!phase.Tested)
+                phase.Tested = true;
+            phase.Completed++;
+
+            Assets.Scripts.DAL.BetaTesterContext.Phase.Update(phase);
         }
     }
 }

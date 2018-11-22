@@ -16,7 +16,9 @@ namespace Assets.Scripts
     {
         List<TEntity> _Data = new List<TEntity>();
         public List<TEntity> Data { get { return _Data; } }
-        string conn = "";
+        //string conn = "";
+        string conn = "URI=file:C:/Desenvolvimento/github.com-UpsideDownHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
+        //"URI=file:C:/Users/Max/Documents/UnityProjects/GitHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
         private string sqlQuery;
         IDbConnection dbconn;
         IDbCommand dbcmd;
@@ -62,19 +64,24 @@ namespace Assets.Scripts
 
                 dbconn.Open();
                 dbcmd = dbconn.CreateCommand();
-                sqlQuery = string.Format("UPDATE {0} set", typeof(TEntity).Name);
+                sqlQuery = string.Format("UPDATE {0} SET ", typeof(TEntity).Name);
 
-                var names = data.GetType().GetProperties().ToArray();
+                var props = data.GetType().GetProperties().ToArray();
                 var values = data.GetType().GetProperties().Select(x => x.GetValue(data, null)).ToArray();
                 var count = values.Count();
 
                 for (int i = 0; i < count; i++)
                 {
-                    sqlQuery += string.Format("{0}={1}", names[i], values[i]);
-                    sqlQuery += i != count ? ", " : " )";
+                    if (props[i].PropertyType == typeof(string))
+                        sqlQuery += string.Format("{0}='{1}'", props[i].Name, values[i]);
+                    else
+                        sqlQuery += string.Format("{0}={1}", props[i].Name, values[i]);
+                    sqlQuery += i != count - 1 ? ", " : "";
                 }
+                Debug.Log(sqlQuery);
                 var keyProperty = data.GetType().GetProperties().SingleOrDefault(x => x.GetDisplayName() == "Key");
-                sqlQuery += string.Format("WHERE {0}={1}", keyProperty.Name, keyProperty.GetValue(data, null));
+                sqlQuery += string.Format(" WHERE {0}={1}", keyProperty.Name, keyProperty.GetValue(data, null));
+                Debug.Log(sqlQuery);
                 dbcmd.CommandText = sqlQuery;
                 dbcmd.ExecuteScalar();
                 dbconn.Close();
@@ -116,8 +123,6 @@ namespace Assets.Scripts
 
         public List<TEntity> GetData()
         {
-            string conn = "URI=file:C:/Desenvolvimento/github.com-UpsideDownHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
-            //"URI=file:C:/Users/Max/Documents/UnityProjects/GitHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
 
             using (dbconn = new SqliteConnection(conn))
             {
