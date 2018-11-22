@@ -43,6 +43,13 @@ public class Selectable : MonoBehaviour {
                         activateTrapTime = 0;
                     }
 
+                    else if (hit.collider.name == "serra" || hit.collider.name == "serra(Clone)")
+                    {
+                        var trapManager = hit.collider.gameObject.GetComponent<TrapManager>();
+                        trapManager.ActivateTrap = true;
+                        activateTrapTime = 0;
+                    }
+
                     else if (hit.collider.name == "gelo (2)")
                     {
                         var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();

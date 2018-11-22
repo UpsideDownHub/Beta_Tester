@@ -6,6 +6,7 @@ public class TrapManager : MonoBehaviour {
 
     float speed;
     float temp;
+    public bool ActivateTrap;
 
     private void Start()
     {
@@ -27,18 +28,20 @@ public class TrapManager : MonoBehaviour {
         {
             temp += Time.deltaTime;
 
-            if (temp >= 1)
+            if (!ActivateTrap)
             {
-                speed = -0.5f;
-                if (temp >= 2)
-                    temp = 0;
+                if (temp >= 1)
+                {
+                    speed = -0.5f;
+                    if (temp >= 2)
+                        temp = 0;
+                }
+                else if (temp < 1)
+                {
+                    speed = 0.5f;
+                }
+                transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
             }
-            else if(temp < 1)
-            {
-                speed = 0.5f;
-            }
-
-            transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
         }
     }
 
