@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    Transform playerT;
+
     //Jimmy in the hell
     public GameObject gameOverPanel;
     //public List<Image> vidas;
@@ -19,6 +21,19 @@ public class GameOver : MonoBehaviour
         //foreach (var vida in vidas)
         //    vida.enabled = false;
 
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            if (PlayerScript3D.isInstantiated)
+            {
+                playerT = GameObject.Find("_Player(Clone)").GetComponent<Transform>();
+                PlayerScript3D.isInstantiated = false;
+            }
+
+            if (playerT != null)
+                if (playerT.position.y <= 0)
+                    PlayerScript3D.life = 0;
+        }
+
         #region JimmyInTheHell
         //vidas.ForEach(x => x.enabled = false);
 
@@ -27,10 +42,11 @@ public class GameOver : MonoBehaviour
             gameOverPanel.SetActive(true);
             button.Select();
         }
-        if (SceneManager.GetActiveScene().buildIndex != 5)
-            vidasText.text = "x" + PlayerScript3D.life.ToString();
-        else
-            vidasText.text = "x" + AIPlayerScript.life.ToString();
+
+        //if (SceneManager.GetActiveScene().buildIndex != 5)
+        vidasText.text = "x" + PlayerScript3D.life.ToString();
+        //else
+        //    vidasText.text = "x" + AIPlayerScript.life.ToString();
 
         //else
         //    for (int i = 0; i < PlayerScript3D.life; i++)
@@ -59,5 +75,12 @@ public class GameOver : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void RetryPhaseCreation()
+    {
+        PlayerScript3D.life = 5;
+        gameOverPanel.SetActive(false);
+        playerT.gameObject.SetActive(true);
+        playerT.transform.position = PlayerScript3D.initialPosition;
     }
 }

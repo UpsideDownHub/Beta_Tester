@@ -53,6 +53,10 @@ public class LanguageScript : MonoBehaviour {
             }
             else if (SceneManager.GetActiveScene().buildIndex == 5)
             {
+                resume.text = "RESUME";
+                quit.text = "QUIT";
+                gameOver.text = "GAME OVER";
+                retry.text = "RETRY";
                 //loadLevel.text = "LOAD LEVEL";
                 backToMenu.text = "BACK TO MENU";
                 load.text = "LOAD";
@@ -93,6 +97,10 @@ public class LanguageScript : MonoBehaviour {
             }
             else if (SceneManager.GetActiveScene().buildIndex == 5)
             {
+                resume.text = "RESUMIR";
+                quit.text = "SAIR";
+                gameOver.text = "FIM DE JOGO";
+                retry.text = "TENTAR NOVAMENTE";
                 //loadLevel.text = "CARREGAR NÍVEL";
                 backToMenu.text = "VOLTAR AO MENU";
                 load.text = "CARREGAR";

@@ -8,22 +8,29 @@ public class FlagEnding : MonoBehaviour
 {
     GameObject player;
     GameObject walkSmoke;
-    AIPlayerScript playerScript;
+    PlayerScript3D playerScript;
     Animator playerAnimator;
     SpriteRenderer playerSpriteRenderer;
     public Sprite victorySprite;
     Button backToLevelEditor;
     Text congratulations;
+    bool isPhaseCompleted;
 
     private void Start()
     {
         player = GameObject.Find("_Player(Clone)");
-        playerScript = player.GetComponent<AIPlayerScript>();
+        playerScript = player.GetComponent<PlayerScript3D>();
         playerAnimator = player.GetComponent<Animator>();
         walkSmoke = GameObject.Find("walksmoke");
         playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
         backToLevelEditor = GameObject.Find("BackToLevelEditorButton").GetComponent<Button>();
         congratulations = GameObject.Find("CongratulationsText").GetComponent<Text>();
+    }
+
+    private void Update()
+    {
+        if (isPhaseCompleted)
+            playerScript.canGetDamage = false;
     }
 
     public void BackToLevelEditor()
@@ -41,6 +48,7 @@ public class FlagEnding : MonoBehaviour
             playerSpriteRenderer.sprite = victorySprite;
             backToLevelEditor.interactable = true;
             congratulations.enabled = true;
+            isPhaseCompleted = true;
 
             var phase = Assets.Scripts.DAL.BetaTesterContext.Phase.GetData().Single(x => x.FileId == Assets.Scripts.DAL.BetaTesterContext.FileId);
             if (!phase.Tested)

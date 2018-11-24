@@ -12,7 +12,7 @@ public class TrapManager : MonoBehaviour {
     {
         if (gameObject.tag == "Poison")
             Destroy(gameObject, 3);
-        else if (gameObject.name == "BOOM(Clone)" || gameObject.name == "pedra puf(Clone)")
+        else if (gameObject.name == "BOOM(Clone)" || gameObject.name == "BOOM 1(Clone)" || gameObject.name == "pedra puf(Clone)")
             Destroy(gameObject, 2f);
         if (gameObject.name == "Dust(Clone)")
             Destroy(gameObject, 4);

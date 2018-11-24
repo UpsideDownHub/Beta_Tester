@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65988198601906876}
   - component: {fileID: 114024279410287122}
   - component: {fileID: 82092770619649040}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SandSwirlsEffect2Poison 1
   m_TagString: Poison
   m_Icon: {fileID: 0}
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85164995fd567604ca21e4062ea12b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActivateTrap: 0
 --- !u!198 &198792187727263182
 ParticleSystem:
   m_ObjectHideFlags: 1

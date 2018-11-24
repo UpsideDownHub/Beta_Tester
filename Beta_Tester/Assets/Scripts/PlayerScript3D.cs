@@ -42,6 +42,9 @@ public class PlayerScript3D : MonoBehaviour
     Positions nextPosition;
     float tempEvade;
 
+    public static Vector3 initialPosition;
+    public static bool isInstantiated;
+
     void Start()
     {
         objectsVerified = new List<GameObject>();
@@ -52,6 +55,11 @@ public class PlayerScript3D : MonoBehaviour
         tempEvade = 0.4f;
         alphaSpriteTemp = -0.1f;
         colliderT = GameObject.Find("collider").GetComponent<Transform>();
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            initialPosition = transform.position;
+            isInstantiated = true;
+        }
     }
 
     private void Update()
@@ -272,7 +280,6 @@ public class PlayerScript3D : MonoBehaviour
         #region Animation
         if (SceneManager.GetActiveScene().buildIndex != 2)
         {
-            print(string.Join(", ", Physics2D.OverlapCircleAll(groundCheck.position, 0.2f).Select(x => x.gameObject.name).ToArray()));
             grounded = Physics.OverlapSphere(groundCheck.position, 0.2f, whatIsGround).Count() > 0;
             animator.SetBool("jump", !grounded);
             animator.SetBool("moving", moving);
@@ -339,12 +346,13 @@ public class PlayerScript3D : MonoBehaviour
 
     public void GetDamage()
     {
-        if (!isFadingToNextLevel)
+        if (!isFadingToNextLevel && canGetDamage)
         {
             life--;
             Physics.IgnoreLayerCollision(0, 12, true);
             damageTemp = 0;
             isDamaged = true;
+            canGetDamage = false;
         }
     }
 }

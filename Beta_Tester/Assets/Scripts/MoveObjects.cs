@@ -192,7 +192,7 @@ public class MoveObjects : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.name == "FireBall(Clone)" && other.tag == "Player")
+        if ((gameObject.name == "FireBall(Clone)" || gameObject.name == "FireBall 1(Clone)") && other.tag == "Player")
         {
             Instantiate(prefabBOOM, transform.position + new Vector3(1,0,0), Quaternion.identity);
             Destroy(gameObject);

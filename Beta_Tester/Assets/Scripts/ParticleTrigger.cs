@@ -36,10 +36,7 @@ public class ParticleTrigger : MonoBehaviour {
             if (gameObject.name == "fumaça" || gameObject.name == "fumaça (1)")
             {
                 if (playerScript.canGetDamage)
-                {
                     playerScript.GetDamage();
-                    playerScript.canGetDamage = false;
-                }
             }
         }
         for (int i = 0; i < numExit; i++)

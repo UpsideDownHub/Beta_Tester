@@ -28,7 +28,7 @@ namespace Assets.Scripts
                 countDown.StartToCount();
             }
             CountDown.DecreaseTime(countDown);
-            print(countDown.CoolDown);
+
             if (countDown.ReturnedToZero)
             {
                 countDown.StartToCount();
