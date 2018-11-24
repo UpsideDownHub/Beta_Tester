@@ -148,10 +148,10 @@ public class PhaseCreationManager : MonoBehaviour
                 }
             }
         }
-        Instantiate(lava, lava.transform.position, Quaternion.identity);
-        Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
-        Instantiate(montanha1, montanha1.transform.position, Quaternion.identity);
-        Instantiate(montanha2, montanha2.transform.position, Quaternion.identity);
+        //Instantiate(lava, lava.transform.position, Quaternion.identity);
+        //Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+        //Instantiate(montanha1, montanha1.transform.position, Quaternion.identity);
+        //Instantiate(montanha2, montanha2.transform.position, Quaternion.identity);
 
         var vitrualCamera = Camera.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
         vitrualCamera.m_Follow = character.transform;
