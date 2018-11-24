@@ -44,6 +44,13 @@ public class Selectable : MonoBehaviour {
                         activateTrapTime = 0;
                     }
 
+                    else if (hit.collider.name == "Totem(Clone)")
+                    {
+                        var totem = hit.collider.gameObject.GetComponent<Assets.Scripts.Totem>();
+                        totem.StartEffect();
+                        activateTrapTime = 0;
+                    }
+
                     else if (hit.collider.name == "serra" || hit.collider.name == "serra(Clone)")
                     {
                         var trapManager = hit.collider.gameObject.GetComponent<TrapManager>();

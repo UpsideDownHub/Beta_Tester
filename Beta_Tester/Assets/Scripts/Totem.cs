@@ -9,17 +9,37 @@ namespace Assets.Scripts
 {
     public class Totem : MonoBehaviour
     {
-        CountDown countDown = new CountDown(1);
-        static float timeToRespaw = 1;
-        
+        public GameObject prefabFireBall;
+        public CountDown countDown = new CountDown(3);
+        public CountDown countDownEffect = new CountDown(2);
+        static float timeToRespaw = 3;
+
+        private void Start()
+        {
+            countDown.StartToCount();
+        }
+
         private void Update()
         {
+            CountDown.DecreaseTime(countDownEffect);
+            if (countDownEffect.ReturnedToZero)
+            {
+                countDown.Rate = timeToRespaw;
+                countDown.StartToCount();
+            }
             CountDown.DecreaseTime(countDown);
-
+            print(countDown.CoolDown);
             if (countDown.ReturnedToZero)
             {
-                //Intantiate
+                countDown.StartToCount();
+                Instantiate(prefabFireBall, transform.position, Quaternion.identity);
             }
+        }
+
+        public void StartEffect()
+        {
+            countDown.Rate = 1.5f;
+            countDown.StartToCount();
         }
     }
 }

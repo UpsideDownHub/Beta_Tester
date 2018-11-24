@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Shared;
+using UnityEngine.SceneManagement;
 
 public class MoveObjects : MonoBehaviour {
 
@@ -40,12 +41,19 @@ public class MoveObjects : MonoBehaviour {
     {   //FireBall
         if (gameObject.tag == "FireBall")
         {
-            target = GameObject.Find("Player").GetComponent<Transform>();
-            if (target == null) Destroy(this.gameObject);
-            lastPosition = target.position;
-            lastPosition = lastPosition.CorrectPositions();
-            transform.position = new Vector3(transform.position.x, lastPosition.y, transform.position.z);
-            x = lastPosition.x;
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                target = GameObject.Find("Player").GetComponent<Transform>();
+                if (target == null) Destroy(this.gameObject);
+                lastPosition = target.position;
+                lastPosition = lastPosition.CorrectPositions();
+                transform.position = new Vector3(transform.position.x, lastPosition.y, transform.position.z);
+                x = lastPosition.x;
+            }
+            else
+            {
+                x = transform.position.x;
+            }
         }
         //Spikes
         if (gameObject.name == "Spikes(Clone)" || gameObject.name == "gelo (2)" || gameObject.tag == "Trap")
@@ -69,17 +77,25 @@ public class MoveObjects : MonoBehaviour {
     {   //FireBall
         if (gameObject.tag == "FireBall")
         {
-            if (!isInLastPosition)
-                transform.position = Vector3.MoveTowards(transform.position, lastPosition, 10 * Time.deltaTime);
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                if (!isInLastPosition)
+                    transform.position = Vector3.MoveTowards(transform.position, lastPosition, 10 * Time.deltaTime);
+                else
+                {
+                    x += speed * Time.deltaTime;
+                    transform.position = new Vector3(x, transform.position.y, transform.position.z);
+                }
+
+                if (transform.position == lastPosition)
+                {
+                    isInLastPosition = true;
+                }
+            }
             else
             {
                 x += speed * Time.deltaTime;
-                transform.position = new Vector3(x, transform.position.y, transform.position.z);
-            }
-
-            if (transform.position == lastPosition)
-            {
-                isInLastPosition = true;
+                transform.position = new Vector3(x, transform.position.y);
             }
         }
 

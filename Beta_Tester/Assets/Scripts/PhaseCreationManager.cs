@@ -124,19 +124,23 @@ public class PhaseCreationManager : MonoBehaviour
                 }
 
                 if (_data == 0 && !trap.HasValue) continue;
-                float _v = _data == 3 || _data == 4 ? -0.5f : 0;
-                //var _data = _data.
-                if (_data == 2)
-                    character = Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
-                //character = Instantiate(GetObject(_data), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(_data).transform.rotation);
-                else if (j != 0 && _data == 1 && prevData != 0)
+
+                if (_data != 0)
                 {
-                    Instantiate(floor2, tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), floor2.transform.rotation, tileM.transform.parent);
-                    //Instantiate(floor2, new Vector3(i, Mathf.Abs(j - 10 - _v), 0), floor2.transform.rotation);
+                    float _v = _data == 3 || _data == 4 ? -0.5f : 0;
+                    //var _data = _data.
+                    if (_data == 2)
+                        character = Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
+                    //character = Instantiate(GetObject(_data), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(_data).transform.rotation);
+                    else if (j != 0 && _data == 1 && prevData != 0)
+                    {
+                        Instantiate(floor2, tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), floor2.transform.rotation, tileM.transform.parent);
+                        //Instantiate(floor2, new Vector3(i, Mathf.Abs(j - 10 - _v), 0), floor2.transform.rotation);
+                    }
+                    else
+                        Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
+                    //Instantiate(GetObject(_data), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(_data).transform.rotation);
                 }
-                else
-                    Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
-                //Instantiate(GetObject(_data), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(_data).transform.rotation);
 
                 if (trap.HasValue)
                 {

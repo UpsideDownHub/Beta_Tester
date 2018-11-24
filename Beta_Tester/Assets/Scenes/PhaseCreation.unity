@@ -1801,6 +1801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a9e9790cb58b343a47666b0edbab5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totem: {fileID: 1581687371422000, guid: 306d6e6c5ffa4cd47886e34edc47f538, type: 2}
   serra: {fileID: 1277880659325058, guid: 53b460a011fcd2d44be7e36638f97481, type: 2}
   lava: {fileID: 1013759447595638, guid: ad4db527d0150614ab67407c7e519eff, type: 2}
   montanha1: {fileID: 1148047502048468, guid: b79513c72a8e88e4f9e9a6954ee0e631, type: 2}
