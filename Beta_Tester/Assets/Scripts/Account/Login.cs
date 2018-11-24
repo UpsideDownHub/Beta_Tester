@@ -18,6 +18,24 @@ public class Login : MonoBehaviour
     public GameObject loginButton;
     public PhaseCreationManager phaseCreationManager;
 
+    private void Start()
+    {
+        if (Assets.Scripts.DAL.BetaTesterContext.UserId != 0)
+        {
+            phaseCreationManager.StartBuild();
+
+            topPanel.SetActive(true);
+            loadButton.SetActive(true);
+            principalPanel.SetActive(true);
+            emailText.SetActive(false);
+            passwordText.SetActive(false);
+            emailInputField.gameObject.SetActive(false);
+            passwordInputField.gameObject.SetActive(false);
+            errorText.SetActive(false);
+            loginButton.SetActive(false);
+        }
+    }
+
     private void Update()
     {
         if (EventSystem.current.currentSelectedGameObject != null)

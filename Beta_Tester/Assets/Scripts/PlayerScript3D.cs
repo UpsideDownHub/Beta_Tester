@@ -272,7 +272,8 @@ public class PlayerScript3D : MonoBehaviour
         #region Animation
         if (SceneManager.GetActiveScene().buildIndex != 2)
         {
-            grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
+            print(string.Join(", ", Physics2D.OverlapCircleAll(groundCheck.position, 0.2f).Select(x => x.gameObject.name).ToArray()));
+            grounded = Physics.OverlapSphere(groundCheck.position, 0.2f, whatIsGround).Count() > 0;
             animator.SetBool("jump", !grounded);
             animator.SetBool("moving", moving);
         }
