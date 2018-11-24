@@ -11,6 +11,7 @@ using UnityGoogleDrive;
 
 public class PhaseCreationManager : MonoBehaviour
 {
+    [SerializeField] GameObject totem;
     [SerializeField] GameObject serra;
     [SerializeField] GameObject lava;
     [SerializeField] GameObject montanha1;
@@ -190,6 +191,8 @@ public class PhaseCreationManager : MonoBehaviour
                 return flag;
             case 6:
                 return serra;
+            case 7:
+                return totem;
             default:
                 return floor;
         }
