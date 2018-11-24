@@ -27,7 +27,7 @@ public class GameOver : MonoBehaviour
             gameOverPanel.SetActive(true);
             button.Select();
         }
-        if (SceneManager.GetActiveScene().buildIndex != 7)
+        if (SceneManager.GetActiveScene().buildIndex != 5)
             vidasText.text = "x" + PlayerScript3D.life.ToString();
         else
             vidasText.text = "x" + AIPlayerScript.life.ToString();
@@ -38,7 +38,7 @@ public class GameOver : MonoBehaviour
         #endregion
 
         #region BetaTester
-        if (SceneManager.GetActiveScene().buildIndex != 7)
+        if (SceneManager.GetActiveScene().buildIndex != 5)
         {
             lifeBetaTester.value -= 0.001f;
 

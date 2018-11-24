@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrapManager : MonoBehaviour {
 
     float speed;
-    float temp;
+    Vector3 initialPosition;
     public bool ActivateTrap;
 
     private void Start()
@@ -21,7 +21,7 @@ public class TrapManager : MonoBehaviour {
         if (gameObject.name == "serra" || gameObject.name == "serra(Clone)")
         {
             speed = 0;
-            temp = 1;
+            initialPosition = transform.position;
         }
     }
 
@@ -29,22 +29,20 @@ public class TrapManager : MonoBehaviour {
     {
         if (gameObject.name == "serra" || gameObject.name == "serra(Clone)")
         {
-            temp += Time.deltaTime;
-
             if (!ActivateTrap)
             {
-                if (temp >= 1)
+                if (transform.position.y >= initialPosition.y)
                 {
                     speed = -0.5f;
-                    if (temp >= 2)
-                        temp = 0;
                 }
-                else if (temp < 1)
+                else if (transform.position.y <= initialPosition.y - 0.8f)
                 {
                     speed = 0.5f;
                 }
                 transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
             }
+            else
+                Invoke("ResetTrap", 1);
         }
     }
 
@@ -52,5 +50,16 @@ public class TrapManager : MonoBehaviour {
     {
         var animator = GetComponent<Animator>();
         animator.SetBool("EndAnimation", true);
+    }
+
+    public void ResetTrap() //serra
+    {
+        ActivateTrap = false;
+        if (gameObject.name == "serra")
+        {
+            var rb = GetComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.velocity = new Vector3(0, 0, 0);
+        }
     }
 }

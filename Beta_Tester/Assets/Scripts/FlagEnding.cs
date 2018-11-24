@@ -28,7 +28,7 @@ public class FlagEnding : MonoBehaviour
 
     public void BackToLevelEditor()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(5);
     }
 
     private void OnTriggerEnter(Collider other)

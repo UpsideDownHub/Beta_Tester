@@ -95,7 +95,7 @@ public class PlayerScript3D : MonoBehaviour
         }
         #endregion
 
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
             sr.sortingOrder = Mathf.RoundToInt(transform.position.y * 10f) * -1;
 
         #region DamageAndInvulnerability
@@ -239,14 +239,14 @@ public class PlayerScript3D : MonoBehaviour
                 moving = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 3)
+            if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 2)
             {
                 rb.AddForce(new Vector3(0, 300, 0));
             }
 
             //movimentação da fase de fogo
 
-            if (SceneManager.GetActiveScene().buildIndex == 3)
+            if (SceneManager.GetActiveScene().buildIndex == 2)
             {
                 if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
                 {
@@ -270,7 +270,7 @@ public class PlayerScript3D : MonoBehaviour
         #endregion
 
         #region Animation
-        if (SceneManager.GetActiveScene().buildIndex != 3)
+        if (SceneManager.GetActiveScene().buildIndex != 2)
         {
             grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
             animator.SetBool("jump", !grounded);
@@ -302,7 +302,7 @@ public class PlayerScript3D : MonoBehaviour
                 colliderT.localRotation = Quaternion.Euler(0, 0, -26.46f);
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             if (rb.velocity.x == 0 && rb.velocity.y == 0)
                 colliderT.localRotation = Quaternion.Euler(0, 0, 0);

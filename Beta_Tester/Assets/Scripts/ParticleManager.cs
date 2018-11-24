@@ -44,7 +44,7 @@ public class ParticleManager : MonoBehaviour
         //WalkSmokeParticle
         if (gameObject.name == "walksmoke" || gameObject.name == "walksmoke(Clone)")
         {
-            if (SceneManager.GetActiveScene().buildIndex == 3)
+            if (SceneManager.GetActiveScene().buildIndex == 2)
             {
                 if (playerAnimator.GetBool("moving2") && !particleWalkSmoke.isPlaying)
                     particleWalkSmoke.Play();

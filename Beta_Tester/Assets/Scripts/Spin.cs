@@ -82,17 +82,9 @@ public class Spin : MonoBehaviour
         transform.Rotate(spinx, spiny, spinz);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (gameObject.name == "BigBall(Clone)" && collision.collider.tag == "Ground")
-        {
-            spinz = 3;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.tag == "Ground" || other.tag == "Player") && gameObject.tag == "Poison" || gameObject.tag == "Selectable")
+        if ((other.tag == "Ground" || other.tag == "Player") && gameObject.tag == "Poison" || gameObject.tag == "Selectable" && gameObject.name != "serra")
         {
             Instantiate(prefabPoison, transform.position + new Vector3(-2, 0, 0), Quaternion.identity);
             Destroy(this.gameObject);

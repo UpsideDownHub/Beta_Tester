@@ -30,6 +30,13 @@ public class LanguageScript : MonoBehaviour {
                 pressAnyKey.text = "PRESS ANY KEY";
                 chooseCharacter.text = "CHOOSE YOUR CHARACTER";
             }
+            else if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                resume.text = "RESUME";
+                quit.text = "QUIT";
+                gameOver.text = "GAME OVER";
+                retry.text = "RETRY";
+            }
             else if (SceneManager.GetActiveScene().buildIndex == 3)
             {
                 resume.text = "RESUME";
@@ -45,13 +52,6 @@ public class LanguageScript : MonoBehaviour {
                 retry.text = "RETRY";
             }
             else if (SceneManager.GetActiveScene().buildIndex == 5)
-            {
-                resume.text = "RESUME";
-                quit.text = "QUIT";
-                gameOver.text = "GAME OVER";
-                retry.text = "RETRY";
-            }
-            else if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 //loadLevel.text = "LOAD LEVEL";
                 backToMenu.text = "BACK TO MENU";
@@ -70,6 +70,13 @@ public class LanguageScript : MonoBehaviour {
                 pressAnyKey.text = "PRESSIONE QUALQUER TECLA";
                 chooseCharacter.text = "ESCOLHA SEU PERSONAGEM";
             }
+            else if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                resume.text = "RESUMIR";
+                quit.text = "SAIR";
+                gameOver.text = "FIM DE JOGO";
+                retry.text = "TENTAR NOVAMENTE";
+            }
             else if (SceneManager.GetActiveScene().buildIndex == 3)
             {
                 resume.text = "RESUMIR";
@@ -85,13 +92,6 @@ public class LanguageScript : MonoBehaviour {
                 retry.text = "TENTAR NOVAMENTE";
             }
             else if (SceneManager.GetActiveScene().buildIndex == 5)
-            {
-                resume.text = "RESUMIR";
-                quit.text = "SAIR";
-                gameOver.text = "FIM DE JOGO";
-                retry.text = "TENTAR NOVAMENTE";
-            }
-            else if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 //loadLevel.text = "CARREGAR NÍVEL";
                 backToMenu.text = "VOLTAR AO MENU";

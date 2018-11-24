@@ -57,9 +57,9 @@ public class GameManager : MonoBehaviour {
 
         if (isLevelCompleted)
         {
-            if (SceneManager.GetActiveScene().buildIndex == 4)
+            if (SceneManager.GetActiveScene().buildIndex == 3)
                 circleT.localPosition = new Vector3(-3.8f, -5.59f, circleT.localPosition.z);
-            else if (SceneManager.GetActiveScene().buildIndex == 5)
+            else if (SceneManager.GetActiveScene().buildIndex == 4)
                 circleT.localPosition = new Vector3(-2.29f, -8.57f, circleT.localPosition.z);
 
             if (circleT.localScale.x > 0)
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             cameraFollow.position = new Vector3(player.transform.position.x, cameraFollow.position.y, cameraFollow.position.z);
         }

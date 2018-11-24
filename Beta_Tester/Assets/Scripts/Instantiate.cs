@@ -15,10 +15,10 @@ public class Instantiate : MonoBehaviour {
     {
         player = GameObject.Find("Player");
 
-        if (SceneManager.GetActiveScene().buildIndex == 4)
+        if (SceneManager.GetActiveScene().buildIndex == 3)
             InvokeRepeating("Spikes", 0, 3);
 
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
             InvokeRepeating("FireBall", 0, 3);
 
         //InvokeRepeating("Ball", 4, 6);

@@ -19,7 +19,6 @@ public class MenuBetaTester : MonoBehaviour {
     public Text newGameText;
     public Text continueText;
     public Text optionsText;
-    public Text creditsText;
     public Text quitText;
     public Text levelEditor;
     public Text resolutionText;
@@ -120,7 +119,6 @@ public class MenuBetaTester : MonoBehaviour {
             newGameText.text = "NEW GAME";
             continueText.text = "CONTINUE";
             optionsText.text = "OPTIONS";
-            creditsText.text = "CREDITS";
             quitText.text = "QUIT GAME";
             levelEditor.text = "LEVEL EDITOR";
             resolutionText.text = "RESOLUTION:";
@@ -150,7 +148,6 @@ public class MenuBetaTester : MonoBehaviour {
             newGameText.text = "NOVO JOGO";
             continueText.text = "CONTINUAR";
             optionsText.text = "OPÇÕES";
-            creditsText.text = "CRÉDITOS";
             quitText.text = "SAIR DO JOGO";
             levelEditor.text = "EDITOR DE NÍVEL";
             resolutionText.text = "RESOLUÇÃO:";
@@ -199,11 +196,6 @@ public class MenuBetaTester : MonoBehaviour {
         backButton.SetActive(true);
     }
 
-    public void CreditsInteraction ()
-    {
-        SceneManager.LoadScene(2);
-    }
-
     public void QuitInteraction()
     {
         Application.Quit();
@@ -211,7 +203,7 @@ public class MenuBetaTester : MonoBehaviour {
 
     public void LevelEditorInteraction()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(5);
     }
 
     public void GameOptionsButton()
@@ -305,7 +297,6 @@ public class MenuBetaTester : MonoBehaviour {
             newGameText.text = "NEW GAME";
             continueText.text = "CONTINUE";
             optionsText.text = "OPTIONS";
-            creditsText.text = "CREDITS";
             quitText.text = "QUIT GAME";
             levelEditor.text = "LEVEL EDITOR";
             resolutionText.text = "RESOLUTION:";
@@ -335,7 +326,6 @@ public class MenuBetaTester : MonoBehaviour {
             newGameText.text = "NOVO JOGO";
             continueText.text = "CONTINUAR";
             optionsText.text = "OPÇÕES";
-            creditsText.text = "CRÉDITOS";
             quitText.text = "SAIR DO JOGO";
             levelEditor.text = "EDITOR DE NÍVEL";
             resolutionText.text = "RESOLUÇÃO:";

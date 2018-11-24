@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33402219849565622}
   - component: {fileID: 23033757415145624}
   - component: {fileID: 64013878601884762}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftStair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
