@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,6 +63,10 @@ public class MenuBetaTester : MonoBehaviour {
     string englishOption2 = "Portuguese";
     string portugueseOption1 = "Inglês";
     string portugueseOption2 = "Português";
+    public AudioSource clickedSound;
+
+    public static bool betaTesterCutscene;
+    public GameObject canvasCutscene;
 
     private void Start()
     {
@@ -93,28 +98,106 @@ public class MenuBetaTester : MonoBehaviour {
         portugueseOptions.Add(portugueseOption1);
         portugueseOptions.Add(portugueseOption2);
 
-        fullscreenToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen"));
-        Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen"));
-        resolutionDropDown.AddOptions(resolutionOptions);
-        resolutionDropDown.value = PlayerPrefs.GetInt("resolution");
-        resolutionDropDown.RefreshShownValue();
-        resolution = resolutions[PlayerPrefs.GetInt("resolution")];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-
-        graphicsDropDown.AddOptions(qualityOptions);
-        graphicsDropDown.value = PlayerPrefs.GetInt("GraphicsQuality");
-        graphicsDropDown.RefreshShownValue();
-        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("GraphicsQuality"));
-
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
-        audioMixer.SetFloat("musicV", PlayerPrefs.GetFloat("musicVolume"));
-        soundSlider.value = PlayerPrefs.GetFloat("soundVolume");
-        audioMixer.SetFloat("soundV", PlayerPrefs.GetFloat("soundVolume"));
-        masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
-        audioMixer.SetFloat("masterV", PlayerPrefs.GetFloat("masterVolume"));
-
-        if (PlayerPrefs.GetInt("Language") == 0)
+        if (PlayerPrefs.HasKey("resolution"))
         {
+            fullscreenToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen"));
+            Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("FullScreen"));
+            resolutionDropDown.AddOptions(resolutionOptions);
+            resolutionDropDown.value = PlayerPrefs.GetInt("resolution");
+            resolutionDropDown.RefreshShownValue();
+            resolution = resolutions[PlayerPrefs.GetInt("resolution")];
+            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+
+            graphicsDropDown.AddOptions(qualityOptions);
+            graphicsDropDown.value = PlayerPrefs.GetInt("GraphicsQuality");
+            graphicsDropDown.RefreshShownValue();
+            QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("GraphicsQuality"));
+
+            musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+            audioMixer.SetFloat("musicV", PlayerPrefs.GetFloat("musicVolume"));
+            soundSlider.value = PlayerPrefs.GetFloat("soundVolume");
+            audioMixer.SetFloat("soundV", PlayerPrefs.GetFloat("soundVolume"));
+            masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
+            audioMixer.SetFloat("masterV", PlayerPrefs.GetFloat("masterVolume"));
+
+            if (PlayerPrefs.GetInt("Language") == 0)
+            {
+                chooseCharacter.text = "CHOOSE YOUR CHARACTER";
+                newGameText.text = "NEW GAME";
+                continueText.text = "CONTINUE";
+                optionsText.text = "OPTIONS";
+                quitText.text = "QUIT GAME";
+                levelEditor.text = "LEVEL EDITOR";
+                resolutionText.text = "RESOLUTION:";
+                fullscreenText.text = "FULL SCREEN:";
+                musicText.text = "MUSIC VOLUME:";
+                soundText.text = "SOUND VOLUME:";
+                masterText.text = "MASTER VOLUME:";
+                graphicsText.text = "GRAPHICS:";
+                languageText.text = "LANGUAGE:";
+                optionsOnlyText.text = "OPTIONS";
+                gameOptionsText.text = "GAME OPTIONS";
+                gameOptionsOnlyText.text = "GAME OPTIONS";
+                audioText.text = "AUDIO";
+                audioOnlyText.text = "AUDIO";
+                videoText.text = "VIDEO";
+                videoOnlyText.text = "VIDEO";
+                backText.text = "BACK";
+
+                languageDropDown.ClearOptions();
+                languageDropDown.AddOptions(englishOptions);
+                languageDropDown.value = 0;
+                languageDropDown.RefreshShownValue();
+            }
+            else
+            {
+                chooseCharacter.text = "ESCOLHA SEU PERSONAGEM";
+                newGameText.text = "NOVO JOGO";
+                continueText.text = "CONTINUAR";
+                optionsText.text = "OPÇÕES";
+                quitText.text = "SAIR DO JOGO";
+                levelEditor.text = "EDITOR DE NÍVEL";
+                resolutionText.text = "RESOLUÇÃO:";
+                fullscreenText.text = "TELA CHEIA:";
+                musicText.text = "VOLUME DA MÚSICA:";
+                soundText.text = "VOLUME DOS SONS:";
+                masterText.text = "VOLUME GERAL:";
+                graphicsText.text = "GRÁFICOS:";
+                languageText.text = "IDIOMA:";
+                optionsOnlyText.text = "OPÇÕES";
+                gameOptionsText.text = "OPÇÕES DE JOGO";
+                gameOptionsOnlyText.text = "OPÇÕES DE JOGO";
+                audioText.text = "ÁUDIO";
+                audioOnlyText.text = "ÁUDIO";
+                videoText.text = "VÍDEO";
+                videoOnlyText.text = "VÍDEO";
+                backText.text = "VOLTAR";
+
+                languageDropDown.ClearOptions();
+                languageDropDown.AddOptions(portugueseOptions);
+                languageDropDown.value = 1;
+                languageDropDown.RefreshShownValue();
+            }
+        }
+        else
+        {
+            fullscreenToggle.isOn = true;
+            Screen.fullScreen = true;
+            resolutionDropDown.AddOptions(resolutionOptions);
+            resolutionDropDown.value = resolutionOptions.Count - 1;
+            resolutionDropDown.RefreshShownValue();
+            resolution = resolutions[resolutionOptions.Count - 1];
+            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+
+            graphicsDropDown.AddOptions(qualityOptions);
+            graphicsDropDown.value = qualityOptions.Count - 1;
+            graphicsDropDown.RefreshShownValue();
+            QualitySettings.SetQualityLevel(qualityOptions.Count - 1);
+
+            musicSlider.value = 0;
+            soundSlider.value = 0;
+            masterSlider.value = 0;
+
             chooseCharacter.text = "CHOOSE YOUR CHARACTER";
             newGameText.text = "NEW GAME";
             continueText.text = "CONTINUE";
@@ -140,35 +223,6 @@ public class MenuBetaTester : MonoBehaviour {
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(englishOptions);
             languageDropDown.value = 0;
-            languageDropDown.RefreshShownValue();
-        }
-        else
-        {
-            chooseCharacter.text = "ESCOLHA SEU PERSONAGEM";
-            newGameText.text = "NOVO JOGO";
-            continueText.text = "CONTINUAR";
-            optionsText.text = "OPÇÕES";
-            quitText.text = "SAIR DO JOGO";
-            levelEditor.text = "EDITOR DE NÍVEL";
-            resolutionText.text = "RESOLUÇÃO:";
-            fullscreenText.text = "TELA CHEIA:";
-            musicText.text = "VOLUME DA MÚSICA:";
-            soundText.text = "VOLUME DOS SONS:";
-            masterText.text = "VOLUME GERAL:";
-            graphicsText.text = "GRÁFICOS:";
-            languageText.text = "IDIOMA:";
-            optionsOnlyText.text = "OPÇÕES";
-            gameOptionsText.text = "OPÇÕES DE JOGO";
-            gameOptionsOnlyText.text = "OPÇÕES DE JOGO";
-            audioText.text = "ÁUDIO";
-            audioOnlyText.text = "ÁUDIO";
-            videoText.text = "VÍDEO";
-            videoOnlyText.text = "VÍDEO";
-            backText.text = "VOLTAR";
-
-            languageDropDown.ClearOptions();
-            languageDropDown.AddOptions(portugueseOptions);
-            languageDropDown.value = 1;
             languageDropDown.RefreshShownValue();
         }
         #endregion
@@ -368,6 +422,13 @@ public class MenuBetaTester : MonoBehaviour {
             //configurações do personagem 3
         }
 
-        SceneManager.LoadScene(1);
+        canvas2.SetActive(false);
+        canvasCutscene.SetActive(true);
+        betaTesterCutscene = true;
+    }
+
+    public void ClickedSound()
+    {
+        clickedSound.Play();
     }
 }

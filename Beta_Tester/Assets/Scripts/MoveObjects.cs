@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 public class MoveObjects : MonoBehaviour {
 
     public float speed;
+    float cameraPosition;
     //FireBall
     public GameObject prefabBOOM;
     Transform target;
     Vector3 lastPosition;
     float x;
     bool isInLastPosition = false;
-   
+
     //Spikes
     float y;
 
@@ -34,11 +35,13 @@ public class MoveObjects : MonoBehaviour {
     SpriteRenderer sr;
     Spin spin;
     Animator animator;
-    float cameraPosition;
     Transform parent;
 
     private void Start()
-    {   //FireBall
+    {   
+        cameraPosition = Camera.main.orthographicSize * Camera.main.aspect;
+
+        //FireBall
         if (gameObject.tag == "FireBall")
         {
             if (SceneManager.GetActiveScene().buildIndex == 2)
@@ -67,7 +70,6 @@ public class MoveObjects : MonoBehaviour {
             animator = GetComponent<Animator>();
             temp = 0;
             temp2 = 0;
-            cameraPosition = Camera.main.orthographicSize * Camera.main.aspect;
             parent = transform.parent;
             miraObj = null;
         }
@@ -96,6 +98,11 @@ public class MoveObjects : MonoBehaviour {
             {
                 x += speed * Time.deltaTime;
                 transform.position = new Vector3(x, transform.position.y);
+            }
+
+            if (transform.position.x - cameraPosition - 3 >= Camera.main.transform.position.x)
+            {
+                Destroy(gameObject);
             }
         }
 
@@ -185,8 +192,7 @@ public class MoveObjects : MonoBehaviour {
     {
         if (gameObject.name != "GroundTrap")
             gameObject.SetActive(false);
-
-        if (gameObject.name == "FireBall(Clone)")
+        if (gameObject.tag == "FireBall")
             Destroy(gameObject);
     }
 

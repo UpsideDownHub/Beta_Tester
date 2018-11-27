@@ -8,13 +8,17 @@ public class MenuJimmy : MonoBehaviour {
 
     public GameObject loadingText;
     public GameObject canvas;
-    bool isAnyKeyPressed = false;
+    public static bool isAnyKeyPressed;
+
+    private void Start()
+    {
+        isAnyKeyPressed = false;
+    }
 
     private void Update()
     {
         if (Input.anyKeyDown && !isAnyKeyPressed)
         {
-            StartGame();
             isAnyKeyPressed = true;
         }
     }

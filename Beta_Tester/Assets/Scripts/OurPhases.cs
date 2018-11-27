@@ -13,14 +13,11 @@ public class OurPhases : MonoBehaviour
 {
     [SerializeField] GameObject serra;
     [SerializeField] GameObject flag;
-    [SerializeField] GameObject panelContent;
-    [SerializeField] GameObject panelItem;
     [SerializeField] GameObject floor;
     [SerializeField] GameObject floor2;
     [SerializeField] GameObject LeftStair;
     [SerializeField] GameObject RightStair;
     [SerializeField] GameObject Character;
-    [SerializeField] GameObject Canvas;
     [SerializeField] GameObject Camera;
     [SerializeField] Tilemap tileM;
     public static List<List<string>> data = new List<List<string>>();
@@ -28,7 +25,7 @@ public class OurPhases : MonoBehaviour
 
     private void Start()
     {
-        //SetResult();
+        SetResult();
     }
 
     private void SetResult()
@@ -89,7 +86,6 @@ public class OurPhases : MonoBehaviour
         }
         var vitrualCamera = Camera.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
         vitrualCamera.m_Follow = character.transform;
-        Canvas.SetActive(false);
     }
 
     GameObject GetObject(int value)

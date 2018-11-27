@@ -67,6 +67,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabFireBall: {fileID: 1612140693056596, guid: 859474417d7448f4ba5dc17370a446b3,
     type: 2}
+  firstFrame: {fileID: 21300000, guid: de55c49f29c67b245990a876825ec389, type: 3}
+  secondFrame: {fileID: 21300002, guid: de55c49f29c67b245990a876825ec389, type: 3}
 --- !u!212 &212522545378769384
 SpriteRenderer:
   m_ObjectHideFlags: 1

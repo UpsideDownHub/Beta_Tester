@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33683252042988812}
   - component: {fileID: 23853641767357830}
   - component: {fileID: 65195980591084890}
+  - component: {fileID: 114726641596015554}
   m_Layer: 9
   m_Name: Cube2
   m_TagString: Ground
@@ -126,6 +127,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.73083305, z: 1}
   m_Center: {x: 0, y: -0.13458347, z: 0}
+--- !u!114 &114726641596015554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008104094897616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a33fcd9dd9c540543a969357deeac069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212046565252113278
 SpriteRenderer:
   m_ObjectHideFlags: 1

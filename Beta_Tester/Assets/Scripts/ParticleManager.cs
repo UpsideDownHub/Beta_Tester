@@ -54,6 +54,9 @@ public class ParticleManager : MonoBehaviour
 
             else
             {
+                if (playerAnimator.GetBool("jump"))
+                    particleWalkSmoke.Stop();
+
                 if (playerAnimator.GetBool("moving") && !particleWalkSmoke.isPlaying)
                     particleWalkSmoke.Play();
                 else if (!playerAnimator.GetBool("moving") && particleWalkSmoke.isPlaying)

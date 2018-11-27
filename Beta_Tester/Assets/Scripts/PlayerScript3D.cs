@@ -55,6 +55,7 @@ public class PlayerScript3D : MonoBehaviour
         tempEvade = 0.4f;
         alphaSpriteTemp = -0.1f;
         colliderT = GameObject.Find("collider").GetComponent<Transform>();
+
         if (SceneManager.GetActiveScene().buildIndex == 5)
         {
             initialPosition = transform.position;
@@ -247,7 +248,7 @@ public class PlayerScript3D : MonoBehaviour
                 moving = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.Z) && grounded && rb.velocity.y <= 0.1 && rb.velocity.y >= -0.1 && transform.position.x <= 377 && SceneManager.GetActiveScene().buildIndex != 2)
+            if (Input.GetKeyDown(KeyCode.Z) && grounded && SceneManager.GetActiveScene().buildIndex != 2)
             {
                 rb.AddForce(new Vector3(0, 300, 0));
             }

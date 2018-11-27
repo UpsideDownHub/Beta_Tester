@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     Transform playerT;
+    //List<GameObject> groundObjects;
+    //List<Transform> groundObjectsT;
 
     //Jimmy in the hell
     public GameObject gameOverPanel;
@@ -54,7 +57,7 @@ public class GameOver : MonoBehaviour
         #endregion
 
         #region BetaTester
-        if (SceneManager.GetActiveScene().buildIndex != 5)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             lifeBetaTester.value -= 0.001f;
 
@@ -82,5 +85,19 @@ public class GameOver : MonoBehaviour
         gameOverPanel.SetActive(false);
         playerT.gameObject.SetActive(true);
         playerT.transform.position = PlayerScript3D.initialPosition;
+        //for (int i = 0; i < groundObjects.Count; i++)
+        //{
+        //    groundObjects[i].transform.position = groundObjectsT[i].position;
+        //}
     }
+
+    //void Teste()
+    //{
+    //    groundObjects = (GameObject.FindGameObjectsWithTag("Ground")).ToList();
+
+    //    for (int j = 0; j < groundObjects.Count; j++)
+    //    {
+    //        groundObjectsT[j] = groundObjects[j].transform;
+    //    }
+    //}
 }
