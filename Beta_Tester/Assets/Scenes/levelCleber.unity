@@ -5347,6 +5347,15 @@ MonoBehaviour:
   siteJimmyA: {fileID: 0}
   cutSceneFireLevelA: {fileID: 263605573}
   albert: {fileID: 0}
+  logoJimmy: {fileID: 0}
+  pressAnyKey: {fileID: 0}
+  CreditsText: {fileID: 0}
+  ceuNuvem: {fileID: 0}
+  ceu: {fileID: 0}
+  cutsceneImagesJimmyA: {fileID: 0}
+  acdcBackInBlack: {fileID: 0}
+  truckIdle: {fileID: 0}
+  ExplosionTruck: {fileID: 0}
 --- !u!1 &830786213
 GameObject:
   m_ObjectHideFlags: 0
@@ -13821,7 +13830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1468234524
 Transform:
   m_ObjectHideFlags: 0
@@ -17202,7 +17211,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1930841838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.04431, y: 6.4712057, z: -10}
+  m_LocalPosition: {x: -24.159021, y: 6.4710426, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 93401361}

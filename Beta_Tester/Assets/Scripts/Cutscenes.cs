@@ -32,26 +32,31 @@ public class Cutscenes : MonoBehaviour
     public GameObject pressAnyKey;
     public GameObject CreditsText;
     public GameObject ceuNuvem;
-    public GameObject ceu;
     public Animator cutsceneImagesJimmyA;
     RectTransform rtCutSceneImages;
-    RectTransform rtCeuNuvem;
-    float posYRT;
-    float sizeDeltaXRT;
-    float sizeDeltaYRT;
-    float scaleX;
-    float scaleY;
+    RectTransform rtCreditsText;
+    float bottomRT;
+    float leftRT;
+    float rightRT;
+    float posXRTCredits;
     Text creditsTextUI;
     float temp4;
     float temp5;
-    float posXRTNuvem;
     bool isCreditsTime;
+    bool canMoveCreditsText;
+    int i = 0;
 
     public AudioSource acdcBackInBlack;
     public AudioSource truckIdle;
     public AudioSource ExplosionTruck;
     bool dontRepeat;
+    bool dontRepeat2;
     bool isPlaying;
+    bool canSkipSchoolCutscene;
+    bool canSkipDesertCutscene;
+
+    RectTransform canvasRT;
+    RectTransform ceuNuvemRT;
 
     private void Start()
     {
@@ -82,14 +87,16 @@ public class Cutscenes : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             rtCutSceneImages = GameObject.Find("CutsceneImages").GetComponent<RectTransform>();
-            posYRT = rtCutSceneImages.anchoredPosition.y;
-            sizeDeltaXRT = rtCutSceneImages.sizeDelta.x;
-            sizeDeltaYRT = rtCutSceneImages.sizeDelta.y;
-            scaleX = CreditsText.transform.localScale.x;
-            scaleY = CreditsText.transform.localScale.y;
+            bottomRT = rtCutSceneImages.offsetMin.y;
+            leftRT = rtCutSceneImages.offsetMin.x;
+            rightRT = rtCutSceneImages.offsetMax.x;
+
+            rtCreditsText = CreditsText.GetComponent<RectTransform>();
+            posXRTCredits = rtCreditsText.anchoredPosition.x;
             creditsTextUI = CreditsText.GetComponent<Text>();
-            rtCeuNuvem = ceuNuvem.GetComponent<RectTransform>();
-            posXRTNuvem = rtCeuNuvem.anchoredPosition.x;
+
+            canvasRT = GameObject.Find("Canvas").GetComponent<RectTransform>();
+            ceuNuvemRT = ceuNuvem.GetComponent<RectTransform>();
         }
     }
 
@@ -101,6 +108,8 @@ public class Cutscenes : MonoBehaviour
             temp += Time.deltaTime;
             if (temp <= 5 && temp >= 0)
             {
+                Camera.main.backgroundColor = new Color(0, 0, 0);
+
                 if (PlayerPrefs.GetInt("Language") == 0)
                     cutsceneText.text = "Manager: Are we recording? Oh ok.";
                 else
@@ -237,20 +246,20 @@ public class Cutscenes : MonoBehaviour
             {
                 pressAnyKey.SetActive(false);
 
-                if (rtCutSceneImages.sizeDelta.x > 500)
+                if (rtCutSceneImages.offsetMin.y < canvasRT.sizeDelta.y)
                 {
-                    posYRT += 10 * Time.deltaTime;
-                    sizeDeltaXRT -= 20 * Time.deltaTime;
-                    sizeDeltaYRT -= 20 * Time.deltaTime;
+                    bottomRT -= (55 * canvasRT.sizeDelta.normalized.y) * Time.deltaTime;
+                    leftRT -= (5 / canvasRT.sizeDelta.normalized.y) * Time.deltaTime;
+                    rightRT -= (5 / canvasRT.sizeDelta.normalized.y) * Time.deltaTime;
 
-                    rtCutSceneImages.anchoredPosition = new Vector2(rtCutSceneImages.anchoredPosition.x, posYRT);
-                    rtCutSceneImages.sizeDelta = new Vector2(sizeDeltaXRT, sizeDeltaYRT);
+                    rtCutSceneImages.offsetMax = new Vector2(rightRT, rtCutSceneImages.offsetMax.y);
+                    rtCutSceneImages.offsetMin = new Vector2(-leftRT, -bottomRT);
 
                     if (!dontRepeat)
                     {
                         truckIdle.volume = 0;
-                        truckIdle.PlayDelayed(8);
-                        Invoke("RaisesVolumeOverTime", 8);
+                        truckIdle.PlayDelayed(9);
+                        Invoke("RaisesVolumeOverTime", 9);
                         dontRepeat = true;
                     }
 
@@ -259,158 +268,162 @@ public class Cutscenes : MonoBehaviour
                 }
                 else
                 {
-                    temp4 += Time.deltaTime;
-                    if (temp4 <= 4 && temp4 >= 0)
+                    if (!isSecondSceneCompleted)
                     {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Professora: Bom dia crianças!";
-                    }
-                    if (temp4 <= 8 && temp4 >= 4)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Hoje daremos um passeio incrível ao museu.";
-                    }
-                    if (temp4 <= 12 && temp4 >= 8)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Como estaremos em público, peço, por gentileza, que vocês se comportem como gente.";
-                    }
-                    if (temp4 <= 16 && temp4 >= 12)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Nada de cagar no ônibus!";
-                    }
-                    if (temp4 <= 20 && temp4 >= 16)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Parem de brigar!";
-                    }
-                    if (temp4 <= 24 && temp4 >= 20)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Jimmy, o que você está acendendo aí no fundo?";
-                    }
-                    if (temp4 <= 28 && temp4 >= 24)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Passe isso pra cá!";
-                    }
-                    if (temp4 <= 32 && temp4 >= 28)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Tudo pronto motorista?";
-                    }
-                    if (temp4 <= 36 && temp4 >= 32)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Motorista: Tudo tranquilo.";
-                    }
-                    if (temp4 <= 40 && temp4 >= 36)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Professora: Então vamos antes que eu me arrependa!";
-                    }
-                    if (temp4 <= 44 && temp4 >= 40)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Motorista: Senhora, você não pode fumar no ônibus.";
-                    }
-                    if (temp4 <= 48 && temp4 >= 44)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Professora: Ah desculpe.";
-                    }
-                    if (temp4 <= 52 && temp4 >= 48)
-                    {
-                        if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
-                        else
-                            cutsceneText.text = "Motorista: Vamos lá galera!";
-                    }
-                    if (temp4 <= 53 && temp4 >= 52)
-                    {
-                        cutsceneText.text = "";
-                        cutsceneImagesJimmyA.SetBool("secondPart", true);
-                        Invoke("BusOutOfTheScreenSchool", 1.6f);
-                        temp4 = 54;
+                        canSkipSchoolCutscene = true;
+
+                        temp4 += Time.deltaTime;
+                        if (temp4 <= 4 && temp4 >= 0)
+                        {
+                            skipText.gameObject.SetActive(true);
+
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Teacher: Good morning children!";
+                            else
+                                cutsceneText.text = "Professora: Bom dia crianças!";
+                        }
+                        if (temp4 <= 8 && temp4 >= 4)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Today we are going to have a incredible tour in the museum.";
+                            else
+                                cutsceneText.text = "Hoje daremos um passeio incrível ao museu.";
+                        }
+                        if (temp4 <= 12 && temp4 >= 8)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "As we will be in public, I beg you, please, to behave as normal people";
+                            else
+                                cutsceneText.text = "Como estaremos em público, peço, por gentileza, que vocês se comportem como gente.";
+                        }
+                        if (temp4 <= 16 && temp4 >= 12)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Don't shit in the bus!";
+                            else
+                                cutsceneText.text = "Nada de cagar no ônibus!";
+                        }
+                        if (temp4 <= 20 && temp4 >= 16)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Stop fighting!";
+                            else
+                                cutsceneText.text = "Parem de brigar!";
+                        }
+                        if (temp4 <= 24 && temp4 >= 20)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Jimmy, what are you lighting up back there?";
+                            else
+                                cutsceneText.text = "Jimmy, o que você está acendendo aí no fundo?";
+                        }
+                        if (temp4 <= 28 && temp4 >= 24)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Give it to me!";
+                            else
+                                cutsceneText.text = "Passe isso pra cá!";
+                        }
+                        if (temp4 <= 32 && temp4 >= 28)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Are you ready driver?";
+                            else
+                                cutsceneText.text = "Tudo pronto motorista?";
+                        }
+                        if (temp4 <= 36 && temp4 >= 32)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Driver: Yes.";
+                            else
+                                cutsceneText.text = "Motorista: Tudo tranquilo.";
+                        }
+                        if (temp4 <= 40 && temp4 >= 36)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Teacher: Then let's go before I regret it!";
+                            else
+                                cutsceneText.text = "Professora: Então vamos antes que eu me arrependa!";
+                        }
+                        if (temp4 <= 44 && temp4 >= 40)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Driver: Ma'am, you can't smoke in the bus";
+                            else
+                                cutsceneText.text = "Motorista: Senhora, você não pode fumar no ônibus.";
+                        }
+                        if (temp4 <= 48 && temp4 >= 44)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Teacher: Oh sorry.";
+                            else
+                                cutsceneText.text = "Professora: Ah desculpe.";
+                        }
+                        if (temp4 <= 52 && temp4 >= 48)
+                        {
+                            if (PlayerPrefs.GetInt("Language") == 0)
+                                cutsceneText.text = "Driver: Let's go guys!";
+                            else
+                                cutsceneText.text = "Motorista: Vamos lá galera!";
+                        }
+                        if (temp4 <= 53 && temp4 >= 52)
+                        {
+                            cutsceneText.text = "";
+                            cutsceneImagesJimmyA.SetBool("secondPart", true);
+                            Invoke("BusOutOfTheScreenSchool", 1.6f);
+                            temp4 = 54;
+                        }
                     }
                 }
                 if (isSecondSceneCompleted)
                 {
-                    posXRTNuvem += 0.1f * Time.deltaTime;
-                    rtCeuNuvem.anchoredPosition = new Vector2(posXRTNuvem, rtCeuNuvem.anchoredPosition.y);
-
                     temp5 += Time.deltaTime;
                     if (temp5 <= 4 && temp5 >= 0)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
+                            cutsceneText.text = "4 hours later";
                         else
                             cutsceneText.text = "4 horas depois";
                     }
                     if (temp5 <= 8 && temp5 >= 4)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
+                            cutsceneText.text = "Teacher: Hey driver, are we on the right track?";
                         else
                             cutsceneText.text = "Professora: Ei motorista, estamos no caminho certo?";
                     }
                     if (temp5 <= 12 && temp5 >= 8)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
+                            cutsceneText.text = "Driver: I think so ma'am, I'm following the GPS.";
                         else
-                            cutsceneText.text = "Motorista: Acho que sim dona, estou seguindo o gps.";
+                            cutsceneText.text = "Motorista: Acho que sim dona, estou seguindo o GPS.";
                     }
                     if (temp5 <= 16 && temp5 >= 12)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
+                            cutsceneText.text = "Jimmy singing: Driver, you can run, the guys aren't afraid to die!";
                         else
                             cutsceneText.text = "Jimmy cantando: Motorista, pode correr, que a galera não tem medo de morrer!";
                     }
                     if (temp5 <= 20 && temp5 >= 16)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
+                            cutsceneText.text = "Teacher: Shut up brat!";
                         else
                             cutsceneText.text = "Professora: Cala a boca moleque!";
                     }
                     if (temp5 <= 24 && temp5 >= 20)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
+                            cutsceneText.text = "Students: Driver, you can run, the guys aren't afraid to die!";
                         else
                             cutsceneText.text = "Alunos: Motorista, pode correr, que a galera não tem medo de morrer!";
                     }
                     if (temp5 <= 28 && temp5 >= 24)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
+                            cutsceneText.text = "Driver: Yay!";
                         else
                             cutsceneText.text = "Motorista: Demoro!";
                     }
@@ -427,7 +440,7 @@ public class Cutscenes : MonoBehaviour
                     if (temp5 <= 36 && temp5 >= 32)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Are we ready?";
+                            cutsceneText.text = "And died.";
                         else
                             cutsceneText.text = "E morreu.";
                     }
@@ -625,7 +638,7 @@ public class Cutscenes : MonoBehaviour
         }
         #endregion
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
@@ -634,10 +647,23 @@ public class Cutscenes : MonoBehaviour
 
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
-                var menuJimmy = GameObject.Find("Main Camera").GetComponent<MenuJimmy>();
-                menuJimmy.StartGame();
-                acdcBackInBlack.Stop();
-                acdcBackInBlack.enabled = false;
+                if (canSkipDesertCutscene)
+                {
+                    var menuJimmy = GameObject.Find("Main Camera").GetComponent<MenuJimmy>();
+                    menuJimmy.StartGame();
+                    CancelInvoke();
+                    canSkipDesertCutscene = false;
+                    truckIdle.Stop();
+                }
+
+                if (canSkipSchoolCutscene)
+                {
+                    CenaDeserto();
+                    acdcBackInBlack.Stop();
+                    acdcBackInBlack.enabled = false;
+                    CancelInvoke();
+                    canSkipSchoolCutscene = false;
+                }
             }
 
             if (SceneManager.GetActiveScene().buildIndex == 2)
@@ -651,17 +677,36 @@ public class Cutscenes : MonoBehaviour
 
         if (isCreditsTime)
         {
-            if (creditsTextUI.color.a != 0)
+            if (canMoveCreditsText)
             {
-                scaleX += 0.1f * Time.deltaTime;
-                scaleY += 0.1f * Time.deltaTime;
-                CreditsText.transform.localScale = new Vector3(scaleX, scaleY);
+                posXRTCredits -= 40 * Time.deltaTime;
+                rtCreditsText.anchoredPosition = new Vector2(posXRTCredits, rtCreditsText.anchoredPosition.y);
+                if (dontRepeat2)
+                {
+                    i++;
+                    Invoke("CantMoveCreditsText", 14.3f);
+                    Invoke("MoveCreditsText", 19.3f);
+                    dontRepeat2 = false;
+                }
             }
-            else
+
+            if (i % 2 == 0 && !canMoveCreditsText)
             {
-                scaleX = 1;
-                scaleY = 1;
-                CreditsText.transform.localScale = new Vector3(scaleX, scaleY);
+                posXRTCredits = 574.6f;
+                rtCreditsText.anchoredPosition = new Vector2(posXRTCredits, rtCreditsText.anchoredPosition.y);
+            }
+
+            if (i == 3)
+            {
+                creditsTextUI.text = "Cleber Araujo - Designer";
+            }
+            else if (i == 5)
+            {
+                creditsTextUI.text = "Max da Mata Novo Guterres - Programmer";
+            }
+            else if (i == 7)
+            {
+                creditsTextUI.text = "Lucas Francisco - Programmer";
             }
         }
     }
@@ -691,26 +736,49 @@ public class Cutscenes : MonoBehaviour
     void BusOutOfTheScreenSchool()
     {
         truckIdle.Stop();
-        logoJimmy.SetActive(true);
+        Invoke("LogoJimmy", 10);
         acdcBackInBlack.enabled = true;
         CreditsText.SetActive(true);
         isCreditsTime = true;
+        dontRepeat2 = true;
+        Invoke("MoveCreditsText", 12);
         Invoke("CenaDeserto", 240);
     }
 
     void CenaDeserto()
     {
+        ceuNuvemRT.offsetMin = new Vector2(rtCutSceneImages.offsetMin.x, canvasRT.sizeDelta.y);
+        ceuNuvemRT.offsetMax = new Vector2(rtCutSceneImages.offsetMax.x, ceuNuvemRT.offsetMax.y);
+
+        truckIdle.Stop();
         isCreditsTime = false;
         CreditsText.SetActive(false);
         logoJimmy.SetActive(false);
         ceuNuvem.SetActive(true);
-        ceu.SetActive(true);
         isSecondSceneCompleted = true;
+        canSkipSchoolCutscene = false;
+        canSkipDesertCutscene = true;
         cutsceneImagesJimmyA.SetBool("thirdPart", true);
     }
 
     void RaisesVolumeOverTime()
     {
         isPlaying = true;
+    }
+
+    void LogoJimmy()
+    {
+        logoJimmy.SetActive(true);
+    }
+
+    void MoveCreditsText()
+    {
+        dontRepeat2 = true;
+        canMoveCreditsText = true;
+    }
+
+    void CantMoveCreditsText()
+    {
+        canMoveCreditsText = false;
     }
 }

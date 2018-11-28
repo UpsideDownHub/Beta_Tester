@@ -27,8 +27,11 @@ public class LanguageScript : MonoBehaviour {
         {
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
-                pressAnyKey.text = "PRESS ANY KEY";
                 chooseCharacter.text = "CHOOSE YOUR CHARACTER";
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                pressAnyKey.text = "PRESS ANY KEY TO START";
             }
             else if (SceneManager.GetActiveScene().buildIndex == 2)
             {
@@ -71,8 +74,11 @@ public class LanguageScript : MonoBehaviour {
         {
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
-                pressAnyKey.text = "PRESSIONE QUALQUER TECLA";
                 chooseCharacter.text = "ESCOLHA SEU PERSONAGEM";
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                pressAnyKey.text = "PRESSIONE QUALQUER TECLA PARA COMEÇAR";
             }
             else if (SceneManager.GetActiveScene().buildIndex == 2)
             {
