@@ -8,7 +8,6 @@ using System.Linq;
 public class Login : MonoBehaviour
 {
     public GameObject topPanel;
-    public GameObject loadButton;
     public GameObject principalPanel;
     public GameObject emailText;
     public GameObject passwordText;
@@ -25,7 +24,6 @@ public class Login : MonoBehaviour
             phaseCreationManager.StartBuild();
 
             topPanel.SetActive(true);
-            loadButton.SetActive(true);
             principalPanel.SetActive(true);
             emailText.SetActive(false);
             passwordText.SetActive(false);
@@ -72,7 +70,6 @@ public class Login : MonoBehaviour
             phaseCreationManager.StartBuild();
 
             topPanel.SetActive(true);
-            loadButton.SetActive(true);
             principalPanel.SetActive(true);
             emailText.SetActive(false);
             passwordText.SetActive(false);
