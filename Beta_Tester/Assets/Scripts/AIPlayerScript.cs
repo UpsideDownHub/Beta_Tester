@@ -48,7 +48,7 @@ public class AIPlayerScript : MonoBehaviour
 
     [Range(0, 100)]
     [SerializeField] int JumpProblability = 50;
-    List<List<string>> data;
+    List<List<Assets.Scripts.DAL.PhaseData>> data;
 
     Vector3 position = new Vector3(0, 0, 0);
     LastPossibility lastPossibility = new LastPossibility();
@@ -252,7 +252,7 @@ public class AIPlayerScript : MonoBehaviour
             {
                 //Debug.DrawLine(new Vector2(x, Mathf.Abs(y - 10)), new Vector2(x + 0.5f, Mathf.Abs(y - 10) + 0.5f), Color.red, 0.3f);
                 var realY = Mathf.Abs(y - 10);
-                bool haveTrap = data[x][y].IndexOf('-') != -1;
+                bool haveTrap = data[x][y].Trap.HasValue;//.IndexOf('-') != -1;
 
                 if (haveTrap)
                 {
@@ -262,7 +262,7 @@ public class AIPlayerScript : MonoBehaviour
                         forceToJump = true;
                     }
                 }
-                
+
                 if (lastPossibility.PlayerPosition.HasValue && backing && lastPossibility.PlayerPosition.Value.x > _x)
                 {
                     flip = true;
@@ -532,12 +532,12 @@ public class AIPlayerScript : MonoBehaviour
 
     int GetValue(int x, int y)
     {
-        if (y > 9 || y < 0) return 0;
+        //if (y > 9 || y < 0) return 0;
 
-        if (data[x][y].IndexOf("-") != -1)
-            return int.Parse(data[x][y].Split('-')[0]);
-        
-        return int.Parse(data[x][y]);
+        //if (data[x][y].IndexOf("-") != -1)
+        //    return int.Parse(data[x][y].Split('-')[0]);
+
+        return y > 9 || y < 0 ? 0 : data[x][y].Block;
     }
 
     void Flip()

@@ -31,7 +31,7 @@ public class PhaseCreationManager : MonoBehaviour
     private List<Assets.Scripts.Models.PhasesIndexViewModel> phases = new List<Assets.Scripts.Models.PhasesIndexViewModel>();
 
     UnityAction ua;
-    public static List<List<string>> data = new List<List<string>>();
+    public static List<List<Assets.Scripts.DAL.PhaseData>> data = new List<List<Assets.Scripts.DAL.PhaseData>>();
     private Dictionary<GameObject, string> Fileids = new Dictionary<GameObject, string>();
 
     private string result = string.Empty;
@@ -93,14 +93,17 @@ public class PhaseCreationManager : MonoBehaviour
 
         var lines = result.Split('\n');
 
-        List<string> line;
+        List<Assets.Scripts.DAL.PhaseData> line;
         foreach (var _line in lines)
         {
             var __line = _line.Replace("\r", string.Empty);
-            line = new List<string>();
-            var val = __line.Split(',');
+            line = new List<Assets.Scripts.DAL.PhaseData>();
+            var val = __line.Split('_');
             if (val.Count() < 10) continue;
-            line.AddRange(val);
+
+            for(var i = 0; i < 10; i++)
+                line.Add(JsonUtils.FromJsonPrivateCamel<Assets.Scripts.DAL.PhaseData>(val[i]));
+
             data.Add(line);
         }
         GameObject character = null;
@@ -110,44 +113,45 @@ public class PhaseCreationManager : MonoBehaviour
             {
                 int prevData = 0;
                 if (j != 0)
-                    prevData = data[i][j - 1].IndexOf("-") != -1 ? int.Parse(data[i][j - 1].Split('-')[0]) : int.Parse(data[i][j - 1]);
-                int _data;
-                int? trap = null;
-                if (data[i][j].IndexOf("-") != -1)
-                {
-                    _data = int.Parse(data[i][j].Split('-')[0]);
-                    trap = int.Parse(data[i][j].Split('-')[1]);
-                }
-                else
-                {
-                    _data = int.Parse(data[i][j]);
-                }
+                    prevData = data[i][j - 1].Block;
+                int _data = data[i][j].Block;
+                int? trap = data[i][j].Trap;
 
                 if (_data == 0 && !trap.HasValue) continue;
 
                 if (_data != 0)
                 {
                     float _v = _data == 3 || _data == 4 ? -0.5f : 0;
-                    //var _data = _data.
                     if (_data == 2)
                         character = Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
-                    //character = Instantiate(GetObject(_data), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(_data).transform.rotation);
                     else if (j != 0 && _data == 1 && prevData != 0)
                     {
                         Instantiate(floor2, tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), floor2.transform.rotation, tileM.transform.parent);
-                        //Instantiate(floor2, new Vector3(i, Mathf.Abs(j - 10 - _v), 0), floor2.transform.rotation);
                     }
                     else
                         Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
-                    //Instantiate(GetObject(_data), new Vector3(i, Mathf.Abs(j - 10 - _v), 0), GetObject(_data).transform.rotation);
                 }
 
                 if (trap.HasValue)
                 {
-                    Instantiate(GetObject(trap.Value), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(trap.Value).transform.rotation, tileM.transform.parent);
+                    var obj = Instantiate(GetObject(trap.Value), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(trap.Value).transform.rotation, tileM.transform.parent);
+                    var sr = obj.GetComponent<SpriteRenderer>();
+                    if (sr != null)
+                    {
+                        sr.flipX = data[i][j].HFlipTrap;
+                        sr.flipY = data[i][j].VFlipTrap;
+                    }
+                    var cSr = obj.GetComponentInChildren<SpriteRenderer>();
+                    if (cSr != null)
+                    {
+                        cSr.flipX = data[i][j].HFlipTrap;
+                        cSr.flipY = data[i][j].VFlipTrap;
+                    }
                 }
             }
         }
+
+        
         //Instantiate(lava, lava.transform.position, Quaternion.identity);
         //Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
         //Instantiate(montanha1, montanha1.transform.position, Quaternion.identity);
