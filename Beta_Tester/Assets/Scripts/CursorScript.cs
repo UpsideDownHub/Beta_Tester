@@ -13,13 +13,22 @@ public class CursorScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Cutscenes.isPlayingCutscene)
         {
             Cursor.SetCursor(click, Vector2.zero, CursorMode.Auto);
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && !Cutscenes.isPlayingCutscene)
         {
             Cursor.SetCursor(pointer, Vector2.zero, CursorMode.Auto);
+        }
+
+        if (Cutscenes.isPlayingCutscene)
+        {
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.visible = true;
         }
     }
 }

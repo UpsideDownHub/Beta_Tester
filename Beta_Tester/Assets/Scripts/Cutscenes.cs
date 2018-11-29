@@ -13,7 +13,7 @@ public class Cutscenes : MonoBehaviour
     public Transform circle2T;
     public Transform playerCutscene;
     public Text cutsceneText;
-    public Text skipText;
+    //public Text skipText;
     public Image siteJimmy;
     public Animator siteJimmyA;
     public Animator cutSceneFireLevelA;
@@ -32,6 +32,8 @@ public class Cutscenes : MonoBehaviour
     public GameObject pressAnyKey;
     public GameObject CreditsText;
     public GameObject ceuNuvem;
+    public GameObject tarjaPreta;
+    public GameObject blackBG;
     public Animator cutsceneImagesJimmyA;
     RectTransform rtCutSceneImages;
     RectTransform rtCreditsText;
@@ -51,12 +53,15 @@ public class Cutscenes : MonoBehaviour
     public AudioSource ExplosionTruck;
     bool dontRepeat;
     bool dontRepeat2;
+    bool dontRepeat3;
     bool isPlaying;
     bool canSkipSchoolCutscene;
     bool canSkipDesertCutscene;
+    bool isTheEndOfCredits;
 
     RectTransform canvasRT;
     RectTransform ceuNuvemRT;
+    public static bool isPlayingCutscene;
 
     private void Start()
     {
@@ -66,10 +71,10 @@ public class Cutscenes : MonoBehaviour
             temp2 = 0;
         }
         
-        if (PlayerPrefs.GetInt("Language") == 0)
-            skipText.text = "PRESS SPACE TO SKIP";
-        else
-            skipText.text = "PRESSIONE ESPAÇO PARA PULAR";
+        //if (PlayerPrefs.GetInt("Language") == 0)
+        //    skipText.text = "PRESS SPACE TO SKIP";
+        //else
+        //    skipText.text = "PRESSIONE ESPAÇO PARA PULAR";
 
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
@@ -108,6 +113,7 @@ public class Cutscenes : MonoBehaviour
             temp += Time.deltaTime;
             if (temp <= 5 && temp >= 0)
             {
+                isPlayingCutscene = true;
                 Camera.main.backgroundColor = new Color(0, 0, 0);
 
                 if (PlayerPrefs.GetInt("Language") == 0)
@@ -242,6 +248,11 @@ public class Cutscenes : MonoBehaviour
         #region MenuJimmy Cutscene
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
+            if (!pressAnyKey.activeSelf)
+                isPlayingCutscene = true;
+            else
+                isPlayingCutscene = false;
+
             if (MenuJimmy.isAnyKeyPressed)
             {
                 pressAnyKey.SetActive(false);
@@ -275,7 +286,8 @@ public class Cutscenes : MonoBehaviour
                         temp4 += Time.deltaTime;
                         if (temp4 <= 4 && temp4 >= 0)
                         {
-                            skipText.gameObject.SetActive(true);
+                            //skipText.gameObject.SetActive(true);
+                            tarjaPreta.SetActive(true);
 
                             if (PlayerPrefs.GetInt("Language") == 0)
                                 cutsceneText.text = "Teacher: Good morning children!";
@@ -368,6 +380,7 @@ public class Cutscenes : MonoBehaviour
                         }
                         if (temp4 <= 53 && temp4 >= 52)
                         {
+                            tarjaPreta.SetActive(false);
                             cutsceneText.text = "";
                             cutsceneImagesJimmyA.SetBool("secondPart", true);
                             Invoke("BusOutOfTheScreenSchool", 1.6f);
@@ -387,6 +400,14 @@ public class Cutscenes : MonoBehaviour
                     }
                     if (temp5 <= 8 && temp5 >= 4)
                     {
+                        if (!dontRepeat3)
+                        {
+                            blackBG.SetActive(false);
+                            ceuNuvem.SetActive(true);
+                            truckIdle.Play();
+                            dontRepeat3 = true;
+                        }
+
                         if (PlayerPrefs.GetInt("Language") == 0)
                             cutsceneText.text = "Teacher: Hey driver, are we on the right track?";
                         else
@@ -423,7 +444,7 @@ public class Cutscenes : MonoBehaviour
                     if (temp5 <= 28 && temp5 >= 24)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Driver: Yay!";
+                            cutsceneText.text = "Driver: Okay!";
                         else
                             cutsceneText.text = "Motorista: Demoro!";
                     }
@@ -433,12 +454,15 @@ public class Cutscenes : MonoBehaviour
                         {
                             cutsceneText.text = "";
                             cutsceneImagesJimmyA.SetBool("fourthPart", true);
+                            truckIdle.Stop();
                             ExplosionTruck.PlayDelayed(0.5f);
                             dontRepeat = false;
                         }
                     }
                     if (temp5 <= 36 && temp5 >= 32)
                     {
+                        blackBG.SetActive(true);
+
                         if (PlayerPrefs.GetInt("Language") == 0)
                             cutsceneText.text = "And died.";
                         else
@@ -625,6 +649,7 @@ public class Cutscenes : MonoBehaviour
                     circle2T.localScale = new Vector3(0, 0, 0);
                     circle.SetActive(true);
                     level.SetActive(true);
+                    isPlayingCutscene = false;
                     Destroy(cutScene);
                     Destroy(canvasCutscene);
                 }
@@ -670,6 +695,7 @@ public class Cutscenes : MonoBehaviour
             {
                 circle.SetActive(true);
                 level.SetActive(true);
+                isPlayingCutscene = false;
                 Destroy(cutScene);
                 Destroy(canvasCutscene);
             }
@@ -679,13 +705,13 @@ public class Cutscenes : MonoBehaviour
         {
             if (canMoveCreditsText)
             {
-                posXRTCredits -= 40 * Time.deltaTime;
+                posXRTCredits -= 80 * Time.deltaTime;
                 rtCreditsText.anchoredPosition = new Vector2(posXRTCredits, rtCreditsText.anchoredPosition.y);
                 if (dontRepeat2)
                 {
                     i++;
-                    Invoke("CantMoveCreditsText", 14.3f);
-                    Invoke("MoveCreditsText", 19.3f);
+                    Invoke("CantMoveCreditsText", 7.15f);
+                    Invoke("MoveCreditsText", 9.65f);
                     dontRepeat2 = false;
                 }
             }
@@ -696,7 +722,11 @@ public class Cutscenes : MonoBehaviour
                 rtCreditsText.anchoredPosition = new Vector2(posXRTCredits, rtCreditsText.anchoredPosition.y);
             }
 
-            if (i == 3)
+            if (i == 1)
+            {
+                creditsTextUI.text = "Felipe Martins - Designer";
+            }
+            else if (i == 3)
             {
                 creditsTextUI.text = "Cleber Araujo - Designer";
             }
@@ -707,6 +737,21 @@ public class Cutscenes : MonoBehaviour
             else if (i == 7)
             {
                 creditsTextUI.text = "Lucas Francisco - Programmer";
+                isTheEndOfCredits = true;
+            }
+            else if (i == 9)
+            {
+                isCreditsTime = false;
+            }
+        }
+
+        if (isTheEndOfCredits)
+        {
+            acdcBackInBlack.volume -= 0.05f * Time.deltaTime;
+            if (acdcBackInBlack.volume <= 0)
+            {
+                CenaDeserto();
+                isTheEndOfCredits = false;
             }
         }
     }
@@ -740,6 +785,7 @@ public class Cutscenes : MonoBehaviour
         acdcBackInBlack.enabled = true;
         CreditsText.SetActive(true);
         isCreditsTime = true;
+        CreditsText.transform.SetParent(cutsceneImagesJimmyA.transform);
         dontRepeat2 = true;
         Invoke("MoveCreditsText", 12);
         Invoke("CenaDeserto", 240);
@@ -754,11 +800,11 @@ public class Cutscenes : MonoBehaviour
         isCreditsTime = false;
         CreditsText.SetActive(false);
         logoJimmy.SetActive(false);
-        ceuNuvem.SetActive(true);
+        cutsceneImagesJimmyA.SetBool("thirdPart", true);
         isSecondSceneCompleted = true;
         canSkipSchoolCutscene = false;
         canSkipDesertCutscene = true;
-        cutsceneImagesJimmyA.SetBool("thirdPart", true);
+        blackBG.SetActive(true);
     }
 
     void RaisesVolumeOverTime()

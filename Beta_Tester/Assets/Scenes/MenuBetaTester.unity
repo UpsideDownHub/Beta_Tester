@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -486,7 +486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &38396295
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1681,7 +1681,6 @@ MonoBehaviour:
   circle2T: {fileID: 0}
   playerCutscene: {fileID: 0}
   cutsceneText: {fileID: 41455290}
-  skipText: {fileID: 38396297}
   siteJimmy: {fileID: 276715221}
   siteJimmyA: {fileID: 276715220}
   cutSceneFireLevelA: {fileID: 0}
@@ -1690,9 +1689,11 @@ MonoBehaviour:
   pressAnyKey: {fileID: 0}
   CreditsText: {fileID: 0}
   ceuNuvem: {fileID: 0}
-  ceu: {fileID: 0}
+  tarjaPreta: {fileID: 0}
   cutsceneImagesJimmyA: {fileID: 0}
   acdcBackInBlack: {fileID: 0}
+  truckIdle: {fileID: 0}
+  ExplosionTruck: {fileID: 0}
 --- !u!95 &276715220
 Animator:
   serializedVersion: 3

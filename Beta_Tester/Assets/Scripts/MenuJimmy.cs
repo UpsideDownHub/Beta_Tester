@@ -13,6 +13,7 @@ public class MenuJimmy : MonoBehaviour {
     private void Start()
     {
         isAnyKeyPressed = false;
+        loadingText.transform.position = new Vector3(-Camera.main.orthographicSize * Camera.main.aspect + 3.5f, loadingText.transform.position.y);
     }
 
     private void Update()
@@ -34,7 +35,6 @@ public class MenuJimmy : MonoBehaviour {
 
         canvas.SetActive(false);
         loadingText.SetActive(true);
-        loadingText.transform.position = new Vector3(-Camera.main.orthographicSize * Camera.main.aspect + 3.5f, loadingText.transform.position.y);
 
         while (!operation.isDone)
         {
