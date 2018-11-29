@@ -423,9 +423,9 @@ public class Cutscenes : MonoBehaviour
                     if (temp5 <= 16 && temp5 >= 12)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Jimmy singing: Driver, you can run, the guys aren't afraid to die!";
+                            cutsceneText.text = "Jimmy: ♪ Driver, you can run, the guys aren't afraid to die! ♪";
                         else
-                            cutsceneText.text = "Jimmy cantando: Motorista, pode correr, que a galera não tem medo de morrer!";
+                            cutsceneText.text = "Jimmy: ♪ Motorista, pode correr, que a galera não tem medo de morrer! ♪";
                     }
                     if (temp5 <= 20 && temp5 >= 16)
                     {
@@ -437,9 +437,9 @@ public class Cutscenes : MonoBehaviour
                     if (temp5 <= 24 && temp5 >= 20)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "Students: Driver, you can run, the guys aren't afraid to die!";
+                            cutsceneText.text = "Students: ♪ Driver, you can run, the guys aren't afraid to die! ♪";
                         else
-                            cutsceneText.text = "Alunos: Motorista, pode correr, que a galera não tem medo de morrer!";
+                            cutsceneText.text = "Alunos: ♪ Motorista, pode correr, que a galera não tem medo de morrer! ♪";
                     }
                     if (temp5 <= 28 && temp5 >= 24)
                     {
@@ -453,6 +453,7 @@ public class Cutscenes : MonoBehaviour
                         if (dontRepeat)
                         {
                             cutsceneText.text = "";
+                            tarjaPreta.SetActive(false);
                             cutsceneImagesJimmyA.SetBool("fourthPart", true);
                             truckIdle.Stop();
                             ExplosionTruck.PlayDelayed(0.5f);
