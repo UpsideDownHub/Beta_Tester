@@ -13,6 +13,7 @@ public class PhaseCreationManager : MonoBehaviour
 {
     public GameObject loading;
 
+    [SerializeField] GameObject poison;
     [SerializeField] GameObject totem;
     [SerializeField] GameObject serra;
     [SerializeField] GameObject lava;
@@ -31,6 +32,7 @@ public class PhaseCreationManager : MonoBehaviour
     [SerializeField] GameObject Camera;
     [SerializeField] Tilemap tileM;
     private List<Assets.Scripts.Models.PhasesIndexViewModel> phases = new List<Assets.Scripts.Models.PhasesIndexViewModel>();
+    private List<GameObject> createdObjs = new List<GameObject>();
 
     UnityAction ua;
     public static List<List<Assets.Scripts.DAL.PhaseData>> data = new List<List<Assets.Scripts.DAL.PhaseData>>();
@@ -55,6 +57,7 @@ public class PhaseCreationManager : MonoBehaviour
 
     private void BuildResults() //UnityGoogleDrive.Data.FileList fileList
     {
+        GameOver.inGame = false;
         foreach (Transform child in panelContent.transform)
         {
             GameObject.Destroy(child.gameObject);
@@ -94,6 +97,7 @@ public class PhaseCreationManager : MonoBehaviour
     private void SetResult(UnityGoogleDrive.Data.File file)
     {
         result = Encoding.UTF8.GetString(file.Content);
+        createdObjs.ForEach(x => Destroy(x));
 
         var lines = result.Split('\n');
 
@@ -127,18 +131,23 @@ public class PhaseCreationManager : MonoBehaviour
                 {
                     float _v = _data == 3 || _data == 4 ? -0.5f : 0;
                     if (_data == 2)
-                        character = Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
-                    else if (j != 0 && _data == 1 && prevData != 0)
                     {
-                        Instantiate(floor2, tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), floor2.transform.rotation, tileM.transform.parent);
+                        character = Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
+                        createdObjs.Add(character);
+                    }
+                    else if (j != 0 && _data == 1 && prevData != 0 && prevData != 2)
+                    {
+                        createdObjs.Add(Instantiate(floor2, tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), floor2.transform.rotation, tileM.transform.parent));
                     }
                     else
-                        Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent);
+                        createdObjs.Add(Instantiate(GetObject(_data), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(_data).transform.rotation, tileM.transform.parent));
                 }
 
                 if (trap.HasValue)
                 {
                     var obj = Instantiate(GetObject(trap.Value), tileM.GetCellCenterLocal(new Vector3Int(i, Mathf.Abs(j - 10), 0)), GetObject(trap.Value).transform.rotation, tileM.transform.parent);
+                    createdObjs.Add(obj);
+                    obj.transform.position = new Vector3(obj.transform.position.x + (trap.Value == 8 ? .5f : 0), obj.transform.position.y + (trap.Value == 8 ? 1.3f : 0));
                     var sr = obj.GetComponent<SpriteRenderer>();
                     if (sr != null)
                     {
@@ -166,7 +175,9 @@ public class PhaseCreationManager : MonoBehaviour
         Canvas.SetActive(false);
         Canvas2.SetActive(true);
         loading.SetActive(false);
-        GameObject.Find("Scripts").GetComponent<GameOver>().ended = true;
+        PlayerScript3D.life = 5;
+        GameObject.Find("Scripts").GetComponent<GameOver>().ended = false;
+        GameOver.inGame = true;
     }
 
     void MountPhase(GameObject go)
@@ -209,6 +220,8 @@ public class PhaseCreationManager : MonoBehaviour
                 return serra;
             case 7:
                 return totem;
+            case 8:
+                return poison;
             default:
                 return floor;
         }

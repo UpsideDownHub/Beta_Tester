@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    Transform playerT;
+    GameObject player;
     //List<GameObject> groundObjects;
     //List<Transform> groundObjectsT;
 
     //Jimmy in the hell
     public bool ended = false;
+    public static bool inGame = true;
     public GameObject gameOverPanel;
     //public List<Image> vidas;
     public Text vidasText;
@@ -22,6 +23,7 @@ public class GameOver : MonoBehaviour
 
     private void Update()
     {
+        if (!inGame) return;
         //foreach (var vida in vidas)
         //    vida.enabled = false;
 
@@ -29,12 +31,15 @@ public class GameOver : MonoBehaviour
         {
             if (PlayerScript3D.isInstantiated)
             {
-                playerT = GameObject.Find("_Player(Clone)").GetComponent<Transform>();
-                PlayerScript3D.isInstantiated = false;
+                player = GameObject.Find("_Player(Clone)");
+                if (player != null) { 
+                    player.GetComponent<Transform>();
+                    PlayerScript3D.isInstantiated = false;
+                }
             }
 
-            if (playerT != null)
-                if (playerT.position.y <= 0)
+            if (player != null)
+                if (player.transform.position.y <= 0 && !ended)
                     PlayerScript3D.life = 0;
         }
 
@@ -51,6 +56,7 @@ public class GameOver : MonoBehaviour
 
             gameOverPanel.SetActive(true);
             button.Select();
+            ended = true;
         }
 
         //if (SceneManager.GetActiveScene().buildIndex != 5)
@@ -90,8 +96,8 @@ public class GameOver : MonoBehaviour
     {
         PlayerScript3D.life = 5;
         gameOverPanel.SetActive(false);
-        playerT.gameObject.SetActive(true);
-        playerT.transform.position = PlayerScript3D.initialPosition;
+        player.gameObject.SetActive(true);
+        player.transform.position = PlayerScript3D.initialPosition;
         //for (int i = 0; i < groundObjects.Count; i++)
         //{
         //    groundObjects[i].transform.position = groundObjectsT[i].position;
