@@ -56,6 +56,8 @@ public class FlagEnding : MonoBehaviour
             phase.Completed++;
 
             Assets.Scripts.DAL.BetaTesterContext.Phase.Update(phase);
+
+            GameObject.Find("Scripts").GetComponent<GameOver>().ended = true;
         }
     }
 }

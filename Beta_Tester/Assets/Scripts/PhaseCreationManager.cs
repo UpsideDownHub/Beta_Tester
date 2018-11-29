@@ -11,6 +11,8 @@ using UnityGoogleDrive;
 
 public class PhaseCreationManager : MonoBehaviour
 {
+    public GameObject loading;
+
     [SerializeField] GameObject totem;
     [SerializeField] GameObject serra;
     [SerializeField] GameObject lava;
@@ -85,6 +87,8 @@ public class PhaseCreationManager : MonoBehaviour
             obj.GetComponentInChildren<Button>().onClick.AddListener(delegate { MountPhase(obj); });
 
         }
+        loading.SetActive(false);
+
     }
 
     private void SetResult(UnityGoogleDrive.Data.File file)
@@ -161,10 +165,14 @@ public class PhaseCreationManager : MonoBehaviour
         vitrualCamera.m_Follow = character.transform;
         Canvas.SetActive(false);
         Canvas2.SetActive(true);
+        loading.SetActive(false);
+        GameObject.Find("Scripts").GetComponent<GameOver>().ended = true;
     }
 
     void MountPhase(GameObject go)
     {
+        loading.SetActive(true);
+
         string id = "";
         Fileids.TryGetValue(go, out id);
         if (string.IsNullOrEmpty(id))
@@ -208,6 +216,7 @@ public class PhaseCreationManager : MonoBehaviour
 
     public void GetRecentPhases()
     {
+        loading.SetActive(true);
         var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
         phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
                   join upf in Assets.Scripts.DAL.BetaTesterContext.UserPhaseFav.GetData() on new { y.PhaseId, UserId } equals new { upf.PhaseId, upf.UserId } into up
@@ -236,6 +245,7 @@ public class PhaseCreationManager : MonoBehaviour
 
     public void GetFavPhases()
     {
+        loading.SetActive(true);
         var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
         phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
                   join upf in Assets.Scripts.DAL.BetaTesterContext.UserPhaseFav.GetData() on y.PhaseId equals upf.PhaseId
@@ -259,6 +269,7 @@ public class PhaseCreationManager : MonoBehaviour
 
     public void GetMyPhases()
     {
+        loading.SetActive(true);
         var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
         phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
                   where y.UserId == UserId

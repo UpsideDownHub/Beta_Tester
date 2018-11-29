@@ -14,9 +14,9 @@ namespace Assets.Scripts
         public Sprite secondFrame;
         public CountDown countDown = new CountDown(3);
         public CountDown countDownEffect = new CountDown(2);
+        public bool direction = true;
         SpriteRenderer sr;
         static float timeToRespaw = 3;
-
         float cameraPosition;
         bool isActivated;
 
@@ -25,6 +25,7 @@ namespace Assets.Scripts
             countDown.StartToCount();
             sr = GetComponent<SpriteRenderer>();
             cameraPosition = Camera.main.orthographicSize * Camera.main.aspect;
+            direction = !sr.flipX;
         }
 
         private void Update()
@@ -56,7 +57,13 @@ namespace Assets.Scripts
                 if (countDown.ReturnedToZero)
                 {
                     countDown.StartToCount();
-                    Instantiate(prefabFireBall, transform.position + new Vector3(0.421f, -0.373f, 0), Quaternion.identity);
+                    var fireBall = Instantiate(prefabFireBall, transform.position + new Vector3(0.421f, -0.373f, 0), Quaternion.identity);
+                    fireBall.GetComponent<MoveObjects>().direction = direction;
+                    if (!direction)
+                    {
+                        fireBall.GetComponents<Transform>().ToList().ForEach(x => x.localScale = -x.localScale);
+                        fireBall.GetComponentsInChildren<Transform>().ToList().ForEach(x => x.localScale = -x.localScale);
+                    }
                     sr.sprite = secondFrame;
                     Invoke("FramesInteraction", 1);
                 }

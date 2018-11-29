@@ -4,10 +4,12 @@ using UnityEngine;
 using Assets.Scripts.Shared;
 using UnityEngine.SceneManagement;
 
-public class MoveObjects : MonoBehaviour {
+public class MoveObjects : MonoBehaviour
+{
 
     public float speed;
     float cameraPosition;
+    public bool direction = true;
     //FireBall
     public GameObject prefabBOOM;
     Transform target;
@@ -38,7 +40,7 @@ public class MoveObjects : MonoBehaviour {
     Transform parent;
 
     private void Start()
-    {   
+    {
         cameraPosition = Camera.main.orthographicSize * Camera.main.aspect;
 
         //FireBall
@@ -85,7 +87,7 @@ public class MoveObjects : MonoBehaviour {
                     transform.position = Vector3.MoveTowards(transform.position, lastPosition, 10 * Time.deltaTime);
                 else
                 {
-                    x += speed * Time.deltaTime;
+                    x = (direction ? x + speed * Time.deltaTime : x - speed * Time.deltaTime);
                     transform.position = new Vector3(x, transform.position.y, transform.position.z);
                 }
 
@@ -96,11 +98,11 @@ public class MoveObjects : MonoBehaviour {
             }
             else
             {
-                x += speed * Time.deltaTime;
+                x = (direction ? x + speed * Time.deltaTime : x - speed * Time.deltaTime);
                 transform.position = new Vector3(x, transform.position.y);
             }
 
-            if (transform.position.x - cameraPosition - 3 >= Camera.main.transform.position.x)
+            if ((direction? transform.position.x - cameraPosition - 3 >= Camera.main.transform.position.x : transform.position.x + cameraPosition + 3 <= Camera.main.transform.position.x))
             {
                 Destroy(gameObject);
             }
@@ -117,7 +119,7 @@ public class MoveObjects : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-        
+
         //GroundTrap
         else if (gameObject.tag == "Trap" && isActivated)
         {
@@ -185,7 +187,7 @@ public class MoveObjects : MonoBehaviour {
 
     private void OnBecameVisible()
     {
-        gameObject.SetActive(true);        
+        gameObject.SetActive(true);
     }
 
     private void OnBecameInvisible()
@@ -200,7 +202,7 @@ public class MoveObjects : MonoBehaviour {
     {
         if ((gameObject.name == "FireBall(Clone)" || gameObject.name == "FireBall 1(Clone)") && other.tag == "Player")
         {
-            Instantiate(prefabBOOM, transform.position + new Vector3(1,0,0), Quaternion.identity);
+            Instantiate(prefabBOOM, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
             Destroy(gameObject);
         }
     }

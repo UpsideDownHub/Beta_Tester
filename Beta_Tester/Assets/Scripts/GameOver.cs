@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
     //List<Transform> groundObjectsT;
 
     //Jimmy in the hell
+    public bool ended = false;
     public GameObject gameOverPanel;
     //public List<Image> vidas;
     public Text vidasText;
@@ -40,8 +41,14 @@ public class GameOver : MonoBehaviour
         #region JimmyInTheHell
         //vidas.ForEach(x => x.enabled = false);
 
-        if (PlayerScript3D.life == 0)
+        if (PlayerScript3D.life == 0 && !ended)
         {
+
+            var phase = Assets.Scripts.DAL.BetaTesterContext.Phase.GetData().Single(x => x.FileId == Assets.Scripts.DAL.BetaTesterContext.FileId);
+
+            phase.Dies++;
+            Assets.Scripts.DAL.BetaTesterContext.Phase.Update(phase);
+
             gameOverPanel.SetActive(true);
             button.Select();
         }
