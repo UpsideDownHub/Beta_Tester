@@ -1,7 +1,17 @@
 fileFormatVersion: 2
 guid: 4a34e730d87c0d54692b7d8e87fbf18c
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: "cabe\xE7a jimmy_0"
+    21300002: "cabe\xE7a jimmy_1"
+    21300004: "cabe\xE7a jimmy_2"
+    21300006: "cabe\xE7a jimmy_3"
+    21300008: "cabe\xE7a jimmy_4"
+    21300010: "cabe\xE7a jimmy_5"
+    21300012: "cabe\xE7a jimmy_6"
+    21300014: "cabe\xE7a jimmy_7"
+    21300016: "cabe\xE7a jimmy_8"
+    21300018: "cabe\xE7a jimmy_9"
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -40,7 +50,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,11 +125,211 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_0"
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 25
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c6b273218884f44aec4ff514105bac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_1"
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 25
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f299c207fd000a4c819e69e07ec9edd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_2"
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 25
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088b0350b4774f64bb9cfa68488d39bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_3"
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 25
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d1d39388e47c3498a84f17a2b961c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_4"
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 25
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cab39c69180eec4f9a1baf307a91812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_5"
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 25
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c46e4c9646606c840ad8bca8297af92a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_6"
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 25
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 359443e3d87cca643bf9fdf45f153df2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_7"
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 25
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61fe51c011df1c448aa61ff9a83991e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_8"
+      rect:
+        serializedVersion: 2
+        x: 2278
+        y: 24
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf3e925201be0844abfc227d0760c135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "cabe\xE7a jimmy_9"
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 25
+        width: 200
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b01676a04d266740961784ad690d449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 161308807fba5b249bc2be403c5718d3
     vertices: []
     indices: 
     edges: []

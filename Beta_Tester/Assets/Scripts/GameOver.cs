@@ -19,6 +19,17 @@ public class GameOver : MonoBehaviour
     public Button button;
     //BetaTester
     public Slider lifeBetaTester;
+    public Image betaTester;
+    public Sprite albert1;
+    public Sprite albert2;
+    public Sprite albert3;
+    public Sprite albert4;
+    public Sprite albert5;
+    public Sprite albert6;
+    public Sprite albert7;
+    public Sprite albert8;
+    public Sprite albert9;
+    public Sprite albert10;
 
     private void Update()
     {
@@ -67,6 +78,19 @@ public class GameOver : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             lifeBetaTester.value -= 0.001f;
+
+            if (lifeBetaTester.value >= 0.67f)
+            {
+                betaTester.sprite = albert8;
+            }
+            else if (lifeBetaTester.value >= 0.34f)
+            {
+                betaTester.sprite = albert5;
+            }
+            else if (lifeBetaTester.value > 0)
+            {
+                betaTester.sprite = albert1;
+            }
 
             if (lifeBetaTester.value == 0)
             {
