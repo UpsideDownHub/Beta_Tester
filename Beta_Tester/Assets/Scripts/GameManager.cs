@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour {
             else
             {
                 circleT.localScale = new Vector3(0, 0, 0);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene(6);
                 //Invoke("LoadScene", 1.5f);
                 isLevelCompleted = false;
             }

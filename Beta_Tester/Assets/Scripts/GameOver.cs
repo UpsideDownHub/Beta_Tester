@@ -97,11 +97,6 @@ public class GameOver : MonoBehaviour
             {
                 betaTester.sprite = albert1;
             }
-
-            if (lifeBetaTester.value == 0)
-            {
-                //print("Game Over Beta Tester");
-            }
         }
         #endregion
     }

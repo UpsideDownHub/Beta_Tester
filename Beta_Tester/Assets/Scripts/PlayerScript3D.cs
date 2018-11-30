@@ -146,8 +146,7 @@ public class PlayerScript3D : MonoBehaviour
     {
         if (rb.velocity.y > 4.5)
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y);
-
-
+        
         if (life <= 0)
             gameObject.SetActive(false);
         else

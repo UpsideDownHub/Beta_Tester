@@ -18,8 +18,8 @@ public class MenuBetaTester : MonoBehaviour {
     public GameObject betaTesterEngr;
 
     public Text newGameText;
-    public Text continueText;
     public Text optionsText;
+    public Text controlsText;
     public Text quitText;
     public Text levelEditor;
     public Text resolutionText;
@@ -37,6 +37,13 @@ public class MenuBetaTester : MonoBehaviour {
     public Text videoText;
     public Text videoOnlyText;
     public Text backText;
+    public Text albertPistolText;
+    public Text balancedAlbertText;
+    public Text medicatedAlbertText;
+    public Text pistolDescriptionText;
+    public Text balancedDescriptionText;
+    public Text medicatedDescriptionText;
+
     public Slider musicSlider;
     public Slider soundSlider;
     public Slider masterSlider;
@@ -64,6 +71,7 @@ public class MenuBetaTester : MonoBehaviour {
     string portugueseOption1 = "Inglês";
     string portugueseOption2 = "Português";
     public AudioSource clickedSound;
+    public static int personality;
 
     public static bool betaTesterCutscene;
     public GameObject canvasCutscene;
@@ -122,10 +130,10 @@ public class MenuBetaTester : MonoBehaviour {
 
             if (PlayerPrefs.GetInt("Language") == 0)
             {
-                chooseCharacter.text = "CHOOSE YOUR CHARACTER";
+                chooseCharacter.text = "CHOOSE YOUR PERSONALITY";
                 newGameText.text = "NEW GAME";
-                continueText.text = "CONTINUE";
                 optionsText.text = "OPTIONS";
+                controlsText.text = "CONTROLS";
                 quitText.text = "QUIT GAME";
                 levelEditor.text = "LEVEL EDITOR";
                 resolutionText.text = "RESOLUTION:";
@@ -143,6 +151,12 @@ public class MenuBetaTester : MonoBehaviour {
                 videoText.text = "VIDEO";
                 videoOnlyText.text = "VIDEO";
                 backText.text = "BACK";
+                albertPistolText.text = "Albert Pistol";
+                balancedAlbertText.text = "Balanced Albert";
+                medicatedAlbertText.text = "Medicated Albert";
+                pistolDescriptionText.text = "Created with milk and pear, ovomaltine and bread with mortadella. He hates challenges and says that he is a Pro Player, but only plays in the easy difficult.";
+                balancedDescriptionText.text = "Likes challenge in the right measure.Do not make your life easier, but do not make the game impossible either.";
+                medicatedDescriptionText.text = "Likes to be challenged to the fullest. The greater the difficulty, the happier he gets.";
 
                 languageDropDown.ClearOptions();
                 languageDropDown.AddOptions(englishOptions);
@@ -151,10 +165,10 @@ public class MenuBetaTester : MonoBehaviour {
             }
             else
             {
-                chooseCharacter.text = "ESCOLHA SEU PERSONAGEM";
+                chooseCharacter.text = "ESCOLHA SUA PERSONALIDADE";
                 newGameText.text = "NOVO JOGO";
-                continueText.text = "CONTINUAR";
                 optionsText.text = "OPÇÕES";
+                controlsText.text = "CONTROLES";
                 quitText.text = "SAIR DO JOGO";
                 levelEditor.text = "EDITOR DE NÍVEL";
                 resolutionText.text = "RESOLUÇÃO:";
@@ -172,6 +186,12 @@ public class MenuBetaTester : MonoBehaviour {
                 videoText.text = "VÍDEO";
                 videoOnlyText.text = "VÍDEO";
                 backText.text = "VOLTAR";
+                albertPistolText.text = "Albert Pistola";
+                balancedAlbertText.text = "Albert Equilibrado";
+                medicatedAlbertText.text = "Albert Medicado";
+                pistolDescriptionText.text = "Criado a leite com pera, ovomaltine e pão com mortadela. Odeia desafios, diz que é Pro Player, mas só joga no easy.";
+                balancedDescriptionText.text = "Gosta de desafios na medida certa. Não facilite sua vida, mas também não torne o jogo impossível.";
+                medicatedDescriptionText.text = "Gosta de ser desafiado ao máximo. Quanto maior a dificuldade, mais feliz ele fica.";
 
                 languageDropDown.ClearOptions();
                 languageDropDown.AddOptions(portugueseOptions);
@@ -198,9 +218,8 @@ public class MenuBetaTester : MonoBehaviour {
             soundSlider.value = 0;
             masterSlider.value = 0;
 
-            chooseCharacter.text = "CHOOSE YOUR CHARACTER";
+            chooseCharacter.text = "CHOOSE YOUR PERSONALITY";
             newGameText.text = "NEW GAME";
-            continueText.text = "CONTINUE";
             optionsText.text = "OPTIONS";
             quitText.text = "QUIT GAME";
             levelEditor.text = "LEVEL EDITOR";
@@ -219,6 +238,12 @@ public class MenuBetaTester : MonoBehaviour {
             videoText.text = "VIDEO";
             videoOnlyText.text = "VIDEO";
             backText.text = "BACK";
+            albertPistolText.text = "Albert Pistol";
+            balancedAlbertText.text = "Balanced Albert";
+            medicatedAlbertText.text = "Medicated Albert";
+            pistolDescriptionText.text = "Created with milk and pear, ovomaltine and bread with mortadella. He hates challenges and says that he is a Pro Player, but only plays in the easy difficult.";
+            balancedDescriptionText.text = "Likes challenge in the right measure.Do not make your life easier, but do not make the game impossible either.";
+            medicatedDescriptionText.text = "Likes to be challenged to the fullest. The greater the difficulty, the happier he gets.";
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(englishOptions);
@@ -234,11 +259,6 @@ public class MenuBetaTester : MonoBehaviour {
         canvas1.SetActive(false);
         canvas2.SetActive(true);
         firstCharacterButton.Select();
-    }
-
-    public void ContinueInteraction (int sceneIndex) //Implementar banco de dados
-    {
-        //StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
     public void OptionsInteraction ()
@@ -348,9 +368,10 @@ public class MenuBetaTester : MonoBehaviour {
     {
         if (languageIndex == 0) //Inglês
         {
+            chooseCharacter.text = "CHOOSE YOUR PERSONALITY";
             newGameText.text = "NEW GAME";
-            continueText.text = "CONTINUE";
             optionsText.text = "OPTIONS";
+            controlsText.text = "CONTROLS";
             quitText.text = "QUIT GAME";
             levelEditor.text = "LEVEL EDITOR";
             resolutionText.text = "RESOLUTION:";
@@ -368,6 +389,12 @@ public class MenuBetaTester : MonoBehaviour {
             videoText.text = "VIDEO";
             videoOnlyText.text = "VIDEO";
             backText.text = "BACK";
+            albertPistolText.text = "Albert Pistol";
+            balancedAlbertText.text = "Balanced Albert";
+            medicatedAlbertText.text = "Medicated Albert";
+            pistolDescriptionText.text = "Created with milk and pear, ovomaltine and bread with mortadella. He hates challenges and says that he is a Pro Player, but only plays in the easy difficult.";
+            balancedDescriptionText.text = "Likes challenge in the right measure.Do not make your life easier, but do not make the game impossible either.";
+            medicatedDescriptionText.text = "Likes to be challenged to the fullest. The greater the difficulty, the happier he gets.";
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(englishOptions);
@@ -377,9 +404,10 @@ public class MenuBetaTester : MonoBehaviour {
         }
         else                    //Português
         {
+            chooseCharacter.text = "ESCOLHA SUA PERSONALIDADE";
             newGameText.text = "NOVO JOGO";
-            continueText.text = "CONTINUAR";
             optionsText.text = "OPÇÕES";
+            controlsText.text = "CONTROLES";
             quitText.text = "SAIR DO JOGO";
             levelEditor.text = "EDITOR DE NÍVEL";
             resolutionText.text = "RESOLUÇÃO:";
@@ -397,6 +425,12 @@ public class MenuBetaTester : MonoBehaviour {
             videoText.text = "VÍDEO";
             videoOnlyText.text = "VÍDEO";
             backText.text = "VOLTAR";
+            albertPistolText.text = "Albert Pistola";
+            balancedAlbertText.text = "Albert Equilibrado";
+            medicatedAlbertText.text = "Albert Medicado";
+            pistolDescriptionText.text = "Criado a leite com pera, ovomaltine e pão com mortadela. Odeia desafios, diz que é Pro Player, mas só joga no easy.";
+            balancedDescriptionText.text = "Gosta de desafios na medida certa. Não facilite sua vida, mas também não torne o jogo impossível.";
+            medicatedDescriptionText.text = "Gosta de ser desafiado ao máximo. Quanto maior a dificuldade, mais feliz ele fica.";
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(portugueseOptions);
@@ -407,19 +441,19 @@ public class MenuBetaTester : MonoBehaviour {
     }
     #endregion
 
-    public void Character(int characterIndex)
+    public void Personality(int personalityIndex)
     {
-        if (characterIndex == 1)
+        if (personalityIndex == 1)
         {
-            //configurações do personagem 1
+            personality = 1;
         }
-        else if (characterIndex == 2)
+        else if (personalityIndex == 2)
         {
-            //configurações do personagem 2
+            personality = 2;
         }
-        else if (characterIndex == 3)
+        else if (personalityIndex == 3)
         {
-            //configurações do personagem 3
+            personality = 3;            
         }
 
         canvas2.SetActive(false);

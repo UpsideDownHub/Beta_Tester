@@ -1114,7 +1114,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: fae067962e5934395be31c8aba4a3455, type: 3}
-    m_FontSize: 25
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1146,10 +1146,10 @@ RectTransform:
   m_Father: {fileID: 2066593257}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.127}
-  m_AnchorMax: {x: 0.5, y: 0.127}
-  m_AnchoredPosition: {x: 0, y: -1}
-  m_SizeDelta: {x: 494.6, y: 87.05}
+  m_AnchorMin: {x: 0.27600002, y: 0.079560466}
+  m_AnchorMax: {x: 0.72400004, y: 0.172}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.269989, y: 1.3199997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1829146860
 GameObject:
@@ -1453,10 +1453,10 @@ RectTransform:
   m_Father: {fileID: 2066593257}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.127}
-  m_AnchorMax: {x: 0.5, y: 0.127}
-  m_AnchoredPosition: {x: 0, y: -0.5}
-  m_SizeDelta: {x: 494.6, y: 86.05}
+  m_AnchorMin: {x: 0.27600002, y: 0.079560466}
+  m_AnchorMax: {x: 0.72400004, y: 0.172}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -2.269989, y: 1.3199997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2036999538
 GameObject:
@@ -1524,8 +1524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0007324219, y: -0.38000488}
-  m_SizeDelta: {x: 0, y: -0.76000977}
+  m_AnchoredPosition: {x: -0.0007324219, y: -0.62}
+  m_SizeDelta: {x: 0, y: 1.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2066593251
 GameObject:
@@ -1665,6 +1665,7 @@ MonoBehaviour:
   siteJimmyA: {fileID: 0}
   cutSceneFireLevelA: {fileID: 0}
   albert: {fileID: 0}
+  albertAnimator: {fileID: 0}
   logoJimmy: {fileID: 843025273}
   pressAnyKey: {fileID: 1829146860}
   CreditsText: {fileID: 1164934278}

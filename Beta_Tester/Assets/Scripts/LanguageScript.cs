@@ -20,6 +20,7 @@ public class LanguageScript : MonoBehaviour {
     public Text typeYourPassword;
     public Text login;
     public Text errorText;
+    public Text thanksText;
 
     private void Start()
     {
@@ -69,6 +70,10 @@ public class LanguageScript : MonoBehaviour {
                 login.text = "Login";
                 errorText.text = "Email or Password are incorrect";
             }
+            else if (SceneManager.GetActiveScene().buildIndex == 6)
+            {
+                thanksText.text = "Thanks for playing!";
+            }
         }
         else
         {
@@ -115,6 +120,10 @@ public class LanguageScript : MonoBehaviour {
                 typeYourPassword.text = "Digite sua senha";
                 login.text = "Entrar";
                 errorText.text = "Email ou senha estão incorretos";
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 6)
+            {
+                thanksText.text = "Obrigado por jogar!";
             }
         }
     }

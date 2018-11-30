@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Cutscenes : MonoBehaviour
 {
     public GameObject level;
+    public GameObject ceu;
     public GameObject canvasCutscene;
     public GameObject cutScene;
     public GameObject circle;
@@ -18,6 +19,7 @@ public class Cutscenes : MonoBehaviour
     public Animator siteJimmyA;
     public Animator cutSceneFireLevelA;
     public Image albert;
+    public Animator albertAnimator;
     float temp;
     float temp2;
     float temp3;
@@ -211,6 +213,8 @@ public class Cutscenes : MonoBehaviour
                 }
                 if (temp2 <= 32 && temp2 >= 28)
                 {
+                    albertAnimator.Play("Albert2");
+
                     if (PlayerPrefs.GetInt("Language") == 0)
                         cutsceneText.text = "Albert: Why are you asking me that?";
                     else
@@ -218,6 +222,8 @@ public class Cutscenes : MonoBehaviour
                 }
                 if (temp2 <= 36 && temp2 >= 32)
                 {
+                    albertAnimator.Play("Albert");
+
                     if (PlayerPrefs.GetInt("Language") == 0)
                         cutsceneText.text = "Manager: Oh it's nothing, I'am just testing your reflexes.";
                     else
@@ -373,6 +379,8 @@ public class Cutscenes : MonoBehaviour
                         }
                         if (temp4 <= 52 && temp4 >= 48)
                         {
+                            acdcBackInBlack.enabled = true;
+
                             if (PlayerPrefs.GetInt("Language") == 0)
                                 cutsceneText.text = "Driver: Let's go guys!";
                             else
@@ -391,14 +399,14 @@ public class Cutscenes : MonoBehaviour
                 if (isSecondSceneCompleted)
                 {
                     temp5 += Time.deltaTime;
-                    if (temp5 <= 4 && temp5 >= 0)
+                    if (temp5 <= 6 && temp5 >= 0)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
                             cutsceneText.text = "4 hours later";
                         else
                             cutsceneText.text = "4 horas depois";
                     }
-                    if (temp5 <= 8 && temp5 >= 4)
+                    if (temp5 <= 12 && temp5 >= 6)
                     {
                         if (!dontRepeat3)
                         {
@@ -413,42 +421,42 @@ public class Cutscenes : MonoBehaviour
                         else
                             cutsceneText.text = "Professora: Ei motorista, estamos no caminho certo?";
                     }
-                    if (temp5 <= 12 && temp5 >= 8)
+                    if (temp5 <= 18 && temp5 >= 12)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
                             cutsceneText.text = "Driver: I think so ma'am, I'm following the GPS.";
                         else
                             cutsceneText.text = "Motorista: Acho que sim dona, estou seguindo o GPS.";
                     }
-                    if (temp5 <= 16 && temp5 >= 12)
+                    if (temp5 <= 24 && temp5 >= 18)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
                             cutsceneText.text = "Jimmy: ♪ Driver, you can run, the guys aren't afraid to die! ♪";
                         else
                             cutsceneText.text = "Jimmy: ♪ Motorista, pode correr, que a galera não tem medo de morrer! ♪";
                     }
-                    if (temp5 <= 20 && temp5 >= 16)
+                    if (temp5 <= 30 && temp5 >= 24)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
                             cutsceneText.text = "Teacher: Shut up brat!";
                         else
                             cutsceneText.text = "Professora: Cala a boca moleque!";
                     }
-                    if (temp5 <= 24 && temp5 >= 20)
+                    if (temp5 <= 36 && temp5 >= 30)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
                             cutsceneText.text = "Students: ♪ Driver, you can run, the guys aren't afraid to die! ♪";
                         else
                             cutsceneText.text = "Alunos: ♪ Motorista, pode correr, que a galera não tem medo de morrer! ♪";
                     }
-                    if (temp5 <= 28 && temp5 >= 24)
+                    if (temp5 <= 42 && temp5 >= 36)
                     {
                         if (PlayerPrefs.GetInt("Language") == 0)
                             cutsceneText.text = "Driver: Okay!";
                         else
                             cutsceneText.text = "Motorista: Demoro!";
                     }
-                    if (temp5 <= 32 && temp5 >= 28)
+                    if (temp5 <= 46 && temp5 >= 42)
                     {
                         if (dontRepeat)
                         {
@@ -460,7 +468,7 @@ public class Cutscenes : MonoBehaviour
                             dontRepeat = false;
                         }
                     }
-                    if (temp5 <= 36 && temp5 >= 32)
+                    if (temp5 <= 50 && temp5 >= 46)
                     {
                         blackBG.SetActive(true);
 
@@ -469,11 +477,11 @@ public class Cutscenes : MonoBehaviour
                         else
                             cutsceneText.text = "E morreu.";
                     }
-                    if (temp5 <= 37 && temp5 >= 36)
+                    if (temp5 <= 51 && temp5 >= 50)
                     {
                         var menuJimmy = GameObject.Find("Main Camera").GetComponent<MenuJimmy>();
                         menuJimmy.StartGame();
-                        temp5 = 38;
+                        temp5 = 52;
                     }
                 }
             }
@@ -602,28 +610,63 @@ public class Cutscenes : MonoBehaviour
                 else
                     cutsceneText.text = "Jimmy: Senhor nuvem, quer dizer senhor Moreira, será que eu consigo sair daqui?";
             }
-            if (temp3 <= 105 && temp3 >= 85) //35
+            if (temp3 <= 90 && temp3 >= 85) //20
             {
                 if (PlayerPrefs.GetInt("Language") == 0)
-                    cutsceneText.text = "Narrator: There is only one way. You must save your friends who fell here with you. After that, you must steal the trident from the devil. The trident has the power to control time. If you get the trident you will be able to revert the situation. But don't forget that stealing it will not be easy.";
+                    cutsceneText.text = "Narrator: There is only one way.";
                 else
-                    cutsceneText.text = "Narrador: Só existe uma forma. Você deve salvar seus amigos que caíram aqui junto com você. Após isso, você deve roubar o tridente do capiroto. O tridente tem o poder de controlar o tempo. Se você conseguir o tridente poderá reverter sua situação. Mas lembre-se, roubá-lo não será tarefa fácil.";
+                    cutsceneText.text = "Narrador: Só existe uma forma.";
+            }
+            if (temp3 <= 95 && temp3 >= 90) //25
+            {
+                if (PlayerPrefs.GetInt("Language") == 0)
+                    cutsceneText.text = "You must save your friends who fell here with you.";
+                else
+                    cutsceneText.text = "Você deve salvar seus amigos que caíram aqui junto com você.";
+            }
+            if (temp3 <= 100 && temp3 >= 95) //30
+            {
+                if (PlayerPrefs.GetInt("Language") == 0)
+                    cutsceneText.text = "After that, you must steal the trident from the devil.";
+                else
+                    cutsceneText.text = "Após isso, você deve roubar o tridente do capiroto.";
+            }
+            if (temp3 <= 105 && temp3 >= 100) //35
+            {
+                if (PlayerPrefs.GetInt("Language") == 0)
+                    cutsceneText.text = "The trident has the power to control time.";
+                else
+                    cutsceneText.text = "O tridente tem o poder de controlar o tempo.";
             }
             if (temp3 <= 110 && temp3 >= 105) //40
+            {
+                if (PlayerPrefs.GetInt("Language") == 0)
+                    cutsceneText.text = "If you get the trident you will be able to revert the situation.";
+                else
+                    cutsceneText.text = "Se você conseguir o tridente poderá reverter sua situação.";
+            }
+            if (temp3 <= 115 && temp3 >= 110) //45
+            {
+                if (PlayerPrefs.GetInt("Language") == 0)
+                    cutsceneText.text = "But don't forget that stealing it will not be easy.";
+                else
+                    cutsceneText.text = "Mas lembre-se, roubá-lo não será tarefa fácil.";
+            }
+            if (temp3 <= 120 && temp3 >= 115) //50
             {
                 if (PlayerPrefs.GetInt("Language") == 0)
                     cutsceneText.text = "Jimmy: I will try! Thanks Mr. Cloud!";
                 else
                     cutsceneText.text = "Jimmy: Vou tentar! Obrigado senhor nuvem!";
             }
-            if (temp3 <= 115 && temp3 >= 110) //45
+            if (temp3 <= 125 && temp3 >= 120) //55
             {
                 if (PlayerPrefs.GetInt("Language") == 0)
                     cutsceneText.text = "Narrator: It's Mr. Moreira!";
                 else
                     cutsceneText.text = "Narrador: É Senhor Moreira!";
             }
-            if (temp3 <= 118 && temp3 >= 115) //48
+            if (temp3 <= 128 && temp3 >= 125) //58
             {
                 if (PlayerPrefs.GetInt("Language") == 0)
                     cutsceneText.text = "Jimmy: Gee....";
@@ -631,7 +674,7 @@ public class Cutscenes : MonoBehaviour
                     cutsceneText.text = "Jimmy: Coroi....";
                 Invoke("PlayerCutscene", 1);
             }
-            if (temp3 <= 119 && temp3 >= 118)
+            if (temp3 <= 129 && temp3 >= 128)
             {
                 cutsceneText.text = "";
                 beginGame = true;
@@ -650,6 +693,7 @@ public class Cutscenes : MonoBehaviour
                     circle2T.localScale = new Vector3(0, 0, 0);
                     circle.SetActive(true);
                     level.SetActive(true);
+                    ceu.SetActive(true);
                     isPlayingCutscene = false;
                     Destroy(cutScene);
                     Destroy(canvasCutscene);
@@ -706,13 +750,13 @@ public class Cutscenes : MonoBehaviour
         {
             if (canMoveCreditsText)
             {
-                posXRTCredits -= 80 * Time.deltaTime;
+                posXRTCredits -= 160 * Time.deltaTime;
                 rtCreditsText.anchoredPosition = new Vector2(posXRTCredits, rtCreditsText.anchoredPosition.y);
                 if (dontRepeat2)
                 {
                     i++;
-                    Invoke("CantMoveCreditsText", 7.15f);
-                    Invoke("MoveCreditsText", 9.65f);
+                    Invoke("CantMoveCreditsText", 3.575f);
+                    Invoke("MoveCreditsText", 4.825f);
                     dontRepeat2 = false;
                 }
             }
@@ -734,11 +778,11 @@ public class Cutscenes : MonoBehaviour
             else if (i == 5)
             {
                 creditsTextUI.text = "Max da Mata Novo Guterres - Programmer";
+                isTheEndOfCredits = true;
             }
             else if (i == 7)
             {
                 creditsTextUI.text = "Lucas Francisco - Programmer";
-                isTheEndOfCredits = true;
             }
             else if (i == 9)
             {
@@ -782,13 +826,12 @@ public class Cutscenes : MonoBehaviour
     void BusOutOfTheScreenSchool()
     {
         truckIdle.Stop();
-        Invoke("LogoJimmy", 10);
-        acdcBackInBlack.enabled = true;
+        LogoJimmy();
         CreditsText.SetActive(true);
         isCreditsTime = true;
         CreditsText.transform.SetParent(cutsceneImagesJimmyA.transform);
         dontRepeat2 = true;
-        Invoke("MoveCreditsText", 12);
+        Invoke("MoveCreditsText", 2);
         Invoke("CenaDeserto", 240);
     }
 
