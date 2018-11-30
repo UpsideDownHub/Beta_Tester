@@ -65,6 +65,10 @@ public class Cutscenes : MonoBehaviour
     RectTransform ceuNuvemRT;
     public static bool isPlayingCutscene;
 
+    public GameObject thanksObj;
+    public Animator albertVictorySceneA;
+    float temp6;
+
     private void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
@@ -93,6 +97,9 @@ public class Cutscenes : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
+            temp4 = 0;
+            temp5 = 0;
+
             rtCutSceneImages = GameObject.Find("CutsceneImages").GetComponent<RectTransform>();
             bottomRT = rtCutSceneImages.offsetMin.y;
             leftRT = rtCutSceneImages.offsetMin.x;
@@ -104,6 +111,11 @@ public class Cutscenes : MonoBehaviour
 
             canvasRT = GameObject.Find("Canvas").GetComponent<RectTransform>();
             ceuNuvemRT = ceuNuvem.GetComponent<RectTransform>();
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            temp6 = 0;
         }
     }
 
@@ -704,6 +716,51 @@ public class Cutscenes : MonoBehaviour
             {
                 x += 5 * Time.deltaTime;
                 playerCutscene.position = new Vector3(x, playerCutscene.position.y, playerCutscene.position.z);
+            }
+        }
+        #endregion
+
+        #region VictoryScene Cutscene
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            temp6 += Time.deltaTime;
+            if (temp6 <= 6 && temp6 >= 0)
+            {
+                cutsceneText.text = "Empresário: Ei Albert, o que achou do game?";
+            }
+            if (temp6 <= 12 && temp6 >= 6)
+            {
+                cutsceneText.text = "Albert: Hum...";
+            }
+            if (temp6 <= 18 && temp6 >= 12)
+            {
+                cutsceneText.text = "Achei muito bom!";
+            }
+            if (temp6 <= 24 && temp6 >= 18)
+            {
+                cutsceneText.text = "Que gráficos! Parecia o mundo real!";
+            }
+            if (temp6 <= 30 && temp6 >= 24)
+            {
+                cutsceneText.text = "Não vejo a hora de jogar a versão final!";
+            }
+            if (temp6 <= 36 && temp6 >= 30)
+            {
+                cutsceneText.text = "Empresário: Ficamos muito felizes em saber que vamos encher nosso bolso de dinheiro! Eh bem, quer dizer...";
+            }
+            if (temp6 <= 42 && temp6 >= 36)
+            {
+                cutsceneText.text = "Ficamos muito felizes em saber que estamos satisfazendo nossos jogadores.";
+            }
+            if (temp6 <= 48 && temp6 >= 42)
+            {
+                cutsceneText.text = "Obrigado Albert!";
+            }
+            if (temp6 <= 49 && temp6 >= 48)
+            {
+                cutsceneText.text = "";
+                albertVictorySceneA.gameObject.SetActive(false);
+                thanksObj.SetActive(true);
             }
         }
         #endregion
