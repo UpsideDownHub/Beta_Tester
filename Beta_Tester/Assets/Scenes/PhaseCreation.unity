@@ -1509,7 +1509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.48625, y: 0.45600003}
   m_AnchorMax: {x: 0.6912501, y: 0.5}
-  m_AnchoredPosition: {x: -33.099995, y: 16.199997}
+  m_AnchoredPosition: {x: -33.09999, y: 16.199997}
   m_SizeDelta: {x: 79.6, y: 17.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &471711045
@@ -2037,6 +2037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loading: {fileID: 295508288}
+  totem_flecha: {fileID: 0}
   poison: {fileID: 1565662915992130, guid: 7de76f49a0397ac46b2be02eb1b147df, type: 2}
   totem: {fileID: 1581687371422000, guid: 306d6e6c5ffa4cd47886e34edc47f538, type: 2}
   serra: {fileID: 1277880659325058, guid: 53b460a011fcd2d44be7e36638f97481, type: 2}
@@ -2917,7 +2918,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5000038}
+  m_AnchoredPosition: {x: 0, y: -0.50000477}
   m_SizeDelta: {x: -20, y: -9.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1104189482
@@ -4010,7 +4011,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1510188867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.229982, y: 4.5075636, z: -10}
+  m_LocalPosition: {x: -2.2299829, y: 4.5076246, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 176279510}
@@ -4221,7 +4222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.417892, y: 0.35779303}
   m_AnchorMax: {x: 0.642, y: 0.38945967}
-  m_AnchoredPosition: {x: -55.1, y: -8}
+  m_AnchoredPosition: {x: -55.100006, y: -8}
   m_SizeDelta: {x: 85.5, y: 12.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559421565
@@ -5342,6 +5343,17 @@ MonoBehaviour:
   vidasText: {fileID: 1229987928}
   button: {fileID: 1411473500}
   lifeBetaTester: {fileID: 0}
+  betaTester: {fileID: 0}
+  albert1: {fileID: 0}
+  albert2: {fileID: 0}
+  albert3: {fileID: 0}
+  albert4: {fileID: 0}
+  albert5: {fileID: 0}
+  albert6: {fileID: 0}
+  albert7: {fileID: 0}
+  albert8: {fileID: 0}
+  albert9: {fileID: 0}
+  albert10: {fileID: 0}
 --- !u!4 &2005661410
 Transform:
   m_ObjectHideFlags: 0

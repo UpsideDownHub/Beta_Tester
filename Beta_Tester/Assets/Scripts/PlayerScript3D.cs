@@ -144,6 +144,10 @@ public class PlayerScript3D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (rb.velocity.y > 4.5)
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y);
+
+
         if (life <= 0)
             gameObject.SetActive(false);
         else
@@ -250,7 +254,10 @@ public class PlayerScript3D : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Z) && grounded && SceneManager.GetActiveScene().buildIndex != 2)
             {
-                rb.AddForce(new Vector3(0, 300, 0));
+                if (rb.velocity.y < 4.5)
+                {
+                    rb.AddForce(new Vector3(0, 300, 0));
+                }
             }
 
             //movimentação da fase de fogo
@@ -302,7 +309,7 @@ public class PlayerScript3D : MonoBehaviour
             sr.flipX = true;
             colliderT.localRotation = Quaternion.Euler(0, 0, 26.46f);
         }
-        
+
         if (rb.velocity.y > 0 || rb.velocity.y < 0)
         {
             if (sr.flipX)
@@ -347,8 +354,10 @@ public class PlayerScript3D : MonoBehaviour
 
     public void GetDamage()
     {
+        print("asd");
         if (!isFadingToNextLevel && canGetDamage)
         {
+            print("qwe");
             life--;
             Physics.IgnoreLayerCollision(0, 12, true);
             damageTemp = 0;

@@ -60,6 +60,23 @@ public class MoveObjects : MonoBehaviour
                 x = transform.position.x;
             }
         }
+        //Arrow
+        if (gameObject.tag == "flecha")
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                target = GameObject.Find("Player").GetComponent<Transform>();
+                if (target == null) Destroy(this.gameObject);
+                lastPosition = target.position;
+                lastPosition = lastPosition.CorrectPositions();
+                transform.position = new Vector3(transform.position.x, lastPosition.y, transform.position.z);
+                x = lastPosition.x;
+            }
+            else
+            {
+                x = transform.position.x;
+            }
+        }
         //Spikes
         if (gameObject.name == "Spikes(Clone)" || gameObject.name == "gelo (2)" || gameObject.tag == "Trap")
             y = transform.position.y;
@@ -103,6 +120,35 @@ public class MoveObjects : MonoBehaviour
             }
 
             if ((direction? transform.position.x - cameraPosition - 3 >= Camera.main.transform.position.x : transform.position.x + cameraPosition + 3 <= Camera.main.transform.position.x))
+            {
+                Destroy(gameObject);
+            }
+        }
+        //flecha
+        if (gameObject.tag == "flecha")
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                if (!isInLastPosition)
+                    transform.position = Vector3.MoveTowards(transform.position, lastPosition, 10 * Time.deltaTime);
+                else
+                {
+                    x = (direction ? x + speed * Time.deltaTime : x - speed * Time.deltaTime);
+                    transform.position = new Vector3(x, transform.position.y, transform.position.z);
+                }
+
+                if (transform.position == lastPosition)
+                {
+                    isInLastPosition = true;
+                }
+            }
+            else
+            {
+                x = (direction ? x + speed * Time.deltaTime : x - speed * Time.deltaTime);
+                transform.position = new Vector3(x, transform.position.y);
+            }
+
+            if ((direction ? transform.position.x - cameraPosition - 3 >= Camera.main.transform.position.x : transform.position.x + cameraPosition + 3 <= Camera.main.transform.position.x))
             {
                 Destroy(gameObject);
             }
@@ -203,6 +249,17 @@ public class MoveObjects : MonoBehaviour
         if ((gameObject.name == "FireBall(Clone)" || gameObject.name == "FireBall 1(Clone)") && other.tag == "Player")
         {
             Instantiate(prefabBOOM, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+            Destroy(gameObject);
+        }
+        if (gameObject.tag == "flecha" && other.tag == "Player")
+        {
+            var player = GameObject.FindWithTag("Player");
+            print(player);
+            if (player != null)
+            {
+                var script = player.GetComponent<PlayerScript3D>();
+                script.GetDamage();
+            }
             Destroy(gameObject);
         }
     }

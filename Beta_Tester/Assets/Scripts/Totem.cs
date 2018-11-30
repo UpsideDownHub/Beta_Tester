@@ -30,9 +30,9 @@ namespace Assets.Scripts
 
         private void Update()
         {
-            if (transform.position.x <= Camera.main.transform.position.x)
+            if (direction? transform.position.x <= Camera.main.transform.position.x : transform.position.x >= Camera.main.transform.position.x)
             {
-                if (transform.position.x + cameraPosition + 0.67786f <= Camera.main.transform.position.x)
+                if (direction? transform.position.x + cameraPosition + 0.67786f <= Camera.main.transform.position.x : transform.position.x - cameraPosition - 0.67786f >= Camera.main.transform.position.x)
                     isActivated = false;
                 else
                     isActivated = true;

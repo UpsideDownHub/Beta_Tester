@@ -13,6 +13,7 @@ public class PhaseCreationManager : MonoBehaviour
 {
     public GameObject loading;
 
+    [SerializeField] GameObject totem_flecha;
     [SerializeField] GameObject poison;
     [SerializeField] GameObject totem;
     [SerializeField] GameObject serra;
@@ -222,6 +223,8 @@ public class PhaseCreationManager : MonoBehaviour
                 return totem;
             case 8:
                 return poison;
+            case 9:
+                return totem_flecha; 
             default:
                 return floor;
         }
