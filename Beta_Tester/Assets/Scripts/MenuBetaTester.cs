@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using System;
+using UnityEngine.EventSystems;
 
 public class MenuBetaTester : MonoBehaviour {
 
@@ -75,6 +76,10 @@ public class MenuBetaTester : MonoBehaviour {
 
     public static bool betaTesterCutscene;
     public GameObject canvasCutscene;
+
+
+    Button newGameButton;
+    Button gameOptionsButton;
 
     private void Start()
     {
@@ -251,6 +256,18 @@ public class MenuBetaTester : MonoBehaviour {
             languageDropDown.RefreshShownValue();
         }
         #endregion
+
+        newGameButton = newGameText.transform.parent.GetComponent<Button>();
+        newGameButton.Select();
+        gameOptionsButton = gameOptionsText.transform.parent.GetComponent<Button>();
+    }
+
+    private void Update()
+    {
+        //if (!EventSystem.current.alreadySelecting)
+        //{
+
+        //}
     }
 
     #region Interação com Buttons
@@ -267,6 +284,7 @@ public class MenuBetaTester : MonoBehaviour {
         betaTesterEngr.SetActive(false);
         menuPanel.SetActive(false);
         optionsPanel.SetActive(true);
+        gameOptionsButton.Select();
         backButton.SetActive(true);
     }
 
@@ -284,18 +302,21 @@ public class MenuBetaTester : MonoBehaviour {
     {
         optionsPanel.SetActive(false);
         gameOptionsPanel.SetActive(true);
+        languageDropDown.Select();
     }
 
     public void AudioButton()
     {
         optionsPanel.SetActive(false);
         audioPanel.SetActive(true);
+        masterSlider.Select();
     }
 
     public void VideoButton()
     {
         optionsPanel.SetActive(false);
         videoPanel.SetActive(true);
+        resolutionDropDown.Select();
     }
 
     public void BackButton()
@@ -306,6 +327,7 @@ public class MenuBetaTester : MonoBehaviour {
             betaTesterEngr.SetActive(true);
             menuPanel.SetActive(true);
             optionsPanel.SetActive(false);
+            newGameButton.Select();
             backButton.SetActive(false);
         }
         else if (gameOptionsPanel.activeSelf)
