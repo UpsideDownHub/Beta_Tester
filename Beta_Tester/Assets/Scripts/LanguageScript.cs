@@ -72,6 +72,13 @@ public class LanguageScript : MonoBehaviour {
             {
                 thanksText.text = "Thanks for playing!";
             }
+            else if (SceneManager.GetActiveScene().buildIndex == 7)
+            {
+                resume.text = "RESUME";
+                quit.text = "QUIT";
+                gameOver.text = "GAME OVER";
+                retry.text = "RETRY";
+            }
         }
         else
         {
@@ -121,6 +128,13 @@ public class LanguageScript : MonoBehaviour {
             else if (SceneManager.GetActiveScene().buildIndex == 6)
             {
                 thanksText.text = "Obrigado por jogar!";
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 7)
+            {
+                resume.text = "RESUMIR";
+                quit.text = "SAIR";
+                gameOver.text = "FIM DE JOGO";
+                retry.text = "TENTAR NOVAMENTE";
             }
         }
     }
