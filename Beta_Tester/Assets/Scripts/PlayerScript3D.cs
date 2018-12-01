@@ -67,6 +67,9 @@ public class PlayerScript3D : MonoBehaviour
 
     private void Update()
     {
+        var x = Input.GetAxis("Horizontal");
+        //var y = Input.GetAxis("Vertical");
+
         if (Time.timeScale == 0)
         {
             animator.SetBool("moving", false);
@@ -148,7 +151,7 @@ public class PlayerScript3D : MonoBehaviour
     {
         if (rb.velocity.y > 4.5)
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y);
-        
+
         if (Assets.Scripts.PlayerAttrs.life <= 0)
             gameObject.SetActive(false);
         else
@@ -302,33 +305,42 @@ public class PlayerScript3D : MonoBehaviour
         #region [Controllable]
         else
         {
-            horizontalMove = Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
+            //horizontalMove = Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
 
-            //if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+            //if (horizontalMove > 0)
             //{
-            //    moving = false;
-            //    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+            //    rb.velocity = new Vector3(horizontalMove, rb.velocity.y, rb.velocity.z);
+            //}
+            //else
+            //{
+            //    rb.velocity = new Vector3(horizontalMove, rb.velocity.y, rb.velocity.z);
             //}
 
-            //if (Input.GetKey(KeyCode.LeftArrow))
-            //{
-            //    rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
-            //    moving = true;
-            //}
+            if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+            {
+                moving = false;
+                rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+            }
 
-            //if (Input.GetKey(KeyCode.RightArrow))
-            //{
-            //    rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-            //    moving = true;
-            //}
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+                moving = true;
+            }
 
-            //if (Input.GetKeyDown(KeyCode.Z) && grounded && SceneManager.GetActiveScene().buildIndex != 2)
-            //{
-            //    if (rb.velocity.y < 4.5)
-            //    {
-            //        rb.AddForce(new Vector3(0, 300, 0));
-            //    }
-            //}
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+                moving = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Z) && grounded && SceneManager.GetActiveScene().buildIndex != 2)
+            {
+                if (rb.velocity.y < 4.5)
+                {
+                    rb.AddForce(new Vector3(0, 300, 0));
+                }
+            }
 
             //movimentação da fase de fogo
 

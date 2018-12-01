@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -288,13 +288,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 366354934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e17d521b2d28af4396d386978143de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointer: {fileID: 2800000, guid: 9839766c5c78730418b31b96eb68c75f, type: 3}
-  click: {fileID: 2800000, guid: 7e470b92f525e9e49b1c3b1352515708, type: 3}
+  pointer: {fileID: 2800000, guid: b4eef35b66553ee43870f929fda22351, type: 3}
+  click: {fileID: 2800000, guid: c46027f467f0858409604b7147efe7fe, type: 3}
 --- !u!114 &366354940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,8 +313,6 @@ MonoBehaviour:
   gameOver: {fileID: 0}
   retry: {fileID: 0}
   loadLevel: {fileID: 0}
-  backToMenu: {fileID: 0}
-  load: {fileID: 0}
   password: {fileID: 0}
   typeYourEmail: {fileID: 0}
   typeYourPassword: {fileID: 0}
@@ -1756,6 +1754,7 @@ MonoBehaviour:
   ExplosionTruck: {fileID: 2066593252}
   thanksObj: {fileID: 0}
   albertVictorySceneA: {fileID: 0}
+  loadingText: {fileID: 0}
 --- !u!114 &2066593254
 MonoBehaviour:
   m_ObjectHideFlags: 0

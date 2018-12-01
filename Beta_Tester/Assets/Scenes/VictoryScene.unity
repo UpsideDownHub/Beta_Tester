@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -548,11 +548,13 @@ MonoBehaviour:
   tarjaPreta: {fileID: 0}
   blackBG: {fileID: 0}
   cutsceneImagesJimmyA: {fileID: 0}
+  bigText: {fileID: 0}
   acdcBackInBlack: {fileID: 0}
   truckIdle: {fileID: 0}
   ExplosionTruck: {fileID: 0}
   thanksObj: {fileID: 1024936976}
   albertVictorySceneA: {fileID: 599738298}
+  loadingText: {fileID: 0}
 --- !u!1 &686183116
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,8 +672,6 @@ MonoBehaviour:
   gameOver: {fileID: 0}
   retry: {fileID: 0}
   loadLevel: {fileID: 0}
-  backToMenu: {fileID: 0}
-  load: {fileID: 0}
   password: {fileID: 0}
   typeYourEmail: {fileID: 0}
   typeYourPassword: {fileID: 0}

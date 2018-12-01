@@ -802,10 +802,10 @@ public class Cutscenes : MonoBehaviour
                 }
                 if (temp6 <= 49 && temp6 >= 48)
                 {
+                    thanksObj.SetActive(true);
                     cutsceneText.text = "";
                     albertVictorySceneA.gameObject.SetActive(false);
                     tarjaPreta.SetActive(false);
-                    thanksObj.SetActive(true);
                     temp6 = 50;
                 }
             }
@@ -882,10 +882,10 @@ public class Cutscenes : MonoBehaviour
                 }
                 if (temp6 <= 55 && temp6 >= 54)
                 {
+                    thanksObj.SetActive(true);
                     cutsceneText.text = "";
                     albertVictorySceneA.gameObject.SetActive(false);
                     tarjaPreta.SetActive(false);
-                    thanksObj.SetActive(true);
                     temp6 = 56;
                 }
             }
@@ -941,10 +941,10 @@ public class Cutscenes : MonoBehaviour
                 }
                 if (temp6 <= 37 && temp6 >= 36)
                 {
+                    thanksObj.SetActive(true);
                     cutsceneText.text = "";
                     albertVictorySceneA.gameObject.SetActive(false);
                     tarjaPreta.SetActive(false);
-                    thanksObj.SetActive(true);
                     temp6 = 38;
                 }
             }
@@ -956,6 +956,7 @@ public class Cutscenes : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
                 StartCoroutine(LoadAsynchronously(1));
+                isPlayingCutscene = false;
             }
 
             if (SceneManager.GetActiveScene().buildIndex == 1)

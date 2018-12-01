@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2386,8 +2386,6 @@ MonoBehaviour:
   gameOver: {fileID: 1372162500}
   retry: {fileID: 37129925}
   loadLevel: {fileID: 0}
-  backToMenu: {fileID: 0}
-  load: {fileID: 0}
   password: {fileID: 0}
   typeYourEmail: {fileID: 0}
   typeYourPassword: {fileID: 0}
@@ -2962,8 +2960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e17d521b2d28af4396d386978143de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointer: {fileID: 2800000, guid: 9839766c5c78730418b31b96eb68c75f, type: 3}
-  click: {fileID: 2800000, guid: 7e470b92f525e9e49b1c3b1352515708, type: 3}
+  pointer: {fileID: 2800000, guid: b4eef35b66553ee43870f929fda22351, type: 3}
+  click: {fileID: 2800000, guid: b4eef35b66553ee43870f929fda22351, type: 3}
 --- !u!1 &150630171
 GameObject:
   m_ObjectHideFlags: 0
@@ -11379,11 +11377,13 @@ MonoBehaviour:
   tarjaPreta: {fileID: 975169509}
   blackBG: {fileID: 0}
   cutsceneImagesJimmyA: {fileID: 0}
+  bigText: {fileID: 0}
   acdcBackInBlack: {fileID: 0}
   truckIdle: {fileID: 0}
   ExplosionTruck: {fileID: 0}
   thanksObj: {fileID: 0}
   albertVictorySceneA: {fileID: 0}
+  loadingText: {fileID: 0}
 --- !u!1 &829580421
 GameObject:
   m_ObjectHideFlags: 0
@@ -31157,7 +31157,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1930841838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.703444, y: 6.4745274, z: -10}
+  m_LocalPosition: {x: -21.093363, y: 6.4753933, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 93401361}
@@ -35319,6 +35319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 124dd5ad1298d9742bd6e506f838eb62, type: 2}
   poisonParticle: {fileID: 0}
+  poisonFumaca1: {fileID: 0}
+  poisonFumaca2: {fileID: 0}
 --- !u!199 &2139446799
 ParticleSystemRenderer:
   serializedVersion: 6
