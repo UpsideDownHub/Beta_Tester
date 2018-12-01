@@ -253,13 +253,6 @@ public class MoveObjects : MonoBehaviour
         }
         if (gameObject.tag == "flecha" && other.tag == "Player")
         {
-            var player = GameObject.FindWithTag("Player");
-            print(player);
-            if (player != null)
-            {
-                var script = player.GetComponent<PlayerScript3D>();
-                script.GetDamage();
-            }
             Destroy(gameObject);
         }
     }

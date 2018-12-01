@@ -123,7 +123,8 @@ GameObject:
   - component: {fileID: 95034572054400244}
   - component: {fileID: 136681101155935142}
   - component: {fileID: 54766590703157736}
-  - component: {fileID: 114134287935385308}
+  - component: {fileID: 114561057226895616}
+  - component: {fileID: 114794426332973562}
   m_Layer: 10
   m_Name: _Player
   m_TagString: Player
@@ -261,28 +262,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114134287935385308
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894234277545518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b3e0be871b96014b973923ca1e6974f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 54766590703157736}
-  animator: {fileID: 95034572054400244}
-  sr: {fileID: 212606864560383662}
-  isControllable: 0
-  speed: 2
-  groundCheck: {fileID: 4068434235889416}
-  grounded: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 512
-  canGetDamage: 0
 --- !u!114 &114323595853154126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -296,6 +275,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 124dd5ad1298d9742bd6e506f838eb62, type: 2}
   poisonParticle: {fileID: 0}
+--- !u!114 &114561057226895616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894234277545518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b3efd6fba7a8b448b2a5c051a13fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XDistanceToJump: 2
+  XValidationDistance: 4
+  MaxYToJump: 3
+  MaxXToJump: 3
+  speed: 1.5
+  tileM: {fileID: 0}
+  JumpProblability: 50
+  canGetDamage: 0
+--- !u!114 &114794426332973562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894234277545518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f3c35902feb75459da7e8101377116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canGetDamage: 0
 --- !u!136 &136202693446815658
 CapsuleCollider:
   m_ObjectHideFlags: 1

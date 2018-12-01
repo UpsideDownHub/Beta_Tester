@@ -43,7 +43,7 @@ public class GameOver : MonoBehaviour
         {
             if (PlayerScript3D.isInstantiated)
             {
-                player = GameObject.Find("_Player(Clone)");
+                player = GameObject.FindGameObjectWithTag("Player");
                 if (player != null) { 
                     player.GetComponent<Transform>();
                     PlayerScript3D.isInstantiated = false;
@@ -52,27 +52,29 @@ public class GameOver : MonoBehaviour
 
             if (player != null)
                 if (player.transform.position.y <= 0 && !ended)
-                    PlayerScript3D.life = 0;
+                    Assets.Scripts.PlayerAttrs.life = 0;
         }
 
         #region JimmyInTheHell
         //vidas.ForEach(x => x.enabled = false);
 
-        if (PlayerScript3D.life == 0 && !ended)
+        if (Assets.Scripts.PlayerAttrs.life == 0 && !ended)
         {
 
-            var phase = Assets.Scripts.DAL.BetaTesterContext.Phase.GetData().Single(x => x.FileId == Assets.Scripts.DAL.BetaTesterContext.FileId);
+            var phase = Assets.Scripts.DAL.BetaTesterContext.Phase.GetData().SingleOrDefault(x => x.FileId == Assets.Scripts.DAL.BetaTesterContext.FileId);
 
-            phase.Dies++;
-            Assets.Scripts.DAL.BetaTesterContext.Phase.Update(phase);
-
+            if (phase != null)
+            {
+                phase.Dies++;
+                Assets.Scripts.DAL.BetaTesterContext.Phase.Update(phase);
+            }
             gameOverPanel.SetActive(true);
             button.Select();
             ended = true;
         }
 
         //if (SceneManager.GetActiveScene().buildIndex != 5)
-        vidasText.text = "x" + PlayerScript3D.life.ToString();
+        vidasText.text = "x" + Assets.Scripts.PlayerAttrs.life.ToString();
         //else
         //    vidasText.text = "x" + AIPlayerScript.life.ToString();
 
@@ -116,7 +118,7 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        PlayerScript3D.life = 5;
+        Assets.Scripts.PlayerAttrs.life = 5;
         gameOverPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -126,7 +128,7 @@ public class GameOver : MonoBehaviour
     }
     public void RetryPhaseCreation()
     {
-        PlayerScript3D.life = 5;
+        Assets.Scripts.PlayerAttrs.life = 5;
         gameOverPanel.SetActive(false);
         player.gameObject.SetActive(true);
         player.transform.position = PlayerScript3D.initialPosition;

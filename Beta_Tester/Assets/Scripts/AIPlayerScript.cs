@@ -71,13 +71,13 @@ public class AIPlayerScript : MonoBehaviour
     float damageTemp;
     float alphaSpriteTemp;
     bool isDamaged;
-    bool canGetDamage;
+    public bool canGetDamage;
     bool isColliding;
 
     void Start()
     {
         jumpSpeed = speed;
-        this.data = PhaseCreationManager.data; // OurPhases.data;
+        this.data = OurPhases.data; // OurPhases.data;
         Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         CapsuleCollider = GetComponent<CapsuleCollider>();
@@ -159,7 +159,7 @@ public class AIPlayerScript : MonoBehaviour
         }
         #endregion
 
-        if (life <= 0)
+        if (Assets.Scripts.PlayerAttrs.life <= 0)
             gameObject.SetActive(false);
         else
             gameObject.SetActive(true);
@@ -173,9 +173,7 @@ public class AIPlayerScript : MonoBehaviour
             {
                 var newPos = walked.Last();
                 direction = newPos.x > (int)transform.position.x;
-
-                print(" x: " + x + " |  y :" + y);
-                print("_x: " + newPos.x + " | _y :" + newPos.y);
+                
                 while (newPos.x == x && newPos.y == y)
                 {
                     walked.Remove(walked.Last());
@@ -252,15 +250,31 @@ public class AIPlayerScript : MonoBehaviour
             {
                 //Debug.DrawLine(new Vector2(x, Mathf.Abs(y - 10)), new Vector2(x + 0.5f, Mathf.Abs(y - 10) + 0.5f), Color.red, 0.3f);
                 var realY = Mathf.Abs(y - 10);
-                bool haveTrap = data[x][y].Trap.HasValue;//.IndexOf('-') != -1;
+                var trap = data[x][y].Trap;//.IndexOf('-') != -1;
 
-                if (haveTrap)
+                if (trap.HasValue && !forceToJump)
                 {
-                    if (y == Mathf.Abs(_y - 10) && x == _x + 1) // _x + 1 - O 1 representa quanto blocos antes o player pulará o osbtaculo (Obs.: pode ser de 1 ~ 3)
+                    if (trap == 6)
                     {
-                        jumpPossibilities.Set(new Vector3(x, realY), new Vector3(0, 200, 0), 2.5f, false);
+                        if (y == Mathf.Abs(_y - 11) && x == _x + 1) // _x + 1 - O 1 representa quanto blocos antes o player pulará o osbtaculo (Obs.: pode ser de 1 ~ 3)
+                        {
+                            jumpPossibilities.Set(new Vector3(x, realY), new Vector3(0, 250, 0), 2.5f, false);
+                            forceToJump = true;
+                        }
+                    }
+
+                    var shootable = GameObject.FindGameObjectsWithTag("FireBall").ToList();
+                    shootable.AddRange(GameObject.FindGameObjectsWithTag("flecha"));
+                    //shootable.ForEach(a =>  print("fire: " + a.transform.position + " | " + transform.position + " | " + a.transform.localScale ) );
+
+                    shootable = shootable.Where(c => c.transform.position.y >= _y - .5f && c.transform.position.y <= _y + .5f && ((c.transform.position.x >= transform.position.x - 1.5 && c.transform.localScale.x > 0) || (c.transform.position.x <= transform.position.x + 1.5 && c.transform.localScale.x < 0))).ToList();
+
+                    if(shootable.Count() > 0)
+                    {
+                        jumpPossibilities.Set(new Vector3(x, realY), new Vector3(0, 250, 0), 1.5f, false);
                         forceToJump = true;
                     }
+
                 }
 
                 if (lastPossibility.PlayerPosition.HasValue && backing && lastPossibility.PlayerPosition.Value.x > _x)
@@ -273,19 +287,20 @@ public class AIPlayerScript : MonoBehaviour
                 //if (!GroundInOrBelow(Mathf.Abs(_y - 10), NextXElement(_x, 1)) && GetValue(NextXElement(_x, 1), Mathf.Abs(_y - 10) - 1) == 0)
 
                 //verificar se o valor esta a frente e abaixo do personagem e não bloco acima dele
-                if (GetValue(x, y) == 0 && x == NextXElement(_x, 1) && y == Mathf.Abs(_y - 10) && !GroundInOrBelow(y, x, y - 2, false) && GetValue(PrevXElement(x, 1), y) != 0) //GetValue(NextXElement(_x, 1), Mathf.Abs(_y - 10) - 1) == 0
+                if (GetValue(x, y) == 0 && x == NextXElement(_x, 1) && y == Mathf.Abs(_y - 11) && !GroundInOrBelow(y, x, y - 2, false) && GetValue(PrevXElement(x, 1), y) != 0) //GetValue(NextXElement(_x, 1), Mathf.Abs(_y - 10) - 1) == 0
                 {
                     //Debug.DrawLine(new Vector2(x, Mathf.Abs(y - 10)), new Vector2(x + 0.5f, Mathf.Abs(y - 10) + 0.5f), Color.red, 0.3f);
                     var XdistanceToJump = 0;
                     for (var __x = 1; __x <= MaxXToJump + 1; __x++)
                     {
-                        if (!GroundInOrBelow(Mathf.Abs(_y - 10), NextXElement(_x, __x), Mathf.Abs(_y - 10 - (_y > 2 ? 2 : 0))) && (GetValue(NextXElement(_x, __x), Mathf.Abs(_y - 10) - 1) == 0)) XdistanceToJump++;
+                        if (!GroundInOrBelow(Mathf.Abs(_y - 11), NextXElement(_x, __x), Mathf.Abs(_y - 11 - (_y > 2 ? 2 : 0))) && (GetValue(NextXElement(_x, __x), Mathf.Abs(_y - 10) - 1) == 0)) XdistanceToJump++;
                         else break;
                     }
 
                     //altura mais longe do que o personagem consegue pular
                     if (XdistanceToJump != 0)
                     {
+                        print(XdistanceToJump);
                         if (XdistanceToJump > MaxXToJump)
                         {
                             if (!CanGoStraightInBelow(_x, Mathf.Abs(_y - 10)) && !GroundInOrBelow(Mathf.Abs(_y - 10), x))
@@ -321,7 +336,7 @@ public class AIPlayerScript : MonoBehaviour
                 if (GetValue(x, y) != 0 && GetValue(x, y) != 2 && (GetValue(PrevXElement(x, 1), y) == 0 || GetValue(PrevXElement(x, 1), y) == 2))
                 {
                     //bloqueio a frente
-                    if (realY == _y + 1)
+                    if (realY == _y)
                     {
                         var canPassBelow = CanPassBelow(_x, y, x);
                         if (BlockedGrounds(null, x, y) > MaxYToJump && !canPassBelow)
@@ -333,7 +348,7 @@ public class AIPlayerScript : MonoBehaviour
                         {
                             //lastPossibility.Jumped = true;
                             int height = (int)lastPossibility.GroundPosition.Value.y - _y;
-                            jumpPossibilities.Set(new Vector3(x, Mathf.Abs(y - 10)), new Vector3(0, 300 + (50 * (height - 1)), 0), XDistanceToJump, true);
+                            jumpPossibilities.Set(new Vector3(x, Mathf.Abs(y - 10)), new Vector3(0, 350 + (50 * (height - 1)), 0), XDistanceToJump, true);
                             //lastPossibility = new LastPossibility();
                         }
                         else if (!canPassBelow)
@@ -344,7 +359,7 @@ public class AIPlayerScript : MonoBehaviour
                     if (x == _x + XDistanceToJump && realY > _y && (realY - _y <= MaxYToJump))
                     {
                         //tem bloco acima do que será pulado
-                        if (GetValue(x, y - 1) != 0) continue;
+                        if (GetValue(x, y - 1) != 0 || data[x][y - 1].Trap.HasValue) continue;
 
                         //bloco acima bloquando pulo
                         for (var i = 0; i < XDistanceToJump; i++)
@@ -361,7 +376,7 @@ public class AIPlayerScript : MonoBehaviour
 
 
                         int height = Mathf.Abs(y - 10) - _y;
-                        jumpPossibilities.Set(new Vector3(x, Mathf.Abs(y - 10)), new Vector3(0, 300 + (50 * (height - 1)), 0), XDistanceToJump, true);
+                        jumpPossibilities.Set(new Vector3(x, Mathf.Abs(y - 10)), new Vector3(0, 350 + (50 * (height - 1)), 0), XDistanceToJump, true);
 
                         //if (forceToJump.HasValue)
                         //{
@@ -410,7 +425,7 @@ public class AIPlayerScript : MonoBehaviour
                 lastPossibility.Jumped = false;
                 lastPossibility.Direction = direction;
             }
-            if (Random.Range(0, 100) <= JumpProblability || flip || forceToJump || canGoStraight == PossibleWaysToGoStraight.Cant)
+            if ((Random.Range(0, 100) <= JumpProblability || flip || forceToJump || canGoStraight == PossibleWaysToGoStraight.Cant) && Rigidbody.velocity.y < .2f)
             {
                 lastPossibility.Jumped = true;
                 var i = Random.Range(0, jumpPossibilities.Count);
@@ -419,7 +434,7 @@ public class AIPlayerScript : MonoBehaviour
                 animator.SetBool("moving", false);
                 animator.SetBool("jump", true);
             }
-            else if (canGoStraight == PossibleWaysToGoStraight.StraightJump)
+            else if (canGoStraight == PossibleWaysToGoStraight.StraightJump && Rigidbody.velocity.y < .2f)
             {
                 jumpPossibilities = jumpPossibilities.Where(x => !x.Up).ToList();
                 var i = Random.Range(0, jumpPossibilities.Count);
@@ -536,7 +551,6 @@ public class AIPlayerScript : MonoBehaviour
 
         //if (data[x][y].IndexOf("-") != -1)
         //    return int.Parse(data[x][y].Split('-')[0]);
-
         return y > 9 || y < 0 ? 0 : data[x][y].Block;
     }
 
@@ -684,7 +698,9 @@ public class AIPlayerScript : MonoBehaviour
         if (other.gameObject.layer == 12)
         {
             if (canGetDamage && (other.gameObject.name == "GroundTrap" && (int)other.gameObject.GetComponent<MoveObjects>().mouseP.Value.y == Mathf.RoundToInt(transform.position.y)) || other.gameObject.name != "GroundTrap")
+            {
                 GetDamage();
+            }
         }
     }
 
@@ -692,7 +708,7 @@ public class AIPlayerScript : MonoBehaviour
     {
         if (!isFadingToNextLevel)
         {
-            life--;
+            Assets.Scripts.PlayerAttrs.life--;
             Physics.IgnoreLayerCollision(0, 12, true);
             damageTemp = 0;
             isDamaged = true;

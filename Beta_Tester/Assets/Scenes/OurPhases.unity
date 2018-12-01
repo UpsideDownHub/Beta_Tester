@@ -140,7 +140,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 38163387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2299829, y: 4.507567, z: -10}
+  m_LocalPosition: {x: -2.2299829, y: 4.5076246, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1375387288}
@@ -350,6 +350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1904227c8e196841b91c5e66d99e4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totem_flecha: {fileID: 1350342345482308, guid: 2ef1674cafd92b64a84c2b4c20ebb34d,
+    type: 2}
+  poison: {fileID: 1565662915992130, guid: 7de76f49a0397ac46b2be02eb1b147df, type: 2}
+  totem: {fileID: 1543926517804454, guid: 306d6e6c5ffa4cd47886e34edc47f538, type: 2}
   serra: {fileID: 1277880659325058, guid: 53b460a011fcd2d44be7e36638f97481, type: 2}
   flag: {fileID: 1299154681917596, guid: e00d75623abe1754987404b4d7905133, type: 2}
   floor: {fileID: 1135697815509216, guid: 18d69c46cc38e49438dae34192345f6e, type: 2}
@@ -390,13 +394,12 @@ MonoBehaviour:
   gameOver: {fileID: 780535474}
   retry: {fileID: 1554284849}
   loadLevel: {fileID: 0}
-  backToMenu: {fileID: 0}
-  load: {fileID: 0}
   password: {fileID: 0}
   typeYourEmail: {fileID: 0}
   typeYourPassword: {fileID: 0}
   login: {fileID: 0}
   errorText: {fileID: 0}
+  thanksText: {fileID: 0}
 --- !u!114 &65690164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,10 +428,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919d3bb83d3e165428710b3202cd11b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ended: 0
   gameOverPanel: {fileID: 714735783}
   vidasText: {fileID: 822418034}
   button: {fileID: 125567934}
   lifeBetaTester: {fileID: 0}
+  betaTester: {fileID: 0}
+  albert1: {fileID: 0}
+  albert2: {fileID: 0}
+  albert3: {fileID: 0}
+  albert4: {fileID: 0}
+  albert5: {fileID: 0}
+  albert6: {fileID: 0}
+  albert7: {fileID: 0}
+  albert8: {fileID: 0}
+  albert9: {fileID: 0}
+  albert10: {fileID: 0}
 --- !u!4 &65690166
 Transform:
   m_ObjectHideFlags: 0
@@ -518,7 +533,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 65690165}
-        m_MethodName: RetryPhaseCreation
+        m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

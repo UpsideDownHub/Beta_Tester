@@ -2043,7 +2043,7 @@ MonoBehaviour:
   totem: {fileID: 1543926517804454, guid: 306d6e6c5ffa4cd47886e34edc47f538, type: 2}
   serra: {fileID: 1277880659325058, guid: 53b460a011fcd2d44be7e36638f97481, type: 2}
   lava: {fileID: 1013759447595638, guid: ad4db527d0150614ab67407c7e519eff, type: 2}
-  montanha1: {fileID: 1148047502048468, guid: b79513c72a8e88e4f9e9a6954ee0e631, type: 2}
+  montanha1: {fileID: 1117108099363142, guid: b7f02838acdd3be4ba62770bd952c2a9, type: 2}
   montanha2: {fileID: 1845590983178184, guid: c5a2f49c7aee7e74f9b334b4715c422c, type: 2}
   flag: {fileID: 1299154681917596, guid: e00d75623abe1754987404b4d7905133, type: 2}
   panelContent: {fileID: 1198553330}
@@ -2052,7 +2052,7 @@ MonoBehaviour:
   floor2: {fileID: 1008104094897616, guid: 5b71f92aa4d8b2f4f8cccc4018b3bb7e, type: 2}
   LeftStair: {fileID: 1919943908803144, guid: 61ba110aff8e8b04b908fe21b1829d05, type: 2}
   RightStair: {fileID: 1269596453768092, guid: e5b4607b71a7c714a9b9624bba9f733c, type: 2}
-  Character: {fileID: 1894234277545518, guid: 117bec1049c0eb24c8892d322e971e98, type: 2}
+  Character: {fileID: 1539145061355200, guid: c62cec81ee0229944aaba8ce96d86f8f, type: 2}
   Canvas: {fileID: 1991637883}
   Canvas2: {fileID: 244959084}
   Camera: {fileID: 1593320494}
@@ -4012,7 +4012,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1510188867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2299829, y: 4.5076246, z: -10}
+  m_LocalPosition: {x: -2.23, y: 3.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 176279510}
@@ -5162,8 +5162,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 1.1915302, y: 17.859684}
       - {x: -19.798326, y: 18.006157}
-      - {x: -19.744932, y: 0.50786746}
-      - {x: 116.79498, y: 0.50355184}
+      - {x: -19.01229, y: -1.7423364}
+      - {x: 117.05122, y: -2.5237496}
       - {x: 116.95322, y: 18.23706}
 --- !u!1 &1991637883
 GameObject:
@@ -5386,8 +5386,6 @@ MonoBehaviour:
   gameOver: {fileID: 1276006571}
   retry: {fileID: 473674011}
   loadLevel: {fileID: 0}
-  backToMenu: {fileID: 0}
-  load: {fileID: 0}
   password: {fileID: 506648143}
   typeYourEmail: {fileID: 1076498162}
   typeYourPassword: {fileID: 307476741}

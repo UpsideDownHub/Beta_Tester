@@ -84,7 +84,7 @@ public class PhaseCreationManager : MonoBehaviour
 
             rect.offsetMax = new Vector2(x, y);
 
-            obj.GetComponentInChildren<Text>().text = phases[i].Name + (phases[i].Tested? "" : " (Não testado)");//fileList.Files[i].Name;
+            obj.GetComponentInChildren<Text>().text = phases[i].Name + (phases[i].Tested ? "" : " (Não testado)");//fileList.Files[i].Name;
 
             Fileids.Add(obj, phases[i].FileId);//fileList.Files[i].Id);
 
@@ -98,6 +98,7 @@ public class PhaseCreationManager : MonoBehaviour
     private void SetResult(UnityGoogleDrive.Data.File file)
     {
         result = Encoding.UTF8.GetString(file.Content);
+        data = new List<List<Assets.Scripts.DAL.PhaseData>>();
         createdObjs.ForEach(x => Destroy(x));
 
         var lines = result.Split('\n');
@@ -110,7 +111,7 @@ public class PhaseCreationManager : MonoBehaviour
             var val = __line.Split('_');
             if (val.Count() < 10) continue;
 
-            for(var i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
                 line.Add(JsonUtils.FromJsonPrivateCamel<Assets.Scripts.DAL.PhaseData>(val[i]));
 
             data.Add(line);
@@ -165,9 +166,16 @@ public class PhaseCreationManager : MonoBehaviour
             }
         }
 
-        
-        //Instantiate(lava, lava.transform.position, Quaternion.identity);
-        //Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+        for (var i = 1; i <= 3; i++)
+            Instantiate(montanha1, new Vector3(- (i * 9), 0), Quaternion.identity);
+
+        for (var i = 0; i < Mathf.RoundToInt(data.Count / 9) + 1; i++)
+            Instantiate(montanha1, new Vector3(i * 9, 0), Quaternion.identity);
+
+        Instantiate(lava, lava.transform.position, Quaternion.identity);
+        Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+
+        //MONTATNHA - 9
         //Instantiate(montanha1, montanha1.transform.position, Quaternion.identity);
         //Instantiate(montanha2, montanha2.transform.position, Quaternion.identity);
 
@@ -176,7 +184,7 @@ public class PhaseCreationManager : MonoBehaviour
         Canvas.SetActive(false);
         Canvas2.SetActive(true);
         loading.SetActive(false);
-        PlayerScript3D.life = 5;
+        Assets.Scripts.PlayerAttrs.life = 5;
         GameObject.Find("Scripts").GetComponent<GameOver>().ended = false;
         GameOver.inGame = true;
     }
@@ -224,7 +232,7 @@ public class PhaseCreationManager : MonoBehaviour
             case 8:
                 return poison;
             case 9:
-                return totem_flecha; 
+                return totem_flecha;
             default:
                 return floor;
         }

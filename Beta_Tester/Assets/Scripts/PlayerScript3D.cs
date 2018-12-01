@@ -147,7 +147,7 @@ public class PlayerScript3D : MonoBehaviour
         if (rb.velocity.y > 4.5)
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y);
         
-        if (life <= 0)
+        if (Assets.Scripts.PlayerAttrs.life <= 0)
             gameObject.SetActive(false);
         else
             gameObject.SetActive(true);
@@ -353,11 +353,9 @@ public class PlayerScript3D : MonoBehaviour
 
     public void GetDamage()
     {
-        print("asd");
         if (!isFadingToNextLevel && canGetDamage)
         {
-            print("qwe");
-            life--;
+            Assets.Scripts.PlayerAttrs.life--;
             Physics.IgnoreLayerCollision(0, 12, true);
             damageTemp = 0;
             isDamaged = true;
