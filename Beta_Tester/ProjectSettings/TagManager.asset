@@ -18,6 +18,7 @@ TagManager:
   - Trap
   - FireBall
   - Selectable
+  - flecha
   layers:
   - Default
   - TransparentFX

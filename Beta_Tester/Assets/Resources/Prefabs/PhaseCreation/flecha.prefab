@@ -20,9 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4542492618746800}
   - component: {fileID: 212693723422877524}
+  - component: {fileID: 114153598826146882}
+  - component: {fileID: 65561221206348810}
   m_Layer: 0
   m_Name: flecha
-  m_TagString: Untagged
+  m_TagString: flecha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +42,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65561221206348810
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1672032861749658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 0.16, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114153598826146882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1672032861749658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18243a6782910c54793d098512d2ceef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  direction: 1
+  prefabBOOM: {fileID: 0}
+  prefabPedraPuf: {fileID: 0}
+  prefabMira: {fileID: 0}
+  prefabDust: {fileID: 0}
+  isActivated: 0
+  Activated: 0
 --- !u!212 &212693723422877524
 SpriteRenderer:
   m_ObjectHideFlags: 1
