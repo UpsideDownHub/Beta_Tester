@@ -84,11 +84,14 @@ public class GameOver : MonoBehaviour
         #endregion
 
         #region BetaTester
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 7)
         {
             if (!GameManager.isLevelCompleted)
             {
-                lifeBetaTester.value -= 0.001f;
+                if (MenuBetaTester.personality == 3)
+                    lifeBetaTester.value -= 0.005f;
+                else if (MenuBetaTester.personality == 2)
+                    lifeBetaTester.value -= 0.0005f;
             }
             else
             {

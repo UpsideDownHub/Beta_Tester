@@ -71,6 +71,8 @@ public class Cutscenes : MonoBehaviour
     float temp6;
     bool dontRepeat4;
 
+    public GameObject loadingText;
+
     private void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
@@ -260,7 +262,8 @@ public class Cutscenes : MonoBehaviour
                 }
                 if (temp2 <= 45 && temp2 >= 44)
                 {
-                    SceneManager.LoadScene(1);
+                    StartCoroutine(LoadAsynchronously(1));
+                    temp = 46;
                 }
             }
         }
@@ -952,7 +955,7 @@ public class Cutscenes : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
-                SceneManager.LoadScene(1);
+                StartCoroutine(LoadAsynchronously(1));
             }
 
             if (SceneManager.GetActiveScene().buildIndex == 1)
@@ -1112,5 +1115,19 @@ public class Cutscenes : MonoBehaviour
     void CantMoveCreditsText()
     {
         canMoveCreditsText = false;
+    }
+
+    IEnumerator LoadAsynchronously(int sceneIndex) //Tela de loading
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        canvasCutscene.SetActive(false);
+        loadingText.transform.position = new Vector3(-Camera.main.orthographicSize * Camera.main.aspect + 3.5f, loadingText.transform.position.y);
+        loadingText.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
     }
 }

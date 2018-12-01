@@ -35,94 +35,311 @@ public class Selectable : MonoBehaviour {
             {
                 RaycastHit hit = _hit.First();
 
-                if (activateTrapTime >= 2)
+                if (MenuBetaTester.personality == 1)
                 {
-                    if (hit.collider.name == "Planta" || hit.collider.name == "PoisonTrap" || hit.collider.name == "PoisonTrap(Clone)")
+                    if (activateTrapTime >= 2)
                     {
-                        var particleManager = hit.collider.transform.Find("poison").GetComponent<ParticleManager>();
-                        particleManager.poisonParticle.Play();
-                        activateTrapTime = 0;
-                    }
-
-                    else if (hit.collider.name == "Totem(Clone)")
-                    {
-                        var totem = hit.collider.gameObject.GetComponent<Assets.Scripts.Totem>();
-                        totem.StartEffect();
-                        activateTrapTime = 0;
-                    }
-
-                    else if (hit.collider.name == "serra" || hit.collider.name == "serra(Clone)")
-                    {
-                        var trapManager = hit.collider.gameObject.GetComponent<TrapManager>();
-                        var rb = hit.collider.gameObject.GetComponent<Rigidbody>();
-                        trapManager.ActivateTrap = true;
-                        rb.AddForce(new Vector3(0, 250, 0));
-                        rb.useGravity = true;
-                        activateTrapTime = 0;
-                    }
-
-                    else if (hit.collider.name == "gelo (2)")
-                    {
-                        var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();
-                        moveObjects.speed = 3;
-                        gameOver.lifeBetaTester.value += 0.15f;
-                        activateTrapTime = 0;
-                    }
-
-                    else if (hit.collider.name == "Enemy1")
-                    {
-                        var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
-                        enemyScript.prefab = prefab;
-                        gameOver.lifeBetaTester.value += 0.15f;
-                        activateTrapTime = 0;
-                    }
-
-                    else if (hit.collider.name == "Enemy5")
-                    {
-                        var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
-                        enemyScript.isClicked = true;
-                        activateTrapTime = 0;
-                    }
-
-                    else if (hit.collider.tag == "Trap")
-                    {
-                        var animator = hit.collider.gameObject.GetComponent<Animator>();
-                        var boxC = hit.collider.gameObject.GetComponent<BoxCollider>();
-                        var moveObjects = hit.collider.GetComponent<MoveObjects>();
-
-                        if (hit.transform.position.x < playerT.position.x - 2)
+                        if (hit.collider.name == "Planta" || hit.collider.name == "PoisonTrap" || hit.collider.name == "PoisonTrap(Clone)")
                         {
-                            boxC.size = new Vector3(boxC.size.x, 1.962251f, boxC.size.z);
-                            boxC.center = new Vector3(boxC.center.x, 0.02961075f, boxC.center.z);
-                            animator.enabled = true;
-                            boxC.enabled = true;
-                            animator.SetBool("Flying", true);
-                            moveObjects.isActivated = true;
-                            Instantiate(prefabSpellBind, hit.collider.transform);
-
-                            if (!moveObjects.Activated)
-                                activateTrapTime = 0;
-                            moveObjects.Activated = true;
+                            var particleManager = hit.collider.transform.Find("poison").GetComponent<ParticleManager>();
+                            particleManager.poisonParticle.Play();
+                            activateTrapTime = 0;
                         }
-                        else if (hit.transform.position.x > playerT.position.x + 2)
-                        {
-                            animator.enabled = true;
-                            var boxC2 = hit.collider.gameObject.AddComponent<BoxCollider>();
-                            boxC2.center = new Vector3(-0.1026254f, -0.4772545f, 0);
-                            boxC2.size = new Vector3(1.438596f, 0.7692058f, 0.2f);
 
-                            if (!moveObjects.Activated)
-                                activateTrapTime = 0;
-                            moveObjects.Activated = true;
+                        else if (hit.collider.name == "Totem(Clone)")
+                        {
+                            var totem = hit.collider.gameObject.GetComponent<Assets.Scripts.Totem>();
+                            totem.StartEffect();
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "serra" || hit.collider.name == "serra(Clone)")
+                        {
+                            var trapManager = hit.collider.gameObject.GetComponent<TrapManager>();
+                            var rb = hit.collider.gameObject.GetComponent<Rigidbody>();
+                            trapManager.ActivateTrap = true;
+                            rb.AddForce(new Vector3(0, 250, 0));
+                            rb.useGravity = true;
+                            gameOver.lifeBetaTester.value -= 0.05f;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "gelo (2)")
+                        {
+                            var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();
+                            moveObjects.speed = 3;
+                            gameOver.lifeBetaTester.value += 0.15f;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "Enemy1")
+                        {
+                            var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
+                            enemyScript.prefab = prefab;
+                            gameOver.lifeBetaTester.value += 0.15f;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "Enemy5")
+                        {
+                            var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
+                            enemyScript.isClicked = true;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.tag == "Trap")
+                        {
+                            var animator = hit.collider.gameObject.GetComponent<Animator>();
+                            var boxC = hit.collider.gameObject.GetComponent<BoxCollider>();
+                            var moveObjects = hit.collider.GetComponent<MoveObjects>();
+
+                            if (hit.transform.position.x < playerT.position.x - 2)
+                            {
+                                boxC.size = new Vector3(boxC.size.x, 1.962251f, boxC.size.z);
+                                boxC.center = new Vector3(boxC.center.x, 0.02961075f, boxC.center.z);
+                                animator.enabled = true;
+                                boxC.enabled = true;
+                                animator.SetBool("Flying", true);
+                                moveObjects.isActivated = true;
+                                Instantiate(prefabSpellBind, hit.collider.transform);
+
+                                gameOver.lifeBetaTester.value -= 0.05f;
+
+                                if (!moveObjects.Activated)
+                                    activateTrapTime = 0;
+                                moveObjects.Activated = true;
+                            }
+                            else if (hit.transform.position.x > playerT.position.x + 2)
+                            {
+                                animator.enabled = true;
+                                var boxC2 = hit.collider.gameObject.AddComponent<BoxCollider>();
+                                boxC2.center = new Vector3(-0.1026254f, -0.4772545f, 0);
+                                boxC2.size = new Vector3(1.438596f, 0.7692058f, 0.2f);
+
+                                gameOver.lifeBetaTester.value -= 0.05f;
+
+                                if (!moveObjects.Activated)
+                                    activateTrapTime = 0;
+                                moveObjects.Activated = true;
+                            }
+                        }
+
+                        else if (hit.collider.tag == "Fall" || hit.collider.name == "PoisonE")
+                        {
+                            var rigidbody = hit.transform.GetComponent<Rigidbody>();
+                            if (rigidbody == null) return;
+                            rigidbody.useGravity = true;
+
+                            gameOver.lifeBetaTester.value -= 0.05f;
+
+                            activateTrapTime = 0;
                         }
                     }
-
-                    else if (hit.collider.tag == "Fall" || hit.collider.name == "PoisonE")
+                }
+                else if (MenuBetaTester.personality == 2)
+                {
+                    if (activateTrapTime >= 1)
                     {
-                        var rigidbody = hit.transform.GetComponent<Rigidbody>();
-                        if (rigidbody == null) return;
-                        rigidbody.useGravity = true;
-                        activateTrapTime = 0;
+                        if (hit.collider.name == "Planta" || hit.collider.name == "PoisonTrap" || hit.collider.name == "PoisonTrap(Clone)")
+                        {
+                            var particleManager = hit.collider.transform.Find("poison").GetComponent<ParticleManager>();
+                            particleManager.poisonParticle.Play();
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "Totem(Clone)")
+                        {
+                            var totem = hit.collider.gameObject.GetComponent<Assets.Scripts.Totem>();
+                            totem.StartEffect();
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "serra" || hit.collider.name == "serra(Clone)")
+                        {
+                            var trapManager = hit.collider.gameObject.GetComponent<TrapManager>();
+                            var rb = hit.collider.gameObject.GetComponent<Rigidbody>();
+                            trapManager.ActivateTrap = true;
+                            rb.AddForce(new Vector3(0, 250, 0));
+                            rb.useGravity = true;
+
+                            gameOver.lifeBetaTester.value += 0.05f;
+
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "gelo (2)")
+                        {
+                            var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();
+                            moveObjects.speed = 3;
+                            gameOver.lifeBetaTester.value += 0.15f;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "Enemy1")
+                        {
+                            var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
+                            enemyScript.prefab = prefab;
+                            gameOver.lifeBetaTester.value += 0.15f;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "Enemy5")
+                        {
+                            var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
+                            enemyScript.isClicked = true;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.tag == "Trap")
+                        {
+                            var animator = hit.collider.gameObject.GetComponent<Animator>();
+                            var boxC = hit.collider.gameObject.GetComponent<BoxCollider>();
+                            var moveObjects = hit.collider.GetComponent<MoveObjects>();
+
+                            if (hit.transform.position.x < playerT.position.x - 2)
+                            {
+                                boxC.size = new Vector3(boxC.size.x, 1.962251f, boxC.size.z);
+                                boxC.center = new Vector3(boxC.center.x, 0.02961075f, boxC.center.z);
+                                animator.enabled = true;
+                                boxC.enabled = true;
+                                animator.SetBool("Flying", true);
+                                moveObjects.isActivated = true;
+                                Instantiate(prefabSpellBind, hit.collider.transform);
+
+                                gameOver.lifeBetaTester.value += 0.05f;
+
+                                if (!moveObjects.Activated)
+                                    activateTrapTime = 0;
+                                moveObjects.Activated = true;
+                            }
+                            else if (hit.transform.position.x > playerT.position.x + 2)
+                            {
+                                animator.enabled = true;
+                                var boxC2 = hit.collider.gameObject.AddComponent<BoxCollider>();
+                                boxC2.center = new Vector3(-0.1026254f, -0.4772545f, 0);
+                                boxC2.size = new Vector3(1.438596f, 0.7692058f, 0.2f);
+
+                                gameOver.lifeBetaTester.value += 0.05f;
+
+                                if (!moveObjects.Activated)
+                                    activateTrapTime = 0;
+                                moveObjects.Activated = true;
+                            }
+                        }
+
+                        else if (hit.collider.tag == "Fall" || hit.collider.name == "PoisonE")
+                        {
+                            var rigidbody = hit.transform.GetComponent<Rigidbody>();
+                            if (rigidbody == null) return;
+                            rigidbody.useGravity = true;
+
+                            gameOver.lifeBetaTester.value += 0.05f;
+
+                            activateTrapTime = 0;
+                        }
+                    }
+                }
+                else if (MenuBetaTester.personality == 3)
+                {
+                    if (activateTrapTime >= 0.1f)
+                    {
+                        if (hit.collider.name == "Planta" || hit.collider.name == "PoisonTrap" || hit.collider.name == "PoisonTrap(Clone)")
+                        {
+                            var particleManager = hit.collider.transform.Find("poison").GetComponent<ParticleManager>();
+                            particleManager.poisonParticle.Play();
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "Totem(Clone)")
+                        {
+                            var totem = hit.collider.gameObject.GetComponent<Assets.Scripts.Totem>();
+                            totem.StartEffect();
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "serra" || hit.collider.name == "serra(Clone)")
+                        {
+                            var trapManager = hit.collider.gameObject.GetComponent<TrapManager>();
+                            var rb = hit.collider.gameObject.GetComponent<Rigidbody>();
+                            trapManager.ActivateTrap = true;
+                            rb.AddForce(new Vector3(0, 250, 0));
+                            rb.useGravity = true;
+
+                            gameOver.lifeBetaTester.value += 0.15f;
+
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "gelo (2)")
+                        {
+                            var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();
+                            moveObjects.speed = 3;
+                            gameOver.lifeBetaTester.value += 0.15f;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "Enemy1")
+                        {
+                            var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
+                            enemyScript.prefab = prefab;
+                            gameOver.lifeBetaTester.value += 0.15f;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.name == "Enemy5")
+                        {
+                            var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
+                            enemyScript.isClicked = true;
+                            activateTrapTime = 0;
+                        }
+
+                        else if (hit.collider.tag == "Trap")
+                        {
+                            var animator = hit.collider.gameObject.GetComponent<Animator>();
+                            var boxC = hit.collider.gameObject.GetComponent<BoxCollider>();
+                            var moveObjects = hit.collider.GetComponent<MoveObjects>();
+
+                            if (hit.transform.position.x < playerT.position.x - 2)
+                            {
+                                boxC.size = new Vector3(boxC.size.x, 1.962251f, boxC.size.z);
+                                boxC.center = new Vector3(boxC.center.x, 0.02961075f, boxC.center.z);
+                                animator.enabled = true;
+                                boxC.enabled = true;
+                                animator.SetBool("Flying", true);
+                                moveObjects.isActivated = true;
+                                Instantiate(prefabSpellBind, hit.collider.transform);
+
+                                gameOver.lifeBetaTester.value += 0.15f;
+
+                                if (!moveObjects.Activated)
+                                    activateTrapTime = 0;
+                                moveObjects.Activated = true;
+                            }
+                            else if (hit.transform.position.x > playerT.position.x + 2)
+                            {
+                                animator.enabled = true;
+                                var boxC2 = hit.collider.gameObject.AddComponent<BoxCollider>();
+                                boxC2.center = new Vector3(-0.1026254f, -0.4772545f, 0);
+                                boxC2.size = new Vector3(1.438596f, 0.7692058f, 0.2f);
+
+                                gameOver.lifeBetaTester.value += 0.15f;
+
+                                if (!moveObjects.Activated)
+                                    activateTrapTime = 0;
+                                moveObjects.Activated = true;
+                            }
+                        }
+
+                        else if (hit.collider.tag == "Fall" || hit.collider.name == "PoisonE")
+                        {
+                            var rigidbody = hit.transform.GetComponent<Rigidbody>();
+                            if (rigidbody == null) return;
+                            rigidbody.useGravity = true;
+
+                            gameOver.lifeBetaTester.value += 0.15f;
+
+                            activateTrapTime = 0;
+                        }
                     }
                 }
             }

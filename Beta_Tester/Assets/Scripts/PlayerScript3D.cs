@@ -45,6 +45,8 @@ public class PlayerScript3D : MonoBehaviour
     public static Vector3 initialPosition;
     public static bool isInstantiated;
 
+    float horizontalMove = 0;
+
     void Start()
     {
         objectsVerified = new List<GameObject>();
@@ -181,33 +183,100 @@ public class PlayerScript3D : MonoBehaviour
 
             tempEvade += Time.deltaTime;
 
-            if (tempEvade >= 1f)
+            if (MenuBetaTester.personality == 1)
             {
-                if (leftObjects.Count > 0 || rightObjects.Count > 0)
+                if (tempEvade >= 0.1f)
                 {
-                    if (leftObjects.Count > 0)
-                        objectsVerified.Add(leftObjects.First());
-
-                    if (rightObjects.Count > 0)
-                        objectsVerified.Add(rightObjects.First());
-
-                    var position = (Positions)transform.position.CorrectPositions().y;
-                    var newPosition = position.SearchNewPath();
-                    nextPosition = newPosition;
-
-                    if (newPosition == Positions.Top || (newPosition == Positions.Middle && Mathf.RoundToInt(transform.position.y) < (int)Positions.Middle))
+                    if (leftObjects.Count > 0 || rightObjects.Count > 0)
                     {
-                        y = 5;
-                        isMovingUp = true;
-                    }
-                    else
-                    {
-                        y = -5;
-                        isMovingUp = false;
-                    }
+                        if (leftObjects.Count > 0)
+                            objectsVerified.Add(leftObjects.First());
 
-                    isEvading = true;
-                    tempEvade = 0;
+                        if (rightObjects.Count > 0)
+                            objectsVerified.Add(rightObjects.First());
+
+                        var position = (Positions)transform.position.CorrectPositions().y;
+                        var newPosition = position.SearchNewPath();
+                        nextPosition = newPosition;
+
+                        if (newPosition == Positions.Top || (newPosition == Positions.Middle && Mathf.RoundToInt(transform.position.y) < (int)Positions.Middle))
+                        {
+                            y = 5;
+                            isMovingUp = true;
+                        }
+                        else
+                        {
+                            y = -5;
+                            isMovingUp = false;
+                        }
+
+                        isEvading = true;
+                        tempEvade = 0;
+                    }
+                }
+            }
+            else if (MenuBetaTester.personality == 2)
+            {
+                if (tempEvade >= 0.7f)
+                {
+                    if (leftObjects.Count > 0 || rightObjects.Count > 0)
+                    {
+                        if (leftObjects.Count > 0)
+                            objectsVerified.Add(leftObjects.First());
+
+                        if (rightObjects.Count > 0)
+                            objectsVerified.Add(rightObjects.First());
+
+                        var position = (Positions)transform.position.CorrectPositions().y;
+                        var newPosition = position.SearchNewPath();
+                        nextPosition = newPosition;
+
+                        if (newPosition == Positions.Top || (newPosition == Positions.Middle && Mathf.RoundToInt(transform.position.y) < (int)Positions.Middle))
+                        {
+                            y = 5;
+                            isMovingUp = true;
+                        }
+                        else
+                        {
+                            y = -5;
+                            isMovingUp = false;
+                        }
+
+                        isEvading = true;
+                        tempEvade = 0;
+                    }
+                }
+            }
+            else if (MenuBetaTester.personality == 3)
+            {
+                if (tempEvade >= 1.25f)
+                {
+                    if (leftObjects.Count > 0 || rightObjects.Count > 0)
+                    {
+                        if (leftObjects.Count > 0)
+                            objectsVerified.Add(leftObjects.First());
+
+                        if (rightObjects.Count > 0)
+                            objectsVerified.Add(rightObjects.First());
+
+                        var position = (Positions)transform.position.CorrectPositions().y;
+                        var newPosition = position.SearchNewPath();
+                        nextPosition = newPosition;
+
+                        if (newPosition == Positions.Top || (newPosition == Positions.Middle && Mathf.RoundToInt(transform.position.y) < (int)Positions.Middle))
+                        {
+                            y = 5;
+                            isMovingUp = true;
+                        }
+                        else
+                        {
+                            y = -5;
+                            isMovingUp = false;
+                        }
+
+                        isEvading = true;
+                        tempEvade = 0;
+                    }
                 }
             }
 
@@ -233,31 +302,33 @@ public class PlayerScript3D : MonoBehaviour
         #region [Controllable]
         else
         {
-            if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
-            {
-                moving = false;
-                rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
-            }
+            horizontalMove = Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
 
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
-                moving = true;
-            }
+            //if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+            //{
+            //    moving = false;
+            //    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+            //}
 
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-                moving = true;
-            }
+            //if (Input.GetKey(KeyCode.LeftArrow))
+            //{
+            //    rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+            //    moving = true;
+            //}
 
-            if (Input.GetKeyDown(KeyCode.Z) && grounded && SceneManager.GetActiveScene().buildIndex != 2)
-            {
-                if (rb.velocity.y < 4.5)
-                {
-                    rb.AddForce(new Vector3(0, 300, 0));
-                }
-            }
+            //if (Input.GetKey(KeyCode.RightArrow))
+            //{
+            //    rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+            //    moving = true;
+            //}
+
+            //if (Input.GetKeyDown(KeyCode.Z) && grounded && SceneManager.GetActiveScene().buildIndex != 2)
+            //{
+            //    if (rb.velocity.y < 4.5)
+            //    {
+            //        rb.AddForce(new Vector3(0, 300, 0));
+            //    }
+            //}
 
             //movimentação da fase de fogo
 
