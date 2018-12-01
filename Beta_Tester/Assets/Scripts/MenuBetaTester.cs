@@ -38,12 +38,6 @@ public class MenuBetaTester : MonoBehaviour {
     public Text videoText;
     public Text videoOnlyText;
     public Text backText;
-    public Text albertPistolText;
-    public Text balancedAlbertText;
-    public Text medicatedAlbertText;
-    public Text pistolDescriptionText;
-    public Text balancedDescriptionText;
-    public Text medicatedDescriptionText;
 
     public Slider musicSlider;
     public Slider soundSlider;
@@ -77,6 +71,15 @@ public class MenuBetaTester : MonoBehaviour {
     public static bool betaTesterCutscene;
     public GameObject canvasCutscene;
 
+    public Image prancheta1;
+    public Image prancheta2;
+    public Image prancheta3;
+    public Sprite prancheta1S;
+    public Sprite prancheta2S;
+    public Sprite prancheta3S;
+    public Sprite prancheta4S;
+    public Sprite prancheta5S;
+    public Sprite prancheta6S;
 
     Button newGameButton;
     Button gameOptionsButton;
@@ -157,12 +160,10 @@ public class MenuBetaTester : MonoBehaviour {
                 videoText.text = "VIDEO";
                 videoOnlyText.text = "VIDEO";
                 backText.text = "BACK";
-                albertPistolText.text = "Albert Pistol";
-                balancedAlbertText.text = "Balanced Albert";
-                medicatedAlbertText.text = "Medicated Albert";
-                pistolDescriptionText.text = "Created with milk and pear, ovomaltine and bread with mortadella. He hates challenges and says that he is a Pro Player, but only plays in the easy difficult.";
-                balancedDescriptionText.text = "Likes challenge in the right measure.Do not make your life easier, but do not make the game impossible either.";
-                medicatedDescriptionText.text = "Likes to be challenged to the fullest. The greater the difficulty, the happier he gets.";
+
+                prancheta1.sprite = prancheta1S;
+                prancheta2.sprite = prancheta2S;
+                prancheta3.sprite = prancheta3S;
 
                 languageDropDown.ClearOptions();
                 languageDropDown.AddOptions(englishOptions);
@@ -192,12 +193,10 @@ public class MenuBetaTester : MonoBehaviour {
                 videoText.text = "VÍDEO";
                 videoOnlyText.text = "VÍDEO";
                 backText.text = "VOLTAR";
-                albertPistolText.text = "Albert Pistola";
-                balancedAlbertText.text = "Albert Equilibrado";
-                medicatedAlbertText.text = "Albert Medicado";
-                pistolDescriptionText.text = "Criado a leite com pera, ovomaltine e pão com mortadela. Odeia desafios, diz que é Pro Player, mas só joga no easy.";
-                balancedDescriptionText.text = "Gosta de desafios na medida certa. Não facilite sua vida, mas também não torne o jogo impossível.";
-                medicatedDescriptionText.text = "Gosta de ser desafiado ao máximo. Quanto maior a dificuldade, mais feliz ele fica.";
+
+                prancheta1.sprite = prancheta4S;
+                prancheta2.sprite = prancheta5S;
+                prancheta3.sprite = prancheta6S;
 
                 languageDropDown.ClearOptions();
                 languageDropDown.AddOptions(portugueseOptions);
@@ -244,12 +243,10 @@ public class MenuBetaTester : MonoBehaviour {
             videoText.text = "VIDEO";
             videoOnlyText.text = "VIDEO";
             backText.text = "BACK";
-            albertPistolText.text = "Albert Pistol";
-            balancedAlbertText.text = "Balanced Albert";
-            medicatedAlbertText.text = "Medicated Albert";
-            pistolDescriptionText.text = "Created with milk and pear, ovomaltine and bread with mortadella. He hates challenges and says that he is a Pro Player, but only plays in the easy difficult.";
-            balancedDescriptionText.text = "Likes challenge in the right measure.Do not make your life easier, but do not make the game impossible either.";
-            medicatedDescriptionText.text = "Likes to be challenged to the fullest. The greater the difficulty, the happier he gets.";
+
+            prancheta1.sprite = prancheta1S;
+            prancheta2.sprite = prancheta2S;
+            prancheta3.sprite = prancheta3S;
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(englishOptions);
@@ -418,12 +415,10 @@ public class MenuBetaTester : MonoBehaviour {
             videoText.text = "VIDEO";
             videoOnlyText.text = "VIDEO";
             backText.text = "BACK";
-            albertPistolText.text = "Albert Pistol";
-            balancedAlbertText.text = "Balanced Albert";
-            medicatedAlbertText.text = "Medicated Albert";
-            pistolDescriptionText.text = "Created with milk and pear, ovomaltine and bread with mortadella. He hates challenges and says that he is a Pro Player, but only plays in the easy difficult.";
-            balancedDescriptionText.text = "Likes challenge in the right measure.Do not make your life easier, but do not make the game impossible either.";
-            medicatedDescriptionText.text = "Likes to be challenged to the fullest. The greater the difficulty, the happier he gets.";
+
+            prancheta1.sprite = prancheta1S;
+            prancheta2.sprite = prancheta2S;
+            prancheta3.sprite = prancheta3S;
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(englishOptions);
@@ -454,12 +449,10 @@ public class MenuBetaTester : MonoBehaviour {
             videoText.text = "VÍDEO";
             videoOnlyText.text = "VÍDEO";
             backText.text = "VOLTAR";
-            albertPistolText.text = "Albert Pistola";
-            balancedAlbertText.text = "Albert Equilibrado";
-            medicatedAlbertText.text = "Albert Medicado";
-            pistolDescriptionText.text = "Criado a leite com pera, ovomaltine e pão com mortadela. Odeia desafios, diz que é Pro Player, mas só joga no easy.";
-            balancedDescriptionText.text = "Gosta de desafios na medida certa. Não facilite sua vida, mas também não torne o jogo impossível.";
-            medicatedDescriptionText.text = "Gosta de ser desafiado ao máximo. Quanto maior a dificuldade, mais feliz ele fica.";
+
+            prancheta1.sprite = prancheta4S;
+            prancheta2.sprite = prancheta5S;
+            prancheta3.sprite = prancheta6S;
 
             languageDropDown.ClearOptions();
             languageDropDown.AddOptions(portugueseOptions);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Assets.Script.Helpers;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -11,6 +12,8 @@ namespace Assets.Scripts
     {
         public static int time;
         public static CountDown timeCount = new CountDown(1000);
+
+        public Text timeText;
 
         private void Start()
         {
@@ -26,6 +29,8 @@ namespace Assets.Scripts
             else if (timeCount.CoolDown < 0)
                 timeCount.CoolDown = 0;
 
+            timeText.text = timeCount.CoolDown.ToString().Replace('.', ':');
+            
             print(timeCount.CoolDown);
         }
 
