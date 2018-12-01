@@ -58,7 +58,7 @@ public class GameOver : MonoBehaviour
         #region JimmyInTheHell
         //vidas.ForEach(x => x.enabled = false);
 
-        if (Assets.Scripts.PlayerAttrs.life == 0 && !ended || Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown == 0 && !ended)
+        if (Assets.Scripts.PlayerAttrs.life == 0 && !ended || (Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown == 0 && !ended && SceneManager.GetActiveScene().buildIndex == 5))
         {
 
             var phase = Assets.Scripts.DAL.BetaTesterContext.Phase.GetData().SingleOrDefault(x => x.FileId == Assets.Scripts.DAL.BetaTesterContext.FileId);

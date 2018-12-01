@@ -11,6 +11,9 @@ using UnityGoogleDrive;
 
 public class OurPhases : MonoBehaviour
 {
+    [SerializeField] GameObject ceu;
+    [SerializeField] GameObject lava;
+    [SerializeField] GameObject montanha1;
     [SerializeField] GameObject totem_flecha;
     [SerializeField] GameObject poison;
     [SerializeField] GameObject totem;
@@ -100,6 +103,22 @@ public class OurPhases : MonoBehaviour
                 }
             }
         }
+
+        for (var i = 1; i <= 3; i++)
+            Instantiate(montanha1, new Vector3(-(i * 8), 0), Quaternion.identity);
+
+        for (var i = 0; i < Mathf.RoundToInt(data.Count / 8) + 3; i++)
+            Instantiate(montanha1, new Vector3(i * 8, 0), Quaternion.identity);
+
+        for (var i = 1; i <= 3; i++)
+            Instantiate(montanha1, new Vector3(-(i * 8), 0), Quaternion.identity);
+
+        for (var i = 0; i < Mathf.RoundToInt(data.Count / 8) + 3; i++)
+            Instantiate(montanha1, new Vector3(i * 8, 0), Quaternion.identity);
+
+
+        Instantiate(lava, lava.transform.position, Quaternion.identity);
+        Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
 
         //for (var i = 1; i <= 3; i++)
         //    Instantiate(montanha1, new Vector3(-(i * 9), 0), Quaternion.identity);

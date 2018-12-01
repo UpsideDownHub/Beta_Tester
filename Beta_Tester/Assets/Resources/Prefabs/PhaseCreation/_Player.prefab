@@ -275,6 +275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 124dd5ad1298d9742bd6e506f838eb62, type: 2}
   poisonParticle: {fileID: 0}
+  poisonFumaca1: {fileID: 0}
+  poisonFumaca2: {fileID: 0}
 --- !u!114 &114561057226895616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,7 +294,7 @@ MonoBehaviour:
   MaxXToJump: 3
   speed: 1.5
   tileM: {fileID: 0}
-  JumpProblability: 50
+  JumpProblability: 85
   canGetDamage: 0
 --- !u!114 &114794426332973562
 MonoBehaviour:
