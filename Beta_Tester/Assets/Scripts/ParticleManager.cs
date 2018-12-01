@@ -16,6 +16,8 @@ public class ParticleManager : MonoBehaviour
 
     //PoisonParticle
     public ParticleSystem poisonParticle;
+    public ParticleSystem poisonFumaca1;
+    public ParticleSystem poisonFumaca2;
 
     private void Start()
     {
@@ -36,6 +38,12 @@ public class ParticleManager : MonoBehaviour
         {
             poisonParticle = GetComponent<ParticleSystem>();
             poisonParticle.Stop();
+            var playerColliderT = GameObject.Find("collider").GetComponent<Transform>();
+            if (transform.parent.gameObject.name == "PoisonTrap")
+            {
+                poisonFumaca1.trigger.SetCollider(0, playerColliderT);
+                poisonFumaca2.trigger.SetCollider(0, playerColliderT);
+            }
         }
     }
 

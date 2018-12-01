@@ -8,7 +8,7 @@ public class ParticleTrigger : MonoBehaviour {
 
     private void Start()
     {
-        playerScript = GameObject.Find("Player").GetComponent<PlayerScript3D>();
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript3D>();
     }
 
     void OnParticleTrigger()

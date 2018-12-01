@@ -37,7 +37,7 @@ public class Selectable : MonoBehaviour {
 
                 if (activateTrapTime >= 2)
                 {
-                    if (hit.collider.name == "Planta")
+                    if (hit.collider.name == "Planta" || hit.collider.name == "PoisonTrap" || hit.collider.name == "PoisonTrap(Clone)")
                     {
                         var particleManager = hit.collider.transform.Find("poison").GetComponent<ParticleManager>();
                         particleManager.poisonParticle.Play();

@@ -13,7 +13,6 @@ public class LanguageScript : MonoBehaviour {
     public Text gameOver;
     public Text retry;
     public Text loadLevel;
-    public Text backToMenu;
     public Text load;
     public Text password;
     public Text typeYourEmail;
@@ -62,7 +61,6 @@ public class LanguageScript : MonoBehaviour {
                 gameOver.text = "GAME OVER";
                 retry.text = "RETRY";
                 //loadLevel.text = "LOAD LEVEL";
-                backToMenu.text = "BACK TO MENU";
                 load.text = "LOAD";
                 password.text = "Password:";
                 typeYourEmail.text = "Type your email";
@@ -113,7 +111,6 @@ public class LanguageScript : MonoBehaviour {
                 gameOver.text = "FIM DE JOGO";
                 retry.text = "TENTAR NOVAMENTE";
                 //loadLevel.text = "CARREGAR NÍVEL";
-                backToMenu.text = "VOLTAR AO MENU";
                 load.text = "CARREGAR";
                 password.text = "Senha:";
                 typeYourEmail.text = "Digite seu email";
