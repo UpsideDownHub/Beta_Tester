@@ -58,7 +58,7 @@ public class GameOver : MonoBehaviour
         #region JimmyInTheHell
         //vidas.ForEach(x => x.enabled = false);
 
-        if (Assets.Scripts.PlayerAttrs.life == 0 && !ended)
+        if (Assets.Scripts.PlayerAttrs.life == 0 && !ended || Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown == 0 && !ended)
         {
 
             var phase = Assets.Scripts.DAL.BetaTesterContext.Phase.GetData().SingleOrDefault(x => x.FileId == Assets.Scripts.DAL.BetaTesterContext.FileId);
@@ -119,6 +119,7 @@ public class GameOver : MonoBehaviour
     public void Retry()
     {
         Assets.Scripts.PlayerAttrs.life = 5;
+        Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown = Assets.Scripts.PhaseCreationTimeManager.time;
         gameOverPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -129,6 +130,7 @@ public class GameOver : MonoBehaviour
     public void RetryPhaseCreation()
     {
         Assets.Scripts.PlayerAttrs.life = 5;
+        Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown = Assets.Scripts.PhaseCreationTimeManager.time;
         gameOverPanel.SetActive(false);
         player.gameObject.SetActive(true);
         player.transform.position = PlayerScript3D.initialPosition;

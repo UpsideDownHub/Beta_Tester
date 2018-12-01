@@ -185,6 +185,8 @@ public class PhaseCreationManager : MonoBehaviour
         Canvas2.SetActive(true);
         loading.SetActive(false);
         Assets.Scripts.PlayerAttrs.life = 5;
+        Assets.Scripts.PhaseCreationTimeManager.time = Mathf.RoundToInt(data.Count * 2.5f); 
+        Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown = Mathf.RoundToInt(data.Count * 2.5f); 
         GameObject.Find("Scripts").GetComponent<GameOver>().ended = false;
         GameOver.inGame = true;
     }
