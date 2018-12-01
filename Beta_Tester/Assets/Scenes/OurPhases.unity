@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -140,7 +140,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 38163387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.23, y: 3.97, z: -10}
+  m_LocalPosition: {x: -2.2299829, y: 4.5076246, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1375387288}
@@ -350,6 +350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1904227c8e196841b91c5e66d99e4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ceu: {fileID: 1862153213801074, guid: 8b6100d1d9f47174c9f71f24906b8112, type: 2}
+  lava: {fileID: 1013759447595638, guid: ad4db527d0150614ab67407c7e519eff, type: 2}
+  montanha1: {fileID: 1908894243068990, guid: 80a7d232a96dfbc4d939c82f8da5fc03, type: 2}
   totem_flecha: {fileID: 1350342345482308, guid: 2ef1674cafd92b64a84c2b4c20ebb34d,
     type: 2}
   poison: {fileID: 1565662915992130, guid: 7de76f49a0397ac46b2be02eb1b147df, type: 2}

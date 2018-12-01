@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2038,6 +2038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loading: {fileID: 295508288}
+  ceu: {fileID: 1862153213801074, guid: 8b6100d1d9f47174c9f71f24906b8112, type: 2}
   totem_flecha: {fileID: 1350342345482308, guid: 2ef1674cafd92b64a84c2b4c20ebb34d,
     type: 2}
   poison: {fileID: 1565662915992130, guid: 7de76f49a0397ac46b2be02eb1b147df, type: 2}
@@ -2190,7 +2191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 192.49, y: -165}
+  m_AnchoredPosition: {x: 190.01, y: -209.5}
   m_SizeDelta: {x: 36.247, y: 25.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &652221618
@@ -2920,7 +2921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5000038}
+  m_AnchoredPosition: {x: 0, y: -0.50000477}
   m_SizeDelta: {x: -20, y: -9.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1104189482
@@ -3556,7 +3557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 187.52, y: -111.51}
+  m_AnchoredPosition: {x: 190.01, y: -99.7}
   m_SizeDelta: {x: 36.25, y: 26.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1326646080
@@ -4372,7 +4373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 190, y: -218}
+  m_AnchoredPosition: {x: 190.01, y: -174.3}
   m_SizeDelta: {x: 41.22, y: 27.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618173562
@@ -5405,8 +5406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e17d521b2d28af4396d386978143de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointer: {fileID: 2800000, guid: 9839766c5c78730418b31b96eb68c75f, type: 3}
-  click: {fileID: 2800000, guid: 7e470b92f525e9e49b1c3b1352515708, type: 3}
+  pointer: {fileID: 2800000, guid: b4eef35b66553ee43870f929fda22351, type: 3}
+  click: {fileID: 2800000, guid: c46027f467f0858409604b7147efe7fe, type: 3}
 --- !u!114 &2005661413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5712,7 +5713,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 731bb178d3c6676409925b7dd628119e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cce058d36801aa5439b8421428cd5c8e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

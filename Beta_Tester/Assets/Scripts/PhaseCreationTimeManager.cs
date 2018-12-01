@@ -31,7 +31,6 @@ namespace Assets.Scripts
 
             timeText.text = timeCount.CoolDown.ToString().Replace('.', ':');
             
-            print(timeCount.CoolDown);
         }
 
     }
