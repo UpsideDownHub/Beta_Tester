@@ -49,6 +49,7 @@ public class Cutscenes : MonoBehaviour
     bool isCreditsTime;
     bool canMoveCreditsText;
     int i = 0;
+    public Text bigText;
 
     public AudioSource acdcBackInBlack;
     public AudioSource truckIdle;
@@ -165,6 +166,7 @@ public class Cutscenes : MonoBehaviour
             }
             if (temp <= 30 && temp >= 29)
             {
+                tarjaPreta.SetActive(false);
                 albert.enabled = false;
                 cutsceneText.text = "";
                 siteJimmy.enabled = true;
@@ -413,10 +415,12 @@ public class Cutscenes : MonoBehaviour
                     temp5 += Time.deltaTime;
                     if (temp5 <= 6 && temp5 >= 0)
                     {
+                        cutsceneText.text = "";
+
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "4 hours later";
+                            bigText.text = "4 hours later";
                         else
-                            cutsceneText.text = "4 horas depois";
+                            bigText.text = "4 horas depois";
                     }
                     if (temp5 <= 12 && temp5 >= 6)
                     {
@@ -427,6 +431,8 @@ public class Cutscenes : MonoBehaviour
                             truckIdle.Play();
                             dontRepeat3 = true;
                         }
+
+                        bigText.text = "";
 
                         if (PlayerPrefs.GetInt("Language") == 0)
                             cutsceneText.text = "Teacher: Hey driver, are we on the right track?";
@@ -484,10 +490,12 @@ public class Cutscenes : MonoBehaviour
                     {
                         blackBG.SetActive(true);
 
+                        cutsceneText.text = "";
+
                         if (PlayerPrefs.GetInt("Language") == 0)
-                            cutsceneText.text = "And died.";
+                            bigText.text = "And died.";
                         else
-                            cutsceneText.text = "E morreu.";
+                            bigText.text = "E morreu.";
                     }
                     if (temp5 <= 51 && temp5 >= 50)
                     {
@@ -760,6 +768,7 @@ public class Cutscenes : MonoBehaviour
             {
                 cutsceneText.text = "";
                 albertVictorySceneA.gameObject.SetActive(false);
+                tarjaPreta.SetActive(false);
                 thanksObj.SetActive(true);
             }
         }
@@ -797,6 +806,7 @@ public class Cutscenes : MonoBehaviour
             {
                 circle.SetActive(true);
                 level.SetActive(true);
+                ceu.SetActive(true);
                 isPlayingCutscene = false;
                 Destroy(cutScene);
                 Destroy(canvasCutscene);
@@ -861,6 +871,7 @@ public class Cutscenes : MonoBehaviour
     #region levelCleber Cutscene Functions
     public void SiteJimmyAnimationEnd()
     {
+        tarjaPreta.SetActive(true);
         albert.enabled = true;
         siteJimmy.enabled = false;
         isFirstSceneCompleted = true;

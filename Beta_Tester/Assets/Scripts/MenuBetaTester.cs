@@ -80,6 +80,7 @@ public class MenuBetaTester : MonoBehaviour {
 
     Button newGameButton;
     Button gameOptionsButton;
+    bool teste;
 
     private void Start()
     {
@@ -264,10 +265,16 @@ public class MenuBetaTester : MonoBehaviour {
 
     private void Update()
     {
-        //if (!EventSystem.current.alreadySelecting)
-        //{
-
-        //}
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        {
+            if (!EventSystem.current.alreadySelecting)
+                teste = true;
+        }
+        if (teste)
+        {
+            newGameButton.Select();
+            teste = false;
+        }
     }
 
     #region Interação com Buttons

@@ -15,6 +15,9 @@ public class MoveCeuNuvem : MonoBehaviour
         {
             transform.localScale = new Vector3(Camera.main.orthographicSize * Camera.main.aspect * 2, transform.localScale.y, transform.localScale.z);
         }
+
+        offSet = 0;
+        currentMaterial.SetTextureOffset("_MainTex", new Vector2(0, 0));
     }
 
     void Update()
@@ -24,6 +27,8 @@ public class MoveCeuNuvem : MonoBehaviour
             if (previousPosition.x != Camera.main.transform.position.x)
                 offSet += speed * Time.deltaTime;
         }
+        else if (gameObject.name == "ceuNuvem")
+            offSet += speed * Time.deltaTime;
 
         previousPosition = Camera.main.transform.position;
 
