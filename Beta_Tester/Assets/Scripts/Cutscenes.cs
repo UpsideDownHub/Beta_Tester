@@ -69,6 +69,7 @@ public class Cutscenes : MonoBehaviour
     public GameObject thanksObj;
     public Animator albertVictorySceneA;
     float temp6;
+    bool dontRepeat4;
 
     private void Start()
     {
@@ -732,44 +733,217 @@ public class Cutscenes : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 6)
         {
             temp6 += Time.deltaTime;
-            if (temp6 <= 6 && temp6 >= 0)
+            if (GameOver.final == 1)
             {
-                cutsceneText.text = "Empresário: Ei Albert, o que achou do game?";
+                if (!dontRepeat4)
+                {
+                    albertVictorySceneA.Play("AlbertVictoryScene1");
+                    dontRepeat4 = true;
+                }
+
+                if (temp6 <= 6 && temp6 >= 0)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Manager: Hey Albert, did you like the game?";
+                    else
+                        cutsceneText.text = "Empresário: Ei Albert, o que achou do game?";
+                }
+                if (temp6 <= 12 && temp6 >= 6)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Albert: Hmm...";
+                    else
+                        cutsceneText.text = "Albert: Hum...";
+                }
+                if (temp6 <= 18 && temp6 >= 12)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Very good!";
+                    else
+                        cutsceneText.text = "Achei muito bom!";
+                }
+                if (temp6 <= 24 && temp6 >= 18)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Amazing graphics! It looked like the real world!";
+                    else
+                        cutsceneText.text = "Que gráficos! Parecia o mundo real!";
+                }
+                if (temp6 <= 30 && temp6 >= 24)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "I can't wait to play the final version!";
+                    else
+                        cutsceneText.text = "Não vejo a hora de jogar a versão final!";
+                }
+                if (temp6 <= 36 && temp6 >= 30)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Manager: We are very happy to know that we are going to fill our money pocket! Eh well, I mean ...";
+                    else
+                        cutsceneText.text = "Empresário: Ficamos muito felizes em saber que vamos encher nosso bolso de dinheiro! Eh bem, quer dizer...";
+                }
+                if (temp6 <= 42 && temp6 >= 36)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "We are very happy to know that we are satisfying our players.";
+                    else
+                        cutsceneText.text = "Ficamos muito felizes em saber que estamos satisfazendo nossos jogadores.";
+                }
+                if (temp6 <= 48 && temp6 >= 42)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Thanks Albert!";
+                    else
+                        cutsceneText.text = "Obrigado Albert!";
+                }
+                if (temp6 <= 49 && temp6 >= 48)
+                {
+                    cutsceneText.text = "";
+                    albertVictorySceneA.gameObject.SetActive(false);
+                    tarjaPreta.SetActive(false);
+                    thanksObj.SetActive(true);
+                    temp6 = 50;
+                }
             }
-            if (temp6 <= 12 && temp6 >= 6)
+            else if (GameOver.final == 2)
             {
-                cutsceneText.text = "Albert: Hum...";
+                if (!dontRepeat4)
+                {
+                    albertVictorySceneA.Play("AlbertVictoryScene1");
+                    dontRepeat4 = true;
+                }
+
+                if (temp6 <= 6 && temp6 >= 0)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Manager: Hey Albert, did you like the game?";
+                    else
+                        cutsceneText.text = "Empresário: Ei Albert, o que achou do game?";
+                }
+                if (temp6 <= 12 && temp6 >= 6)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Albert: Hmm...";
+                    else
+                        cutsceneText.text = "Albert: Hum...";
+                }
+                if (temp6 <= 18 && temp6 >= 12)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Despite some problems, It's very good!";
+                    else
+                        cutsceneText.text = "Apesar de alguns problemas, eu achei muito bom!";
+                }
+                if (temp6 <= 24 && temp6 >= 18)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Amazing graphics! It looked like the real world!";
+                    else
+                        cutsceneText.text = "Que gráficos! Parecia o mundo real!";
+                }
+                if (temp6 <= 30 && temp6 >= 24)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "I can't wait to play the final version";
+                    else
+                        cutsceneText.text = "Não vejo a hora de jogar a versão final!";
+                }
+                if (temp6 <= 36 && temp6 >= 30)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Manager: We are very happy to know that we are going to fill our money pocket! Eh well, I mean ...";
+                    else
+                        cutsceneText.text = "Empresário: Ficamos muito felizes em saber que vamos encher nosso bolso de dinheiro! Eh bem, quer dizer...";
+                }
+                if (temp6 <= 42 && temp6 >= 36)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "We are very happy to know that we are satisfying our players.";
+                    else
+                        cutsceneText.text = "Ficamos muito felizes em saber que estamos satisfazendo nossos jogadores.";
+                }
+                if (temp6 <= 48 && temp6 >= 42)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "To fix the bugs, we'll need you to spend some time in captivity. Well, I mean, at the company headquarters.";
+                    else
+                        cutsceneText.text = "Para corrigir os bugs, precisaremos que você fique mais um tempo no cativeiro. Bem, quer dizer, na sede da empresa.";
+                }
+                if (temp6 <= 54 && temp6 >= 48)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Thanks Albert!";
+                    else
+                        cutsceneText.text = "Obrigado Albert!";
+                }
+                if (temp6 <= 55 && temp6 >= 54)
+                {
+                    cutsceneText.text = "";
+                    albertVictorySceneA.gameObject.SetActive(false);
+                    tarjaPreta.SetActive(false);
+                    thanksObj.SetActive(true);
+                    temp6 = 56;
+                }
             }
-            if (temp6 <= 18 && temp6 >= 12)
+            else if (GameOver.final == 3)
             {
-                cutsceneText.text = "Achei muito bom!";
-            }
-            if (temp6 <= 24 && temp6 >= 18)
-            {
-                cutsceneText.text = "Que gráficos! Parecia o mundo real!";
-            }
-            if (temp6 <= 30 && temp6 >= 24)
-            {
-                cutsceneText.text = "Não vejo a hora de jogar a versão final!";
-            }
-            if (temp6 <= 36 && temp6 >= 30)
-            {
-                cutsceneText.text = "Empresário: Ficamos muito felizes em saber que vamos encher nosso bolso de dinheiro! Eh bem, quer dizer...";
-            }
-            if (temp6 <= 42 && temp6 >= 36)
-            {
-                cutsceneText.text = "Ficamos muito felizes em saber que estamos satisfazendo nossos jogadores.";
-            }
-            if (temp6 <= 48 && temp6 >= 42)
-            {
-                cutsceneText.text = "Obrigado Albert!";
-            }
-            if (temp6 <= 49 && temp6 >= 48)
-            {
-                cutsceneText.text = "";
-                albertVictorySceneA.gameObject.SetActive(false);
-                tarjaPreta.SetActive(false);
-                thanksObj.SetActive(true);
+                if (!dontRepeat4)
+                {
+                    albertVictorySceneA.Play("AlbertVictoryScene2");
+                    dontRepeat4 = true;
+                }
+
+                if (temp6 <= 6 && temp6 >= 0)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Manager: Hey Albert, did you like the game?";
+                    else
+                        cutsceneText.text = "Empresário: Ei Albert, o que achou do game?";
+                }
+                if (temp6 <= 12 && temp6 >= 6)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Albert: It's shit! I want my life back!";
+                    else
+                        cutsceneText.text = "Albert: Uma merda! Quero minha vida de volta!";
+                }
+                if (temp6 <= 18 && temp6 >= 12)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Manager: Oh my God, stop the production!";
+                    else
+                        cutsceneText.text = "Empresário: Meu deus, parem a produção!";
+                }
+                if (temp6 <= 24 && temp6 >= 18)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Assistant: Sir, I have bad news.";
+                    else
+                        cutsceneText.text = "Assistente: Senhor, tenho péssimas notícias.";
+                }
+                if (temp6 <= 30 && temp6 >= 24)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "We've already made a million copies.";
+                    else
+                        cutsceneText.text = "Já fizemos um milhão de cópias.";
+                }
+                if (temp6 <= 36 && temp6 >= 30)
+                {
+                    if (PlayerPrefs.GetInt("Language") == 0)
+                        cutsceneText.text = "Manager: Bury everything in the desert!";
+                    else
+                        cutsceneText.text = "Empresário: Enterrem tudo no deserto!";
+                }
+                if (temp6 <= 37 && temp6 >= 36)
+                {
+                    cutsceneText.text = "";
+                    albertVictorySceneA.gameObject.SetActive(false);
+                    tarjaPreta.SetActive(false);
+                    thanksObj.SetActive(true);
+                    temp6 = 38;
+                }
             }
         }
         #endregion

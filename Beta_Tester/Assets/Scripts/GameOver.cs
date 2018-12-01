@@ -31,6 +31,7 @@ public class GameOver : MonoBehaviour
     public Sprite albert8;
     public Sprite albert9;
     public Sprite albert10;
+    public static int final;
 
     private void Update()
     {
@@ -83,7 +84,19 @@ public class GameOver : MonoBehaviour
         #region BetaTester
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            lifeBetaTester.value -= 0.001f;
+            if (!GameManager.isLevelCompleted)
+            {
+                lifeBetaTester.value -= 0.001f;
+            }
+            else
+            {
+                if (lifeBetaTester.value >= 0.67f)
+                    final = 1;
+                else if (lifeBetaTester.value <= 0.34f)
+                    final = 3;
+                else
+                    final = 2;
+            }
 
             if (lifeBetaTester.value >= 0.67f)
             {

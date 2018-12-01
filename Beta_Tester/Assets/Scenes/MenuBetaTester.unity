@@ -1571,6 +1571,7 @@ MonoBehaviour:
   tarjaPreta: {fileID: 2077384349}
   blackBG: {fileID: 0}
   cutsceneImagesJimmyA: {fileID: 0}
+  bigText: {fileID: 0}
   acdcBackInBlack: {fileID: 0}
   truckIdle: {fileID: 0}
   ExplosionTruck: {fileID: 0}
