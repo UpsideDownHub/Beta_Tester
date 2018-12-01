@@ -2043,7 +2043,7 @@ MonoBehaviour:
   totem: {fileID: 1543926517804454, guid: 306d6e6c5ffa4cd47886e34edc47f538, type: 2}
   serra: {fileID: 1277880659325058, guid: 53b460a011fcd2d44be7e36638f97481, type: 2}
   lava: {fileID: 1013759447595638, guid: ad4db527d0150614ab67407c7e519eff, type: 2}
-  montanha1: {fileID: 1117108099363142, guid: b7f02838acdd3be4ba62770bd952c2a9, type: 2}
+  montanha1: {fileID: 1908894243068990, guid: 80a7d232a96dfbc4d939c82f8da5fc03, type: 2}
   montanha2: {fileID: 1845590983178184, guid: c5a2f49c7aee7e74f9b334b4715c422c, type: 2}
   flag: {fileID: 1299154681917596, guid: e00d75623abe1754987404b4d7905133, type: 2}
   panelContent: {fileID: 1198553330}
@@ -5304,6 +5304,7 @@ GameObject:
   - component: {fileID: 2005661408}
   - component: {fileID: 2005661411}
   - component: {fileID: 2005661412}
+  - component: {fileID: 2005661413}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -5405,6 +5406,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 2800000, guid: 9839766c5c78730418b31b96eb68c75f, type: 3}
   click: {fileID: 2800000, guid: 7e470b92f525e9e49b1c3b1352515708, type: 3}
+--- !u!114 &2005661413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2005661407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05f60cd41d47434b9844a54450e9a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2009039119
 GameObject:
   m_ObjectHideFlags: 0

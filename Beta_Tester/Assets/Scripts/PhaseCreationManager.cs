@@ -167,10 +167,11 @@ public class PhaseCreationManager : MonoBehaviour
         }
 
         for (var i = 1; i <= 3; i++)
-            Instantiate(montanha1, new Vector3(- (i * 9), 0), Quaternion.identity);
+            Instantiate(montanha1, new Vector3(- (i * 8), 0), Quaternion.identity);
 
-        for (var i = 0; i < Mathf.RoundToInt(data.Count / 9) + 1; i++)
-            Instantiate(montanha1, new Vector3(i * 9, 0), Quaternion.identity);
+        for (var i = 0; i < Mathf.RoundToInt(data.Count / 8) + 3; i++)
+            Instantiate(montanha1, new Vector3(i * 8, 0), Quaternion.identity);
+        
 
         Instantiate(lava, lava.transform.position, Quaternion.identity);
         Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
