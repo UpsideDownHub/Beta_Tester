@@ -81,6 +81,20 @@ public class MenuBetaTester : MonoBehaviour {
     public Sprite prancheta5S;
     public Sprite prancheta6S;
 
+    public GameObject controlsPanel;
+    public GameObject pressMouse0;
+    public GameObject pressMouse0PT;
+    public GameObject pressMouse1;
+    public GameObject pressMouse1PT;
+    public GameObject pressArrow;
+    public GameObject pressArrowPT;
+    public GameObject pressZ;
+    public GameObject pressZPT;
+    public GameObject pressSpace;
+    public GameObject pressSpacePT;
+    public GameObject levelEditorEN;
+    public GameObject levelEditorPT;
+
     Button newGameButton;
     Button gameOptionsButton;
     //bool teste;
@@ -160,6 +174,18 @@ public class MenuBetaTester : MonoBehaviour {
                 videoText.text = "VIDEO";
                 videoOnlyText.text = "VIDEO";
                 backText.text = "BACK";
+                pressMouse0.SetActive(true);
+                pressMouse1.SetActive(true);
+                pressArrow.SetActive(true);
+                pressZ.SetActive(true);
+                pressSpace.SetActive(true);
+                pressMouse0PT.SetActive(false);
+                pressMouse1PT.SetActive(false);
+                pressArrowPT.SetActive(false);
+                pressZPT.SetActive(false);
+                pressSpacePT.SetActive(false);
+                levelEditorEN.SetActive(true);
+                levelEditorPT.SetActive(false);
 
                 prancheta1.sprite = prancheta1S;
                 prancheta2.sprite = prancheta2S;
@@ -193,6 +219,18 @@ public class MenuBetaTester : MonoBehaviour {
                 videoText.text = "VÍDEO";
                 videoOnlyText.text = "VÍDEO";
                 backText.text = "VOLTAR";
+                pressMouse0.SetActive(false);
+                pressMouse1.SetActive(false);
+                pressArrow.SetActive(false);
+                pressZ.SetActive(false);
+                pressSpace.SetActive(false);
+                pressMouse0PT.SetActive(true);
+                pressMouse1PT.SetActive(true);
+                pressArrowPT.SetActive(true);
+                pressZPT.SetActive(true);
+                pressSpacePT.SetActive(true);
+                levelEditorEN.SetActive(false);
+                levelEditorPT.SetActive(true);
 
                 prancheta1.sprite = prancheta4S;
                 prancheta2.sprite = prancheta5S;
@@ -243,6 +281,18 @@ public class MenuBetaTester : MonoBehaviour {
             videoText.text = "VIDEO";
             videoOnlyText.text = "VIDEO";
             backText.text = "BACK";
+            pressMouse0.SetActive(true);
+            pressMouse1.SetActive(true);
+            pressArrow.SetActive(true);
+            pressZ.SetActive(true);
+            pressSpace.SetActive(true);
+            pressMouse0PT.SetActive(false);
+            pressMouse1PT.SetActive(false);
+            pressArrowPT.SetActive(false);
+            pressZPT.SetActive(false);
+            pressSpacePT.SetActive(false);
+            levelEditorEN.SetActive(true);
+            levelEditorPT.SetActive(false);
 
             prancheta1.sprite = prancheta1S;
             prancheta2.sprite = prancheta2S;
@@ -290,6 +340,16 @@ public class MenuBetaTester : MonoBehaviour {
         optionsPanel.SetActive(true);
         gameOptionsButton.Select();
         backButton.SetActive(true);
+    }
+
+    public void ControlsInteraction()
+    {
+        betaTester.SetActive(false);
+        betaTesterEngr.SetActive(false);
+        menuPanel.SetActive(false);
+        backButton.SetActive(true);
+        controlsPanel.SetActive(true);
+        backButton.GetComponent<Button>().Select();
     }
 
     public void QuitInteraction()
@@ -348,6 +408,15 @@ public class MenuBetaTester : MonoBehaviour {
         {
             optionsPanel.SetActive(true);
             videoPanel.SetActive(false);
+        }
+        else if (controlsPanel.activeSelf)
+        {
+            betaTester.SetActive(true);
+            betaTesterEngr.SetActive(true);
+            menuPanel.SetActive(true);
+            controlsPanel.SetActive(false);
+            newGameButton.Select();
+            backButton.SetActive(false);
         }
     }
     #endregion
@@ -415,6 +484,18 @@ public class MenuBetaTester : MonoBehaviour {
             videoText.text = "VIDEO";
             videoOnlyText.text = "VIDEO";
             backText.text = "BACK";
+            pressMouse0.SetActive(true);
+            pressMouse1.SetActive(true);
+            pressArrow.SetActive(true);
+            pressZ.SetActive(true);
+            pressSpace.SetActive(true);
+            pressMouse0PT.SetActive(false);
+            pressMouse1PT.SetActive(false);
+            pressArrowPT.SetActive(false);
+            pressZPT.SetActive(false);
+            pressSpacePT.SetActive(false);
+            levelEditorEN.SetActive(true);
+            levelEditorPT.SetActive(false);
 
             prancheta1.sprite = prancheta1S;
             prancheta2.sprite = prancheta2S;
@@ -449,6 +530,18 @@ public class MenuBetaTester : MonoBehaviour {
             videoText.text = "VÍDEO";
             videoOnlyText.text = "VÍDEO";
             backText.text = "VOLTAR";
+            pressMouse0.SetActive(false);
+            pressMouse1.SetActive(false);
+            pressArrow.SetActive(false);
+            pressZ.SetActive(false);
+            pressSpace.SetActive(false);
+            pressMouse0PT.SetActive(true);
+            pressMouse1PT.SetActive(true);
+            pressArrowPT.SetActive(true);
+            pressZPT.SetActive(true);
+            pressSpacePT.SetActive(true);
+            levelEditorEN.SetActive(false);
+            levelEditorPT.SetActive(true);
 
             prancheta1.sprite = prancheta4S;
             prancheta2.sprite = prancheta5S;
