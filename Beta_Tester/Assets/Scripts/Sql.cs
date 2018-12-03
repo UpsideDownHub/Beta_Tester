@@ -17,8 +17,8 @@ namespace Assets.Scripts
         List<TEntity> _Data = new List<TEntity>();
         public List<TEntity> Data { get { return _Data; } }
         //string conn = "";
-        string conn = "URI=file:C:/Desenvolvimento/github.com-UpsideDownHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
-        //"URI=file:C:/Users/Max/Documents/UnityProjects/GitHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
+        string conn = //"URI=file:C:/Desenvolvimento/github.com-UpsideDownHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
+        "URI=file:C:/Users/Max/Documents/UnityProjects/GitHub/BetaTesterSite/BetaTesterSite/BetaTester.db";
         private string sqlQuery;
         IDbConnection dbconn;
         IDbCommand dbcmd;

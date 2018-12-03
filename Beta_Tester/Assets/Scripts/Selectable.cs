@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class Selectable : MonoBehaviour {
 
     public Slider timeToClickSlider;
-    public GameOver gameOver;
     public GameObject prefab;
     public GameObject prefabPlanta;
     public GameObject prefabSpellBind;
@@ -62,7 +61,7 @@ public class Selectable : MonoBehaviour {
                             rb.AddForce(new Vector3(0, 250, 0));
                             rb.useGravity = true;
 
-                            gameOver.lifeBetaTester.value += 0.05f;
+                            GameOver.val += 0.05f;
 
                             activateTrapTime = 0;
                         }
@@ -71,7 +70,7 @@ public class Selectable : MonoBehaviour {
                         {
                             var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();
                             moveObjects.speed = 3;
-                            gameOver.lifeBetaTester.value += 0.15f;
+                            GameOver.val += 0.15f;
                             activateTrapTime = 0;
                         }
 
@@ -79,7 +78,7 @@ public class Selectable : MonoBehaviour {
                         {
                             var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
                             enemyScript.prefab = prefab;
-                            gameOver.lifeBetaTester.value += 0.15f;
+                            GameOver.val += 0.15f;
                             activateTrapTime = 0;
                         }
 
@@ -106,7 +105,7 @@ public class Selectable : MonoBehaviour {
                                 moveObjects.isActivated = true;
                                 Instantiate(prefabSpellBind, hit.collider.transform);
 
-                                gameOver.lifeBetaTester.value += 0.05f;
+                                GameOver.val += 0.05f;
 
                                 if (!moveObjects.Activated)
                                     activateTrapTime = 0;
@@ -119,7 +118,7 @@ public class Selectable : MonoBehaviour {
                                 boxC2.center = new Vector3(-0.1026254f, -0.4772545f, 0);
                                 boxC2.size = new Vector3(1.438596f, 0.7692058f, 0.2f);
 
-                                gameOver.lifeBetaTester.value += 0.05f;
+                                GameOver.val += 0.05f;
 
                                 if (!moveObjects.Activated)
                                     activateTrapTime = 0;
@@ -133,7 +132,7 @@ public class Selectable : MonoBehaviour {
                             if (rigidbody == null) return;
                             rigidbody.useGravity = true;
 
-                            gameOver.lifeBetaTester.value += 0.05f;
+                            GameOver.val += 0.05f;
 
                             activateTrapTime = 0;
                         }
@@ -166,7 +165,7 @@ public class Selectable : MonoBehaviour {
                                 trapManager.ActivateTrap = true;
                                 rb.AddForce(new Vector3(0, 250, 0));
                                 rb.useGravity = true;
-                                gameOver.lifeBetaTester.value -= 0.05f;
+                                GameOver.val -= 0.05f;
                                 activateTrapTime = 0;
                             }
 
@@ -174,7 +173,7 @@ public class Selectable : MonoBehaviour {
                             {
                                 var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();
                                 moveObjects.speed = 3;
-                                gameOver.lifeBetaTester.value += 0.15f;
+                                GameOver.val += 0.15f;
                                 activateTrapTime = 0;
                             }
 
@@ -182,7 +181,7 @@ public class Selectable : MonoBehaviour {
                             {
                                 var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
                                 enemyScript.prefab = prefab;
-                                gameOver.lifeBetaTester.value += 0.15f;
+                                GameOver.val += 0.15f;
                                 activateTrapTime = 0;
                             }
 
@@ -209,7 +208,7 @@ public class Selectable : MonoBehaviour {
                                     moveObjects.isActivated = true;
                                     Instantiate(prefabSpellBind, hit.collider.transform);
 
-                                    gameOver.lifeBetaTester.value -= 0.05f;
+                                    GameOver.val -= 0.05f;
 
                                     if (!moveObjects.Activated)
                                         activateTrapTime = 0;
@@ -222,7 +221,7 @@ public class Selectable : MonoBehaviour {
                                     boxC2.center = new Vector3(-0.1026254f, -0.4772545f, 0);
                                     boxC2.size = new Vector3(1.438596f, 0.7692058f, 0.2f);
 
-                                    gameOver.lifeBetaTester.value -= 0.05f;
+                                    GameOver.val -= 0.05f;
 
                                     if (!moveObjects.Activated)
                                         activateTrapTime = 0;
@@ -236,7 +235,7 @@ public class Selectable : MonoBehaviour {
                                 if (rigidbody == null) return;
                                 rigidbody.useGravity = true;
 
-                                gameOver.lifeBetaTester.value -= 0.05f;
+                                GameOver.val -= 0.05f;
 
                                 activateTrapTime = 0;
                             }
@@ -268,7 +267,7 @@ public class Selectable : MonoBehaviour {
                                 rb.AddForce(new Vector3(0, 250, 0));
                                 rb.useGravity = true;
 
-                                gameOver.lifeBetaTester.value += 0.05f;
+                                GameOver.val += 0.05f;
 
                                 activateTrapTime = 0;
                             }
@@ -277,7 +276,7 @@ public class Selectable : MonoBehaviour {
                             {
                                 var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();
                                 moveObjects.speed = 3;
-                                gameOver.lifeBetaTester.value += 0.15f;
+                                GameOver.val += 0.15f;
                                 activateTrapTime = 0;
                             }
 
@@ -285,7 +284,7 @@ public class Selectable : MonoBehaviour {
                             {
                                 var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
                                 enemyScript.prefab = prefab;
-                                gameOver.lifeBetaTester.value += 0.15f;
+                                GameOver.val += 0.15f;
                                 activateTrapTime = 0;
                             }
 
@@ -312,7 +311,7 @@ public class Selectable : MonoBehaviour {
                                     moveObjects.isActivated = true;
                                     Instantiate(prefabSpellBind, hit.collider.transform);
 
-                                    gameOver.lifeBetaTester.value += 0.05f;
+                                    GameOver.val += 0.05f;
 
                                     if (!moveObjects.Activated)
                                         activateTrapTime = 0;
@@ -325,7 +324,7 @@ public class Selectable : MonoBehaviour {
                                     boxC2.center = new Vector3(-0.1026254f, -0.4772545f, 0);
                                     boxC2.size = new Vector3(1.438596f, 0.7692058f, 0.2f);
 
-                                    gameOver.lifeBetaTester.value += 0.05f;
+                                    GameOver.val += 0.05f;
 
                                     if (!moveObjects.Activated)
                                         activateTrapTime = 0;
@@ -339,7 +338,7 @@ public class Selectable : MonoBehaviour {
                                 if (rigidbody == null) return;
                                 rigidbody.useGravity = true;
 
-                                gameOver.lifeBetaTester.value += 0.05f;
+                                GameOver.val += 0.05f;
 
                                 activateTrapTime = 0;
                             }
@@ -371,7 +370,7 @@ public class Selectable : MonoBehaviour {
                                 rb.AddForce(new Vector3(0, 250, 0));
                                 rb.useGravity = true;
 
-                                gameOver.lifeBetaTester.value += 0.15f;
+                                GameOver.val += 0.10f;
 
                                 activateTrapTime = 0;
                             }
@@ -380,7 +379,7 @@ public class Selectable : MonoBehaviour {
                             {
                                 var moveObjects = hit.collider.gameObject.GetComponent<MoveObjects>();
                                 moveObjects.speed = 3;
-                                gameOver.lifeBetaTester.value += 0.15f;
+                                GameOver.val += 0.10f;
                                 activateTrapTime = 0;
                             }
 
@@ -388,7 +387,7 @@ public class Selectable : MonoBehaviour {
                             {
                                 var enemyScript = hit.collider.gameObject.GetComponent<EnemyScript>();
                                 enemyScript.prefab = prefab;
-                                gameOver.lifeBetaTester.value += 0.15f;
+                                GameOver.val += 0.10f;
                                 activateTrapTime = 0;
                             }
 
@@ -415,7 +414,7 @@ public class Selectable : MonoBehaviour {
                                     moveObjects.isActivated = true;
                                     Instantiate(prefabSpellBind, hit.collider.transform);
 
-                                    gameOver.lifeBetaTester.value += 0.15f;
+                                    GameOver.val += 0.10f;
 
                                     if (!moveObjects.Activated)
                                         activateTrapTime = 0;
@@ -428,7 +427,7 @@ public class Selectable : MonoBehaviour {
                                     boxC2.center = new Vector3(-0.1026254f, -0.4772545f, 0);
                                     boxC2.size = new Vector3(1.438596f, 0.7692058f, 0.2f);
 
-                                    gameOver.lifeBetaTester.value += 0.15f;
+                                    GameOver.val += 0.10f;
 
                                     if (!moveObjects.Activated)
                                         activateTrapTime = 0;
@@ -442,7 +441,7 @@ public class Selectable : MonoBehaviour {
                                 if (rigidbody == null) return;
                                 rigidbody.useGravity = true;
 
-                                gameOver.lifeBetaTester.value += 0.15f;
+                                GameOver.val += 0.10f;
 
                                 activateTrapTime = 0;
                             }

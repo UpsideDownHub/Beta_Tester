@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     GameObject player;
-    //List<GameObject> groundObjects;
-    //List<Transform> groundObjectsT;
 
     //Jimmy in the hell
     public bool ended = false;
@@ -19,7 +17,7 @@ public class GameOver : MonoBehaviour
     public Text vidasText;
     public Button button;
     //BetaTester
-    public Slider lifeBetaTester;
+    public static Slider lifeBetaTesterS;
     public Image betaTester;
     public Sprite albert1;
     public Sprite albert2;
@@ -32,6 +30,14 @@ public class GameOver : MonoBehaviour
     public Sprite albert9;
     public Sprite albert10;
     public static int final;
+    public static float val;
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+            val = 1;
+        lifeBetaTesterS = GameObject.Find("LifeBetaTester").GetComponent<Slider>();
+    }
 
     private void Update()
     {
@@ -60,7 +66,7 @@ public class GameOver : MonoBehaviour
 
         if (Assets.Scripts.PlayerAttrs.life == 0 && !ended || (Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown == 0 && !ended && SceneManager.GetActiveScene().buildIndex == 5))
         {
-
+            Assets.Scripts.PlayerAttrs.life = 0;
             var phase = Assets.Scripts.DAL.BetaTesterContext.Phase.GetData().SingleOrDefault(x => x.FileId == Assets.Scripts.DAL.BetaTesterContext.FileId);
 
             if (phase != null)
@@ -86,32 +92,34 @@ public class GameOver : MonoBehaviour
         #region BetaTester
         if (SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 7)
         {
+            lifeBetaTesterS.value = val;
+
             if (!GameManager.isLevelCompleted)
             {
                 if (MenuBetaTester.personality == 3)
-                    lifeBetaTester.value -= 0.005f;
+                    val -= 0.0009f;
                 else if (MenuBetaTester.personality == 2)
-                    lifeBetaTester.value -= 0.0005f;
+                    val -= 0.0003f;
             }
             else
             {
-                if (lifeBetaTester.value >= 0.67f)
+                if (lifeBetaTesterS.value >= 0.67f)
                     final = 1;
-                else if (lifeBetaTester.value <= 0.34f)
+                else if (lifeBetaTesterS.value <= 0.34f)
                     final = 3;
                 else
                     final = 2;
             }
 
-            if (lifeBetaTester.value >= 0.67f)
+            if (lifeBetaTesterS.value >= 0.67f)
             {
                 betaTester.sprite = albert8;
             }
-            else if (lifeBetaTester.value >= 0.34f)
+            else if (lifeBetaTesterS.value >= 0.34f)
             {
                 betaTester.sprite = albert5;
             }
-            else if (lifeBetaTester.value > 0)
+            else if (lifeBetaTesterS.value > 0)
             {
                 betaTester.sprite = albert1;
             }
@@ -121,7 +129,7 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        Assets.Scripts.PlayerAttrs.life = 5;
+        Assets.Scripts.PlayerAttrs.life = 15;
         Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown = Assets.Scripts.PhaseCreationTimeManager.time;
         gameOverPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -132,24 +140,10 @@ public class GameOver : MonoBehaviour
     }
     public void RetryPhaseCreation()
     {
-        Assets.Scripts.PlayerAttrs.life = 5;
+        Assets.Scripts.PlayerAttrs.life = 15;
         Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown = Assets.Scripts.PhaseCreationTimeManager.time;
         gameOverPanel.SetActive(false);
         player.gameObject.SetActive(true);
         player.transform.position = PlayerScript3D.initialPosition;
-        //for (int i = 0; i < groundObjects.Count; i++)
-        //{
-        //    groundObjects[i].transform.position = groundObjectsT[i].position;
-        //}
     }
-
-    //void Teste()
-    //{
-    //    groundObjects = (GameObject.FindGameObjectsWithTag("Ground")).ToList();
-
-    //    for (int j = 0; j < groundObjects.Count; j++)
-    //    {
-    //        groundObjectsT[j] = groundObjects[j].transform;
-    //    }
-    //}
 }

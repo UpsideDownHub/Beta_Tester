@@ -520,7 +520,7 @@ public class Cutscenes : MonoBehaviour
             if (temp3 <= 5 && temp3 >= 0)
             {
                 if (PlayerPrefs.GetInt("Language") == 0)
-                    cutsceneText.text = "Narrator: (?) 10 versicle...";
+                    cutsceneText.text = "Narrator: 10 versicle...";
                 else
                     cutsceneText.text = "Narrador: Jerimonômio 10 versículo...";
             }
@@ -549,9 +549,11 @@ public class Cutscenes : MonoBehaviour
             {
                 cutSceneFireLevelA.SetBool("SecondScene", true);
                 cutsceneText.text = "";
+                tarjaPreta.SetActive(false);
             }
             if (temp3 <= 30 && temp3 >= 25) //10
             {
+                tarjaPreta.SetActive(true);
                 if (PlayerPrefs.GetInt("Language") == 0)
                     cutsceneText.text = "Narrator: WAKE UP JIMMY!!!";
                 else

@@ -438,6 +438,7 @@ public class PlayerScript3D : MonoBehaviour
             cm.Follow = null;
             rb.AddForce(new Vector3(0, 150, 0));
             GameManager.isLevelCompleted = true;
+            GameOver.val = GameOver.lifeBetaTesterS.value;
         }
     }
 
@@ -450,6 +451,15 @@ public class PlayerScript3D : MonoBehaviour
             damageTemp = 0;
             isDamaged = true;
             canGetDamage = false;
+            if (SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 7)
+            {
+                if (MenuBetaTester.personality == 1)
+                    GameOver.val -= 0.015f;
+                else if (MenuBetaTester.personality == 2)
+                    GameOver.val += 0.015f;
+                else if (MenuBetaTester.personality == 3)
+                    GameOver.val += 0.05f;
+            }
         }
     }
 }
