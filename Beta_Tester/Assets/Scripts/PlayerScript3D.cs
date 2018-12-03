@@ -305,42 +305,49 @@ public class PlayerScript3D : MonoBehaviour
         #region [Controllable]
         else
         {
-            //horizontalMove = Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
-
-            //if (horizontalMove > 0)
-            //{
-            //    rb.velocity = new Vector3(horizontalMove, rb.velocity.y, rb.velocity.z);
-            //}
-            //else
-            //{
-            //    rb.velocity = new Vector3(horizontalMove, rb.velocity.y, rb.velocity.z);
-            //}
-
-            if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+            if (SceneManager.GetActiveScene().buildIndex == 5)
             {
-                moving = false;
-                rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
-            }
+                horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
 
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
-                moving = true;
-            }
-
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-                moving = true;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Z) && grounded && SceneManager.GetActiveScene().buildIndex != 2)
-            {
-                if (rb.velocity.y < 4.5)
+                if (horizontalMove > 0)
                 {
-                    rb.AddForce(new Vector3(0, 300, 0));
+                    rb.velocity = new Vector3(horizontalMove, rb.velocity.y, rb.velocity.z);
+                }
+                else
+                {
+                    rb.velocity = new Vector3(horizontalMove, rb.velocity.y, rb.velocity.z);
                 }
             }
+            else
+            {
+                if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+                {
+                    moving = false;
+                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+                }
+
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+                    moving = true;
+                }
+
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+                    moving = true;
+                }
+
+                if (Input.GetKeyDown(KeyCode.Z) && grounded && SceneManager.GetActiveScene().buildIndex != 2)
+                {
+                    if (rb.velocity.y < 4.5)
+                    {
+                        rb.AddForce(new Vector3(0, 300, 0));
+                    }
+                }
+            }
+
+
 
             //movimentação da fase de fogo
 
