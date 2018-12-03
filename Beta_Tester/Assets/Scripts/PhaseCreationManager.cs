@@ -13,10 +13,10 @@ public class PhaseCreationManager : MonoBehaviour
 {
     public GameObject loading;
 
-    //[SerializeField] Sprite TelevisionBtn1 ;
-    //[SerializeField] Sprite TelevisionBtn2;
-    //[SerializeField] Sprite TelevisionBtn3;
-    //[SerializeField] Image Television;
+    [SerializeField] Sprite TelevisionBtn1;
+    [SerializeField] Sprite TelevisionBtn2;
+    [SerializeField] Sprite TelevisionBtn3;
+    [SerializeField] Image Television;
     [SerializeField] GameObject ceu;
     [SerializeField] GameObject totem_flecha;
     [SerializeField] GameObject poison;
@@ -254,7 +254,7 @@ public class PhaseCreationManager : MonoBehaviour
 
     public void GetRecentPhases()
     {
-        //Television.sprite = TelevisionBtn2;
+        Television.sprite = TelevisionBtn2;
         loading.SetActive(true);
         var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
         phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
@@ -284,7 +284,7 @@ public class PhaseCreationManager : MonoBehaviour
 
     public void GetFavPhases()
     {
-        //Television.sprite = TelevisionBtn1;
+        Television.sprite = TelevisionBtn1;
         loading.SetActive(true);
         var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
         phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()
@@ -309,7 +309,7 @@ public class PhaseCreationManager : MonoBehaviour
 
     public void GetMyPhases()
     {
-        //Television.sprite = TelevisionBtn3;
+        Television.sprite = TelevisionBtn3;
         loading.SetActive(true);
         var UserId = Assets.Scripts.DAL.BetaTesterContext.UserId;
         phases = (from y in Assets.Scripts.DAL.BetaTesterContext.PhasesIndexView.GetData()

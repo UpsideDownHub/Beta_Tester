@@ -96,7 +96,7 @@ public class FlagEnding : MonoBehaviour
             }
             else
             {
-                StartCoroutine(LoadAsynchronously(2));
+                StartCoroutine(LoadAsynchronously(6));
             }
         }
     }

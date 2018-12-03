@@ -26,7 +26,7 @@ public class MenuJimmy : MonoBehaviour {
 
     public void StartGame()
     {
-        StartCoroutine(LoadAsynchronously(7));
+        StartCoroutine(LoadAsynchronously(2));
     }
 
     IEnumerator LoadAsynchronously(int sceneIndex) //Tela de loading

@@ -505,6 +505,7 @@ public class Cutscenes : MonoBehaviour
                     {
                         var menuJimmy = GameObject.Find("Main Camera").GetComponent<MenuJimmy>();
                         menuJimmy.StartGame();
+                        canSkipDesertCutscene = false;
                         temp5 = 52;
                     }
                 }
@@ -966,8 +967,8 @@ public class Cutscenes : MonoBehaviour
                     var menuJimmy = GameObject.Find("Main Camera").GetComponent<MenuJimmy>();
                     menuJimmy.StartGame();
                     CancelInvoke();
-                    canSkipDesertCutscene = false;
                     truckIdle.Stop();
+                    canSkipDesertCutscene = false;
                 }
 
                 if (canSkipSchoolCutscene)
@@ -1091,6 +1092,7 @@ public class Cutscenes : MonoBehaviour
         CreditsText.SetActive(false);
         logoJimmy.SetActive(false);
         cutsceneImagesJimmyA.SetBool("thirdPart", true);
+        tarjaPreta.SetActive(true);
         isSecondSceneCompleted = true;
         canSkipSchoolCutscene = false;
         canSkipDesertCutscene = true;
