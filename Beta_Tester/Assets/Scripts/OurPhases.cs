@@ -105,16 +105,16 @@ public class OurPhases : MonoBehaviour
         }
 
         for (var i = 1; i <= 3; i++)
-            Instantiate(ceu, new Vector3(-(i * 8), 8), Quaternion.identity);
+            Instantiate(ceu, new Vector3(-(i * 9.3f), 8), Quaternion.identity);
 
         for (var i = 0; i < Mathf.RoundToInt(data.Count / 8) + 3; i++)
-            Instantiate(ceu, new Vector3(i * 8, 8), Quaternion.identity);
+            Instantiate(ceu, new Vector3(i * 9.3f, 8), Quaternion.identity);
 
         for (var i = 1; i <= 3; i++)
-            Instantiate(montanha1, new Vector3(-(i * 8), 0), Quaternion.identity);
+            Instantiate(montanha1, new Vector3(-(i * 9.3f), 0), Quaternion.identity);
 
         for (var i = 0; i < Mathf.RoundToInt(data.Count / 8) + 3; i++)
-            Instantiate(montanha1, new Vector3(i * 8, 0), Quaternion.identity);
+            Instantiate(montanha1, new Vector3(i * 9.3f, 0), Quaternion.identity);
 
 
         Instantiate(lava, lava.transform.position, Quaternion.identity);

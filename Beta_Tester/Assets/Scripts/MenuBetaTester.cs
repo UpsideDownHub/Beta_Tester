@@ -325,6 +325,13 @@ public class MenuBetaTester : MonoBehaviour {
     }
 
     #region Interação com Buttons
+    public void BackToMenuButton()
+    {
+        canvas2.SetActive(false);
+        canvas1.SetActive(true);
+        newGameButton.Select();
+    }
+
     public void NewGameInteraction ()
     {
         canvas1.SetActive(false);
