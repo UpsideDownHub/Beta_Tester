@@ -32,7 +32,6 @@ public class PlayerScript3D : MonoBehaviour
     public bool grounded;
     public LayerMask whatIsGround;
     bool isColliding;
-    CinemachineVirtualCamera cm;
     float damageTemp;
     float alphaSpriteTemp;
     bool isDamaged;
@@ -52,7 +51,6 @@ public class PlayerScript3D : MonoBehaviour
         objectsVerified = new List<GameObject>();
         c = sr.material.color;
         slowMotion = GameObject.Find("SlowMotionSlider").GetComponent<Slider>();
-        cm = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
         damageTemp = 2;
         tempEvade = 0.4f;
         alphaSpriteTemp = -0.1f;
@@ -440,16 +438,14 @@ public class PlayerScript3D : MonoBehaviour
         {
             if (canGetDamage && (other.gameObject.name == "GroundTrap" && (int)other.gameObject.GetComponent<MoveObjects>().mouseP.Value.y == Mathf.RoundToInt(transform.position.y)) || other.gameObject.name != "GroundTrap")
                 GetDamage();
-            //gameOverBT.slider.value += 0.05f;
         }
 
         else if (other.tag == "Portal")
         {
             isFadingToNextLevel = true;
-            cm.Follow = null;
-            rb.AddForce(new Vector3(0, 150, 0));
             GameManager.isLevelCompleted = true;
             GameOver.val = GameOver.lifeBetaTesterS.value;
+            SceneManager.LoadScene(7);
         }
     }
 

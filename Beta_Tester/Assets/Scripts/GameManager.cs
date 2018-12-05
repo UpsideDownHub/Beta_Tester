@@ -8,14 +8,11 @@ public class GameManager : MonoBehaviour {
 
     public GameObject player;
     public Transform cameraFollow;
-    public Transform circleT;
-    float x;
-    float y;
-    public static bool isLevelCompleted;
-    bool isLevelInBeginning;
     public GameObject[] groundTraps;
     public GameObject[] groundLavas;
     public GameObject[] embers;
+    public static bool isLevelCompleted;
+
     //float minPosC;
     //float maxPosC;
     //public GameObject prefab;
@@ -24,10 +21,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        x = circleT.localScale.x;
-        y = circleT.localScale.x;
-
-        isLevelInBeginning = true;
+        isLevelCompleted = false;
 
         //minPosC = (-Camera.main.orthographicSize * Camera.main.aspect) * 2;
         //maxPosC = (Camera.main.orthographicSize * Camera.main.aspect) * 2;
@@ -37,46 +31,6 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        //Warner Bros circle
-        if (isLevelInBeginning)
-        {
-            if (circleT.localScale.x >= 0 && circleT.localScale.x <= 70)
-            {
-                Time.timeScale = 0f;
-                x += 0.8f;
-                y += 0.8f;
-                circleT.localScale = new Vector3(x, y, circleT.localScale.z);
-            }
-            else
-            {
-                Time.timeScale = 1f;
-                circleT.localScale = new Vector3(70, 70, circleT.localScale.z);
-                isLevelInBeginning = false;
-            }
-        }
-
-        if (isLevelCompleted)
-        {
-            if (SceneManager.GetActiveScene().buildIndex == 3)
-                circleT.localPosition = new Vector3(-3.8f, -5.59f, circleT.localPosition.z);
-            else if (SceneManager.GetActiveScene().buildIndex == 4)
-                circleT.localPosition = new Vector3(-2.29f, -8.57f, circleT.localPosition.z);
-
-            if (circleT.localScale.x > 0)
-            {
-                x -= 24 * Time.deltaTime;
-                y -= 24 * Time.deltaTime;
-                circleT.localScale = new Vector3(x, y, circleT.localScale.z);
-            }
-            else
-            {
-                circleT.localScale = new Vector3(0, 0, 0);
-                SceneManager.LoadScene(7);
-                //Invoke("LoadScene", 1.5f);
-                isLevelCompleted = false;
-            }
-        }
-
         //print(tileM.HasTile(new Vector3Int(0, 1, 0)));
 
         //Ativação da lava ao subir a pedra
@@ -114,9 +68,4 @@ public class GameManager : MonoBehaviour {
             cameraFollow.position = new Vector3(player.transform.position.x, cameraFollow.position.y, cameraFollow.position.z);
         }
     }
-
-    //void LoadScene()
-    //{
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    //}
 }

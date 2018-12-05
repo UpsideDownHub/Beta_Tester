@@ -8,7 +8,7 @@ namespace Assets.Scripts
 {
     public class PlayerAttrs : MonoBehaviour
     {
-        public static int life = 15;
+        public static int life = 10;
         public bool canGetDamage;
     }
 }

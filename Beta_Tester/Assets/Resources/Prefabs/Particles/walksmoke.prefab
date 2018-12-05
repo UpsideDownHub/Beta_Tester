@@ -148,6 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 124dd5ad1298d9742bd6e506f838eb62, type: 2}
   poisonParticle: {fileID: 0}
+  poisonFumaca1: {fileID: 0}
+  poisonFumaca2: {fileID: 0}
 --- !u!198 &198111457075293528
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -18792,7 +18794,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199673476567810712
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -18963,4 +18965,4 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0

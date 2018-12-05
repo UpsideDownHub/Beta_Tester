@@ -22886,7 +22886,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199598033565589460
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -22943,7 +22943,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199755563794549050
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -23000,7 +23000,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199855809374900360
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -23057,7 +23057,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199893974165478400
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -23114,4 +23114,4 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0

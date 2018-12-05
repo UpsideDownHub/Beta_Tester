@@ -148,8 +148,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 9
+  direction: 1
   prefabBOOM: {fileID: 1253153863058012, guid: 36b7b1a08ad3f614387d3057a651d03b, type: 2}
   prefabPedraPuf: {fileID: 0}
+  prefabMira: {fileID: 0}
+  prefabDust: {fileID: 0}
   isActivated: 0
   Activated: 0
 --- !u!136 &136112872548390496
@@ -18353,7 +18356,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199661395211358242
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -18410,7 +18413,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199713727103095660
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -18467,7 +18470,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199871089966156266
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -18524,4 +18527,4 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0

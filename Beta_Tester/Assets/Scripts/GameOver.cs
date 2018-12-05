@@ -129,7 +129,7 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        Assets.Scripts.PlayerAttrs.life = 15;
+        Assets.Scripts.PlayerAttrs.life = 10;
         Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown = Assets.Scripts.PhaseCreationTimeManager.time;
         gameOverPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -140,7 +140,7 @@ public class GameOver : MonoBehaviour
     }
     public void RetryPhaseCreation()
     {
-        Assets.Scripts.PlayerAttrs.life = 15;
+        Assets.Scripts.PlayerAttrs.life = 10;
         Assets.Scripts.PhaseCreationTimeManager.timeCount.CoolDown = Assets.Scripts.PhaseCreationTimeManager.time;
         gameOverPanel.SetActive(false);
         player.gameObject.SetActive(true);

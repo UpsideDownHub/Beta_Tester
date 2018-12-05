@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85164995fd567604ca21e4062ea12b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActivateTrap: 0
 --- !u!198 &198284956490217660
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -23348,7 +23349,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199460833358775996
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -23405,7 +23406,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199577884228562264
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -23462,7 +23463,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!199 &199650346385911974
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -23519,4 +23520,4 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0

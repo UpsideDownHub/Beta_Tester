@@ -10,8 +10,6 @@ public class Cutscenes : MonoBehaviour
     public GameObject ceu;
     public GameObject canvasCutscene;
     public GameObject cutScene;
-    public GameObject circle;
-    public Transform circle2T;
     public Transform playerCutscene;
     public Text cutsceneText;
     //public Text skipText;
@@ -27,8 +25,6 @@ public class Cutscenes : MonoBehaviour
     bool isSecondSceneCompleted; //jimmy
     bool beginGame;
     float x;
-    float x2;
-    float y;
 
     public GameObject logoJimmy;
     public GameObject pressAnyKey;
@@ -90,8 +86,6 @@ public class Cutscenes : MonoBehaviour
         {
             temp3 = 0;
             x = playerCutscene.localPosition.x;
-            x2 = circle2T.localScale.x;
-            y = circle2T.localScale.y;
 
             var csj = GameObject.Find("CutSceneJump");
             if (csj != null)
@@ -701,36 +695,30 @@ public class Cutscenes : MonoBehaviour
                     cutsceneText.text = "Jimmy: Coroi....";
                 Invoke("PlayerCutscene", 1);
             }
-            if (temp3 <= 129 && temp3 >= 128)
+            if (temp3 <= 132 && temp3 >= 128)
             {
                 cutsceneText.text = "";
+                tarjaPreta.SetActive(false);
+            }
+            if (temp3 <= 133 && temp3 >= 132)
+            {
                 beginGame = true;
+                temp3 = 135;
             }
 
             if (beginGame)
             {
-                if (circle2T.localScale.x > 0)
-                {
-                    x2 -= 24 * Time.deltaTime;
-                    y -= 24 * Time.deltaTime;
-                    circle2T.localScale = new Vector3(x2, y, circle2T.localScale.z);
-                }
-                else
-                {
-                    circle2T.localScale = new Vector3(0, 0, 0);
-                    circle.SetActive(true);
-                    level.SetActive(true);
-                    ceu.SetActive(true);
-                    isPlayingCutscene = false;
-                    Destroy(cutScene);
-                    Destroy(canvasCutscene);
-                }
+                level.SetActive(true);
+                ceu.SetActive(true);
+                isPlayingCutscene = false;
+                Destroy(cutScene);
+                Destroy(canvasCutscene);
             }
 
             if (playerCutscene.gameObject.activeSelf)
             {
                 x += 5 * Time.deltaTime;
-                playerCutscene.position = new Vector3(x, playerCutscene.position.y, playerCutscene.position.z);
+                playerCutscene.localPosition = new Vector3(x, playerCutscene.localPosition.y, playerCutscene.localPosition.z);
             }
         }
         #endregion
@@ -985,7 +973,6 @@ public class Cutscenes : MonoBehaviour
 
             if (SceneManager.GetActiveScene().buildIndex == 2)
             {
-                circle.SetActive(true);
                 level.SetActive(true);
                 ceu.SetActive(true);
                 isPlayingCutscene = false;
@@ -1117,7 +1104,6 @@ public class Cutscenes : MonoBehaviour
 
     public void JumpCutScene()
     {
-        circle.SetActive(true);
         level.SetActive(true);
         Destroy(cutScene);
         Destroy(canvasCutscene);

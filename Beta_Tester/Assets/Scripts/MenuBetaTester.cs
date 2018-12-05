@@ -116,6 +116,7 @@ public class MenuBetaTester : MonoBehaviour {
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             resolutionOptions.Add(option);
+            resolutionOptions = resolutionOptions.Distinct().ToList();
         }
 
         for (int j = 0; j < QualitySettings.names.Length; j++)

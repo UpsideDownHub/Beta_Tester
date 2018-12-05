@@ -17,8 +17,7 @@ public class FlagEnding : MonoBehaviour
     Text congratulations;
     bool isPhaseCompleted;
 
-    GameObject obj;
-    GameObject loadingText;
+    OurPhases ourPhasesScript;
     GameObject canvas;
     GameObject gridObj;
 
@@ -38,8 +37,7 @@ public class FlagEnding : MonoBehaviour
         }
         else
         {
-            //obj = GameObject.Find("obj");
-            //loadingText = obj.transform.Find("LoadingText").parent.GetComponent<GameObject>();
+            ourPhasesScript = GameObject.Find("Scripts").GetComponent<OurPhases>();
             canvas = GameObject.Find("Canvas");
             gridObj = GameObject.Find("Grid");
         }
@@ -59,7 +57,7 @@ public class FlagEnding : MonoBehaviour
         }
         else
         {
-            //loadingText.transform.position = new Vector3(-Camera.main.orthographicSize * Camera.main.aspect + 3.5f, loadingText.transform.position.y);
+            ourPhasesScript.loadingText.transform.position = new Vector3(-Camera.main.orthographicSize * Camera.main.aspect + 3.5f, ourPhasesScript.loadingText.transform.position.y);
         }
     }
 
@@ -96,6 +94,7 @@ public class FlagEnding : MonoBehaviour
             }
             else
             {
+                GameManager.isLevelCompleted = true;
                 StartCoroutine(LoadAsynchronously(6));
             }
         }
@@ -107,7 +106,8 @@ public class FlagEnding : MonoBehaviour
 
         gridObj.SetActive(false);
         canvas.SetActive(false);
-        //loadingText.SetActive(true);
+        ourPhasesScript.obj.SetActive(false);
+        ourPhasesScript.loadingText.SetActive(true);
 
         while (!operation.isDone)
         {

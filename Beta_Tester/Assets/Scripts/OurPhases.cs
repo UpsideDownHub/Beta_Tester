@@ -11,6 +11,8 @@ using UnityGoogleDrive;
 
 public class OurPhases : MonoBehaviour
 {
+    public GameObject loadingText;
+    public GameObject obj;
     [SerializeField] GameObject ceu;
     [SerializeField] GameObject lava;
     [SerializeField] GameObject montanha1;
@@ -105,20 +107,20 @@ public class OurPhases : MonoBehaviour
         }
 
         for (var i = 1; i <= 3; i++)
-            Instantiate(ceu, new Vector3(-(i * 9.3f), 8), Quaternion.identity);
+            Instantiate(ceu, new Vector3(-(i * 9.3f), 8), Quaternion.identity, obj.transform);
 
         for (var i = 0; i < Mathf.RoundToInt(data.Count / 8) + 3; i++)
-            Instantiate(ceu, new Vector3(i * 9.3f, 8), Quaternion.identity);
+            Instantiate(ceu, new Vector3(i * 9.3f, 8), Quaternion.identity, obj.transform);
 
         for (var i = 1; i <= 3; i++)
-            Instantiate(montanha1, new Vector3(-(i * 9.3f), 0), Quaternion.identity);
+            Instantiate(montanha1, new Vector3(-(i * 9.3f), 0), Quaternion.identity, obj.transform);
 
         for (var i = 0; i < Mathf.RoundToInt(data.Count / 8) + 3; i++)
-            Instantiate(montanha1, new Vector3(i * 9.3f, 0), Quaternion.identity);
+            Instantiate(montanha1, new Vector3(i * 9.3f, 0), Quaternion.identity, obj.transform);
 
 
-        Instantiate(lava, lava.transform.position, Quaternion.identity);
-        Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+        Instantiate(lava, lava.transform.position, Quaternion.identity, obj.transform);
+        Instantiate(lava, lava.transform.position + new Vector3(0, 2, 0), Quaternion.identity, obj.transform);
 
         //for (var i = 1; i <= 3; i++)
         //    Instantiate(montanha1, new Vector3(-(i * 9), 0), Quaternion.identity);
@@ -138,7 +140,6 @@ public class OurPhases : MonoBehaviour
         //Canvas.SetActive(false);
         //Canvas2.SetActive(true);
         //loading.SetActive(false);
-        Assets.Scripts.PlayerAttrs.life = 5;
         GameObject.Find("Scripts").GetComponent<GameOver>().ended = false;
         GameOver.inGame = true;
     }
