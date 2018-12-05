@@ -305,17 +305,28 @@ public class PlayerScript3D : MonoBehaviour
         #region [Controllable]
         else
         {
-            if (SceneManager.GetActiveScene().buildIndex == 5)
+            if (SceneManager.GetActiveScene().buildIndex == 5 || SceneManager.GetActiveScene().name == "levelFelipe")
             {
                 horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
 
-                if (horizontalMove > 0)
+                if (horizontalMove != 0)
                 {
+                    moving = true;
                     rb.velocity = new Vector3(horizontalMove, rb.velocity.y, rb.velocity.z);
                 }
                 else
                 {
-                    rb.velocity = new Vector3(horizontalMove, rb.velocity.y, rb.velocity.z);
+                    moving = false;
+                    rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+                }
+                
+
+                if (Input.GetButtonDown("Jump") && grounded)
+                {
+                    if (rb.velocity.y < 4.5)
+                    {
+                        rb.AddForce(new Vector3(0, 300, 0));
+                    }
                 }
             }
             else

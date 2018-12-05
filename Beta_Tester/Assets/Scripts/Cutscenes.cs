@@ -89,7 +89,7 @@ public class Cutscenes : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             temp3 = 0;
-            x = playerCutscene.position.x;
+            x = playerCutscene.localPosition.x;
             x2 = circle2T.localScale.x;
             y = circle2T.localScale.y;
 
@@ -1017,22 +1017,74 @@ public class Cutscenes : MonoBehaviour
 
             if (i == 1)
             {
-                creditsTextUI.text = "Felipe Martins - Designer";
+                creditsTextUI.text = "Writers";
             }
             else if (i == 3)
             {
-                creditsTextUI.text = "Cleber Araujo - Designer";
+                creditsTextUI.text = "Cleber Araujo Lima";
             }
             else if (i == 5)
             {
-                creditsTextUI.text = "Max da Mata Novo Guterres - Programmer";
-                isTheEndOfCredits = true;
+                creditsTextUI.text = "Lucas Francisco de Araujo";
             }
             else if (i == 7)
             {
-                creditsTextUI.text = "Lucas Francisco - Programmer";
+                creditsTextUI.text = "Artists";
             }
             else if (i == 9)
+            {
+                creditsTextUI.text = "Cleber Araujo Lima";
+            }
+            else if (i == 11)
+            {
+                creditsTextUI.text = "Felipe Martins";
+            }
+            else if (i == 13)
+            {
+                creditsTextUI.text = "Designers";
+            }
+            else if (i == 15)
+            {
+                creditsTextUI.text = "Cleber Araujo Lima";
+            }
+            else if (i == 17)
+            {
+                creditsTextUI.text = "Felipe Martins";
+            }
+            else if (i == 19)
+            {
+                creditsTextUI.text = "Lucas Francisco de Araujo";
+            }
+            else if (i == 21)
+            {
+                creditsTextUI.text = "Max da Mata Novo Guterres";
+            }
+            else if (i == 23)
+            {
+                creditsTextUI.text = "VFX Artist";
+            }
+            else if (i == 25)
+            {
+                creditsTextUI.text = "Felipe Martins";
+            }
+            else if (i == 27)
+            {
+                creditsTextUI.text = "Programmers";
+            }
+            else if (i == 29)
+            {
+                creditsTextUI.text = "Lucas Francisco de Araujo";
+                isTheEndOfCredits = true;
+            }
+            else if (i == 31)
+            {
+                creditsTextUI.text = "Max da Mata Novo Guterres";
+            }
+            //else if (i == 33)
+            //{
+            //    creditsTextUI.text = "";
+            //}
+            else if (i == 33)
             {
                 isCreditsTime = false;
             }
